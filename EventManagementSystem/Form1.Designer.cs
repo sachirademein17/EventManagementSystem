@@ -1,4 +1,5 @@
-﻿namespace EventManagementSystem
+﻿
+namespace EventManagementSystem
 {
     partial class Form1
     {
@@ -30,10 +31,12 @@
         {
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            usernametxt = new TextBox();
+            passwordtxt = new TextBox();
             label3 = new Label();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            label4 = new Label();
+            kryptonLinkLabel1 = new Krypton.Toolkit.KryptonLinkLabel();
             SuspendLayout();
             // 
             // label1
@@ -58,22 +61,22 @@
             label2.TabIndex = 1;
             label2.Text = "Username";
             // 
-            // textBox1
+            // usernametxt
             // 
-            textBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(103, 304);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(270, 35);
-            textBox1.TabIndex = 3;
+            usernametxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usernametxt.Location = new Point(103, 304);
+            usernametxt.Name = "usernametxt";
+            usernametxt.Size = new Size(270, 35);
+            usernametxt.TabIndex = 3;
             // 
-            // textBox2
+            // passwordtxt
             // 
-            textBox2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(103, 426);
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(270, 35);
-            textBox2.TabIndex = 5;
+            passwordtxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordtxt.Location = new Point(103, 426);
+            passwordtxt.Name = "passwordtxt";
+            passwordtxt.PasswordChar = '∗';
+            passwordtxt.Size = new Size(270, 35);
+            passwordtxt.TabIndex = 5;
             // 
             // label3
             // 
@@ -109,31 +112,62 @@
             kryptonButton1.Values.Text = "LOGIN";
             kryptonButton1.Click += kryptonButton1_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(176, 176, 176);
+            label4.Location = new Point(110, 633);
+            label4.Name = "label4";
+            label4.Size = new Size(263, 29);
+            label4.TabIndex = 7;
+            label4.Text = "Don't have an account ?";
+            // 
+            // kryptonLinkLabel1
+            // 
+            kryptonLinkLabel1.Location = new Point(176, 676);
+            kryptonLinkLabel1.Name = "kryptonLinkLabel1";
+            kryptonLinkLabel1.OverrideNotVisited.ShortText.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonLinkLabel1.Size = new Size(138, 29);
+            kryptonLinkLabel1.TabIndex = 8;
+            kryptonLinkLabel1.Values.Text = "Create Account";
+            kryptonLinkLabel1.LinkClicked += kryptonLinkLabel1_LinkClicked;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(491, 779);
+            Controls.Add(kryptonLinkLabel1);
+            Controls.Add(label4);
             Controls.Add(kryptonButton1);
-            Controls.Add(textBox2);
+            Controls.Add(passwordtxt);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(usernametxt);
             Controls.Add(label2);
             Controls.Add(label1);
+            ForeColor = Color.CornflowerBlue;
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
         }
 
+        private void kryptonLinkLabel1_LinkClicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox usernametxt;
+        private TextBox passwordtxt;
         private Label label3;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Label label4;
+        private Krypton.Toolkit.KryptonLinkLabel kryptonLinkLabel1;
     }
 }

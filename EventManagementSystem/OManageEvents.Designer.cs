@@ -28,21 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            label2 = new Label();
+            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            eventsTable = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // label2
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 16F);
-            label1.ForeColor = Color.FromArgb(255, 0, 127);
-            label1.Location = new Point(388, 319);
-            label1.Name = "label1";
-            label1.Size = new Size(237, 37);
-            label1.TabIndex = 3;
-            label1.Text = "Manage Events";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 16F);
+            label2.ForeColor = SystemColors.Window;
+            label2.Location = new Point(31, 29);
+            label2.Name = "label2";
+            label2.Size = new Size(146, 37);
+            label2.TabIndex = 2;
+            label2.Text = "EVENTS";
+            // 
+            // kryptonButton1
+            // 
+            kryptonButton1.Cursor = Cursors.Hand;
+            kryptonButton1.Location = new Point(788, 28);
+            kryptonButton1.Name = "kryptonButton1";
+            kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            kryptonButton1.Size = new Size(244, 38);
+            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonButton1.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonButton1.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
+            kryptonButton1.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonButton1.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            kryptonButton1.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            kryptonButton1.TabIndex = 7;
+            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
+            kryptonButton1.Values.Text = "CREATE";
+            kryptonButton1.Click += kryptonButton1_Click;
+            // 
+            // eventsTable
+            // 
+            eventsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            eventsTable.Location = new Point(31, 119);
+            eventsTable.Name = "eventsTable";
+            eventsTable.RowHeadersWidth = 62;
+            eventsTable.Size = new Size(1001, 513);
+            eventsTable.TabIndex = 8;
             // 
             // OManageEvents
             // 
@@ -50,16 +83,21 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
-            Controls.Add(label1);
+            Controls.Add(eventsTable);
+            Controls.Add(kryptonButton1);
+            Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "OManageEvents";
             Text = "OManageEvents";
+            ((System.ComponentModel.ISupportInitialize)eventsTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label label2;
+        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private DataGridView eventsTable;
     }
 }

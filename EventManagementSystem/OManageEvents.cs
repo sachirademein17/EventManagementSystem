@@ -16,9 +16,6 @@ namespace EventManagementSystem
         public OManageEvents()
         {
             InitializeComponent();
-            string query = "select * from username_password";
-            DataTable dt = DBConnection.GetDataToTable(query);
-            eventsTable.DataSource = dt;
         }
 
         private void kryptonButton1_Click(object sender, EventArgs e)

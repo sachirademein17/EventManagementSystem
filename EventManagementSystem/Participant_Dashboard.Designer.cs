@@ -31,6 +31,7 @@
             mainpanel = new Panel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            kryptonButton4 = new Krypton.Toolkit.KryptonButton();
             flowLayoutPanel1 = new FlowLayoutPanel();
             kryptonButton2 = new Krypton.Toolkit.KryptonButton();
             kryptonButton3 = new Krypton.Toolkit.KryptonButton();
@@ -60,6 +61,7 @@
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(kryptonButton4);
             kryptonPanel1.Controls.Add(flowLayoutPanel1);
             kryptonPanel1.Dock = DockStyle.Left;
             kryptonPanel1.Location = new Point(0, 0);
@@ -67,6 +69,25 @@
             kryptonPanel1.Size = new Size(245, 762);
             kryptonPanel1.StateNormal.Color1 = Color.FromArgb(28, 28, 28);
             kryptonPanel1.TabIndex = 6;
+            // 
+            // kryptonButton4
+            // 
+            kryptonButton4.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            kryptonButton4.Location = new Point(0, 678);
+            kryptonButton4.Name = "kryptonButton4";
+            kryptonButton4.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
+            kryptonButton4.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
+            kryptonButton4.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            kryptonButton4.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            kryptonButton4.Size = new Size(239, 84);
+            kryptonButton4.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
+            kryptonButton4.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
+            kryptonButton4.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton4.StateCommon.Content.ShortText.Color2 = Color.White;
+            kryptonButton4.TabIndex = 5;
+            kryptonButton4.Values.DropDownArrowColor = Color.AliceBlue;
+            kryptonButton4.Values.Text = "LogOut";
+            kryptonButton4.Click += kryptonButton4_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -141,5 +162,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Krypton.Toolkit.KryptonButton kryptonButton2;
         private Krypton.Toolkit.KryptonButton kryptonButton3;
+        private Krypton.Toolkit.KryptonButton kryptonButton4;
     }
 }

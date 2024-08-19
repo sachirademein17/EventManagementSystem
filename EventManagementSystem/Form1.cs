@@ -1,3 +1,4 @@
+using EventManagementSystem.Models;
 using System.Diagnostics;
 using System.Drawing.Text;
 
@@ -15,12 +16,39 @@ namespace EventManagementSystem
             string username = usernametxt.Text;
             string password = passwordtxt.Text;
 
-           
-                    
+
+            User user = User.LogIn(username,password);
+/*            CurrentUser.UserDetails = user;
+*/            CurrentUser currentUser = new CurrentUser(user);
+
+            if (user != null)
+            {
+                if (user.Role == "Admin")
+                {
+                    Admin_Dashboard admin_Dashboard = new Admin_Dashboard();
+                    admin_Dashboard.Show();
+                    this.Hide();
+                }
+                else if (user.Role == "Organizer")
+                {
+                    Organizer__Dashboard organizer__Dashboard = new Organizer__Dashboard();
+                    organizer__Dashboard.Show();
+                    this.Hide();
+                }
+                else if (user.Role == "Participant")
+                {
+                    Participant_Dashboard participant_Dashboard = new Participant_Dashboard();
+                    participant_Dashboard.Show();
+                    this.Hide();
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Sorry bro username password is wrong !!! \n Try again bro !!!");
             }
         }
 
-
-
-    
+    }
 }

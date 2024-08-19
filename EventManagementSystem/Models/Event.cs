@@ -8,7 +8,6 @@ namespace EventManagementSystem.Models
 {
     internal class Event
     {
-        private int eventID;
         private int organizerID;
         private string eventName;
         private string description;
@@ -18,10 +17,9 @@ namespace EventManagementSystem.Models
         private int maxParticipants;
         private int currentParticipants;
 
-        public Event(int eventID, int organizerID, string eventName, string description, DateTime startDate,
+        public Event(int organizerID, string eventName, string description, DateTime startDate,
             DateTime endDate, string location, int maxParticipants, int currentParticipants)
         {
-            this.eventID = eventID;
             this.organizerID = organizerID;
             this.eventName = eventName;
             this.description = description;
@@ -33,11 +31,7 @@ namespace EventManagementSystem.Models
 
         }
 
-        public int EventID 
-        {
-            get { return eventID; } 
-            set { eventID = value; }
-        }
+        
 
         public int OrganizerID
         {
@@ -86,5 +80,8 @@ namespace EventManagementSystem.Models
             get { return currentParticipants; }
             set { currentParticipants = value; }
         }
+
+
+
     }
 }

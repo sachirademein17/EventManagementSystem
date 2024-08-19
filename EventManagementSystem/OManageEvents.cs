@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using EventManagementSystem.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,9 @@ namespace EventManagementSystem
         public OManageEvents()
         {
             InitializeComponent();
+            Organizer user = (Organizer)CurrentUser.UserDetails;
+            DataTable dt = user.ViewAllEvents(user.UserID);
+            eventsTable.DataSource = dt;
         }
 
         private void kryptonButton1_Click(object sender, EventArgs e)

@@ -12,14 +12,6 @@ namespace EventManagementSystem.Models
         {
         }
 
-        public override bool LogIn(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void LogOut()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,13 @@ namespace EventManagementSystem
         private void kryptonButton4_Click(object sender, EventArgs e)
         {
             loadform(new OViewParticipants());
+        }
+
+        private void kryptonButton5_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
         }
     }
 }

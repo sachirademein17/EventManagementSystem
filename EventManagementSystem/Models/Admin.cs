@@ -23,16 +23,9 @@ namespace EventManagementSystem.Models
             throw new NotImplementedException();
         }
 
-        public override bool LogIn(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public override void LogOut()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public void RemoveUser(User user)
         {
             throw new NotImplementedException();

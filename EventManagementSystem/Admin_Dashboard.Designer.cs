@@ -34,9 +34,9 @@ namespace EventManagementSystem
             kryptonButton2 = new Krypton.Toolkit.KryptonButton();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             kryptonButton3 = new Krypton.Toolkit.KryptonButton();
-            kryptonButton4 = new Krypton.Toolkit.KryptonButton();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             mainpanel = new Panel();
+            kryptonButton4 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -45,6 +45,7 @@ namespace EventManagementSystem
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(kryptonButton4);
             kryptonPanel1.Controls.Add(flowLayoutPanel1);
             kryptonPanel1.Dock = DockStyle.Left;
             kryptonPanel1.Location = new Point(0, 0);
@@ -59,7 +60,6 @@ namespace EventManagementSystem
             flowLayoutPanel1.Controls.Add(kryptonButton2);
             flowLayoutPanel1.Controls.Add(kryptonButton1);
             flowLayoutPanel1.Controls.Add(kryptonButton3);
-            flowLayoutPanel1.Controls.Add(kryptonButton4);
             flowLayoutPanel1.Location = new Point(0, 93);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(245, 374);
@@ -122,25 +122,6 @@ namespace EventManagementSystem
             kryptonButton3.Values.Text = "Manage Organizers";
             kryptonButton3.Click += kryptonButton3_Click;
             // 
-            // kryptonButton4
-            // 
-            kryptonButton4.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
-            kryptonButton4.Location = new Point(3, 284);
-            kryptonButton4.Name = "kryptonButton4";
-            kryptonButton4.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
-            kryptonButton4.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
-            kryptonButton4.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            kryptonButton4.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            kryptonButton4.Size = new Size(239, 84);
-            kryptonButton4.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
-            kryptonButton4.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
-            kryptonButton4.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton4.StateCommon.Content.ShortText.Color2 = Color.White;
-            kryptonButton4.TabIndex = 5;
-            kryptonButton4.Values.DropDownArrowColor = Color.AliceBlue;
-            kryptonButton4.Values.Text = "Manage Participants";
-            kryptonButton4.Click += kryptonButton4_Click;
-            // 
             // kryptonPanel2
             // 
             kryptonPanel2.Dock = DockStyle.Top;
@@ -158,6 +139,25 @@ namespace EventManagementSystem
             mainpanel.Name = "mainpanel";
             mainpanel.Size = new Size(1074, 675);
             mainpanel.TabIndex = 2;
+            // 
+            // kryptonButton4
+            // 
+            kryptonButton4.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            kryptonButton4.Location = new Point(3, 678);
+            kryptonButton4.Name = "kryptonButton4";
+            kryptonButton4.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
+            kryptonButton4.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
+            kryptonButton4.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            kryptonButton4.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            kryptonButton4.Size = new Size(239, 84);
+            kryptonButton4.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
+            kryptonButton4.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
+            kryptonButton4.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton4.StateCommon.Content.ShortText.Color2 = Color.White;
+            kryptonButton4.TabIndex = 6;
+            kryptonButton4.Values.DropDownArrowColor = Color.AliceBlue;
+            kryptonButton4.Values.Text = "LogOut";
+            kryptonButton4.Click += kryptonButton4_Click_1;
             // 
             // Admin_Dashboard
             // 

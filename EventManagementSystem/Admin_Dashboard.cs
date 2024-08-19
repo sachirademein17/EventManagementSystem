@@ -52,5 +52,11 @@ namespace EventManagementSystem
             loadform(new AManageParticipants());
         }
 
+        private void kryptonButton4_Click_1(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
+        }
     }
 }

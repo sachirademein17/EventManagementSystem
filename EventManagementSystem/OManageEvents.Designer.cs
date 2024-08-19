@@ -47,6 +47,7 @@
             // 
             // kryptonButton1
             // 
+            kryptonButton1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             kryptonButton1.Cursor = Cursors.Hand;
             kryptonButton1.Location = new Point(788, 28);
             kryptonButton1.Name = "kryptonButton1";
@@ -70,6 +71,7 @@
             // 
             // eventsTable
             // 
+            eventsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             eventsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             eventsTable.Location = new Point(31, 119);
             eventsTable.Name = "eventsTable";

@@ -29,18 +29,28 @@
         private void InitializeComponent()
         {
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
-            usernametxt = new TextBox();
+            nametxt = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            kryptonDateTimePicker1 = new Krypton.Toolkit.KryptonDateTimePicker();
+            startDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
             textBox1 = new TextBox();
             label3 = new Label();
+            endDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
+            label4 = new Label();
+            venuetxt = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            maxParticipantstxt = new TextBox();
+            currentParticipantstxt = new TextBox();
+            label7 = new Label();
+            descriptiontxt = new TextBox();
+            label8 = new Label();
             SuspendLayout();
             // 
             // kryptonButton1
             // 
             kryptonButton1.Cursor = Cursors.Hand;
-            kryptonButton1.Location = new Point(101, 401);
+            kryptonButton1.Location = new Point(638, 670);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
             kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
@@ -58,14 +68,15 @@
             kryptonButton1.TabIndex = 9;
             kryptonButton1.Values.DropDownArrowColor = Color.Empty;
             kryptonButton1.Values.Text = "CREATE";
+            kryptonButton1.Click += kryptonButton1_Click;
             // 
-            // usernametxt
+            // nametxt
             // 
-            usernametxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            usernametxt.Location = new Point(88, 98);
-            usernametxt.Name = "usernametxt";
-            usernametxt.Size = new Size(270, 35);
-            usernametxt.TabIndex = 8;
+            nametxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nametxt.Location = new Point(88, 98);
+            nametxt.Name = "nametxt";
+            nametxt.Size = new Size(270, 35);
+            nametxt.TabIndex = 8;
             // 
             // label2
             // 
@@ -85,16 +96,17 @@
             label1.ForeColor = Color.FromArgb(176, 176, 176);
             label1.Location = new Point(88, 161);
             label1.Name = "label1";
-            label1.Size = new Size(63, 29);
+            label1.Size = new Size(118, 29);
             label1.TabIndex = 10;
-            label1.Text = "Date";
+            label1.Text = "Start Date";
             // 
-            // kryptonDateTimePicker1
+            // startDatetxt
             // 
-            kryptonDateTimePicker1.Location = new Point(88, 203);
-            kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            kryptonDateTimePicker1.Size = new Size(270, 30);
-            kryptonDateTimePicker1.TabIndex = 11;
+            startDatetxt.Location = new Point(88, 203);
+            startDatetxt.Name = "startDatetxt";
+            startDatetxt.ShowUpDown = true;
+            startDatetxt.Size = new Size(270, 30);
+            startDatetxt.TabIndex = 11;
             // 
             // textBox1
             // 
@@ -115,18 +127,125 @@
             label3.TabIndex = 12;
             label3.Text = "Venue";
             // 
+            // endDatetxt
+            // 
+            endDatetxt.Location = new Point(638, 203);
+            endDatetxt.Name = "endDatetxt";
+            endDatetxt.ShowUpDown = true;
+            endDatetxt.Size = new Size(270, 30);
+            endDatetxt.TabIndex = 17;
+            endDatetxt.ValueNullable = new DateTime(2024, 8, 19, 12, 33, 54, 0);
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(176, 176, 176);
+            label4.Location = new Point(638, 161);
+            label4.Name = "label4";
+            label4.Size = new Size(112, 29);
+            label4.TabIndex = 16;
+            label4.Text = "End Date";
+            // 
+            // venuetxt
+            // 
+            venuetxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            venuetxt.Location = new Point(638, 98);
+            venuetxt.Name = "venuetxt";
+            venuetxt.Size = new Size(270, 35);
+            venuetxt.TabIndex = 15;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(176, 176, 176);
+            label5.Location = new Point(638, 51);
+            label5.Name = "label5";
+            label5.Size = new Size(82, 29);
+            label5.TabIndex = 14;
+            label5.Text = "Venue";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(176, 176, 176);
+            label6.Location = new Point(88, 259);
+            label6.Name = "label6";
+            label6.Size = new Size(188, 29);
+            label6.TabIndex = 12;
+            label6.Text = "Max Participants";
+            // 
+            // maxParticipantstxt
+            // 
+            maxParticipantstxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maxParticipantstxt.Location = new Point(88, 306);
+            maxParticipantstxt.Name = "maxParticipantstxt";
+            maxParticipantstxt.Size = new Size(270, 35);
+            maxParticipantstxt.TabIndex = 13;
+            // 
+            // currentParticipantstxt
+            // 
+            currentParticipantstxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            currentParticipantstxt.Location = new Point(638, 306);
+            currentParticipantstxt.Name = "currentParticipantstxt";
+            currentParticipantstxt.Size = new Size(270, 35);
+            currentParticipantstxt.TabIndex = 19;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(176, 176, 176);
+            label7.Location = new Point(638, 259);
+            label7.Name = "label7";
+            label7.Size = new Size(223, 29);
+            label7.TabIndex = 18;
+            label7.Text = "Current Participants";
+            // 
+            // descriptiontxt
+            // 
+            descriptiontxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            descriptiontxt.Location = new Point(88, 418);
+            descriptiontxt.Multiline = true;
+            descriptiontxt.Name = "descriptiontxt";
+            descriptiontxt.Size = new Size(820, 197);
+            descriptiontxt.TabIndex = 21;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(176, 176, 176);
+            label8.Location = new Point(88, 371);
+            label8.Name = "label8";
+            label8.Size = new Size(135, 29);
+            label8.TabIndex = 20;
+            label8.Text = "Description";
+            // 
             // AddEventForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 28, 28);
-            ClientSize = new Size(447, 478);
+            ClientSize = new Size(986, 749);
+            Controls.Add(descriptiontxt);
+            Controls.Add(label8);
+            Controls.Add(currentParticipantstxt);
+            Controls.Add(label7);
+            Controls.Add(endDatetxt);
+            Controls.Add(label4);
+            Controls.Add(venuetxt);
+            Controls.Add(label5);
+            Controls.Add(maxParticipantstxt);
             Controls.Add(textBox1);
+            Controls.Add(label6);
             Controls.Add(label3);
-            Controls.Add(kryptonDateTimePicker1);
+            Controls.Add(startDatetxt);
             Controls.Add(label1);
             Controls.Add(kryptonButton1);
-            Controls.Add(usernametxt);
+            Controls.Add(nametxt);
             Controls.Add(label2);
             Name = "AddEventForm";
             Text = "show";
@@ -137,11 +256,21 @@
         #endregion
 
         private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private TextBox usernametxt;
+        private TextBox nametxt;
         private Label label2;
         private Label label1;
-        private Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
+        private Krypton.Toolkit.KryptonDateTimePicker startDatetxt;
         private TextBox textBox1;
         private Label label3;
+        private Krypton.Toolkit.KryptonDateTimePicker endDatetxt;
+        private Label label4;
+        private TextBox venuetxt;
+        private Label label5;
+        private Label label6;
+        private TextBox maxParticipantstxt;
+        private TextBox currentParticipantstxt;
+        private Label label7;
+        private TextBox descriptiontxt;
+        private Label label8;
     }
 }

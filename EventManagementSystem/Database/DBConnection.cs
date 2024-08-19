@@ -10,7 +10,6 @@ namespace EventManagementSystem
 {
     internal static class DBConnection
     {
-        private static MySqlConnection connection;
         private static string connectionString = "datasource=localhost;port=3307;username=sachira;password=sachira@123;database=event_management_system;";
 
         private static MySqlConnection GetConnection()
@@ -20,7 +19,7 @@ namespace EventManagementSystem
 
         public static DataTable ExcecuteQuery(string query, MySqlParameter[] parameters = null)
         {
-            using (connection = GetConnection())
+            using (MySqlConnection connection = GetConnection())
             {
                 using (var command = new MySqlCommand(query, connection))
                 {
@@ -40,10 +39,10 @@ namespace EventManagementSystem
 
         public static int ExecuteNonQuery(string query, MySqlParameter[] parameters = null)
         {
-            using (var connection = GetConnection())
+            using (MySqlConnection connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new MySqlCommand(query, connection))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     if (parameters != null)
                     {

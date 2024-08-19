@@ -36,6 +36,7 @@
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             kryptonButton3 = new Krypton.Toolkit.KryptonButton();
             kryptonButton4 = new Krypton.Toolkit.KryptonButton();
+            kryptonButton5 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(kryptonButton5);
             kryptonPanel1.Controls.Add(flowLayoutPanel1);
             kryptonPanel1.Dock = DockStyle.Left;
             kryptonPanel1.Location = new Point(0, 0);
@@ -158,6 +160,25 @@
             kryptonButton4.Values.Text = "View Participants";
             kryptonButton4.Click += kryptonButton4_Click;
             // 
+            // kryptonButton5
+            // 
+            kryptonButton5.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            kryptonButton5.Location = new Point(0, 678);
+            kryptonButton5.Name = "kryptonButton5";
+            kryptonButton5.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
+            kryptonButton5.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
+            kryptonButton5.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.Size = new Size(239, 84);
+            kryptonButton5.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
+            kryptonButton5.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
+            kryptonButton5.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.StateCommon.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.TabIndex = 6;
+            kryptonButton5.Values.DropDownArrowColor = Color.AliceBlue;
+            kryptonButton5.Values.Text = "LogOut";
+            kryptonButton5.Click += kryptonButton5_Click;
+            // 
             // Organizer__Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -185,5 +206,6 @@
         private Krypton.Toolkit.KryptonButton kryptonButton1;
         private Krypton.Toolkit.KryptonButton kryptonButton3;
         private Krypton.Toolkit.KryptonButton kryptonButton4;
+        private Krypton.Toolkit.KryptonButton kryptonButton5;
     }
 }

@@ -31,6 +31,8 @@
             label2 = new Label();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             eventsTable = new DataGridView();
+            kryptonButton2 = new Krypton.Toolkit.KryptonButton();
+            kryptonButton3 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
             // 
@@ -79,12 +81,62 @@
             eventsTable.Size = new Size(1001, 513);
             eventsTable.TabIndex = 8;
             // 
+            // kryptonButton2
+            // 
+            kryptonButton2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            kryptonButton2.Cursor = Cursors.Hand;
+            kryptonButton2.Location = new Point(490, 28);
+            kryptonButton2.Name = "kryptonButton2";
+            kryptonButton2.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonButton2.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            kryptonButton2.Size = new Size(244, 38);
+            kryptonButton2.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonButton2.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            kryptonButton2.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton2.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonButton2.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonButton2.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            kryptonButton2.StateNormal.Content.ShortText.Color1 = Color.White;
+            kryptonButton2.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonButton2.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            kryptonButton2.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            kryptonButton2.TabIndex = 9;
+            kryptonButton2.Values.DropDownArrowColor = Color.Empty;
+            kryptonButton2.Values.Text = "Delete";
+            kryptonButton2.Click += kryptonButton2_Click;
+            // 
+            // kryptonButton3
+            // 
+            kryptonButton3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            kryptonButton3.Cursor = Cursors.Hand;
+            kryptonButton3.Location = new Point(198, 28);
+            kryptonButton3.Name = "kryptonButton3";
+            kryptonButton3.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonButton3.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            kryptonButton3.Size = new Size(244, 38);
+            kryptonButton3.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonButton3.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            kryptonButton3.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton3.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonButton3.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            kryptonButton3.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            kryptonButton3.StateNormal.Content.ShortText.Color1 = Color.White;
+            kryptonButton3.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonButton3.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            kryptonButton3.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            kryptonButton3.TabIndex = 10;
+            kryptonButton3.Values.DropDownArrowColor = Color.Empty;
+            kryptonButton3.Values.Text = "UPDATE";
+            kryptonButton3.Click += kryptonButton3_Click;
+            // 
             // OManageEvents
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
+            Controls.Add(kryptonButton3);
+            Controls.Add(kryptonButton2);
             Controls.Add(eventsTable);
             Controls.Add(kryptonButton1);
             Controls.Add(label2);
@@ -101,5 +153,7 @@
         private Label label2;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
         private DataGridView eventsTable;
+        private Krypton.Toolkit.KryptonButton kryptonButton2;
+        private Krypton.Toolkit.KryptonButton kryptonButton3;
     }
 }

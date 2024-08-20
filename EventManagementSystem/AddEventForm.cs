@@ -14,7 +14,7 @@ namespace EventManagementSystem
     public partial class AddEventForm : Form
     {
         public AddEventForm()
-        {
+        {  
             InitializeComponent();
         }
 
@@ -37,6 +37,7 @@ namespace EventManagementSystem
             if (success)
             {
                 MessageBox.Show("Event Created !!!");
+                this.Close();
             }
             else
             {

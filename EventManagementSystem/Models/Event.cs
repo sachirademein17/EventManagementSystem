@@ -17,8 +17,8 @@ namespace EventManagementSystem.Models
         private int maxParticipants;
         private int currentParticipants;
 
-        public Event(int organizerID, string eventName, string description, DateTime startDate,
-            DateTime endDate, string location, int maxParticipants, int currentParticipants)
+        
+        public Event(int organizerID, string eventName, string description, DateTime startDate, DateTime endDate, string location, int maxParticipants, int currentParticipants)
         {
             this.organizerID = organizerID;
             this.eventName = eventName;

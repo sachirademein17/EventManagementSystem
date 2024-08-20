@@ -51,15 +51,39 @@ namespace EventManagementSystem.Models
             }
         }
 
-        public void DeleteEvent(int eventID)
+        public bool DeleteEvent(int eventID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string query = "DELETE FROM events WHERE EventID = @EventID;";
+
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@EventID",eventID)              
+                };
+
+                int result = DBConnection.ExecuteNonQuery(query, parameters);
+
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         
         
 
-        public void UpdateEvent(Event eventDetails)
+        public bool UpdateEvent(Event eventDetails)
         {
             throw new NotImplementedException();
         }

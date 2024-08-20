@@ -10,8 +10,8 @@ namespace EventManagementSystem.Interfaces
     internal interface IEventManagement
     {
         bool CreateEvent(Event eventDetails);
-        void UpdateEvent(Event eventDetails);
-        void DeleteEvent(int eventID);
+        bool UpdateEvent(Event eventDetails);
+        bool DeleteEvent(int eventID);
         List<Event> ViewEventParticipants(int eventID);
     }
 }

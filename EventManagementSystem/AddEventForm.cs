@@ -30,7 +30,7 @@ namespace EventManagementSystem
             int maxParticipants = int.Parse(maxParticipantstxt.Text);
             int currentParticipants = int.Parse(currentParticipantstxt.Text);
 
-            Event eventDetails = new Event(user.UserID,eventName, description,startDate,endDate,location,maxParticipants,currentParticipants);
+            Event eventDetails = new Event(1, user.UserID,eventName, description,startDate,endDate,location,maxParticipants,currentParticipants);
 
              bool success = user.CreateEvent(eventDetails);
 

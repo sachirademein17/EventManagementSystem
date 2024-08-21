@@ -46,8 +46,8 @@ namespace EventManagementSystem.Models
 
             }
             catch (Exception ex)
-            { 
-                return false; 
+            {
+                return false;
             }
         }
 
@@ -59,7 +59,7 @@ namespace EventManagementSystem.Models
 
                 MySqlParameter[] parameters = new MySqlParameter[]
                 {
-                    new MySqlParameter("@EventID",eventID)              
+                    new MySqlParameter("@EventID",eventID)
                 };
 
                 int result = DBConnection.ExecuteNonQuery(query, parameters);
@@ -80,32 +80,64 @@ namespace EventManagementSystem.Models
             }
         }
 
-        
-        
+
+
 
         public bool UpdateEvent(Event eventDetails)
         {
-            throw new NotImplementedException();
-        }
-
-        public DataTable ViewAllEvents(int organizerID)
-        {
             try
             {
-                string query = $"SELECT * FROM events WHERE OrganizerID = {organizerID};";
-                DataTable allEvents = DBConnection.ExcecuteQuery(query);
-                return allEvents;
+                string query = "UPDATE Events SET EventName = @EventName, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, Location = @Location, MaxParticipants = @MaxParticipants, CurrentParticipants = @CurrentParticipants WHERE EventID = @EventID;";
+
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@EventName", eventDetails.EventName),
+                    new MySqlParameter("@Description", eventDetails.Description),
+                    new MySqlParameter("@StartDate", eventDetails.StartDate),
+                    new MySqlParameter("@EndDate", eventDetails.EndDate),
+                    new MySqlParameter("@Location", eventDetails.Location),
+                    new MySqlParameter("@MaxParticipants", eventDetails.MaxParticipants),
+                    new MySqlParameter("@CurrentParticipants", eventDetails.CurrentParticipants),
+                    new MySqlParameter("@EventID", eventDetails.EventID)
+                };
+
+                int result = DBConnection.ExecuteNonQuery(query, parameters);
+
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show(ex.Message);
-                return null;
+                MessageBox.Show("Issue Huttho !!1");
+                return false;
             }
         }
 
-        public List<Event> ViewEventParticipants(int eventID)
-        {
-            throw new NotImplementedException();
+            public DataTable ViewAllEvents(int organizerID)
+            {
+                try
+                {
+                    string query = $"SELECT * FROM events WHERE OrganizerID = {organizerID};";
+                    DataTable allEvents = DBConnection.ExcecuteQuery(query);
+                    return allEvents;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return null;
+                }
+            }
+
+            public List<Event> ViewEventParticipants(int eventID)
+            {
+                throw new NotImplementedException();
+            }
         }
-    }
-}
+    } 

@@ -15,10 +15,13 @@ namespace EventManagementSystem
 {
     public partial class OManageEvents : Form
     {
+
+        Organizer user = (Organizer)CurrentUser.UserDetails;
+
+
         public OManageEvents()
         {
             InitializeComponent();
-            Organizer user = (Organizer)CurrentUser.UserDetails;
             DataTable dt = user.ViewAllEvents(user.UserID);
             eventsTable.DataSource = dt;
         }
@@ -35,7 +38,6 @@ namespace EventManagementSystem
             {
                 int rowIndex = eventsTable.SelectedRows[0].Index;
                 int id = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
-                Organizer user = (Organizer)(CurrentUser.UserDetails);
                 bool success = user.DeleteEvent(id);
 
                 if (success)
@@ -68,14 +70,18 @@ namespace EventManagementSystem
                 int maxParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[7].Value);
                 int currentParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[8].Value);
 
-                Event eventDetails = new Event(organizerID, eventName, description, startDate, endDate, location, maxParticipants, currentParticipants);
 
-                UpdateEventForm updateEventForm = new UpdateEventForm();
+                Event eventDetails = new Event(eventID, organizerID, eventName, description, startDate, endDate, location, maxParticipants, currentParticipants);
+                UpdateEventForm updateEventForm = new UpdateEventForm(eventDetails);
                 updateEventForm.Show();
 
             }
+            else
+            {
 
             MessageBox.Show("Please select a row to update !!!");
+            }
+
 
 
         }

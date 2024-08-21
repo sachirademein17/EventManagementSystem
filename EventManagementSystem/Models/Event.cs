@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace EventManagementSystem.Models
 {
-    internal class Event
+    public class Event
     {
+        private int eventID;
         private int organizerID;
         private string eventName;
         private string description;
@@ -18,8 +19,9 @@ namespace EventManagementSystem.Models
         private int currentParticipants;
 
         
-        public Event(int organizerID, string eventName, string description, DateTime startDate, DateTime endDate, string location, int maxParticipants, int currentParticipants)
+        public Event(int eventID, int organizerID, string eventName, string description, DateTime startDate, DateTime endDate, string location, int maxParticipants, int currentParticipants)
         {
+            this.eventID = eventID;
             this.organizerID = organizerID;
             this.eventName = eventName;
             this.description = description;
@@ -31,7 +33,11 @@ namespace EventManagementSystem.Models
 
         }
 
-        
+        public int EventID
+        {
+            get { return eventID; }
+            set { organizerID = value; }
+        }
 
         public int OrganizerID
         {

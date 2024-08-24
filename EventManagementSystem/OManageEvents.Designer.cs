@@ -133,7 +133,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(42, 42, 42);
+            BackColor = Color.FromArgb(46, 46, 46);
             ClientSize = new Size(1074, 675);
             Controls.Add(kryptonButton3);
             Controls.Add(kryptonButton2);

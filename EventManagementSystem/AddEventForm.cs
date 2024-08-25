@@ -14,7 +14,7 @@ namespace EventManagementSystem
     public partial class AddEventForm : Form
     {
         public AddEventForm()
-        {  
+        {
             InitializeComponent();
         }
 
@@ -30,9 +30,9 @@ namespace EventManagementSystem
             int maxParticipants = int.Parse(maxParticipantstxt.Text);
             int currentParticipants = int.Parse(currentParticipantstxt.Text);
 
-            Event eventDetails = new Event(1, user.UserID,eventName, description,startDate,endDate,location,maxParticipants,currentParticipants);
+            Event eventDetails = new Event(1, user.UserID, eventName, description, startDate, endDate, location, maxParticipants, currentParticipants);
 
-             bool success = user.CreateEvent(eventDetails);
+            bool success = user.CreateEvent(eventDetails);
 
             if (success)
             {
@@ -49,5 +49,9 @@ namespace EventManagementSystem
 
         }
 
+        private void currentParticipantstxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

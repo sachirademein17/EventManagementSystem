@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace EventManagementSystem
 {
-    public partial class AManageEvents : Form
+    public partial class AdminAddEventForm : Form
     {
-        public AManageEvents()
+        public AdminAddEventForm()
         {
             InitializeComponent();
-        }
-
-        private void kryptonButton1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

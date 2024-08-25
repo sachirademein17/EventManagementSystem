@@ -114,6 +114,7 @@
             kryptonButton1.TabIndex = 12;
             kryptonButton1.Values.DropDownArrowColor = Color.Empty;
             kryptonButton1.Values.Text = "CREATE";
+            kryptonButton1.Click += kryptonButton1_Click;
             // 
             // label2
             // 

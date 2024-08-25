@@ -89,6 +89,73 @@ namespace EventManagementSystem.Models
             }
         }
 
+        public DataTable GetRegisteredEvents(int userID)
+        {
+            try
+            {
+                int participantID = GetParticipantId(userID);
+
+                string query = "SELECT e.EventID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location FROM Events e INNER JOIN Bookings b ON e.EventID = b.EventID WHERE b.ParticipantID = @ParticipantID;";
+                MySqlParameter[] parameter = new MySqlParameter[]
+                {
+                    new MySqlParameter ("@ParticipantID", participantID)
+                };
+
+                DataTable dt = DBConnection.ExcecuteQuery(query, parameter);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+
+        }
+
+        public bool CancelBooking(int eventDetails, int userID)
+        {
+            try
+            {
+
+                int participantID = GetParticipantId(userID);
+
+                string query = "DELETE FROM Bookings WHERE EventID = @EventID AND ParticipantID = @ParticipantID;";
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@EventID", eventDetails),
+                    new MySqlParameter("@ParticipantID", participantID)
+                };
+
+                int result1 = DBConnection.ExecuteNonQuery(query, parameters);
+
+                string query1 = "UPDATE Events SET CurrentParticipants = CurrentParticipants - 1 WHERE EventID = @EventID;";
+                MySqlParameter[] parameters1 = new MySqlParameter[]
+                {
+                    new MySqlParameter("@EventID", eventDetails)
+                };
+
+                int result2 = DBConnection.ExecuteNonQuery(query1, parameters1);
+
+                if (result1 > 0)
+                {
+                    if (result2 > 0)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+
+
         public int GetParticipantId(int userID)
         {
 
@@ -98,9 +165,8 @@ namespace EventManagementSystem.Models
         new MySqlParameter("@UserID", userID)
             };
 
-            Object result = new object();
 
-            result = DBConnection.ExecuteScalar(query, parameters);
+            object result = DBConnection.ExecuteScalar(query, parameters);
 
             if (result != null)
             {
@@ -111,6 +177,7 @@ namespace EventManagementSystem.Models
                 return -1; // Return a default value if no result is found
             }
         }
+
 
     }
 }

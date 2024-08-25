@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,5 +88,22 @@ namespace EventManagementSystem.Models
         {
             throw new NotImplementedException();
         }
+
+        public DataTable ViewAllEvents()
+        {
+            try
+            {
+                string query = $"SELECT * FROM events;";
+                DataTable allEvents = DBConnection.ExcecuteQuery(query);
+                return allEvents;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        
     }
 }

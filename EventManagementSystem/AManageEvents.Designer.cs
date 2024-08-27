@@ -58,6 +58,7 @@
             kryptonButton3.TabIndex = 15;
             kryptonButton3.Values.DropDownArrowColor = Color.Empty;
             kryptonButton3.Values.Text = "UPDATE";
+            kryptonButton3.Click += kryptonButton3_Click;
             // 
             // kryptonButton2
             // 

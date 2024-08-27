@@ -100,7 +100,39 @@ namespace EventManagementSystem.Models
 
         public bool UpdateEvent(Event eventDetails)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string query = "UPDATE Events SET EventName = @EventName, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, Location = @Location, MaxParticipants = @MaxParticipants, CurrentParticipants = @CurrentParticipants WHERE EventID = @EventID;";
+
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@EventName", eventDetails.EventName),
+                    new MySqlParameter("@Description", eventDetails.Description),
+                    new MySqlParameter("@StartDate", eventDetails.StartDate),
+                    new MySqlParameter("@EndDate", eventDetails.EndDate),
+                    new MySqlParameter("@Location", eventDetails.Location),
+                    new MySqlParameter("@MaxParticipants", eventDetails.MaxParticipants),
+                    new MySqlParameter("@CurrentParticipants", eventDetails.CurrentParticipants),
+                    new MySqlParameter("@EventID", eventDetails.EventID)
+                };
+
+                int result = DBConnection.ExecuteNonQuery(query, parameters);
+
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Issue Huttho !!1");
+                return false;
+            }
         }
 
         public void UpdateUser(int userID)

@@ -81,6 +81,7 @@
             kryptonButton2.TabIndex = 14;
             kryptonButton2.Values.DropDownArrowColor = Color.Empty;
             kryptonButton2.Values.Text = "Delete";
+            kryptonButton2.Click += kryptonButton2_Click;
             // 
             // eventsTable
             // 

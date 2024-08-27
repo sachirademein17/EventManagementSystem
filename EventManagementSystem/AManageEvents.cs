@@ -28,5 +28,27 @@ namespace EventManagementSystem
             adminAddEventForm.Show();
 
         }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+
+            if (eventsTable.SelectedRows.Count > 0)
+            {
+                int rowIndex = eventsTable.SelectedRows[0].Index;
+                int id = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
+                bool success = user.DeleteEvent(id);
+
+                if (success)
+                {
+                    MessageBox.Show("The Event was successfully removed !!!");
+                    eventsTable.Rows.RemoveAt(rowIndex);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to delete !!!");
+                }
+            }
+
+        }
     }
 }

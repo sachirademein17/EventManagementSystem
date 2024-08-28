@@ -1,4 +1,5 @@
 using EventManagementSystem.Models;
+using EventManagementSystem.View;
 using System.Diagnostics;
 using System.Drawing.Text;
 
@@ -23,6 +24,9 @@ namespace EventManagementSystem
 
             if (user != null)
             {
+                MessageBox.Show($"Logged Successfully");
+                new SuccessToaster("Not Success").Show();
+
                 if (user.Role == "Admin")
                 {
                     Admin_Dashboard admin_Dashboard = new Admin_Dashboard();
@@ -41,12 +45,11 @@ namespace EventManagementSystem
                     participant_Dashboard.Show();
                     this.Hide();
                 }
-
-
             }
             else
             {
-                MessageBox.Show("Sorry bro username password is wrong !!! \n Try again bro !!!");
+                MessageBox.Show($"Username Password Wrong");
+                new SuccessToaster("Logging Success").Show();
             }
         }
 

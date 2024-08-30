@@ -1,4 +1,5 @@
 ﻿using EventManagementSystem.Models;
+using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,18 +33,17 @@ namespace EventManagementSystem
 
             Event eventDetails = new Event(1, user.UserID, eventName, description, startDate, endDate, location, maxParticipants, currentParticipants);
 
-            bool success = user.CreateEvent(eventDetails);
+            (bool success,string message) = user.CreateEvent(eventDetails);
 
             if (success)
             {
-                MessageBox.Show("Event Created !!!");
+                new SuccessToaster(message).Show();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Event Not Created !!!");
+                new DangerToaster(message).Show();
             }
-
 
 
 

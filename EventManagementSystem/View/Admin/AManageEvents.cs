@@ -1,4 +1,5 @@
 ﻿using EventManagementSystem.Models;
+using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,19 +37,24 @@ namespace EventManagementSystem
             {
                 int rowIndex = eventsTable.SelectedRows[0].Index;
                 int id = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
-                bool success = user.DeleteEvent(id);
+                (bool success, string message) = user.DeleteEvent(id);
 
                 if (success)
                 {
-                    MessageBox.Show("The Event was successfully removed !!!");
+                    new SuccessToaster(message).Show();
                     eventsTable.Rows.RemoveAt(rowIndex);
                 }
                 else
                 {
-                    MessageBox.Show("Please select a row to delete !!!");
+                    new DangerToaster(message).Show();
                 }
             }
+            else
+            {
 
+                new DangerToaster("Please Select a Row To Delete");
+
+            }
         }
 
         private void kryptonButton3_Click(object sender, EventArgs e)
@@ -75,9 +81,11 @@ namespace EventManagementSystem
             }
             else
             {
-
-                MessageBox.Show("Please select a row to update !!!");
+                new DangerToaster("Please select a row to update").Show();
             }
+
+
+
 
 
         }

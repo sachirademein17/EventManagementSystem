@@ -18,14 +18,14 @@ namespace EventManagementSystem
             string password = passwordtxt.Text;
 
 
-            User user = User.LogIn(username,password);
-/*            CurrentUser.UserDetails = user;
-*/            CurrentUser currentUser = new CurrentUser(user);
+            User user = User.LogIn(username, password);
+            /*            CurrentUser.UserDetails = user;
+            */
+            CurrentUser currentUser = new CurrentUser(user);
 
             if (user != null)
             {
-                MessageBox.Show($"Logged Successfully");
-                new SuccessToaster("Not Success").Show();
+                new SuccessToaster("Logging Success").Show();
 
                 if (user.Role == "Admin")
                 {
@@ -48,10 +48,28 @@ namespace EventManagementSystem
             }
             else
             {
-                MessageBox.Show($"Username Password Wrong");
-                new SuccessToaster("Logging Success").Show();
+                new DangerToaster("Logging Unsuccess").Show();
             }
         }
 
+        private void kryptonLinkLabel1_LinkClicked_1(object sender, EventArgs e)
+        {
+            new CreateAccount().Show();
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBox1.Checked)
+            {
+                passwordtxt.PasswordChar = '\0';
+            }
+            else
+            {
+                passwordtxt.PasswordChar = '•';
+            }
+
+        }
     }
 }

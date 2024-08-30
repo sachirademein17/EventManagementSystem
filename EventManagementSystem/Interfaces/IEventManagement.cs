@@ -9,9 +9,9 @@ namespace EventManagementSystem.Interfaces
 {
     internal interface IEventManagement
     {
-        bool CreateEvent(Event eventDetails);
-        bool UpdateEvent(Event eventDetails);
-        bool DeleteEvent(int eventID);
+        (bool,string) CreateEvent(Event eventDetails);
+        (bool, string) UpdateEvent(Event eventDetails);
+        (bool, string) DeleteEvent(int eventID);
         List<Event> ViewEventParticipants(int eventID);
     }
 }

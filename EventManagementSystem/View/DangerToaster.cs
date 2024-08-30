@@ -14,19 +14,29 @@ namespace EventManagementSystem.View
     {
 
         int toastX, toastY;
+        private System.Windows.Forms.Timer myTimer;
 
         public DangerToaster(string message)
         {
             InitializeComponent();
             label1.Text = message;
             Position();
+            myTimer = new System.Windows.Forms.Timer();
+
+            myTimer.Interval = 2000;
+            myTimer.Tick += MyTimer_Tick;
+            myTimer.Start();
+        }
+
+        private void MyTimer_Tick(object sender, EventArgs e)
+        {
+            myTimer.Stop();
+            this.Close();
         }
 
         private void Position()
         {
             Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
-
-            // Calculate position
             this.Location = new Point(workingArea.Right - this.Width, workingArea.Bottom - this.Height);
         }
 

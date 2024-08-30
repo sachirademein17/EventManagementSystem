@@ -117,6 +117,7 @@ namespace EventManagementSystem
             checkBox1.TabIndex = 9;
             checkBox1.Text = "Show Password";
             checkBox1.UseVisualStyleBackColor = false;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // kryptonLinkLabel1
             // 
@@ -129,6 +130,7 @@ namespace EventManagementSystem
             kryptonLinkLabel1.Size = new Size(138, 29);
             kryptonLinkLabel1.TabIndex = 8;
             kryptonLinkLabel1.Values.Text = "Create Account";
+            kryptonLinkLabel1.LinkClicked += kryptonLinkLabel1_LinkClicked_1;
             // 
             // label3
             // 

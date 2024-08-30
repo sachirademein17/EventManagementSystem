@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EventManagementSystem.Models;
+using EventManagementSystem.View;
 using Microsoft.VisualBasic.ApplicationServices;
 
 namespace EventManagementSystem
@@ -38,15 +39,15 @@ namespace EventManagementSystem
 
 
             Event eventDetails = new Event(eventID, user.UserID, name, description, startTime, endTime, location, maxParticipants, currentParticipants);
-            bool success = user.UpdateEvent(eventDetails);
+            (bool success, string message )= user.UpdateEvent(eventDetails);
 
             if (success)
             {
-                MessageBox.Show("The row is updated successfully !!!");
+                new SuccessToaster(message).Show();
             }
             else
             {
-                MessageBox.Show("There seems to be an issue !!!");
+                new DangerToaster(message).Show();
             }
             
         }

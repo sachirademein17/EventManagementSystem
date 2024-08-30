@@ -1,4 +1,5 @@
 ﻿using EventManagementSystem.Interfaces;
+using EventManagementSystem.View;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace EventManagementSystem.Models
             throw new NotImplementedException();
         }
 
-        public bool CreateEvent(Event eventDetails)
+        public (bool, string) CreateEvent(Event eventDetails)
         {
             try
             {
@@ -42,21 +43,21 @@ namespace EventManagementSystem.Models
 
                 if (result > 0)
                 {
-                    return true;
+                    return (true, "Event Created Successfully");
                 }
                 else
                 {
-                    return false;
+                    return (false, "Even Not Created");
                 }
 
             }
             catch (Exception ex)
             {
-                return false;
+                return (false, "Database or Query Issue");
             }
         }
 
-        public bool DeleteEvent(int eventID)
+        public (bool, string) DeleteEvent(int eventID)
         {
             try
             {
@@ -71,17 +72,17 @@ namespace EventManagementSystem.Models
 
                 if (result > 0)
                 {
-                    return true;
+                    return (true, "Event Deleted Successfully");
                 }
                 else
                 {
-                    return false;
+                    return (false, "Event Not Deleted");
                 }
 
             }
             catch (Exception ex)
             {
-                return false;
+                return (false, "Database or Query Issue");
             }
         }
 
@@ -98,7 +99,7 @@ namespace EventManagementSystem.Models
             throw new NotImplementedException();
         }
 
-        public bool UpdateEvent(Event eventDetails)
+        public (bool, string) UpdateEvent(Event eventDetails)
         {
             try
             {
@@ -120,18 +121,17 @@ namespace EventManagementSystem.Models
 
                 if (result > 0)
                 {
-                    return true;
+                    return (true, "Event Updated Successfully");
                 }
                 else
                 {
-                    return false;
+                    return (false, "Event Not Updated");
                 }
 
             }
             catch (Exception e)
             {
-                MessageBox.Show("Issue Huttho !!1");
-                return false;
+                return (false, "Database or Query Issue");
             }
         }
 
@@ -155,7 +155,7 @@ namespace EventManagementSystem.Models
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                new DangerToaster("Database or Query Issue");
                 return null;
             }
         }

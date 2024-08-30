@@ -39,12 +39,7 @@ namespace EventManagementSystem.View
         {
             Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
             this.Location = new Point(workingArea.Right - this.Width, workingArea.Bottom - this.Height);
-
-
-
         }
-
-
 
         protected override void OnLoad(EventArgs e)
         {

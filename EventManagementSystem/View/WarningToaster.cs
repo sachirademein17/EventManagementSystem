@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EventManagementSystem
+namespace EventManagementSystem.View
 {
-    public partial class OViewParticipants : Form
+    public partial class WarningToaster : Form
     {
-        public OViewParticipants()
+        public WarningToaster()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

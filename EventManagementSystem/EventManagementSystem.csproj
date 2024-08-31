@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <PackageReference Include="Krypton.Toolkit.Nightly" Version="90.24.8.218-alpha" />
+    <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WinForms" Version="2.0.0-rc2" />
     <PackageReference Include="MySql.Data" Version="9.0.0" />
   </ItemGroup>
 

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EventManagementSystem.Interfaces;
 using EventManagementSystem.View;
+using Microsoft.VisualBasic.ApplicationServices;
 using MySql.Data.MySqlClient;
 
 namespace EventManagementSystem.Models
@@ -16,10 +17,25 @@ namespace EventManagementSystem.Models
         {
         }
 
-        public (bool,string) CreateEvent(Event eventDetails)
+
+        
+
+
+        public (bool, string) CreateEvent(Event eventDetails)
         {
             try
             {
+
+               /* (bool validation, string errormsg) = TextBoxValidation(eventDetails);
+
+                if (validation)
+                {
+                    return (validation, errormsg);
+                }*/
+
+
+                
+
                 string query = "INSERT INTO Events (OrganizerID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants) VALUES (@OrganizerID, @EventName, @Description, @StartDate, @EndDate, @Location, @MaxParticipants, @CurrentParticipants);";
 
                 MySqlParameter[] parameters = new MySqlParameter[]
@@ -84,7 +100,7 @@ namespace EventManagementSystem.Models
 
 
 
-        public (bool,string) UpdateEvent(Event eventDetails)
+        public (bool, string) UpdateEvent(Event eventDetails)
         {
             try
             {
@@ -120,24 +136,131 @@ namespace EventManagementSystem.Models
             }
         }
 
-            public DataTable ViewAllEvents(int organizerID)
+        public DataTable ViewAllEvents(int organizerID)
+        {
+            try
             {
-                try
-                {
-                    string query = $"SELECT * FROM events WHERE OrganizerID = {organizerID};";
-                    DataTable allEvents = DBConnection.ExcecuteQuery(query);
-                    return allEvents;
-                }
-                catch (Exception ex)
-                {
-                    new DangerToaster("Database or Query Issue");
-                    return null;
-                }
+                string query = $"SELECT * FROM events WHERE OrganizerID = {organizerID};";
+                DataTable allEvents = DBConnection.ExcecuteQuery(query);
+                return allEvents;
             }
-
-            public List<Event> ViewEventParticipants(int eventID)
+            catch (Exception ex)
             {
-                throw new NotImplementedException();
+                new DangerToaster("Database or Query Issue");
+                return null;
             }
         }
-    } 
+
+        public List<Event> ViewEventParticipants(int eventID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable ViewAllBookings(int organizerID)
+        {
+            try
+            {
+                string query = $"SELECT b.BookingID, b.EventID, b.ParticipantID, b.BookingDate " +
+                    $"FROM Bookings b " +
+                    $"JOIN Events e ON b.EventID = e.EventID " +
+                    $"JOIN Users u ON e.OrganizerID = u.UserID " +
+                    $"WHERE u.UserID = @OrganizerUserID;";
+
+                MySqlParameter[] parameter = new MySqlParameter[]
+                {
+                    new MySqlParameter("@OrganizerUserID", organizerID)
+                };
+
+                DataTable allEvents = DBConnection.ExcecuteQuery(query, parameter);
+                return allEvents;
+            }
+            catch (Exception ex)
+            {
+                new DangerToaster("Database or Query Issue");
+                return null;
+            }
+
+        }
+
+        public (bool, string) DeleteBooking(int bookingID)
+        {
+            try
+            {
+                string query = "DELETE FROM bookings WHERE BookingID = @BookingID;";
+
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@BookingID",bookingID)
+                };
+
+                int result = DBConnection.ExecuteNonQuery(query, parameters);
+
+                if (result > 0)
+                {
+                    return (true, "Booking Deleted Successfully");
+                }
+                else
+                {
+                    return (false, "Booking Not Deleted");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return (false, "Database or Query Issue");
+            }
+        }
+
+
+
+        public (bool, string) TextBoxValidation(string eventName, string location, DateTime startDate, DateTime endDate, string maxParticipants, string description)
+        {
+            int temp;
+
+            if (string.IsNullOrEmpty(eventName))
+            {
+                return (false, "Please Enter the Event Name");
+            }
+
+            if (string.IsNullOrEmpty(location))
+            {
+                return (false, "Please Enter the Event Venue");
+            }
+
+            if (startDate == default(DateTime))
+            {
+                return (false, "Please Enter the Starting Date & Time");
+            }
+
+            if (endDate == default(DateTime))
+            {
+                return (false, "Please Enter the Ending Date & Time");
+            }
+
+            if (endDate <= startDate)
+            {
+                return (false, "End Date must be after the start date.");
+            }
+
+            if (!int.TryParse(maxParticipants, out temp))
+            {
+                return (false, "Please Enter a Number for Max Participants");
+            }
+
+            if (temp <= 0)
+            {
+                return (false, "Please Enter a valid Maximum Number of Participants");
+            }
+
+            if (string.IsNullOrEmpty(description))
+            {
+                return (false, "Please Enter the Description");
+            }
+
+            return (true, "Good To Go");
+        }
+
+
+
+    }
+}

@@ -259,7 +259,7 @@
             kryptonButton4.StatePressed.Back.Color2 = Color.FromArgb(46, 46, 46);
             kryptonButton4.TabIndex = 5;
             kryptonButton4.Values.DropDownArrowColor = Color.AliceBlue;
-            kryptonButton4.Values.Text = "View Participants";
+            kryptonButton4.Values.Text = "Manage Bookings";
             kryptonButton4.Click += kryptonButton4_Click;
             // 
             // Organizer__Dashboard

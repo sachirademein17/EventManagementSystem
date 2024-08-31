@@ -116,8 +116,65 @@ namespace EventManagementSystem.Models
             
             }
 
-        
+
+        public static (bool, string) DeleteProfile(int userID)
+        {
+            try
+            {
+                string query = "DELETE FROM Users WHERE UserID = @UserID;";
+
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@UserID", userID)
+                };
+
+                int result = DBConnection.ExecuteNonQuery(query, parameters);
+
+                if (result > 0)
+                {
+                    return (true, "The Profile is Deleted Successfully");
+                }
+
+                return (false, "Unable to Delete the Profile");
+
+            }
+            catch (Exception ex)
+            {
+                return (false, "Database or Query Issue");
+            }
+
+        }
+
+        public static (bool, string) ChangePassword(string password, int userID)
+        {
+            try
+            {
+                MessageBox.Show($"{password} {userID}");
+                string query = "UPDATE users SET PasswordHash = @PasswordHash WHERE UserID = @UserID;";
+
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@PasswordHash", password),
+                    new MySqlParameter("@UserID", userID.ToString())
+                };
+
+                int result = DBConnection.ExecuteNonQuery(query, parameters);
+
+                if (result > 0)
+                {
+                    return (true, "The Password is Changed Successfully");
+                }
+
+                return (false, "Unable to Change the Profile");
 
 
-    }
+            }
+            catch (Exception ex)
+            {
+                return (false, "Database or Query Issue");
+            }
+        }
+
+
+        }
 }

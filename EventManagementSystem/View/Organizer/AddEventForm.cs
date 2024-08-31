@@ -23,15 +23,25 @@ namespace EventManagementSystem
         {
             Organizer user = (Organizer)CurrentUser.UserDetails;
 
+
+            (bool validation, string validationmsg) = user.TextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text, descriptiontxt.Text);
+
+            if (!validation)
+            {
+                new DangerToaster(validationmsg).Show();
+                return;
+            }
+
             string eventName = nametxt.Text;
             string description = descriptiontxt.Text;
             DateTime startDate = startDatetxt.Value;
             DateTime endDate = endDatetxt.Value;
             string location = venuetxt.Text;
             int maxParticipants = int.Parse(maxParticipantstxt.Text);
-            int currentParticipants = int.Parse(currentParticipantstxt.Text);
 
-            Event eventDetails = new Event(1, user.UserID, eventName, description, startDate, endDate, location, maxParticipants, currentParticipants);
+
+
+            Event eventDetails = new Event(1, user.UserID, eventName, description, startDate, endDate, location, maxParticipants, 0);
 
             (bool success,string message) = user.CreateEvent(eventDetails);
 

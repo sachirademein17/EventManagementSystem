@@ -35,16 +35,14 @@
             startDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
             textBox1 = new TextBox();
             label3 = new Label();
-            endDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
             label4 = new Label();
             venuetxt = new TextBox();
             label5 = new Label();
             label6 = new Label();
             maxParticipantstxt = new TextBox();
-            currentParticipantstxt = new TextBox();
-            label7 = new Label();
             descriptiontxt = new TextBox();
             label8 = new Label();
+            endDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
             SuspendLayout();
             // 
             // kryptonButton1
@@ -102,6 +100,8 @@
             // 
             // startDatetxt
             // 
+            startDatetxt.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            startDatetxt.Format = DateTimePickerFormat.Custom;
             startDatetxt.Location = new Point(88, 203);
             startDatetxt.Name = "startDatetxt";
             startDatetxt.ShowUpDown = true;
@@ -126,15 +126,6 @@
             label3.Size = new Size(82, 29);
             label3.TabIndex = 12;
             label3.Text = "Venue";
-            // 
-            // endDatetxt
-            // 
-            endDatetxt.Location = new Point(638, 203);
-            endDatetxt.Name = "endDatetxt";
-            endDatetxt.ShowUpDown = true;
-            endDatetxt.Size = new Size(270, 30);
-            endDatetxt.TabIndex = 17;
-            endDatetxt.ValueNullable = new DateTime(2024, 8, 19, 12, 33, 54, 0);
             // 
             // label4
             // 
@@ -185,25 +176,6 @@
             maxParticipantstxt.Size = new Size(270, 35);
             maxParticipantstxt.TabIndex = 13;
             // 
-            // currentParticipantstxt
-            // 
-            currentParticipantstxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            currentParticipantstxt.Location = new Point(638, 306);
-            currentParticipantstxt.Name = "currentParticipantstxt";
-            currentParticipantstxt.Size = new Size(270, 35);
-            currentParticipantstxt.TabIndex = 19;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(176, 176, 176);
-            label7.Location = new Point(638, 259);
-            label7.Name = "label7";
-            label7.Size = new Size(223, 29);
-            label7.TabIndex = 18;
-            label7.Text = "Current Participants";
-            // 
             // descriptiontxt
             // 
             descriptiontxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -224,17 +196,25 @@
             label8.TabIndex = 20;
             label8.Text = "Description";
             // 
+            // endDatetxt
+            // 
+            endDatetxt.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            endDatetxt.Format = DateTimePickerFormat.Custom;
+            endDatetxt.Location = new Point(638, 203);
+            endDatetxt.Name = "endDatetxt";
+            endDatetxt.ShowUpDown = true;
+            endDatetxt.Size = new Size(270, 30);
+            endDatetxt.TabIndex = 22;
+            // 
             // AddEventForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(986, 749);
+            Controls.Add(endDatetxt);
             Controls.Add(descriptiontxt);
             Controls.Add(label8);
-            Controls.Add(currentParticipantstxt);
-            Controls.Add(label7);
-            Controls.Add(endDatetxt);
             Controls.Add(label4);
             Controls.Add(venuetxt);
             Controls.Add(label5);
@@ -262,15 +242,13 @@
         private Krypton.Toolkit.KryptonDateTimePicker startDatetxt;
         private TextBox textBox1;
         private Label label3;
-        private Krypton.Toolkit.KryptonDateTimePicker endDatetxt;
         private Label label4;
         private TextBox venuetxt;
         private Label label5;
         private Label label6;
         private TextBox maxParticipantstxt;
-        private TextBox currentParticipantstxt;
-        private Label label7;
         private TextBox descriptiontxt;
         private Label label8;
+        private Krypton.Toolkit.KryptonDateTimePicker endDatetxt;
     }
 }

@@ -50,7 +50,7 @@ namespace EventManagementSystem
 
         private void kryptonButton4_Click(object sender, EventArgs e)
         {
-            loadform(new OViewParticipants());
+            loadform(new OManageBookings());
         }
 
         private void kryptonButton5_Click(object sender, EventArgs e)

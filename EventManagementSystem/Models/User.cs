@@ -10,7 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace EventManagementSystem.Models
 {
-    internal abstract class User
+    public abstract class User
     {
 
         private int userID;
@@ -174,7 +174,6 @@ namespace EventManagementSystem.Models
                 return (false, "Database or Query Issue");
             }
         }
-
 
         }
 }

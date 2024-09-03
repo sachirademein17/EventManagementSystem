@@ -30,8 +30,6 @@
         {
             descriptiontxt = new TextBox();
             label8 = new Label();
-            currentParticipantstxt = new TextBox();
-            label7 = new Label();
             endDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
             label4 = new Label();
             venuetxt = new TextBox();
@@ -64,25 +62,6 @@
             label8.Size = new Size(135, 29);
             label8.TabIndex = 35;
             label8.Text = "Description";
-            // 
-            // currentParticipantstxt
-            // 
-            currentParticipantstxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            currentParticipantstxt.Location = new Point(633, 301);
-            currentParticipantstxt.Name = "currentParticipantstxt";
-            currentParticipantstxt.Size = new Size(270, 35);
-            currentParticipantstxt.TabIndex = 34;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(176, 176, 176);
-            label7.Location = new Point(633, 254);
-            label7.Name = "label7";
-            label7.Size = new Size(223, 29);
-            label7.TabIndex = 33;
-            label7.Text = "Current Participants";
             // 
             // endDatetxt
             // 
@@ -211,8 +190,6 @@
             ClientSize = new Size(986, 749);
             Controls.Add(descriptiontxt);
             Controls.Add(label8);
-            Controls.Add(currentParticipantstxt);
-            Controls.Add(label7);
             Controls.Add(endDatetxt);
             Controls.Add(label4);
             Controls.Add(venuetxt);
@@ -234,8 +211,6 @@
 
         private TextBox descriptiontxt;
         private Label label8;
-        private TextBox currentParticipantstxt;
-        private Label label7;
         private Krypton.Toolkit.KryptonDateTimePicker endDatetxt;
         private Label label4;
         private TextBox venuetxt;

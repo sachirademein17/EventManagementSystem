@@ -104,7 +104,7 @@ namespace EventManagementSystem.Models
         {
             try
             {
-                string query = "UPDATE Events SET EventName = @EventName, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, Location = @Location, MaxParticipants = @MaxParticipants, CurrentParticipants = @CurrentParticipants WHERE EventID = @EventID;";
+                string query = "UPDATE Events SET EventName = @EventName, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, Location = @Location, MaxParticipants = @MaxParticipants WHERE EventID = @EventID;";
 
                 MySqlParameter[] parameters = new MySqlParameter[]
                 {
@@ -114,7 +114,6 @@ namespace EventManagementSystem.Models
                     new MySqlParameter("@EndDate", eventDetails.EndDate),
                     new MySqlParameter("@Location", eventDetails.Location),
                     new MySqlParameter("@MaxParticipants", eventDetails.MaxParticipants),
-                    new MySqlParameter("@CurrentParticipants", eventDetails.CurrentParticipants),
                     new MySqlParameter("@EventID", eventDetails.EventID)
                 };
 

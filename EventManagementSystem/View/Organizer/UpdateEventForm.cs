@@ -27,18 +27,27 @@ namespace EventManagementSystem
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
+            Organizer user = (Organizer)CurrentUser.UserDetails;
+
+
+            (bool validation, string validationmsg) = user.TextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text, descriptiontxt.Text);
+
+            if (!validation)
+            {
+                new DangerToaster(validationmsg).Show();
+                return;
+            }
+
             string name = nametxt.Text;
             string location = venuetxt.Text;
             DateTime startTime = startDatetxt.Value;
             DateTime endTime = endDatetxt.Value;
             int maxParticipants = int.Parse(maxParticipantstxt.Text);
-            int currentParticipants = int.Parse(currentParticipantstxt.Text);
             string description = descriptiontxt.Text;
 
-            Organizer user = (Organizer)CurrentUser.UserDetails;
 
 
-            Event eventDetails = new Event(eventID, user.UserID, name, description, startTime, endTime, location, maxParticipants, currentParticipants);
+            Event eventDetails = new Event(eventID, user.UserID, name, description, startTime, endTime, location, maxParticipants, 0);
             (bool success, string message )= user.UpdateEvent(eventDetails);
 
             if (success)
@@ -60,7 +69,6 @@ namespace EventManagementSystem
             startDatetxt.Value = eventDetails.StartDate;
             endDatetxt.Value = eventDetails.EndDate;
             maxParticipantstxt.Text = (eventDetails.MaxParticipants).ToString();
-            currentParticipantstxt.Text =(eventDetails.CurrentParticipants).ToString();
             descriptiontxt.Text =(eventDetails.Description).ToString();
         }
 

@@ -46,6 +46,11 @@ namespace EventManagementSystem.Models
                     return false;
                 }
 
+                if (!CheckCanRegister(eventDetails))
+                {
+                    return false;
+                }
+
 
 
                 string insertQuery = "INSERT INTO Bookings (EventID, ParticipantID, BookingDate) VALUES (@EventID, @ParticipantID, NOW());";
@@ -176,6 +181,46 @@ namespace EventManagementSystem.Models
             {
                 return -1; // Return a default value if no result is found
             }
+        }
+
+        private bool CheckCanRegister(int eventID)
+        {
+
+            try
+            {
+                string query1 = "SELECT MaxParticipants FROM events WHERE EventID = @EventID";
+                string query2 = "SELECT CurrentParticipants FROM events WHERE EventID = @EventID";
+
+
+                int maxParticipants = 0;
+                int currentParticipants = 0;
+
+                MySqlParameter[] parameter = new MySqlParameter[]
+                {
+                    new MySqlParameter("EventID", eventID)
+                };
+
+                object max = DBConnection.ExecuteScalar(query1, parameter);
+                object current = DBConnection.ExecuteScalar(query2, parameter);
+
+                if (max != null && current != null)
+                {
+                    maxParticipants = int.Parse(max.ToString());
+                    currentParticipants = int.Parse(current.ToString());
+                }
+
+                MessageBox.Show(maxParticipants.ToString() + currentParticipants.ToString());
+
+                return maxParticipants == 0 || currentParticipants < maxParticipants;
+
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);    
+                return false;
+            }
+            
+
         }
 
 

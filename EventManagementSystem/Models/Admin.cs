@@ -379,6 +379,9 @@ namespace EventManagementSystem.Models
             return (true, "Good To Go");
         }
 
-
+        public DataTable ViewAllEvents(int eventID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -15,28 +15,32 @@ namespace EventManagementSystem
 {
     public partial class OManageBookings : Form
     {
-        Organizer user = (Organizer)CurrentUser.UserDetails;
+        Organizer user;
 
         public OManageBookings()
         {
             InitializeComponent();
-
-            DataTable dt = user.ViewAllBookings(user.UserID);
-            bookingsTable.DataSource = dt;
+            user = (Organizer)CurrentUser.UserDetails;
+            LoadBookingTable();
         }
 
-        private void kryptonButton3_Click(object sender, EventArgs e)
+        // Cancel Booking fuctionality Button
+        private void CancelBooking_Click(object sender, EventArgs e)
         {
+            // Checking whether a booking row is selected
             if (bookingsTable.SelectedRows.Count > 0)
             {
+                // Excuting the CancelBooking fuctionality
                 int rowIndex = bookingsTable.SelectedRows[0].Index;
-                int id = Convert.ToInt32(bookingsTable.Rows[rowIndex].Cells[0].Value);
-                (bool success, string message) = user.DeleteBooking(id);
+                int bookingID = Convert.ToInt32(bookingsTable.Rows[rowIndex].Cells[0].Value);
+                (bool success, string message) = user.CancelBooking(bookingID);
 
+                // Giving user feedback
                 if (success)
                 {
                     new SuccessToaster(message).Show();
                     bookingsTable.Rows.RemoveAt(rowIndex);
+                    LoadBookingTable();
                 }
                 else
                 {
@@ -49,5 +53,13 @@ namespace EventManagementSystem
 
             }
         }
+
+        // Loading BookingTable DataGridView
+        private void LoadBookingTable()
+        {
+            DataTable dt = user.ViewAllBookings(user.UserID);
+            bookingsTable.DataSource = dt;
+        }
+
     }
 }

@@ -30,7 +30,7 @@
         {
             bookingsTable = new DataGridView();
             label2 = new Label();
-            kryptonButton3 = new Krypton.Toolkit.KryptonButton();
+            CancelBooking = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)bookingsTable).BeginInit();
             SuspendLayout();
             // 
@@ -56,33 +56,33 @@
             label2.TabIndex = 9;
             label2.Text = "BOOKINGS";
             // 
-            // kryptonButton3
+            // CancelBooking
             // 
-            kryptonButton3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            kryptonButton3.Cursor = Cursors.Hand;
-            kryptonButton3.Location = new Point(794, 36);
-            kryptonButton3.Name = "kryptonButton3";
-            kryptonButton3.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
-            kryptonButton3.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
-            kryptonButton3.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            kryptonButton3.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            kryptonButton3.Size = new Size(244, 38);
-            kryptonButton3.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
-            kryptonButton3.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
-            kryptonButton3.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton3.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton3.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
-            kryptonButton3.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
-            kryptonButton3.StateNormal.Back.ColorAngle = 45F;
-            kryptonButton3.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            kryptonButton3.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton3.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton3.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
-            kryptonButton3.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
-            kryptonButton3.TabIndex = 11;
-            kryptonButton3.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton3.Values.Text = "REMOVE";
-            kryptonButton3.Click += kryptonButton3_Click;
+            CancelBooking.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CancelBooking.Cursor = Cursors.Hand;
+            CancelBooking.Location = new Point(794, 36);
+            CancelBooking.Name = "CancelBooking";
+            CancelBooking.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
+            CancelBooking.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
+            CancelBooking.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            CancelBooking.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            CancelBooking.Size = new Size(244, 38);
+            CancelBooking.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
+            CancelBooking.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
+            CancelBooking.StateCommon.Content.ShortText.Color1 = Color.White;
+            CancelBooking.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CancelBooking.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
+            CancelBooking.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
+            CancelBooking.StateNormal.Back.ColorAngle = 45F;
+            CancelBooking.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            CancelBooking.StateNormal.Content.ShortText.Color1 = Color.White;
+            CancelBooking.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CancelBooking.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
+            CancelBooking.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
+            CancelBooking.TabIndex = 11;
+            CancelBooking.Values.DropDownArrowColor = Color.Empty;
+            CancelBooking.Values.Text = "Cancel Booking";
+            CancelBooking.Click += CancelBooking_Click;
             // 
             // OManageBookings
             // 
@@ -90,7 +90,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
-            Controls.Add(kryptonButton3);
+            Controls.Add(CancelBooking);
             Controls.Add(bookingsTable);
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
@@ -105,6 +105,6 @@
 
         private DataGridView bookingsTable;
         private Label label2;
-        private Krypton.Toolkit.KryptonButton kryptonButton3;
+        private Krypton.Toolkit.KryptonButton CancelBooking;
     }
 }

@@ -70,6 +70,8 @@ namespace EventManagementSystem.View.Admin
             usernametxt.Text = userDetails.UserName;
             emailtxt.Text = userDetails.Email;
             phonenumbertxt.Text = userDetails.PhoneNumber;
+            passwordtxt.Text = userDetails.PasswordHash;
+            
 
             if (userDetails.Role == "Participant")
             {

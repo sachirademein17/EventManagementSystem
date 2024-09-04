@@ -38,7 +38,7 @@
             label6 = new Label();
             startDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
             label1 = new Label();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            UpdateEvent = new Krypton.Toolkit.KryptonButton();
             nametxt = new TextBox();
             label2 = new Label();
             SuspendLayout();
@@ -65,12 +65,14 @@
             // 
             // endDatetxt
             // 
+            endDatetxt.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            endDatetxt.Format = DateTimePickerFormat.Custom;
             endDatetxt.Location = new Point(633, 198);
             endDatetxt.Name = "endDatetxt";
             endDatetxt.ShowUpDown = true;
             endDatetxt.Size = new Size(270, 30);
             endDatetxt.TabIndex = 32;
-            endDatetxt.ValueNullable = new DateTime(2024, 8, 19, 12, 33, 54, 0);
+            endDatetxt.ValueNullable = new DateTime(2024, 9, 4, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -123,11 +125,14 @@
             // 
             // startDatetxt
             // 
+            startDatetxt.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            startDatetxt.Format = DateTimePickerFormat.Custom;
             startDatetxt.Location = new Point(83, 198);
             startDatetxt.Name = "startDatetxt";
             startDatetxt.ShowUpDown = true;
             startDatetxt.Size = new Size(270, 30);
             startDatetxt.TabIndex = 26;
+            startDatetxt.ValueNullable = new DateTime(2024, 9, 4, 21, 21, 33, 0);
             // 
             // label1
             // 
@@ -140,28 +145,28 @@
             label1.TabIndex = 25;
             label1.Text = "Start Date";
             // 
-            // kryptonButton1
+            // UpdateEvent
             // 
-            kryptonButton1.Cursor = Cursors.Hand;
-            kryptonButton1.Location = new Point(633, 665);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.Size = new Size(244, 38);
-            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.TabIndex = 24;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "UPDATE";
-            kryptonButton1.Click += kryptonButton1_Click;
+            UpdateEvent.Cursor = Cursors.Hand;
+            UpdateEvent.Location = new Point(633, 665);
+            UpdateEvent.Name = "UpdateEvent";
+            UpdateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.Size = new Size(244, 38);
+            UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
+            UpdateEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateEvent.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.StateNormal.Content.ShortText.Color1 = Color.White;
+            UpdateEvent.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateEvent.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            UpdateEvent.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            UpdateEvent.TabIndex = 24;
+            UpdateEvent.Values.DropDownArrowColor = Color.Empty;
+            UpdateEvent.Values.Text = "UPDATE";
+            UpdateEvent.Click += UpdateEvent_Click;
             // 
             // nametxt
             // 
@@ -198,7 +203,7 @@
             Controls.Add(label6);
             Controls.Add(startDatetxt);
             Controls.Add(label1);
-            Controls.Add(kryptonButton1);
+            Controls.Add(UpdateEvent);
             Controls.Add(nametxt);
             Controls.Add(label2);
             Name = "UpdateEventForm";
@@ -219,7 +224,7 @@
         private Label label6;
         private Krypton.Toolkit.KryptonDateTimePicker startDatetxt;
         private Label label1;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonButton UpdateEvent;
         private TextBox nametxt;
         private Label label2;
     }

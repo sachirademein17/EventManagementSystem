@@ -8,37 +8,55 @@ using EventManagementSystem.Interfaces;
 using EventManagementSystem.View;
 using Microsoft.VisualBasic.ApplicationServices;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.X509.Store;
 
 namespace EventManagementSystem.Models
 {
     internal class Organizer : User, IEventManagement
     {
+
+        // Query to Create an Event
+        const string CreateEventQuery = "INSERT INTO Events (OrganizerID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants) " +
+                                        "VALUES (@OrganizerID, @EventName, @Description, @StartDate, @EndDate, @Location, @MaxParticipants, @CurrentParticipants);";
+        
+        // Query to Delete an Event
+        const string DeleteEventQuery = "DELETE FROM events WHERE EventID = @EventID;";
+        
+        // Query to Update an Event
+        const string UpdateEventQuery = "UPDATE Events" +
+                                        " SET EventName = @EventName, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, Location = @Location, MaxParticipants = @MaxParticipants" +
+                                        " WHERE EventID = @EventID;";
+        
+        // Query to View all Events
+        const string ViewAllEventsQuery =   "SELECT EventID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants " +
+                                            "FROM Events " +
+                                            "WHERE OrganizerID = @OrganizerID;";
+
+        // Query to View all Bookings
+        const string ViewAllBookingsQuery = "SELECT b.BookingID, e.EventName, p.Name AS ParticipantName, p.Email AS ParticipantEmail, p.PhoneNumber AS ParticipantPhoneNumber " +
+                                            "FROM Bookings b" +
+                                            " JOIN Events e ON b.EventID = e.EventID " +
+                                            "JOIN Participants p ON b.ParticipantID = p.ParticipantID " +
+                                            "JOIN Users u ON e.OrganizerID = u.UserID " +
+                                            "WHERE u.UserID = @OrganizerUserID;";
+
+        // Query to Cancel Bookings
+        const string CancelBookingQuery = "DELETE FROM bookings WHERE BookingID = @BookingID;";
+
+
         public Organizer(int userID, string username, string passwordHash, string email, string phoneNumber, string role) : base(userID, username, passwordHash, email, phoneNumber, role)
         {
         }
 
 
-        
-
-
+        // Functinality to Create an Event
         public (bool, string) CreateEvent(Event eventDetails)
         {
             try
             {
-
-               /* (bool validation, string errormsg) = TextBoxValidation(eventDetails);
-
-                if (validation)
-                {
-                    return (validation, errormsg);
-                }*/
-
-
-                
-
-                string query = "INSERT INTO Events (OrganizerID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants) VALUES (@OrganizerID, @EventName, @Description, @StartDate, @EndDate, @Location, @MaxParticipants, @CurrentParticipants);";
-
-                MySqlParameter[] parameters = new MySqlParameter[]
+                                
+                // Parameters for the CreateEventQuery
+                MySqlParameter[] createEventParameters = new MySqlParameter[]
                 {
                     new MySqlParameter("@OrganizerId",eventDetails.OrganizerID),
                     new MySqlParameter("@EventName", eventDetails.EventName),
@@ -50,8 +68,10 @@ namespace EventManagementSystem.Models
                     new MySqlParameter("@CurrentParticipants", eventDetails.CurrentParticipants)
                 };
 
-                int result = DBConnection.ExecuteNonQuery(query, parameters);
+                // Execute CreateEventQuery
+                int result = DBConnection.ExecuteNonQuery(CreateEventQuery, createEventParameters);
 
+                // Returning user feedback message
                 if (result > 0)
                 {
                     return (true, "Event Created Successfully");
@@ -68,19 +88,22 @@ namespace EventManagementSystem.Models
             }
         }
 
+
+        // Functionality to Delete an Event
         public (bool, string) DeleteEvent(int eventID)
         {
             try
             {
-                string query = "DELETE FROM events WHERE EventID = @EventID;";
-
-                MySqlParameter[] parameters = new MySqlParameter[]
+                // Parameters for the DeleteEventQuery
+                MySqlParameter[] deleteEventParameters = new MySqlParameter[]
                 {
                     new MySqlParameter("@EventID",eventID)
                 };
 
-                int result = DBConnection.ExecuteNonQuery(query, parameters);
+                // Executing DeleteEventQuery
+                int result = DBConnection.ExecuteNonQuery(DeleteEventQuery, deleteEventParameters);
 
+                // Returning user feedback message
                 if (result > 0)
                 {
                     return (true, "Event Deleted Successfully");
@@ -99,14 +122,13 @@ namespace EventManagementSystem.Models
 
 
 
-
+        // Functionality to Update an Event
         public (bool, string) UpdateEvent(Event eventDetails)
         {
             try
             {
-                string query = "UPDATE Events SET EventName = @EventName, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, Location = @Location, MaxParticipants = @MaxParticipants WHERE EventID = @EventID;";
-
-                MySqlParameter[] parameters = new MySqlParameter[]
+                // Parameters for the UpdateEventQuery
+                MySqlParameter[] updateEventParameters = new MySqlParameter[]
                 {
                     new MySqlParameter("@EventName", eventDetails.EventName),
                     new MySqlParameter("@Description", eventDetails.Description),
@@ -117,8 +139,10 @@ namespace EventManagementSystem.Models
                     new MySqlParameter("@EventID", eventDetails.EventID)
                 };
 
-                int result = DBConnection.ExecuteNonQuery(query, parameters);
+                // Executing the UpdateEventQuery
+                int result = DBConnection.ExecuteNonQuery(UpdateEventQuery, updateEventParameters);
 
+                // Returning User Feedback message
                 if (result > 0)
                 {
                     return (true, "Event Updated Successfully");
@@ -135,12 +159,21 @@ namespace EventManagementSystem.Models
             }
         }
 
+        // Fuctionality to View Created Events
         public DataTable ViewAllEvents(int organizerID)
         {
             try
             {
-                string query = $"SELECT * FROM events WHERE OrganizerID = {organizerID};";
-                DataTable allEvents = DBConnection.ExcecuteQuery(query);
+                // Parameter for the ViewAllEventsQuery
+                MySqlParameter[] viewAllEventsParameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@OrganizerID" , organizerID)
+                };
+                
+                // Executing the ViewAllEventsQuery
+                DataTable allEvents = DBConnection.ExcecuteQuery(ViewAllEventsQuery, viewAllEventsParameters );
+
+                // Returning DataTable for the DataGridView
                 return allEvents;
             }
             catch (Exception ex)
@@ -150,27 +183,23 @@ namespace EventManagementSystem.Models
             }
         }
 
-        public List<Event> ViewEventParticipants(int eventID)
-        {
-            throw new NotImplementedException();
-        }
-
+       
+        // Fuctionality to View all Bookings
         public DataTable ViewAllBookings(int organizerID)
         {
             try
             {
-                string query = $"SELECT b.BookingID, b.EventID, b.ParticipantID, b.BookingDate " +
-                    $"FROM Bookings b " +
-                    $"JOIN Events e ON b.EventID = e.EventID " +
-                    $"JOIN Users u ON e.OrganizerID = u.UserID " +
-                    $"WHERE u.UserID = @OrganizerUserID;";
-
-                MySqlParameter[] parameter = new MySqlParameter[]
+                
+                // Parameters for the ViewAllBookingsQuery
+                MySqlParameter[] viewAllBookingsParameter = new MySqlParameter[]
                 {
                     new MySqlParameter("@OrganizerUserID", organizerID)
                 };
 
-                DataTable allEvents = DBConnection.ExcecuteQuery(query, parameter);
+                // Executing the ViewAllBookingsQuery
+                DataTable allEvents = DBConnection.ExcecuteQuery(ViewAllBookingsQuery, viewAllBookingsParameter);
+
+                // Returning DataTable for the DataGridView
                 return allEvents;
             }
             catch (Exception ex)
@@ -181,19 +210,22 @@ namespace EventManagementSystem.Models
 
         }
 
-        public (bool, string) DeleteBooking(int bookingID)
+        // Fuctionality to Delete/Cancel Bookings
+        public (bool, string) CancelBooking(int bookingID)
         {
             try
             {
-                string query = "DELETE FROM bookings WHERE BookingID = @BookingID;";
 
-                MySqlParameter[] parameters = new MySqlParameter[]
+                // Parameters for the CancelBookingQuery
+                MySqlParameter[] cancelBookingParameters = new MySqlParameter[]
                 {
                     new MySqlParameter("@BookingID",bookingID)
                 };
 
-                int result = DBConnection.ExecuteNonQuery(query, parameters);
+                // Executing the CancelBookingQuery
+                int result = DBConnection.ExecuteNonQuery(CancelBookingQuery, cancelBookingParameters);
 
+                // Returning User feedback message
                 if (result > 0)
                 {
                     return (true, "Booking Deleted Successfully");
@@ -211,46 +243,60 @@ namespace EventManagementSystem.Models
         }
 
 
-
-        public (bool, string) TextBoxValidation(string eventName, string location, DateTime startDate, DateTime endDate, string maxParticipants, string description)
+        // Create Event & Update Event Input field validation
+        public (bool, string) TextBoxValidation(string eventName, string location, DateTime startDateTime, DateTime endDateTime, string maxParticipants, string description)
         {
             int temp;
 
+            // Checking whether event name is entered
             if (string.IsNullOrEmpty(eventName))
             {
                 return (false, "Please Enter the Event Name");
             }
 
+            // Checking whether location/venue is entered
             if (string.IsNullOrEmpty(location))
             {
                 return (false, "Please Enter the Event Venue");
             }
 
-            if (startDate == default(DateTime))
+            // Checking whether the default values are entered
+            if (startDateTime == default(DateTime))
             {
                 return (false, "Please Enter the Starting Date & Time");
             }
 
-            if (endDate == default(DateTime))
+            // Checking whether the default values are entered
+            if (endDateTime == default(DateTime))
             {
                 return (false, "Please Enter the Ending Date & Time");
             }
 
-            if (endDate <= startDate)
+            // Checking whether the startDateTime is 1 hour from the current time
+            if (startDateTime <= DateTime.Now.AddHours(1))
+            {
+                return (false, "Must add an Event atlease 1 hour from Now");
+            }
+
+            // Checking whether the endDateTime is after the startDateTime
+            if (endDateTime <= startDateTime)
             {
                 return (false, "End Date must be after the start date.");
             }
 
+            // Checking whether valid number is entered for the maxParticipants
             if (!int.TryParse(maxParticipants, out temp))
             {
                 return (false, "Please Enter a Number for Max Participants");
             }
 
+            // Checking whether the maxParticipant is greater than 0
             if (temp <= 0)
             {
                 return (false, "Please Enter a valid Maximum Number of Participants");
             }
 
+            // Checking whether the description field is entered
             if (string.IsNullOrEmpty(description))
             {
                 return (false, "Please Enter the Description");

@@ -19,6 +19,7 @@ namespace EventManagementSystem
             loadform(new ODashboard());
         }
 
+        // Functionality to load forms in the main form 
         public void loadform(object Form)
         {
             if (this.mainpanel.Controls.Count > 0)
@@ -33,27 +34,32 @@ namespace EventManagementSystem
             form.Show();
         }
 
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        // Load View Events form
+        private void ViewEvents_Click(object sender, EventArgs e)
         {
             loadform(new OViewEvents());
         }
 
-        private void kryptonButton2_Click(object sender, EventArgs e)
+        // Load Dashboard form
+        private void Dashboard_Click(object sender, EventArgs e)
         {
             loadform(new ODashboard());
         }
 
-        private void kryptonButton3_Click(object sender, EventArgs e)
+        // Load Manage Events form
+        private void ManageEvents_Click(object sender, EventArgs e)
         {
             loadform(new OManageEvents());
         }
 
-        private void kryptonButton4_Click(object sender, EventArgs e)
+        // Load Manage Bookings form
+        private void ManageBookings_Click(object sender, EventArgs e)
         {
             loadform(new OManageBookings());
         }
 
-        private void kryptonButton5_Click(object sender, EventArgs e)
+        // LogOut fuctionality
+        private void LogOut_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.Show();

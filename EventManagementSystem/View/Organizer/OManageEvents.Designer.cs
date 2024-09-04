@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             label2 = new Label();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            CreateEvent = new Krypton.Toolkit.KryptonButton();
             eventsTable = new DataGridView();
-            kryptonButton2 = new Krypton.Toolkit.KryptonButton();
-            kryptonButton3 = new Krypton.Toolkit.KryptonButton();
+            DeleteEvent = new Krypton.Toolkit.KryptonButton();
+            UpdateEvent = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
             // 
@@ -47,33 +47,33 @@
             label2.TabIndex = 2;
             label2.Text = "EVENTS";
             // 
-            // kryptonButton1
+            // CreateEvent
             // 
-            kryptonButton1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            kryptonButton1.Cursor = Cursors.Hand;
-            kryptonButton1.Location = new Point(788, 28);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
-            kryptonButton1.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            kryptonButton1.Size = new Size(244, 38);
-            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
-            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
-            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
-            kryptonButton1.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
-            kryptonButton1.StateNormal.Back.ColorAngle = 45F;
-            kryptonButton1.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
-            kryptonButton1.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
-            kryptonButton1.TabIndex = 7;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "CREATE";
-            kryptonButton1.Click += kryptonButton1_Click;
+            CreateEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CreateEvent.Cursor = Cursors.Hand;
+            CreateEvent.Location = new Point(788, 28);
+            CreateEvent.Name = "CreateEvent";
+            CreateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
+            CreateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
+            CreateEvent.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            CreateEvent.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            CreateEvent.Size = new Size(244, 38);
+            CreateEvent.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
+            CreateEvent.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
+            CreateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
+            CreateEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CreateEvent.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
+            CreateEvent.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
+            CreateEvent.StateNormal.Back.ColorAngle = 45F;
+            CreateEvent.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            CreateEvent.StateNormal.Content.ShortText.Color1 = Color.White;
+            CreateEvent.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CreateEvent.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
+            CreateEvent.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
+            CreateEvent.TabIndex = 7;
+            CreateEvent.Values.DropDownArrowColor = Color.Empty;
+            CreateEvent.Values.Text = "CREATE";
+            CreateEvent.Click += CreateEvent_Click;
             // 
             // eventsTable
             // 
@@ -86,61 +86,61 @@
             eventsTable.Size = new Size(1001, 513);
             eventsTable.TabIndex = 8;
             // 
-            // kryptonButton2
+            // DeleteEvent
             // 
-            kryptonButton2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            kryptonButton2.Cursor = Cursors.Hand;
-            kryptonButton2.Location = new Point(490, 28);
-            kryptonButton2.Name = "kryptonButton2";
-            kryptonButton2.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
-            kryptonButton2.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
-            kryptonButton2.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            kryptonButton2.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            kryptonButton2.Size = new Size(244, 38);
-            kryptonButton2.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
-            kryptonButton2.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
-            kryptonButton2.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton2.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton2.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
-            kryptonButton2.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
-            kryptonButton2.StateNormal.Back.ColorAngle = 45F;
-            kryptonButton2.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            kryptonButton2.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton2.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton2.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
-            kryptonButton2.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
-            kryptonButton2.TabIndex = 9;
-            kryptonButton2.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton2.Values.Text = "Delete";
-            kryptonButton2.Click += kryptonButton2_Click;
+            DeleteEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            DeleteEvent.Cursor = Cursors.Hand;
+            DeleteEvent.Location = new Point(490, 28);
+            DeleteEvent.Name = "DeleteEvent";
+            DeleteEvent.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
+            DeleteEvent.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
+            DeleteEvent.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            DeleteEvent.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            DeleteEvent.Size = new Size(244, 38);
+            DeleteEvent.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
+            DeleteEvent.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
+            DeleteEvent.StateCommon.Content.ShortText.Color1 = Color.White;
+            DeleteEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DeleteEvent.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
+            DeleteEvent.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
+            DeleteEvent.StateNormal.Back.ColorAngle = 45F;
+            DeleteEvent.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            DeleteEvent.StateNormal.Content.ShortText.Color1 = Color.White;
+            DeleteEvent.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DeleteEvent.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
+            DeleteEvent.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
+            DeleteEvent.TabIndex = 9;
+            DeleteEvent.Values.DropDownArrowColor = Color.Empty;
+            DeleteEvent.Values.Text = "Delete";
+            DeleteEvent.Click += DeleteEvent_Click;
             // 
-            // kryptonButton3
+            // UpdateEvent
             // 
-            kryptonButton3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            kryptonButton3.Cursor = Cursors.Hand;
-            kryptonButton3.Location = new Point(198, 28);
-            kryptonButton3.Name = "kryptonButton3";
-            kryptonButton3.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
-            kryptonButton3.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
-            kryptonButton3.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            kryptonButton3.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            kryptonButton3.Size = new Size(244, 38);
-            kryptonButton3.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
-            kryptonButton3.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
-            kryptonButton3.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton3.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton3.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
-            kryptonButton3.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
-            kryptonButton3.StateNormal.Back.ColorAngle = 45F;
-            kryptonButton3.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            kryptonButton3.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton3.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton3.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
-            kryptonButton3.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
-            kryptonButton3.TabIndex = 10;
-            kryptonButton3.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton3.Values.Text = "UPDATE";
-            kryptonButton3.Click += kryptonButton3_Click;
+            UpdateEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            UpdateEvent.Cursor = Cursors.Hand;
+            UpdateEvent.Location = new Point(198, 28);
+            UpdateEvent.Name = "UpdateEvent";
+            UpdateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
+            UpdateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
+            UpdateEvent.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            UpdateEvent.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            UpdateEvent.Size = new Size(244, 38);
+            UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
+            UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
+            UpdateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
+            UpdateEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateEvent.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
+            UpdateEvent.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
+            UpdateEvent.StateNormal.Back.ColorAngle = 45F;
+            UpdateEvent.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            UpdateEvent.StateNormal.Content.ShortText.Color1 = Color.White;
+            UpdateEvent.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateEvent.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
+            UpdateEvent.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
+            UpdateEvent.TabIndex = 10;
+            UpdateEvent.Values.DropDownArrowColor = Color.Empty;
+            UpdateEvent.Values.Text = "UPDATE";
+            UpdateEvent.Click += UpdateEvent_Click;
             // 
             // OManageEvents
             // 
@@ -148,10 +148,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
             ClientSize = new Size(1074, 675);
-            Controls.Add(kryptonButton3);
-            Controls.Add(kryptonButton2);
+            Controls.Add(UpdateEvent);
+            Controls.Add(DeleteEvent);
             Controls.Add(eventsTable);
-            Controls.Add(kryptonButton1);
+            Controls.Add(CreateEvent);
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "OManageEvents";
@@ -164,9 +164,9 @@
         #endregion
 
         private Label label2;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonButton CreateEvent;
         private DataGridView eventsTable;
-        private Krypton.Toolkit.KryptonButton kryptonButton2;
-        private Krypton.Toolkit.KryptonButton kryptonButton3;
+        private Krypton.Toolkit.KryptonButton DeleteEvent;
+        private Krypton.Toolkit.KryptonButton UpdateEvent;
     }
 }

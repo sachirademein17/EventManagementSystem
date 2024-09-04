@@ -16,43 +16,84 @@ namespace EventManagementSystem
     public partial class UpdateEventForm : Form
     {
 
-        public UpdateEventForm(Event eventDetails)
+        int eventID;
+        Organizer user;
+        OManageEvents manageEvents;
+        Event eventDetails;
+
+        public UpdateEventForm(Event eventDetails, OManageEvents manageEvents)
         {
             InitializeComponent();
+
+            // Set previous event details into the input fields
             SetEventDetails(eventDetails);
             eventID = eventDetails.EventID;
+            user = (Organizer)CurrentUser.UserDetails;
+            this.eventDetails = eventDetails;
+            this.manageEvents = manageEvents;
+
+            // Defining the minimum time that can be placed inside a DateTimePicker
+            InitializeDateTime();
+
         }
 
-        int eventID;
+        
 
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        private void InitializeDateTime()
         {
-            Organizer user = (Organizer)CurrentUser.UserDetails;
+            // Set the minimum date for the DateTimePickers
+            startDatetxt.MinDate = DateTime.Now.AddHours(1);
+            endDatetxt.MinDate = startDatetxt.Value.AddHours(1);
+        }
 
 
+            private void UpdateEvent_Click(object sender, EventArgs e)
+        {
+
+            // Checking if the start time is at least 4 hours before the event's start time
+            DateTime currentTime = DateTime.Now;
+            DateTime startTime = startDatetxt.Value;
+            DateTime endTime = endDatetxt.Value;
+
+
+            // Checking if the start time is within 4 hours
+            if (this.eventDetails.EndDate.AddHours(4) < currentTime)
+            {
+                new DangerToaster("The start time must be at least 4 hours from now.").Show();
+                return;
+            }
+
+
+            // Checking textbox are entered properly
             (bool validation, string validationmsg) = user.TextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text, descriptiontxt.Text);
 
+            // Giving user feedback if not entered properly
             if (!validation)
             {
                 new DangerToaster(validationmsg).Show();
                 return;
             }
 
+            // Getting all the values from text boxes
             string name = nametxt.Text;
             string location = venuetxt.Text;
-            DateTime startTime = startDatetxt.Value;
-            DateTime endTime = endDatetxt.Value;
+            //DateTime startTime = startDatetxt.Value;
+            //DateTime endTime = endDatetxt.Value;
             int maxParticipants = int.Parse(maxParticipantstxt.Text);
             string description = descriptiontxt.Text;
 
 
-
+            // The last row ( Current Participants ) is set to 0 but not used anywhere when update. Used just to create the Event Object
+            // Executing the Update Event fuction
             Event eventDetails = new Event(eventID, user.UserID, name, description, startTime, endTime, location, maxParticipants, 0);
             (bool success, string message )= user.UpdateEvent(eventDetails);
 
+            // giving user feedback
             if (success)
             {
                 new SuccessToaster(message).Show();
+                manageEvents.LoadEventsTable();
+                this.Close();
             }
             else
             {
@@ -61,6 +102,7 @@ namespace EventManagementSystem
             
         }
 
+        // Setting all the text fields with the previous details
         private void SetEventDetails(Event eventDetails)
         {
             eventID = eventDetails.EventID;

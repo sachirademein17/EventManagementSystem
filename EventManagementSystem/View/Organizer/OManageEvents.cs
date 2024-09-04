@@ -16,34 +16,43 @@ namespace EventManagementSystem
 {
     public partial class OManageEvents : Form
     {
-
-        Organizer user = (Organizer)CurrentUser.UserDetails;
+        private Organizer user;
 
 
         public OManageEvents()
         {
             InitializeComponent();
-            DataTable dt = user.ViewAllEvents(user.UserID);
-            eventsTable.DataSource = dt;
+            user = (Organizer)CurrentUser.UserDetails;
+            LoadEventsTable();
         }
 
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        // Create Event Button Functionality
+        private void CreateEvent_Click(object sender, EventArgs e)
         {
-            AddEventForm addEventForm = new AddEventForm();
+            // Redirect to the form that create events
+            AddEventForm addEventForm = new AddEventForm(this);
             addEventForm.Show();
         }
 
-        private void kryptonButton2_Click(object sender, EventArgs e)
+        // Delete Event Button Functionality
+        private void DeleteEvent_Click(object sender, EventArgs e)
         {
+            //Checking whether a row is selected 
             if (eventsTable.SelectedRows.Count > 0)
             {
+                // Getting EventID from an event
                 int rowIndex = eventsTable.SelectedRows[0].Index;
-                int id = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
-                (bool success, string message) = user.DeleteEvent(id);
+                int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
 
+                // Executing Event Deleting Fuctionality
+                (bool success, string message) = user.DeleteEvent(eventID);
+
+                // Show message for User
                 if (success)
                 {
-                    new SuccessToaster(message).Show();    
+                    new SuccessToaster(message).Show();   
+                    
+                    // Remove the row from the DataGridView
                     eventsTable.Rows.RemoveAt(rowIndex);
                 }
                 else
@@ -53,33 +62,45 @@ namespace EventManagementSystem
             }
             else
             {
-                new DangerToaster("Please Select a Row To Delete");
+                // Show this if event row is not selected
+                new DangerToaster("Please Select a Row To Delete").Show();
 
             }
         }
 
-        private void kryptonButton3_Click(object sender, EventArgs e)
+        // Update Event Button Fuctionality
+        private void UpdateEvent_Click(object sender, EventArgs e)
         {
-            
 
+            //Checking whether a row is selected 
             if (eventsTable.SelectedRows.Count > 0)
             {
+                // Getting all the details from the selected row
                 int rowIndex = eventsTable.SelectedRows[0].Index;
-
                 int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
-                int organizerID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[1].Value);
-                string eventName = (string)eventsTable.Rows[rowIndex].Cells[2].Value;
-                string description = (string)eventsTable.Rows[rowIndex].Cells[3].Value;
-                DateTime startDate = (DateTime)eventsTable.Rows[rowIndex].Cells[4].Value;
-                DateTime endDate = (DateTime)eventsTable.Rows[rowIndex].Cells[5].Value;
-                string location = (string)eventsTable.Rows[rowIndex].Cells[6].Value;
-                int maxParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[7].Value);
-                int currentParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[8].Value);
+                string eventName = (string)eventsTable.Rows[rowIndex].Cells[1].Value;
+                string description = (string)eventsTable.Rows[rowIndex].Cells[2].Value;
+                DateTime startDate = (DateTime)eventsTable.Rows[rowIndex].Cells[3].Value;
+                DateTime endDate = (DateTime)eventsTable.Rows[rowIndex].Cells[4].Value;
+                string location = (string)eventsTable.Rows[rowIndex].Cells[5].Value;
+                int maxParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[6].Value);
+                int currentParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[7].Value);
+                int organizerID = user.UserID;
 
-
+                // Creating an Event Object
                 Event eventDetails = new Event(eventID, organizerID, eventName, description, startDate, endDate, location, maxParticipants, currentParticipants);
-                UpdateEventForm updateEventForm = new UpdateEventForm(eventDetails);
-                updateEventForm.Show();
+
+                // Check if the event starts over 4 hours from now. if no can't update event
+                if (eventDetails.StartDate.AddHours(4) < DateTime.Now)
+                {
+                    new DangerToaster("Too Late to Update the Event").Show();
+                }
+                else
+                {
+                    UpdateEventForm updateEventForm = new UpdateEventForm(eventDetails, this);
+                    updateEventForm.Show();
+                }
+                              
 
             }
             else
@@ -87,10 +108,16 @@ namespace EventManagementSystem
                 new DangerToaster("Please select a row to update").Show();
 
             }
-
-
         }
 
-            
+        // Load The DataGridView
+        public void LoadEventsTable()
+        {
+            DataTable dt = user.ViewAllEvents(user.UserID);
+            eventsTable.DataSource = dt;
+        }
+
+
+
     }
 }

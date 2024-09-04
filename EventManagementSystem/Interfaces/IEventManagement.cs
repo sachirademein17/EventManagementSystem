@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace EventManagementSystem.Interfaces
         (bool,string) CreateEvent(Event eventDetails);
         (bool, string) UpdateEvent(Event eventDetails);
         (bool, string) DeleteEvent(int eventID);
-        List<Event> ViewEventParticipants(int eventID);
+        DataTable ViewAllEvents(int eventID);
 
         (bool, string) TextBoxValidation(string eventName, string location, DateTime startDate, DateTime endDate, string maxParticipants, string description)
         {

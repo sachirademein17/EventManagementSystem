@@ -42,6 +42,8 @@ namespace EventManagementSystem.Models
 
         // Query to Cancel Bookings
         const string CancelBookingQuery = "DELETE FROM bookings WHERE BookingID = @BookingID;";
+        const string GetEventIDQuery = "SELECT EventID FROM bookings WHERE BookingID = @BookingID;";
+        const string DecrementCurrentEventParticipantsQuery = "UPDATE events SET CurrentParticipants = CurrentParticipants - 1 WHERE EventID = @EventID;";
 
 
         public Organizer(int userID, string username, string passwordHash, string email, string phoneNumber, string role) : base(userID, username, passwordHash, email, phoneNumber, role)
@@ -216,28 +218,57 @@ namespace EventManagementSystem.Models
             try
             {
 
-                // Parameters for the CancelBookingQuery
+                // Parameters for the CancelBookingQuery & GetEventIDQuery
                 MySqlParameter[] cancelBookingParameters = new MySqlParameter[]
                 {
                     new MySqlParameter("@BookingID",bookingID)
                 };
 
-                // Executing the CancelBookingQuery
-                int result = DBConnection.ExecuteNonQuery(CancelBookingQuery, cancelBookingParameters);
 
-                // Returning User feedback message
-                if (result > 0)
+                // Retrieve the EventID associated with the booking
+                object result = DBConnection.ExecuteScalar(GetEventIDQuery, cancelBookingParameters);
+
+                if (result == null || result == DBNull.Value)
                 {
-                    return (true, "Booking Deleted Successfully");
+                    return (false, "Could not retrieve EventID for the given BookingID");
+                }
+
+                int eventID = Convert.ToInt32(result);
+
+                // Parameters for the DecrementCurrentEventParticipants
+                MySqlParameter[] decrementParticipantParameters = new MySqlParameter[]
+                {
+                    new MySqlParameter ("@EventID", eventID)
+                };
+
+                int decrementResult = DBConnection.ExecuteNonQuery(DecrementCurrentEventParticipantsQuery, decrementParticipantParameters);
+
+                // Returning User feedback message after decreasing the event CurrentParticipant value by 1
+                if (!(decrementResult > 0))
+                {
+                    return (false, "Booking Not Cancelled");
+                }
+
+
+                // Executing the CancelBookingQuery
+                int cancelResult = DBConnection.ExecuteNonQuery(CancelBookingQuery, cancelBookingParameters);
+
+                // Returning User feedback message after deleting the booking
+                if (cancelResult > 0)
+                {
+                    return (true, "Booking Cancelled Successfully");
                 }
                 else
                 {
-                    return (false, "Booking Not Deleted");
+                    return (false, "Booking Not Cancelled");
                 }
+
+                
 
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 return (false, "Database or Query Issue");
             }
         }

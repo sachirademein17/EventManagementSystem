@@ -1,4 +1,5 @@
 ﻿using EventManagementSystem.Models;
+using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,34 +15,55 @@ namespace EventManagementSystem
 {
     public partial class PEventRegistration : Form
     {
-        Participant user = (Participant)CurrentUser.UserDetails;
+        Participant user;
         public PEventRegistration()
         {
             InitializeComponent();
-            DataTable dt = user.GetRegisteredEvents(user.UserID);
-            RegisteredEvent.DataSource = dt;
+            user = (Participant)CurrentUser.UserDetails;
+
+            // Load the table
+            LoadTable();
         }
 
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        // Button performing the Cancel Booking function
+        private void CancelBooking_Click(object sender, EventArgs e)
         {
-
+            // Checking whether a row is selected
             if (RegisteredEvent.SelectedRows.Count > 0)
             {
+                // Executing the cancel booking fuction
                 int rowIndex = RegisteredEvent.SelectedRows[0].Index;
-                int id = Convert.ToInt32(RegisteredEvent.Rows[rowIndex].Cells[0].Value);
-                bool success = user.CancelBooking(id, user.UserID);
+                int eventID = Convert.ToInt32(RegisteredEvent.Rows[rowIndex].Cells[0].Value);
+                (bool success, string message) = user.CancelBooking(eventID, user.UserID);
 
+                // Giving user feedback 
                 if (success)
                 {
-                    MessageBox.Show("The Event was successfully removed !!!");
+                    new SuccessToaster(message).Show();
                     RegisteredEvent.Rows.RemoveAt(rowIndex);
                 }
                 else
                 {
-                    MessageBox.Show("Please select a row to delete !!!");
+                    new DangerToaster(message).Show();
                 }
             }
+            else
+            {
+                new DangerToaster("Please select an event to cancel").Show();
+            }
 
+        }
+
+        // Load the Table
+        private void LoadTable()
+        {
+            DataTable dataTable = user.GetRegisteredEvents(user.UserID);
+
+            if (dataTable == null) {
+                new DangerToaster("Database or Query Issue").Show();
+            }
+
+            RegisteredEvent.DataSource = dataTable;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using LiveChartsCore.Themes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,208 +16,256 @@ namespace EventManagementSystem.Models
         Participant user = (Participant)CurrentUser.UserDetails;
 
 
+        const string AlreadyRegisteredQuery = "SELECT COUNT(*) FROM Bookings WHERE EventID = @EventID AND ParticipantID = @ParticipantID";
+        const string AddBookingQuery = "INSERT INTO Bookings (EventID, ParticipantID, BookingDate) VALUES (@EventID, @ParticipantID, NOW());";
+        const string IncreseCurrentParticipantsQuery = "UPDATE Events SET CurrentParticipants = CurrentParticipants + 1 WHERE EventID = @EventID;";
+
+        const string ViewAllEventsQuery =
+                    "SELECT e.EventID, u.Username AS OrganizerName, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location, e.MaxParticipants, e.CurrentParticipants " +
+                    "FROM events e " +
+                    "JOIN users u ON e.OrganizerID = u.UserID " +
+                    "WHERE e.StartDate > NOW()" +
+                    "AND e.CurrentParticipants < e.MaxParticipants;";
+
+        const string GetParticipantIdQuery = "SELECT ParticipantID FROM participants WHERE UserID = @UserID";
+
+        const string MaxParticipantsQuery = "SELECT MaxParticipants FROM events WHERE EventID = @EventID";
+        const string CurrentParticipantsQuery = "SELECT CurrentParticipants FROM events WHERE EventID = @EventID";
+
+        const string GetRegisteredEventsQuery = "SELECT e.EventID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location FROM Events e INNER JOIN Bookings b ON e.EventID = b.EventID WHERE b.ParticipantID = @ParticipantID;";
+
+        const string DeleteBookingQuery = "DELETE FROM Bookings WHERE EventID = @EventID AND ParticipantID = @ParticipantID;";
+
+        const string UpdateParticipantsQuery = "UPDATE Events SET CurrentParticipants = CurrentParticipants - 1 WHERE EventID = @EventID;";
+
+
+
         public Participant(int userID, string username, string passwordHash, string email, string phoneNumber, string role) : base(userID, username, passwordHash, email, phoneNumber, role)
         {
         }
 
+        // Fuctionality to view all the events
         public DataTable ViewAllEvents()
         {
             try
             {
-                string query = $"SELECT * FROM events ;";
-                DataTable allEvents = DBConnection.ExcecuteQuery(query);
+                // Execute view all events query
+                DataTable allEvents = DBConnection.ExcecuteQuery(ViewAllEventsQuery);
                 return allEvents;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return null;
             }
         }
 
-        public bool BookEvent(int eventDetails, int userID)
+        // Functionality to book an event
+        public (bool, string) BookEvent(int eventID, int userID)
         {
             try
             {
-
+                // Getting the participantID
                 int participantID = GetParticipantId(userID);
 
+                // Validating the participantID
                 if (participantID == -1)
                 {
-                    return false;
+                    return (false, "Can't find the Participant ID");
                 }
 
-                if (!CheckCanRegister(eventDetails))
+                // Checking events current participant No has exceeded the maximum participant 
+                if (!CheckCanRegister(eventID))
                 {
-                    return false;
+                    return (false, "Participant limit for the event has exceeded");
                 }
 
-
-
-                string insertQuery = "INSERT INTO Bookings (EventID, ParticipantID, BookingDate) VALUES (@EventID, @ParticipantID, NOW());";
-                string updateQuery = "UPDATE Events SET CurrentParticipants = CurrentParticipants + 1 WHERE EventID = @EventID;";
-
-                MySqlParameter[] parameters = new MySqlParameter[]
+                // Parameter for the Already Registered query
+                MySqlParameter[] alreadyRegisteredParameter = new MySqlParameter[]
                 {
-                    new MySqlParameter("@EventID", eventDetails),
+                    new MySqlParameter("@EventID", eventID),
                     new MySqlParameter("@ParticipantID", participantID)
                 };
 
-                int result1 = DBConnection.ExecuteNonQuery(insertQuery, parameters);
+                // Execute already registered query
+                int alreadyRegisteredResult = Convert.ToInt32(DBConnection.ExecuteScalar(AlreadyRegisteredQuery, alreadyRegisteredParameter));
 
-                MySqlParameter[] parameters1 = new MySqlParameter[]
+                // Check whether participant is already registered
+                if (alreadyRegisteredResult > 0)
                 {
-                    new MySqlParameter("@EventID", eventDetails)
+                    return (false, "You have already Booked this event");
+                }
+
+                // Parameter for the Add Booking query
+                MySqlParameter[] addBookingParameter = new MySqlParameter[]
+                {
+                    new MySqlParameter("@EventID", eventID),
+                    new MySqlParameter("@ParticipantID", participantID)
                 };
 
-                int result2 = DBConnection.ExecuteNonQuery(updateQuery, parameters1);
+                // Execute Add Booking query
+                int addBookingResult = DBConnection.ExecuteNonQuery(AddBookingQuery, addBookingParameter);
 
-
-
-                if (result1 > 0)
+                // Parameter for the Increase Current Participants query 
+                MySqlParameter[] increaseCurrentParticipantsParameters = new MySqlParameter[]
                 {
-                    if (result2 > 0) { 
-                    return true;
+                    new MySqlParameter("@EventID", eventID)
+                };
+
+                // Execute Increase Current Participants query
+                int increaseParticipants = DBConnection.ExecuteNonQuery(IncreseCurrentParticipantsQuery, increaseCurrentParticipantsParameters);
+
+                // Giving user feedback if all operations are successful
+                if (addBookingResult > 0)
+                {
+                    if (increaseParticipants > 0) { 
+                    return (true, "Booking add successfully");
                     }
                 }
                 
-                    
-                return false;
+                // If operation is unsuccessful
+                return (false, "Unable to add a booking");
                 
                }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Try Catch seen ekak bn");
-                MessageBox.Show(userID.ToString());
-
-                return false;
+                return (false, "Database or Query Issue");
             }
         }
 
+        // Fuctionality to get the registered events
         public DataTable GetRegisteredEvents(int userID)
         {
             try
             {
+                // Get the participant ID
                 int participantID = GetParticipantId(userID);
 
-                string query = "SELECT e.EventID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location FROM Events e INNER JOIN Bookings b ON e.EventID = b.EventID WHERE b.ParticipantID = @ParticipantID;";
-                MySqlParameter[] parameter = new MySqlParameter[]
+                
+                
+                // Parameters for the Get Registered Events Query
+                MySqlParameter[] getRegisteredEventsParameter = new MySqlParameter[]
                 {
                     new MySqlParameter ("@ParticipantID", participantID)
                 };
 
-                DataTable dt = DBConnection.ExcecuteQuery(query, parameter);
+                //Execute the Get Registered Event Query
+                DataTable dt = DBConnection.ExcecuteQuery(GetRegisteredEventsQuery, getRegisteredEventsParameter);
                 return dt;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return null;
             }
 
         }
 
-        public bool CancelBooking(int eventDetails, int userID)
+        // Functionality to cancel booking
+        public (bool, string) CancelBooking(int eventID, int userID)
         {
             try
             {
-
+                //Getting the partcipant ID
                 int participantID = GetParticipantId(userID);
 
-                string query = "DELETE FROM Bookings WHERE EventID = @EventID AND ParticipantID = @ParticipantID;";
-                MySqlParameter[] parameters = new MySqlParameter[]
+
+                
+                // Parameter for the delete booking query
+                MySqlParameter[] deleteBookingParameters = new MySqlParameter[]
                 {
-                    new MySqlParameter("@EventID", eventDetails),
+                    new MySqlParameter("@EventID", eventID),
                     new MySqlParameter("@ParticipantID", participantID)
                 };
 
-                int result1 = DBConnection.ExecuteNonQuery(query, parameters);
+                // Execute Delete Booking query
+                int deleteBookingResult = DBConnection.ExecuteNonQuery(DeleteBookingQuery, deleteBookingParameters);
 
-                string query1 = "UPDATE Events SET CurrentParticipants = CurrentParticipants - 1 WHERE EventID = @EventID;";
-                MySqlParameter[] parameters1 = new MySqlParameter[]
+                
+                // Parameters for the Update Current Participants query
+                MySqlParameter[] updateParticipantsParameters = new MySqlParameter[]
                 {
-                    new MySqlParameter("@EventID", eventDetails)
+                    new MySqlParameter("@EventID", eventID)
                 };
 
-                int result2 = DBConnection.ExecuteNonQuery(query1, parameters1);
+                // Excecute Update Curren Participants query
+                int updateParticipantsResult = DBConnection.ExecuteNonQuery(UpdateParticipantsQuery, updateParticipantsParameters);
 
-                if (result1 > 0)
+                if (deleteBookingResult > 0)
                 {
-                    if (result2 > 0)
+                    if (updateParticipantsResult > 0)
                     {
-                        return true;
+                        return (true, "Booking Cancelled Successfully");
                     }
                 }
 
-                return false;
+                return (false, "BookingNot Not Cancelled");
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return false;
+                return (false, "Database or Query Issue");
             }
         }
 
 
-
+        // Functionality to get the ParticipantID
         public int GetParticipantId(int userID)
         {
 
-            string query = "SELECT ParticipantID FROM participants WHERE UserID = @UserID";
-            MySqlParameter[] parameters = new MySqlParameter[]
+
+            // Parameter for the Get ParticipantID query
+            MySqlParameter[] getParticipantIdParameters = new MySqlParameter[]
             {
-        new MySqlParameter("@UserID", userID)
+                new MySqlParameter("@UserID", userID)
             };
 
+            // Execute Get ParticipnatId query
+            object result = DBConnection.ExecuteScalar(GetParticipantIdQuery, getParticipantIdParameters);
 
-            object result = DBConnection.ExecuteScalar(query, parameters);
-
+            // validating the result
             if (result != null)
             {
-                return Convert.ToInt32(result); // Ensure this conversion is safe by checking for null first
+                return Convert.ToInt32(result); 
             }
             else
             {
-                return -1; // Return a default value if no result is found
+                return -1; 
             }
         }
 
+        // Checking events current participant No has exceeded the maximum participant 
         private bool CheckCanRegister(int eventID)
         {
 
             try
             {
-                string query1 = "SELECT MaxParticipants FROM events WHERE EventID = @EventID";
-                string query2 = "SELECT CurrentParticipants FROM events WHERE EventID = @EventID";
-
-
+                
                 int maxParticipants = 0;
                 int currentParticipants = 0;
 
-                MySqlParameter[] parameter = new MySqlParameter[]
+                // Parameters for the MaxParticipants & CurrentParticipants Queries
+                MySqlParameter[] ParticipantsParameter = new MySqlParameter[]
                 {
                     new MySqlParameter("EventID", eventID)
                 };
 
-                object max = DBConnection.ExecuteScalar(query1, parameter);
-                object current = DBConnection.ExecuteScalar(query2, parameter);
+                // Executing both MaxParticipants & CurrentParticipants Queries
+                object max = DBConnection.ExecuteScalar(MaxParticipantsQuery, ParticipantsParameter);
+                object current = DBConnection.ExecuteScalar(CurrentParticipantsQuery, ParticipantsParameter);
 
+                // Validating the values
                 if (max != null && current != null)
                 {
                     maxParticipants = int.Parse(max.ToString());
                     currentParticipants = int.Parse(current.ToString());
                 }
 
-                MessageBox.Show(maxParticipants.ToString() + currentParticipants.ToString());
 
+                // Return whether space available for the event or not
                 return maxParticipants == 0 || currentParticipants < maxParticipants;
 
             }
             catch (Exception ex) 
             {
-                MessageBox.Show(ex.Message);    
                 return false;
             }
             

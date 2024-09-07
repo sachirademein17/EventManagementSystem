@@ -30,7 +30,7 @@
         {
             label2 = new Label();
             label1 = new Label();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            BookingEvent = new Krypton.Toolkit.KryptonButton();
             kryptonDataGridView1 = new Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)kryptonDataGridView1).BeginInit();
             SuspendLayout();
@@ -57,39 +57,55 @@
             label1.TabIndex = 9;
             label1.Text = "EVENTS";
             // 
-            // kryptonButton1
+            // BookingEvent
             // 
-            kryptonButton1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            kryptonButton1.Cursor = Cursors.Hand;
-            kryptonButton1.Location = new Point(794, 36);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.Size = new Size(244, 38);
-            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.TabIndex = 11;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "BOOK";
-            kryptonButton1.Click += kryptonButton1_Click;
+            BookingEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BookingEvent.Cursor = Cursors.Hand;
+            BookingEvent.Location = new Point(794, 36);
+            BookingEvent.Name = "BookingEvent";
+            BookingEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            BookingEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            BookingEvent.Size = new Size(244, 38);
+            BookingEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            BookingEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            BookingEvent.StateCommon.Content.ShortText.Color1 = Color.White;
+            BookingEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BookingEvent.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            BookingEvent.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            BookingEvent.StateNormal.Content.ShortText.Color1 = Color.White;
+            BookingEvent.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BookingEvent.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            BookingEvent.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            BookingEvent.TabIndex = 11;
+            BookingEvent.Values.DropDownArrowColor = Color.Empty;
+            BookingEvent.Values.Text = "BOOK";
+            BookingEvent.Click += BookingEvent_Click;
             // 
             // kryptonDataGridView1
             // 
             kryptonDataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            kryptonDataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            kryptonDataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             kryptonDataGridView1.BorderStyle = BorderStyle.None;
             kryptonDataGridView1.ColumnHeadersHeight = 51;
             kryptonDataGridView1.Location = new Point(37, 131);
             kryptonDataGridView1.Name = "kryptonDataGridView1";
             kryptonDataGridView1.RowHeadersWidth = 62;
-            kryptonDataGridView1.Size = new Size(1001, 532);
+            kryptonDataGridView1.Size = new Size(1001, 514);
+            kryptonDataGridView1.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            kryptonDataGridView1.StateCommon.DataCell.Back.Color1 = Color.FromArgb(40, 40, 40);
+            kryptonDataGridView1.StateCommon.DataCell.Back.Color2 = Color.FromArgb(50, 50, 50);
+            kryptonDataGridView1.StateCommon.DataCell.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Switch25;
+            kryptonDataGridView1.StateCommon.DataCell.Content.Color1 = Color.LightGray;
+            kryptonDataGridView1.StateCommon.DataCell.Content.Font = new Font("Segoe UI", 10F);
+            kryptonDataGridView1.StateCommon.HeaderColumn.Back.Color1 = Color.FromArgb(45, 45, 48);
+            kryptonDataGridView1.StateCommon.HeaderColumn.Back.Color2 = Color.FromArgb(31, 31, 31);
+            kryptonDataGridView1.StateCommon.HeaderColumn.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            kryptonDataGridView1.StateCommon.HeaderColumn.Border.Color1 = Color.Cyan;
+            kryptonDataGridView1.StateCommon.HeaderColumn.Content.Color1 = Color.White;
+            kryptonDataGridView1.StateCommon.HeaderColumn.Content.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            kryptonDataGridView1.StateSelected.DataCell.Back.Color1 = Color.Cyan;
+            kryptonDataGridView1.StateSelected.DataCell.Content.Color1 = Color.Black;
             kryptonDataGridView1.TabIndex = 12;
             // 
             // PDashboard
@@ -99,7 +115,7 @@
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
             Controls.Add(kryptonDataGridView1);
-            Controls.Add(kryptonButton1);
+            Controls.Add(BookingEvent);
             Controls.Add(label1);
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
@@ -113,7 +129,7 @@
         #endregion
         private Label label2;
         private Label label1;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonButton BookingEvent;
         private Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
     }
 }

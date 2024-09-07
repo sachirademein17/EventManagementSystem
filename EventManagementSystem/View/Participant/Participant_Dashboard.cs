@@ -34,17 +34,17 @@ namespace EventManagementSystem
         }
 
 
-        private void kryptonButton2_Click(object sender, EventArgs e)
+        private void Dashboard_Click(object sender, EventArgs e)
         {
             loadform(new PDashboard());
         }
 
-        private void kryptonButton3_Click(object sender, EventArgs e)
+        private void EventRegistration_Click(object sender, EventArgs e)
         {
             loadform(new PEventRegistration());
         }
 
-        private void kryptonButton4_Click(object sender, EventArgs e)
+        private void LogOut_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.Show();

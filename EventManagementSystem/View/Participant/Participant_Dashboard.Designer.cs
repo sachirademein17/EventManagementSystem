@@ -31,10 +31,10 @@
             mainpanel = new Panel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            kryptonButton4 = new Krypton.Toolkit.KryptonButton();
+            LogOut = new Krypton.Toolkit.KryptonButton();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            kryptonButton2 = new Krypton.Toolkit.KryptonButton();
-            kryptonButton3 = new Krypton.Toolkit.KryptonButton();
+            Dashboard = new Krypton.Toolkit.KryptonButton();
+            EventRegistration = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -61,7 +61,7 @@
             // 
             // kryptonPanel1
             // 
-            kryptonPanel1.Controls.Add(kryptonButton4);
+            kryptonPanel1.Controls.Add(LogOut);
             kryptonPanel1.Controls.Add(flowLayoutPanel1);
             kryptonPanel1.Dock = DockStyle.Left;
             kryptonPanel1.Location = new Point(0, 0);
@@ -70,72 +70,72 @@
             kryptonPanel1.StateNormal.Color1 = Color.FromArgb(28, 28, 28);
             kryptonPanel1.TabIndex = 6;
             // 
-            // kryptonButton4
+            // LogOut
             // 
-            kryptonButton4.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
-            kryptonButton4.Location = new Point(0, 678);
-            kryptonButton4.Name = "kryptonButton4";
-            kryptonButton4.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
-            kryptonButton4.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
-            kryptonButton4.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            kryptonButton4.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            kryptonButton4.Size = new Size(239, 84);
-            kryptonButton4.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
-            kryptonButton4.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
-            kryptonButton4.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton4.StateCommon.Content.ShortText.Color2 = Color.White;
-            kryptonButton4.TabIndex = 5;
-            kryptonButton4.Values.DropDownArrowColor = Color.AliceBlue;
-            kryptonButton4.Values.Text = "LogOut";
-            kryptonButton4.Click += kryptonButton4_Click;
+            LogOut.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            LogOut.Location = new Point(0, 678);
+            LogOut.Name = "LogOut";
+            LogOut.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
+            LogOut.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
+            LogOut.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            LogOut.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            LogOut.Size = new Size(239, 84);
+            LogOut.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
+            LogOut.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
+            LogOut.StateCommon.Content.ShortText.Color1 = Color.White;
+            LogOut.StateCommon.Content.ShortText.Color2 = Color.White;
+            LogOut.TabIndex = 5;
+            LogOut.Values.DropDownArrowColor = Color.AliceBlue;
+            LogOut.Values.Text = "LogOut";
+            LogOut.Click += LogOut_Click;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackColor = Color.FromArgb(28, 28, 28);
-            flowLayoutPanel1.Controls.Add(kryptonButton2);
-            flowLayoutPanel1.Controls.Add(kryptonButton3);
+            flowLayoutPanel1.Controls.Add(Dashboard);
+            flowLayoutPanel1.Controls.Add(EventRegistration);
             flowLayoutPanel1.Location = new Point(0, 93);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(245, 374);
             flowLayoutPanel1.TabIndex = 3;
             // 
-            // kryptonButton2
+            // Dashboard
             // 
-            kryptonButton2.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
-            kryptonButton2.Location = new Point(3, 3);
-            kryptonButton2.Name = "kryptonButton2";
-            kryptonButton2.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
-            kryptonButton2.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
-            kryptonButton2.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            kryptonButton2.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            kryptonButton2.Size = new Size(239, 95);
-            kryptonButton2.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
-            kryptonButton2.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
-            kryptonButton2.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton2.StateCommon.Content.ShortText.Color2 = Color.White;
-            kryptonButton2.TabIndex = 3;
-            kryptonButton2.Values.DropDownArrowColor = Color.AliceBlue;
-            kryptonButton2.Values.Text = "Dashboard";
-            kryptonButton2.Click += kryptonButton2_Click;
+            Dashboard.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            Dashboard.Location = new Point(3, 3);
+            Dashboard.Name = "Dashboard";
+            Dashboard.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
+            Dashboard.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
+            Dashboard.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            Dashboard.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            Dashboard.Size = new Size(239, 95);
+            Dashboard.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
+            Dashboard.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
+            Dashboard.StateCommon.Content.ShortText.Color1 = Color.White;
+            Dashboard.StateCommon.Content.ShortText.Color2 = Color.White;
+            Dashboard.TabIndex = 3;
+            Dashboard.Values.DropDownArrowColor = Color.AliceBlue;
+            Dashboard.Values.Text = "Dashboard";
+            Dashboard.Click += Dashboard_Click;
             // 
-            // kryptonButton3
+            // EventRegistration
             // 
-            kryptonButton3.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
-            kryptonButton3.Location = new Point(3, 104);
-            kryptonButton3.Name = "kryptonButton3";
-            kryptonButton3.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
-            kryptonButton3.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
-            kryptonButton3.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            kryptonButton3.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            kryptonButton3.Size = new Size(239, 84);
-            kryptonButton3.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
-            kryptonButton3.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
-            kryptonButton3.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton3.StateCommon.Content.ShortText.Color2 = Color.White;
-            kryptonButton3.TabIndex = 4;
-            kryptonButton3.Values.DropDownArrowColor = Color.AliceBlue;
-            kryptonButton3.Values.Text = "Event Registration";
-            kryptonButton3.Click += kryptonButton3_Click;
+            EventRegistration.ButtonStyle = Krypton.Toolkit.ButtonStyle.LowProfile;
+            EventRegistration.Location = new Point(3, 104);
+            EventRegistration.Name = "EventRegistration";
+            EventRegistration.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
+            EventRegistration.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
+            EventRegistration.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            EventRegistration.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            EventRegistration.Size = new Size(239, 84);
+            EventRegistration.StateCommon.Back.Color1 = Color.FromArgb(28, 28, 28);
+            EventRegistration.StateCommon.Back.Color2 = Color.FromArgb(28, 28, 28);
+            EventRegistration.StateCommon.Content.ShortText.Color1 = Color.White;
+            EventRegistration.StateCommon.Content.ShortText.Color2 = Color.White;
+            EventRegistration.TabIndex = 4;
+            EventRegistration.Values.DropDownArrowColor = Color.AliceBlue;
+            EventRegistration.Values.Text = "Event Registration";
+            EventRegistration.Click += EventRegistration_Click;
             // 
             // Participant_Dashboard
             // 
@@ -160,8 +160,8 @@
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Krypton.Toolkit.KryptonButton kryptonButton2;
-        private Krypton.Toolkit.KryptonButton kryptonButton3;
-        private Krypton.Toolkit.KryptonButton kryptonButton4;
+        private Krypton.Toolkit.KryptonButton Dashboard;
+        private Krypton.Toolkit.KryptonButton EventRegistration;
+        private Krypton.Toolkit.KryptonButton LogOut;
     }
 }

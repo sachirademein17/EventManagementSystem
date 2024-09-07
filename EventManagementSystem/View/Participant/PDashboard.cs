@@ -1,4 +1,5 @@
 ﻿using EventManagementSystem.Models;
+using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,45 +14,60 @@ namespace EventManagementSystem
 {
     public partial class PDashboard : Form
     {
-        Participant user = (Participant)CurrentUser.UserDetails;
+        Participant user;
 
         public PDashboard()
         {
             InitializeComponent();
-/*            user = CurrentUser.UserDetails as Participant;
-*/            DataTable dt = user.ViewAllEvents();
-            kryptonDataGridView1.DataSource = dt;
+            user = CurrentUser.UserDetails as Participant;
+
+            // Load the table
+            LoadTable();
         }
 
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        // Button that performs the booking functionality
+        private void BookingEvent_Click(object sender, EventArgs e)
         {
-
+            // Checking whether a row is selected
             if (kryptonDataGridView1.SelectedRows.Count > 0)
             {
+                // Getting the eventID from the DataGridView
                 int rowIndex = kryptonDataGridView1.SelectedRows[0].Index;
-
                 int eventID = Convert.ToInt32(kryptonDataGridView1.Rows[rowIndex].Cells[0].Value);
 
-                MessageBox.Show(user.UserID.ToString());
+                // Perform thebook event fuctionality
+                (bool success, string message) = user.BookEvent(eventID,user.UserID);
 
-                bool success = user.BookEvent(eventID,user.UserID);
 
+                // Give user feedback
                 if (success)
                 {
-                    MessageBox.Show("You are registered successfully  to the event !!!");
+                    new SuccessToaster(message).Show();
                 }
                 else
                 {
-                    MessageBox.Show("There seems to be an issue !!!");
+                    new DangerToaster(message).Show();
                 }
 
 
             }
             else
             {
-                MessageBox.Show("Please select an event !!!");
+                new DangerToaster("Please select an event !!!").Show();
             }
 
         }
+
+        // Load table
+        private void LoadTable()
+        {
+            DataTable dt = user.ViewAllEvents();
+            if (dt == null)
+            {
+                new DangerToaster("Can't Load the events").Show();
+            }
+            kryptonDataGridView1.DataSource = dt;
+        }
+
     }
 }

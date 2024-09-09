@@ -14,17 +14,19 @@ namespace EventManagementSystem.View.Admin
     public partial class UpdateAccount : Form
     {
         User userDetails;
+        EventManagementSystem.Models.Admin user;
         public UpdateAccount(User userDetails)
         {
             InitializeComponent();
+            user = (EventManagementSystem.Models.Admin)CurrentUser.UserDetails;
             this.userDetails = userDetails ;
             SetUserDetails(userDetails);
         }
 
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        // Perform the Update User functionality
+        private void UpdateUser_Click(object sender, EventArgs e)
         {
-            EventManagementSystem.Models.Admin user = (EventManagementSystem.Models.Admin)CurrentUser.UserDetails;
-
+            // Getting the role value
             string role;
             if (participantrole.Checked)
             {
@@ -38,12 +40,14 @@ namespace EventManagementSystem.View.Admin
 
             (bool validation, string errormsg) = user.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
 
+            // Checking whether the validation is success
             if (!validation)
             {
                 new DangerToaster(errormsg).Show();
                 return;
             }
 
+            // Get all the user inputs from textboxes
             string username = usernametxt.Text;
             string password = passwordtxt.Text;
             string confirmPassword = confirmpasswordtxt.Text;
@@ -52,8 +56,10 @@ namespace EventManagementSystem.View.Admin
 
             User updateUser = new Organizer(userDetails.UserID, username, password, email, phoneNumber, role);
 
+            // Execute the Update User functionality
             (bool success, string message) = user.UpdateUser(updateUser,userDetails.UserName);
 
+            // give user feedback
             if (success)
             {
                 new SuccessToaster(message).Show();
@@ -65,6 +71,7 @@ namespace EventManagementSystem.View.Admin
 
         }
 
+        // Set Input fields according to the previous user details
         private void SetUserDetails(User userDetails)
         {
             usernametxt.Text = userDetails.UserName;

@@ -1,4 +1,6 @@
-﻿namespace EventManagementSystem
+﻿using Krypton.Toolkit;
+
+namespace EventManagementSystem
 {
     partial class OManageEvents
     {
@@ -28,22 +30,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label2 = new Label();
-            CreateEvent = new Krypton.Toolkit.KryptonButton();
+            CreateEvent = new KryptonButton();
             eventsTable = new DataGridView();
-            DeleteEvent = new Krypton.Toolkit.KryptonButton();
-            UpdateEvent = new Krypton.Toolkit.KryptonButton();
+            DeleteEvent = new KryptonButton();
+            UpdateEvent = new KryptonButton();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 16F);
+            label2.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(224, 224, 224);
             label2.Location = new Point(31, 29);
             label2.Name = "label2";
-            label2.Size = new Size(146, 37);
+            label2.Size = new Size(137, 45);
             label2.TabIndex = 2;
             label2.Text = "EVENTS";
             // 
@@ -53,36 +59,68 @@
             CreateEvent.Cursor = Cursors.Hand;
             CreateEvent.Location = new Point(788, 28);
             CreateEvent.Name = "CreateEvent";
-            CreateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
-            CreateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
-            CreateEvent.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            CreateEvent.OverrideDefault.Content.ShortText.Color2 = Color.White;
             CreateEvent.Size = new Size(244, 38);
-            CreateEvent.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
-            CreateEvent.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
+            CreateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 209, 161);
+            CreateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 177, 151);
+            CreateEvent.StateCommon.Back.ColorAngle = 45F;
+            CreateEvent.StateCommon.Back.ColorStyle = PaletteColorStyle.Linear;
+            CreateEvent.StateCommon.Border.Color1 = Color.FromArgb(0, 177, 151);
+            CreateEvent.StateCommon.Border.Color2 = Color.FromArgb(0, 209, 161);
+            CreateEvent.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+            CreateEvent.StateCommon.Border.GraphicsHint = PaletteGraphicsHint.AntiAlias;
+            CreateEvent.StateCommon.Border.Rounding = 20F;
+            CreateEvent.StateCommon.Border.Width = 1;
             CreateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
-            CreateEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CreateEvent.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
-            CreateEvent.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
+            CreateEvent.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            CreateEvent.StateNormal.Back.Color1 = Color.FromArgb(0, 209, 161);
+            CreateEvent.StateNormal.Back.Color2 = Color.FromArgb(0, 177, 151);
             CreateEvent.StateNormal.Back.ColorAngle = 45F;
-            CreateEvent.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            CreateEvent.StateNormal.Content.ShortText.Color1 = Color.White;
-            CreateEvent.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CreateEvent.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
-            CreateEvent.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
-            CreateEvent.TabIndex = 7;
+            CreateEvent.StatePressed.Back.Color1 = Color.FromArgb(0, 177, 151);
+            CreateEvent.StatePressed.Back.Color2 = Color.FromArgb(0, 140, 120);
+            CreateEvent.StatePressed.Border.Rounding = 20F;
+            CreateEvent.TabIndex = 9;
             CreateEvent.Values.DropDownArrowColor = Color.Empty;
             CreateEvent.Values.Text = "CREATE";
             CreateEvent.Click += CreateEvent_Click;
             // 
             // eventsTable
             // 
+            eventsTable.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(40, 40, 40);
+            eventsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             eventsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            eventsTable.BackgroundColor = Color.FromArgb(61, 61, 61);
+            eventsTable.BackgroundColor = Color.FromArgb(25, 25, 25);
+            eventsTable.BorderStyle = BorderStyle.None;
+            eventsTable.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(44, 72, 117);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            eventsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             eventsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(31, 31, 31);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(44, 72, 117);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            eventsTable.DefaultCellStyle = dataGridViewCellStyle3;
+            eventsTable.GridColor = Color.FromArgb(61, 61, 61);
             eventsTable.Location = new Point(31, 119);
             eventsTable.Name = "eventsTable";
-            eventsTable.RowHeadersWidth = 62;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(31, 31, 31);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            eventsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            eventsTable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             eventsTable.Size = new Size(1001, 513);
             eventsTable.TabIndex = 8;
             // 
@@ -90,54 +128,58 @@
             // 
             DeleteEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DeleteEvent.Cursor = Cursors.Hand;
-            DeleteEvent.Location = new Point(490, 28);
+            DeleteEvent.Location = new Point(263, 29);
             DeleteEvent.Name = "DeleteEvent";
-            DeleteEvent.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
-            DeleteEvent.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
-            DeleteEvent.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            DeleteEvent.OverrideDefault.Content.ShortText.Color2 = Color.White;
             DeleteEvent.Size = new Size(244, 38);
-            DeleteEvent.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
-            DeleteEvent.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
+            DeleteEvent.StateCommon.Back.Color1 = Color.FromArgb(255, 94, 87);
+            DeleteEvent.StateCommon.Back.Color2 = Color.FromArgb(255, 67, 67);
+            DeleteEvent.StateCommon.Back.ColorAngle = 45F;
+            DeleteEvent.StateCommon.Back.ColorStyle = PaletteColorStyle.Linear;
+            DeleteEvent.StateCommon.Border.Color1 = Color.FromArgb(255, 67, 67);
+            DeleteEvent.StateCommon.Border.Color2 = Color.FromArgb(255, 94, 87);
+            DeleteEvent.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+            DeleteEvent.StateCommon.Border.GraphicsHint = PaletteGraphicsHint.AntiAlias;
+            DeleteEvent.StateCommon.Border.Rounding = 20F;
+            DeleteEvent.StateCommon.Border.Width = 1;
             DeleteEvent.StateCommon.Content.ShortText.Color1 = Color.White;
-            DeleteEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DeleteEvent.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
-            DeleteEvent.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
+            DeleteEvent.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            DeleteEvent.StateNormal.Back.Color1 = Color.FromArgb(255, 94, 87);
+            DeleteEvent.StateNormal.Back.Color2 = Color.FromArgb(255, 67, 67);
             DeleteEvent.StateNormal.Back.ColorAngle = 45F;
-            DeleteEvent.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            DeleteEvent.StateNormal.Content.ShortText.Color1 = Color.White;
-            DeleteEvent.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DeleteEvent.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
-            DeleteEvent.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
-            DeleteEvent.TabIndex = 9;
+            DeleteEvent.StatePressed.Back.Color1 = Color.FromArgb(220, 40, 40);
+            DeleteEvent.StatePressed.Back.Color2 = Color.FromArgb(200, 30, 30);
+            DeleteEvent.StatePressed.Border.Rounding = 20F;
+            DeleteEvent.TabIndex = 1;
             DeleteEvent.Values.DropDownArrowColor = Color.Empty;
-            DeleteEvent.Values.Text = "Delete";
+            DeleteEvent.Values.Text = "DELETE";
             DeleteEvent.Click += DeleteEvent_Click;
             // 
             // UpdateEvent
             // 
             UpdateEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             UpdateEvent.Cursor = Cursors.Hand;
-            UpdateEvent.Location = new Point(198, 28);
+            UpdateEvent.Location = new Point(525, 29);
             UpdateEvent.Name = "UpdateEvent";
-            UpdateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(97, 118, 227);
-            UpdateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(97, 118, 227);
-            UpdateEvent.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            UpdateEvent.OverrideDefault.Content.ShortText.Color2 = Color.White;
             UpdateEvent.Size = new Size(244, 38);
-            UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(97, 118, 227);
-            UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(97, 118, 227);
+            UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 140, 255);
+            UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 120, 230);
+            UpdateEvent.StateCommon.Back.ColorAngle = 45F;
+            UpdateEvent.StateCommon.Back.ColorStyle = PaletteColorStyle.Linear;
+            UpdateEvent.StateCommon.Border.Color1 = Color.FromArgb(0, 120, 230);
+            UpdateEvent.StateCommon.Border.Color2 = Color.FromArgb(0, 140, 255);
+            UpdateEvent.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
+            UpdateEvent.StateCommon.Border.GraphicsHint = PaletteGraphicsHint.AntiAlias;
+            UpdateEvent.StateCommon.Border.Rounding = 20F;
+            UpdateEvent.StateCommon.Border.Width = 1;
             UpdateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
-            UpdateEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UpdateEvent.StateNormal.Back.Color1 = Color.FromArgb(67, 198, 172);
-            UpdateEvent.StateNormal.Back.Color2 = Color.FromArgb(25, 22, 84);
+            UpdateEvent.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            UpdateEvent.StateNormal.Back.Color1 = Color.FromArgb(0, 140, 255);
+            UpdateEvent.StateNormal.Back.Color2 = Color.FromArgb(0, 120, 230);
             UpdateEvent.StateNormal.Back.ColorAngle = 45F;
-            UpdateEvent.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            UpdateEvent.StateNormal.Content.ShortText.Color1 = Color.White;
-            UpdateEvent.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UpdateEvent.StatePressed.Back.Color1 = Color.FromArgb(67, 87, 181);
-            UpdateEvent.StatePressed.Back.Color2 = Color.FromArgb(67, 87, 181);
-            UpdateEvent.TabIndex = 10;
+            UpdateEvent.StatePressed.Back.Color1 = Color.FromArgb(0, 120, 230);
+            UpdateEvent.StatePressed.Back.Color2 = Color.FromArgb(0, 100, 200);
+            UpdateEvent.StatePressed.Border.Rounding = 20F;
+            UpdateEvent.TabIndex = 0;
             UpdateEvent.Values.DropDownArrowColor = Color.Empty;
             UpdateEvent.Values.Text = "UPDATE";
             UpdateEvent.Click += UpdateEvent_Click;
@@ -146,7 +188,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(31, 31, 31);
+            BackColor = Color.FromArgb(47, 47, 47);
             ClientSize = new Size(1074, 675);
             Controls.Add(UpdateEvent);
             Controls.Add(DeleteEvent);

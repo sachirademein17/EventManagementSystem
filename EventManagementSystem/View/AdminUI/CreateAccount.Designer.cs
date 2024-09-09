@@ -32,7 +32,7 @@
             passwordtxt = new TextBox();
             confirmpasswordtxt = new TextBox();
             label4 = new Label();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            CreateUser = new Krypton.Toolkit.KryptonButton();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -82,28 +82,28 @@
             label4.TabIndex = 9;
             label4.Text = "Confirm Password";
             // 
-            // kryptonButton1
+            // CreateUser
             // 
-            kryptonButton1.Cursor = Cursors.Hand;
-            kryptonButton1.Location = new Point(314, 557);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.Size = new Size(244, 38);
-            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.TabIndex = 11;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "CREATE";
-            kryptonButton1.Click += kryptonButton1_Click;
+            CreateUser.Cursor = Cursors.Hand;
+            CreateUser.Location = new Point(314, 557);
+            CreateUser.Name = "CreateUser";
+            CreateUser.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            CreateUser.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            CreateUser.Size = new Size(244, 38);
+            CreateUser.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            CreateUser.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            CreateUser.StateCommon.Content.ShortText.Color1 = Color.White;
+            CreateUser.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CreateUser.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            CreateUser.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            CreateUser.StateNormal.Content.ShortText.Color1 = Color.White;
+            CreateUser.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CreateUser.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            CreateUser.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            CreateUser.TabIndex = 11;
+            CreateUser.Values.DropDownArrowColor = Color.Empty;
+            CreateUser.Values.Text = "CREATE";
+            CreateUser.Click += CreateUser_Click;
             // 
             // label3
             // 
@@ -151,7 +151,6 @@
             label5.Size = new Size(64, 29);
             label5.TabIndex = 12;
             label5.Text = "Role";
-            label5.Click += label5_Click;
             // 
             // label6
             // 
@@ -217,7 +216,6 @@
             organizerrole.TabIndex = 21;
             organizerrole.Text = "Organizer";
             organizerrole.UseVisualStyleBackColor = true;
-            organizerrole.CheckedChanged += organizerrole_CheckedChanged;
             // 
             // CreateAccount
             // 
@@ -232,7 +230,7 @@
             Controls.Add(label7);
             Controls.Add(emailtxt);
             Controls.Add(label5);
-            Controls.Add(kryptonButton1);
+            Controls.Add(CreateUser);
             Controls.Add(confirmpasswordtxt);
             Controls.Add(label4);
             Controls.Add(passwordtxt);
@@ -252,7 +250,7 @@
         private TextBox passwordtxt;
         private TextBox confirmpasswordtxt;
         private Label label4;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonButton CreateUser;
         private Label label3;
         private Label label2;
         private Label label1;

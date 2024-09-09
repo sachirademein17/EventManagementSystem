@@ -32,7 +32,9 @@
             label1 = new Label();
             BookingEvent = new Krypton.Toolkit.KryptonButton();
             kryptonDataGridView1 = new Krypton.Toolkit.KryptonDataGridView();
+            kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)kryptonDataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             SuspendLayout();
             // 
             // label2
@@ -108,6 +110,18 @@
             kryptonDataGridView1.StateSelected.DataCell.Content.Color1 = Color.Black;
             kryptonDataGridView1.TabIndex = 12;
             // 
+            // kryptonPanel1
+            // 
+            kryptonPanel1.Dock = DockStyle.Fill;
+            kryptonPanel1.Location = new Point(0, 0);
+            kryptonPanel1.Name = "kryptonPanel1";
+            kryptonPanel1.Size = new Size(1074, 675);
+            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(255, 111, 97);
+            kryptonPanel1.StateNormal.Color2 = Color.FromArgb(255, 159, 127);
+            kryptonPanel1.StateNormal.ColorAngle = 90F;
+            kryptonPanel1.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            kryptonPanel1.TabIndex = 0;
+            // 
             // PDashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -118,10 +132,12 @@
             Controls.Add(BookingEvent);
             Controls.Add(label1);
             Controls.Add(label2);
+            Controls.Add(kryptonPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "PDashboard";
             Text = "PDashboard";
             ((System.ComponentModel.ISupportInitialize)kryptonDataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -131,5 +147,6 @@
         private Label label1;
         private Krypton.Toolkit.KryptonButton BookingEvent;
         private Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
     }
 }

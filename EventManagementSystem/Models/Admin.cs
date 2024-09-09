@@ -13,6 +13,7 @@ namespace EventManagementSystem.Models
 {
     internal class Admin : User, IUserManagement, IEventManagement
     {
+
         public Admin(int userID, string username, string passwordHash, string email, string phoneNumber, string role) : base(userID, username, passwordHash, email, phoneNumber, role)
         {
         }
@@ -131,7 +132,13 @@ namespace EventManagementSystem.Models
         {
             try
             {
-                string query = $"SELECT * FROM events;";
+                string query =  "SELECT e.EventID, e.EventName,u.Username AS OrganizerName, e.Description, e.StartDate, e.EndDate, e.Location, e.MaxParticipants, e.CurrentParticipants " +
+                                "FROM events e " +
+                                "JOIN users u " +
+                                "ON e.OrganizerID = u.UserID;";
+
+
+
                 DataTable allEvents = DBConnection.ExcecuteQuery(query);
                 return allEvents;
             }

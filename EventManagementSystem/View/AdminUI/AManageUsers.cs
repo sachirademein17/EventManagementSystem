@@ -16,27 +16,32 @@ namespace EventManagementSystem
 {
     public partial class AManageUsers : Form
     {
-        Admin user = (Admin)CurrentUser.UserDetails;
+        Admin user;
         public AManageUsers()
         {
             InitializeComponent();
-            DataTable dt = user.ViewAllUsers();
-            usersTable.DataSource = dt;
+            user = (Admin)CurrentUser.UserDetails;
+            LoadTable();
         }
 
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        // Redirect to the Create Account form
+        private void CreateUser_Click(object sender, EventArgs e)
         {
             new CreateAccount().Show();
         }
 
-        private void kryptonButton2_Click(object sender, EventArgs e)
+        // Perform the Delete User functionality
+        private void DeleteUser_Click(object sender, EventArgs e)
         {
+            // Check whether a user row is selected
             if (usersTable.SelectedRows.Count > 0)
             {
+                // Execute the Remove User fuctionality
                 int rowIndex = usersTable.SelectedRows[0].Index;
                 int id = Convert.ToInt32(usersTable.Rows[rowIndex].Cells[0].Value);
                 (bool success, string message) = user.RemoveUser(id);
 
+                // Give user feedback
                 if (success)
                 {
                     new SuccessToaster(message).Show();
@@ -54,12 +59,14 @@ namespace EventManagementSystem
 
             }
         }
-
-        private void kryptonButton3_Click(object sender, EventArgs e)
+        
+        // Perform the Update User functionality
+        private void UpdateUser_Click(object sender, EventArgs e)
         {
-
+            // Check whether a user is selected
             if (usersTable.SelectedRows.Count > 0)
             {
+                // Get all the details of that user
                 int rowIndex = usersTable.SelectedRows[0].Index;
                 int id = Convert.ToInt32(usersTable.Rows[rowIndex].Cells[0].Value);
                 string username = (string)usersTable.Rows[rowIndex].Cells[1].Value;
@@ -70,6 +77,7 @@ namespace EventManagementSystem
 
                 Admin userDetails = new Admin(id, username, password, email, phoneNumber, role);
 
+                // Redirect to the Update Account form
                 new UpdateAccount(userDetails).Show();
 
             }
@@ -82,5 +90,13 @@ namespace EventManagementSystem
 
 
         }
+
+        // Load the DataGridView
+        private void LoadTable()
+        {
+            DataTable dt = user.ViewAllUsers();
+            usersTable.DataSource = dt;
+        }
+
     }
 }

@@ -46,25 +46,23 @@ namespace EventManagementSystem
             // 
             // usernametxt
             // 
-            usernametxt.BackColor = Color.FromArgb(31, 31, 31);
-            usernametxt.BorderStyle = BorderStyle.FixedSingle;
-            usernametxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            usernametxt.ForeColor = Color.FromArgb(255, 211, 128);
+            usernametxt.BackColor = Color.FromArgb(245, 247, 250);
+            usernametxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usernametxt.ForeColor = Color.FromArgb(74, 74, 74);
             usernametxt.Location = new Point(110, 304);
             usernametxt.Name = "usernametxt";
-            usernametxt.Size = new Size(270, 35);
+            usernametxt.Size = new Size(270, 39);
             usernametxt.TabIndex = 3;
             // 
             // passwordtxt
             // 
-            passwordtxt.BackColor = Color.FromArgb(31, 31, 31);
-            passwordtxt.BorderStyle = BorderStyle.FixedSingle;
-            passwordtxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            passwordtxt.ForeColor = Color.FromArgb(255, 211, 128);
+            passwordtxt.BackColor = Color.FromArgb(245, 247, 250);
+            passwordtxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordtxt.ForeColor = Color.FromArgb(74, 74, 74);
             passwordtxt.Location = new Point(110, 426);
             passwordtxt.Name = "passwordtxt";
             passwordtxt.PasswordChar = '•';
-            passwordtxt.Size = new Size(270, 35);
+            passwordtxt.Size = new Size(270, 39);
             passwordtxt.TabIndex = 5;
             // 
             // kryptonButton1
@@ -73,18 +71,35 @@ namespace EventManagementSystem
             kryptonButton1.Location = new Point(123, 527);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.Size = new Size(244, 38);
-            kryptonButton1.StateNormal.Back.Color1 = Color.DodgerBlue;
-            kryptonButton1.StateNormal.Back.Color2 = SystemColors.HotTrack;
+
+            // Normal state colors
+            kryptonButton1.StateNormal.Back.Color1 = ColorTranslator.FromHtml("#7ED321");  // Green
+            kryptonButton1.StateNormal.Back.Color2 = ColorTranslator.FromHtml("#A2D600");  // Light Green
             kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
             kryptonButton1.StateNormal.Content.ShortText.Color2 = Color.White;
-            kryptonButton1.StatePressed.Back.Color1 = Color.FromArgb(44, 72, 117);
-            kryptonButton1.StatePressed.Back.Color2 = Color.FromArgb(44, 72, 117);
+
+            // Hover state colors
+            kryptonButton1.StateTracking.Back.Color1 = ColorTranslator.FromHtml("#417505");  // Dark Green
+            kryptonButton1.StateTracking.Back.Color2 = ColorTranslator.FromHtml("#5B9F00");  // Medium Green
+            kryptonButton1.StateTracking.Content.ShortText.Color1 = Color.White;
+            kryptonButton1.StateTracking.Content.ShortText.Color2 = Color.White;
+
+            // Pressed/Clicked state colors
+            kryptonButton1.StatePressed.Back.Color1 = ColorTranslator.FromHtml("#4A90E2");  // Light Blue
+            kryptonButton1.StatePressed.Back.Color2 = ColorTranslator.FromHtml("#7B92C0");  // Cool Gray
             kryptonButton1.StatePressed.Content.ShortText.Color1 = Color.White;
             kryptonButton1.StatePressed.Content.ShortText.Color2 = Color.White;
+
+            kryptonButton1.OverrideDefault.Back.Color1 = ColorTranslator.FromHtml("#7ED321");  // Green
+            kryptonButton1.OverrideDefault.Back.Color2 = ColorTranslator.FromHtml("#A2D600");  // Light Green
+            kryptonButton1.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            kryptonButton1.OverrideDefault.Content.ShortText.Color2 = Color.White;
+
             kryptonButton1.TabIndex = 10;
             kryptonButton1.Values.DropDownArrowColor = Color.Empty;
             kryptonButton1.Values.Text = "LOGIN";
             kryptonButton1.Click += kryptonButton1_Click;
+
             // 
             // kryptonPanel1
             // 
@@ -99,8 +114,8 @@ namespace EventManagementSystem
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
             kryptonPanel1.Size = new Size(491, 701);
-            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(31, 31, 31);
-            kryptonPanel1.StateNormal.Color2 = Color.FromArgb(15, 15, 15);
+            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(74, 144, 226);
+            kryptonPanel1.StateNormal.Color2 = Color.FromArgb(80, 227, 194);
             kryptonPanel1.StateNormal.ColorAngle = 45F;
             kryptonPanel1.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel1.StateNormal.Draw = Krypton.Toolkit.InheritBool.True;
@@ -111,6 +126,7 @@ namespace EventManagementSystem
             // 
             checkBox1.AutoSize = true;
             checkBox1.BackColor = Color.Transparent;
+            checkBox1.ForeColor = Color.White;
             checkBox1.Location = new Point(110, 482);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(162, 29);
@@ -136,10 +152,11 @@ namespace EventManagementSystem
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Microsoft Sans Serif", 11F);
+            label3.Font = new Font("Segoe UI", 11F);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(123, 584);
             label3.Name = "label3";
-            label3.Size = new Size(245, 26);
+            label3.Size = new Size(243, 30);
             label3.TabIndex = 3;
             label3.Text = "Don't have an account ?";
             // 
@@ -147,10 +164,11 @@ namespace EventManagementSystem
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Microsoft Sans Serif", 11F);
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(105, 387);
             label2.Name = "label2";
-            label2.Size = new Size(108, 26);
+            label2.Size = new Size(103, 30);
             label2.TabIndex = 2;
             label2.Text = "Password";
             // 
@@ -158,10 +176,11 @@ namespace EventManagementSystem
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Microsoft Sans Serif", 11F);
+            label1.Font = new Font("Segoe UI", 11F);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(105, 265);
             label1.Name = "label1";
-            label1.Size = new Size(113, 26);
+            label1.Size = new Size(111, 30);
             label1.TabIndex = 1;
             label1.Text = "Username";
             // 
@@ -180,7 +199,7 @@ namespace EventManagementSystem
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Black;
+            BackColor = Color.FromArgb(15, 15, 15);
             ClientSize = new Size(491, 701);
             Controls.Add(passwordtxt);
             Controls.Add(usernametxt);

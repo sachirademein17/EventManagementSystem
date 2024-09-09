@@ -31,7 +31,9 @@
             RegisteredEvent = new Krypton.Toolkit.KryptonDataGridView();
             label1 = new Label();
             CancelBooking = new Krypton.Toolkit.KryptonButton();
+            kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)RegisteredEvent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             SuspendLayout();
             // 
             // RegisteredEvent
@@ -79,6 +81,18 @@
             CancelBooking.Values.Text = "Cancel Booking";
             CancelBooking.Click += CancelBooking_Click;
             // 
+            // kryptonPanel1
+            // 
+            kryptonPanel1.Dock = DockStyle.Fill;
+            kryptonPanel1.Location = new Point(0, 0);
+            kryptonPanel1.Name = "kryptonPanel1";
+            kryptonPanel1.Size = new Size(1074, 675);
+            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(245, 166, 35);
+            kryptonPanel1.StateNormal.Color2 = Color.FromArgb(248, 231, 28);
+            kryptonPanel1.StateNormal.ColorAngle = 90F;
+            kryptonPanel1.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            kryptonPanel1.TabIndex = 13;
+            // 
             // PEventRegistration
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -88,10 +102,12 @@
             Controls.Add(CancelBooking);
             Controls.Add(label1);
             Controls.Add(RegisteredEvent);
+            Controls.Add(kryptonPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "PEventRegistration";
             Text = "PEventRegistration";
             ((System.ComponentModel.ISupportInitialize)RegisteredEvent).EndInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -101,5 +117,6 @@
         private Krypton.Toolkit.KryptonDataGridView RegisteredEvent;
         private Label label1;
         private Krypton.Toolkit.KryptonButton CancelBooking;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
     }
 }

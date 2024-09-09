@@ -35,7 +35,7 @@
             label7 = new Label();
             emailtxt = new TextBox();
             label5 = new Label();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            UpdateUser = new Krypton.Toolkit.KryptonButton();
             confirmpasswordtxt = new TextBox();
             label4 = new Label();
             passwordtxt = new TextBox();
@@ -121,28 +121,28 @@
             label5.TabIndex = 30;
             label5.Text = "Role";
             // 
-            // kryptonButton1
+            // UpdateUser
             // 
-            kryptonButton1.Cursor = Cursors.Hand;
-            kryptonButton1.Location = new Point(307, 565);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.Size = new Size(244, 38);
-            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.TabIndex = 29;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "UPDATE";
-            kryptonButton1.Click += kryptonButton1_Click;
+            UpdateUser.Cursor = Cursors.Hand;
+            UpdateUser.Location = new Point(307, 565);
+            UpdateUser.Name = "UpdateUser";
+            UpdateUser.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateUser.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateUser.Size = new Size(244, 38);
+            UpdateUser.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateUser.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateUser.StateCommon.Content.ShortText.Color1 = Color.White;
+            UpdateUser.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateUser.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateUser.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateUser.StateNormal.Content.ShortText.Color1 = Color.White;
+            UpdateUser.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateUser.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            UpdateUser.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            UpdateUser.TabIndex = 29;
+            UpdateUser.Values.DropDownArrowColor = Color.Empty;
+            UpdateUser.Values.Text = "UPDATE";
+            UpdateUser.Click += UpdateUser_Click;
             // 
             // confirmpasswordtxt
             // 
@@ -230,7 +230,7 @@
             Controls.Add(label7);
             Controls.Add(emailtxt);
             Controls.Add(label5);
-            Controls.Add(kryptonButton1);
+            Controls.Add(UpdateUser);
             Controls.Add(confirmpasswordtxt);
             Controls.Add(label4);
             Controls.Add(passwordtxt);
@@ -253,7 +253,7 @@
         private Label label7;
         private TextBox emailtxt;
         private Label label5;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonButton UpdateUser;
         private TextBox confirmpasswordtxt;
         private Label label4;
         private TextBox passwordtxt;

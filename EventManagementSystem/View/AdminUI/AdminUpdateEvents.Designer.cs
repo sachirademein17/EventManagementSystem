@@ -1,6 +1,6 @@
 ﻿namespace EventManagementSystem
 {
-    partial class AdminAddEventForm
+    partial class AdminUpdateEvents
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@
             label6 = new Label();
             startDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
             label1 = new Label();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            UpdateEvemt = new Krypton.Toolkit.KryptonButton();
             nametxt = new TextBox();
             label2 = new Label();
             SuspendLayout();
@@ -52,7 +52,7 @@
             descriptiontxt.Multiline = true;
             descriptiontxt.Name = "descriptiontxt";
             descriptiontxt.Size = new Size(820, 197);
-            descriptiontxt.TabIndex = 36;
+            descriptiontxt.TabIndex = 51;
             // 
             // label8
             // 
@@ -62,7 +62,7 @@
             label8.Location = new Point(83, 366);
             label8.Name = "label8";
             label8.Size = new Size(135, 29);
-            label8.TabIndex = 35;
+            label8.TabIndex = 50;
             label8.Text = "Description";
             // 
             // currentParticipantstxt
@@ -71,7 +71,7 @@
             currentParticipantstxt.Location = new Point(633, 301);
             currentParticipantstxt.Name = "currentParticipantstxt";
             currentParticipantstxt.Size = new Size(270, 35);
-            currentParticipantstxt.TabIndex = 34;
+            currentParticipantstxt.TabIndex = 49;
             // 
             // label7
             // 
@@ -81,7 +81,7 @@
             label7.Location = new Point(633, 254);
             label7.Name = "label7";
             label7.Size = new Size(223, 29);
-            label7.TabIndex = 33;
+            label7.TabIndex = 48;
             label7.Text = "Current Participants";
             // 
             // endDatetxt
@@ -90,7 +90,7 @@
             endDatetxt.Name = "endDatetxt";
             endDatetxt.ShowUpDown = true;
             endDatetxt.Size = new Size(270, 30);
-            endDatetxt.TabIndex = 32;
+            endDatetxt.TabIndex = 47;
             endDatetxt.ValueNullable = new DateTime(2024, 8, 19, 12, 33, 54, 0);
             // 
             // label4
@@ -101,7 +101,7 @@
             label4.Location = new Point(633, 156);
             label4.Name = "label4";
             label4.Size = new Size(112, 29);
-            label4.TabIndex = 31;
+            label4.TabIndex = 46;
             label4.Text = "End Date";
             // 
             // venuetxt
@@ -110,7 +110,7 @@
             venuetxt.Location = new Point(633, 93);
             venuetxt.Name = "venuetxt";
             venuetxt.Size = new Size(270, 35);
-            venuetxt.TabIndex = 30;
+            venuetxt.TabIndex = 45;
             // 
             // label5
             // 
@@ -120,7 +120,7 @@
             label5.Location = new Point(633, 46);
             label5.Name = "label5";
             label5.Size = new Size(82, 29);
-            label5.TabIndex = 29;
+            label5.TabIndex = 44;
             label5.Text = "Venue";
             // 
             // maxParticipantstxt
@@ -129,7 +129,7 @@
             maxParticipantstxt.Location = new Point(83, 301);
             maxParticipantstxt.Name = "maxParticipantstxt";
             maxParticipantstxt.Size = new Size(270, 35);
-            maxParticipantstxt.TabIndex = 28;
+            maxParticipantstxt.TabIndex = 43;
             // 
             // label6
             // 
@@ -139,7 +139,7 @@
             label6.Location = new Point(83, 254);
             label6.Name = "label6";
             label6.Size = new Size(188, 29);
-            label6.TabIndex = 27;
+            label6.TabIndex = 42;
             label6.Text = "Max Participants";
             // 
             // startDatetxt
@@ -148,7 +148,7 @@
             startDatetxt.Name = "startDatetxt";
             startDatetxt.ShowUpDown = true;
             startDatetxt.Size = new Size(270, 30);
-            startDatetxt.TabIndex = 26;
+            startDatetxt.TabIndex = 41;
             // 
             // label1
             // 
@@ -158,31 +158,31 @@
             label1.Location = new Point(83, 156);
             label1.Name = "label1";
             label1.Size = new Size(118, 29);
-            label1.TabIndex = 25;
+            label1.TabIndex = 40;
             label1.Text = "Start Date";
             // 
-            // kryptonButton1
+            // UpdateEvemt
             // 
-            kryptonButton1.Cursor = Cursors.Hand;
-            kryptonButton1.Location = new Point(633, 665);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.Size = new Size(244, 38);
-            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton1.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            kryptonButton1.TabIndex = 24;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "CREATE";
-            kryptonButton1.Click += kryptonButton1_Click;
+            UpdateEvemt.Cursor = Cursors.Hand;
+            UpdateEvemt.Location = new Point(633, 665);
+            UpdateEvemt.Name = "UpdateEvemt";
+            UpdateEvemt.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateEvemt.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateEvemt.Size = new Size(244, 38);
+            UpdateEvemt.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateEvemt.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateEvemt.StateCommon.Content.ShortText.Color1 = Color.White;
+            UpdateEvemt.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateEvemt.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateEvemt.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateEvemt.StateNormal.Content.ShortText.Color1 = Color.White;
+            UpdateEvemt.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateEvemt.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            UpdateEvemt.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            UpdateEvemt.TabIndex = 39;
+            UpdateEvemt.Values.DropDownArrowColor = Color.Empty;
+            UpdateEvemt.Values.Text = "UPDATE";
+            UpdateEvemt.Click += UpdateEvemt_Click;
             // 
             // nametxt
             // 
@@ -190,7 +190,7 @@
             nametxt.Location = new Point(83, 93);
             nametxt.Name = "nametxt";
             nametxt.Size = new Size(270, 35);
-            nametxt.TabIndex = 23;
+            nametxt.TabIndex = 38;
             // 
             // label2
             // 
@@ -200,14 +200,14 @@
             label2.Location = new Point(83, 46);
             label2.Name = "label2";
             label2.Size = new Size(78, 29);
-            label2.TabIndex = 22;
+            label2.TabIndex = 37;
             label2.Text = "Name";
             // 
-            // AdminAddEventForm
+            // AdminUpdateEvents
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlText;
+            BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(986, 749);
             Controls.Add(descriptiontxt);
             Controls.Add(label8);
@@ -221,12 +221,11 @@
             Controls.Add(label6);
             Controls.Add(startDatetxt);
             Controls.Add(label1);
-            Controls.Add(kryptonButton1);
+            Controls.Add(UpdateEvemt);
             Controls.Add(nametxt);
             Controls.Add(label2);
-            ForeColor = Color.Black;
-            Name = "AdminAddEventForm";
-            Text = "AdminAddEventForm";
+            Name = "AdminUpdateEvents";
+            Text = "AdminUpdateEvents";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -245,7 +244,7 @@
         private Label label6;
         private Krypton.Toolkit.KryptonDateTimePicker startDatetxt;
         private Label label1;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonButton UpdateEvemt;
         private TextBox nametxt;
         private Label label2;
     }

@@ -14,16 +14,18 @@ namespace EventManagementSystem
 {
     public partial class CreateAccount : Form
     {
-        Admin user = (Admin)CurrentUser.UserDetails;
+        Admin user;
 
         public CreateAccount()
         {
             InitializeComponent();
+            user = (Admin)CurrentUser.UserDetails;
         }
 
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        private void CreateUser_Click(object sender, EventArgs e)
         {
 
+            // Get the role value
             string role;
             if (participantrole.Checked)
             {
@@ -37,22 +39,24 @@ namespace EventManagementSystem
 
             (bool validation, string errormsg) = user.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
 
+            // Check textboxes are properly entered by user
             if (!validation)
             {
                 new DangerToaster(errormsg).Show();
                 return;
             }
 
+            // Get all the user details
             string username = usernametxt.Text;
             string password = passwordtxt.Text;
-            string confirmPassword = confirmpasswordtxt.Text;
             string email = emailtxt.Text;
             string phoneNumber = phonenumbertxt.Text;
 
-            User adduser = new Organizer(1, username, password, email, phoneNumber, role);
+            User adduser = new Admin(1, username, password, email, phoneNumber, role);
 
             (bool success, string message) = user.AddUser(adduser);
 
+            // Give user feedback
             if (success)
             {
                 new SuccessToaster(message).Show();
@@ -65,14 +69,5 @@ namespace EventManagementSystem
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void organizerrole_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

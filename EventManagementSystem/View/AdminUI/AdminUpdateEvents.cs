@@ -16,18 +16,21 @@ namespace EventManagementSystem
     {
 
         int eventID;
+        Admin user;
 
         public AdminUpdateEvents(Event eventDetails)
         {
             InitializeComponent();
             eventID = eventDetails.EventID;
             SetEventDetails(eventDetails);
+            user = (Admin)CurrentUser.UserDetails;
         }
 
-
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        // Update Event fuctionality
+        private void UpdateEvemt_Click(object sender, EventArgs e)
         {
 
+            // Get the values from the textboxes
             string name = nametxt.Text;
             string location = venuetxt.Text;
             DateTime startTime = startDatetxt.Value;
@@ -36,13 +39,14 @@ namespace EventManagementSystem
             int currentParticipants = int.Parse(currentParticipantstxt.Text);
             string description = descriptiontxt.Text;
 
-            Admin user = (Admin)CurrentUser.UserDetails;
 
 
             Event eventDetails = new Event(eventID, user.UserID, name, description, startTime, endTime, location, maxParticipants, currentParticipants);
             
+            // Executing the update event functionality
             (bool success, string message )= user.UpdateEvent(eventDetails);
 
+            // Give user feedback
             if (success)
             {
                 new SuccessToaster(message).Show();
@@ -55,6 +59,8 @@ namespace EventManagementSystem
 
         }
 
+
+        // Set all the textfields with the previous details
         private void SetEventDetails(Event eventDetails)
         {
             eventID = eventDetails.EventID;

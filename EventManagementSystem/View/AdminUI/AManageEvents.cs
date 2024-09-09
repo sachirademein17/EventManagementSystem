@@ -14,31 +14,36 @@ namespace EventManagementSystem
 {
     public partial class AManageEvents : Form
     {
-        Admin user = (Admin)CurrentUser.UserDetails;
+        Admin user;
 
         public AManageEvents()
         {
             InitializeComponent();
-            DataTable dt = user.ViewAllEvents();
-            eventsTable.DataSource = dt;
+            user = (Admin)CurrentUser.UserDetails;
+            LoadTable();
         }
 
-        private void kryptonButton1_Click(object sender, EventArgs e)
+        // Create event functionality
+        private void CreateEvent_Click(object sender, EventArgs e)
         {
+            // Redirects to the add event form
             AdminAddEventForm adminAddEventForm = new AdminAddEventForm();
             adminAddEventForm.Show();
 
         }
 
-        private void kryptonButton2_Click(object sender, EventArgs e)
+        // Delete event functionality
+        private void DeleteEvent_Click(object sender, EventArgs e)
         {
-
+            // Check whether a event row is selected
             if (eventsTable.SelectedRows.Count > 0)
             {
+                // Executing the delete event fuction
                 int rowIndex = eventsTable.SelectedRows[0].Index;
-                int id = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
-                (bool success, string message) = user.DeleteEvent(id);
+                int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
+                (bool success, string message) = user.DeleteEvent(eventID);
 
+                // Give user feedback
                 if (success)
                 {
                     new SuccessToaster(message).Show();
@@ -51,17 +56,18 @@ namespace EventManagementSystem
             }
             else
             {
-
                 new DangerToaster("Please Select a Row To Delete");
-
             }
         }
 
-        private void kryptonButton3_Click(object sender, EventArgs e)
+        // Update event functionality
+        private void UpdateEvent_Click(object sender, EventArgs e)
         {
-
+            // Check whether is a row is selected
             if (eventsTable.SelectedRows.Count > 0)
             {
+
+                // Gather all the information of the selected event
                 int rowIndex = eventsTable.SelectedRows[0].Index;
 
                 int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
@@ -74,7 +80,7 @@ namespace EventManagementSystem
                 int maxParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[7].Value);
                 int currentParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[8].Value);
 
-
+                // Redirect to the update events form
                 Event eventDetails = new Event(eventID, organizerID, eventName, description, startDate, endDate, location, maxParticipants, currentParticipants);
                 AdminUpdateEvents adminUpdateEvents = new AdminUpdateEvents(eventDetails);
                 adminUpdateEvents.Show();
@@ -89,5 +95,12 @@ namespace EventManagementSystem
 
 
         }
+
+        private void LoadTable()
+        {
+            DataTable dt = user.ViewAllEvents();
+            eventsTable.DataSource = dt;
+        }
+
     }
 }

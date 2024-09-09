@@ -32,30 +32,31 @@ namespace EventManagementSystem
         {
             descriptiontxt = new TextBox();
             label8 = new Label();
-            endDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
+            endDatetxt = new KryptonDateTimePicker();
             label4 = new Label();
             venuetxt = new TextBox();
             label5 = new Label();
             maxParticipantstxt = new TextBox();
             label6 = new Label();
-            startDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
+            startDatetxt = new KryptonDateTimePicker();
             label1 = new Label();
-            UpdateEvent = new Krypton.Toolkit.KryptonButton();
+            UpdateEvent = new KryptonButton();
             nametxt = new TextBox();
             label2 = new Label();
+            kryptonPanel1 = new KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             SuspendLayout();
             // 
             // descriptiontxt
             // 
+            descriptiontxt.BackColor = Color.FromArgb(33, 33, 33);
             descriptiontxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            descriptiontxt.ForeColor = Color.FromArgb(224, 224, 224);
             descriptiontxt.Location = new Point(83, 413);
             descriptiontxt.Multiline = true;
             descriptiontxt.Name = "descriptiontxt";
             descriptiontxt.Size = new Size(820, 197);
             descriptiontxt.TabIndex = 36;
-            descriptiontxt.BackColor = Color.FromArgb(33, 33, 33); // Dark background
-            descriptiontxt.ForeColor = Color.FromArgb(224, 224, 224); // Light text
-
             // 
             // label8
             // 
@@ -64,10 +65,9 @@ namespace EventManagementSystem
             label8.ForeColor = Color.FromArgb(176, 176, 176);
             label8.Location = new Point(83, 366);
             label8.Name = "label8";
-            label8.Size = new Size(135, 29);
+            label8.Size = new Size(135, 32);
             label8.TabIndex = 35;
             label8.Text = "Description";
-
             // 
             // endDatetxt
             // 
@@ -79,7 +79,6 @@ namespace EventManagementSystem
             endDatetxt.Size = new Size(270, 30);
             endDatetxt.TabIndex = 32;
             endDatetxt.ValueNullable = new DateTime(2024, 9, 4, 0, 0, 0, 0);
-
             // 
             // label4
             // 
@@ -88,21 +87,19 @@ namespace EventManagementSystem
             label4.ForeColor = Color.FromArgb(176, 176, 176);
             label4.Location = new Point(633, 156);
             label4.Name = "label4";
-            label4.Size = new Size(112, 29);
+            label4.Size = new Size(111, 32);
             label4.TabIndex = 31;
             label4.Text = "End Date";
-
             // 
             // venuetxt
             // 
+            venuetxt.BackColor = Color.FromArgb(33, 33, 33);
             venuetxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            venuetxt.ForeColor = Color.FromArgb(224, 224, 224);
             venuetxt.Location = new Point(633, 93);
             venuetxt.Name = "venuetxt";
-            venuetxt.Size = new Size(270, 35);
+            venuetxt.Size = new Size(270, 39);
             venuetxt.TabIndex = 30;
-            venuetxt.BackColor = Color.FromArgb(33, 33, 33); // Dark background
-            venuetxt.ForeColor = Color.FromArgb(224, 224, 224); // Light text
-
             // 
             // label5
             // 
@@ -111,21 +108,19 @@ namespace EventManagementSystem
             label5.ForeColor = Color.FromArgb(176, 176, 176);
             label5.Location = new Point(633, 46);
             label5.Name = "label5";
-            label5.Size = new Size(82, 29);
+            label5.Size = new Size(81, 32);
             label5.TabIndex = 29;
             label5.Text = "Venue";
-
             // 
             // maxParticipantstxt
             // 
+            maxParticipantstxt.BackColor = Color.FromArgb(33, 33, 33);
             maxParticipantstxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maxParticipantstxt.ForeColor = Color.FromArgb(224, 224, 224);
             maxParticipantstxt.Location = new Point(83, 301);
             maxParticipantstxt.Name = "maxParticipantstxt";
-            maxParticipantstxt.Size = new Size(270, 35);
+            maxParticipantstxt.Size = new Size(270, 39);
             maxParticipantstxt.TabIndex = 28;
-            maxParticipantstxt.BackColor = Color.FromArgb(33, 33, 33); // Dark background
-            maxParticipantstxt.ForeColor = Color.FromArgb(224, 224, 224); // Light text
-
             // 
             // label6
             // 
@@ -134,10 +129,9 @@ namespace EventManagementSystem
             label6.ForeColor = Color.FromArgb(176, 176, 176);
             label6.Location = new Point(83, 254);
             label6.Name = "label6";
-            label6.Size = new Size(188, 29);
+            label6.Size = new Size(187, 32);
             label6.TabIndex = 27;
             label6.Text = "Max Participants";
-
             // 
             // startDatetxt
             // 
@@ -149,7 +143,6 @@ namespace EventManagementSystem
             startDatetxt.Size = new Size(270, 30);
             startDatetxt.TabIndex = 26;
             startDatetxt.ValueNullable = new DateTime(2024, 9, 4, 21, 21, 33, 0);
-
             // 
             // label1
             // 
@@ -158,48 +151,43 @@ namespace EventManagementSystem
             label1.ForeColor = Color.FromArgb(176, 176, 176);
             label1.Location = new Point(83, 156);
             label1.Name = "label1";
-            label1.Size = new Size(118, 29);
+            label1.Size = new Size(119, 32);
             label1.TabIndex = 25;
             label1.Text = "Start Date";
-
             // 
             // UpdateEvent
             // 
             UpdateEvent.Cursor = Cursors.Hand;
             UpdateEvent.Location = new Point(633, 665);
             UpdateEvent.Name = "UpdateEvent";
-            UpdateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204); // Primary color
-            UpdateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204); // Primary color
+            UpdateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
             UpdateEvent.Size = new Size(244, 38);
-            UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204); // Primary color
-            UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204); // Primary color
-            UpdateEvent.StateCommon.Content.ShortText.Color1 = Color.White; // Text color
-            UpdateEvent.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0); // Updated font
-            UpdateEvent.StateCommon.Border.Rounding = 20;  // Rounded corners
-
-            UpdateEvent.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204); // Primary color
-            UpdateEvent.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204); // Primary color
-            UpdateEvent.StateNormal.Content.ShortText.Color1 = Color.White; // Text color
-            UpdateEvent.StateNormal.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0); // Updated font
-            UpdateEvent.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153); // Darker shade
-            UpdateEvent.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153); // Darker shade
+            UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.StateCommon.Border.Rounding = 20F;
+            UpdateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
+            UpdateEvent.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateEvent.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            UpdateEvent.StateNormal.Content.ShortText.Color1 = Color.White;
+            UpdateEvent.StateNormal.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UpdateEvent.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            UpdateEvent.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
             UpdateEvent.TabIndex = 24;
             UpdateEvent.Values.DropDownArrowColor = Color.Empty;
             UpdateEvent.Values.Text = "UPDATE";
             UpdateEvent.Click += UpdateEvent_Click;
-
             // 
             // nametxt
             // 
-
+            nametxt.BackColor = Color.FromArgb(33, 33, 33);
             nametxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nametxt.ForeColor = Color.FromArgb(224, 224, 224);
             nametxt.Location = new Point(83, 93);
             nametxt.Name = "nametxt";
-            nametxt.Size = new Size(270, 35);
+            nametxt.Size = new Size(270, 39);
             nametxt.TabIndex = 23;
-            nametxt.BackColor = Color.FromArgb(33, 33, 33); // Dark background
-            nametxt.ForeColor = Color.FromArgb(224, 224, 224); // Light text
-
             // 
             // label2
             // 
@@ -208,10 +196,21 @@ namespace EventManagementSystem
             label2.ForeColor = Color.FromArgb(176, 176, 176);
             label2.Location = new Point(83, 46);
             label2.Name = "label2";
-            label2.Size = new Size(78, 29);
+            label2.Size = new Size(78, 32);
             label2.TabIndex = 22;
             label2.Text = "Name";
-
+            // 
+            // kryptonPanel1
+            // 
+            kryptonPanel1.Dock = DockStyle.Fill;
+            kryptonPanel1.Location = new Point(0, 0);
+            kryptonPanel1.Name = "kryptonPanel1";
+            kryptonPanel1.Size = new Size(986, 749);
+            kryptonPanel1.StateNormal.Color1 = Color.SpringGreen;
+            kryptonPanel1.StateNormal.Color2 = Color.LimeGreen;
+            kryptonPanel1.StateNormal.ColorAngle = 90F;
+            kryptonPanel1.StateNormal.ColorStyle = PaletteColorStyle.Linear;
+            kryptonPanel1.TabIndex = 37;
             // 
             // UpdateEventForm
             // 
@@ -232,8 +231,10 @@ namespace EventManagementSystem
             Controls.Add(UpdateEvent);
             Controls.Add(nametxt);
             Controls.Add(label2);
+            Controls.Add(kryptonPanel1);
             Name = "UpdateEventForm";
             Text = "UpdateEventForm";
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -253,5 +254,6 @@ namespace EventManagementSystem
         private Krypton.Toolkit.KryptonButton UpdateEvent;
         private TextBox nametxt;
         private Label label2;
+        private KryptonPanel kryptonPanel1;
     }
 }

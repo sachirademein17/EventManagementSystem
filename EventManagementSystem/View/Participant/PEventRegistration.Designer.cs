@@ -49,6 +49,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(64, 64, 64);
             label1.Font = new Font("Microsoft Sans Serif", 16F);
             label1.ForeColor = SystemColors.Window;
             label1.Location = new Point(44, 38);
@@ -63,22 +64,27 @@
             CancelBooking.Cursor = Cursors.Hand;
             CancelBooking.Location = new Point(788, 38);
             CancelBooking.Name = "CancelBooking";
-            CancelBooking.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CancelBooking.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
             CancelBooking.Size = new Size(244, 38);
-            CancelBooking.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CancelBooking.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            CancelBooking.StateCommon.Back.Color1 = Color.FromArgb(244, 67, 54);
+            CancelBooking.StateCommon.Back.Color2 = Color.FromArgb(239, 83, 80);
+            CancelBooking.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            CancelBooking.StateCommon.Border.Color1 = Color.FromArgb(244, 67, 54);
+            CancelBooking.StateCommon.Border.Color2 = Color.FromArgb(239, 83, 80);
+            CancelBooking.StateCommon.Border.Rounding = 20F;
+            CancelBooking.StateCommon.Border.Width = 1;
             CancelBooking.StateCommon.Content.ShortText.Color1 = Color.White;
-            CancelBooking.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CancelBooking.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CancelBooking.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CancelBooking.StateNormal.Content.ShortText.Color1 = Color.White;
-            CancelBooking.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CancelBooking.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            CancelBooking.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            CancelBooking.StateCommon.Content.ShortText.Font = new Font("Stencil", 10F);
+            CancelBooking.StatePressed.Back.Color1 = Color.FromArgb(198, 40, 40);
+            CancelBooking.StatePressed.Back.Color2 = Color.FromArgb(255, 23, 68);
+            CancelBooking.StatePressed.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            CancelBooking.StatePressed.Content.ShortText.Color1 = Color.White;
+            CancelBooking.StateTracking.Back.Color1 = Color.FromArgb(211, 47, 47);
+            CancelBooking.StateTracking.Back.Color2 = Color.FromArgb(255, 82, 82);
+            CancelBooking.StateTracking.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            CancelBooking.StateTracking.Content.ShortText.Color1 = Color.White;
             CancelBooking.TabIndex = 12;
             CancelBooking.Values.DropDownArrowColor = Color.Empty;
-            CancelBooking.Values.Text = "Cancel Booking";
+            CancelBooking.Values.Text = "Cancel";
             CancelBooking.Click += CancelBooking_Click;
             // 
             // kryptonPanel1
@@ -87,8 +93,8 @@
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
             kryptonPanel1.Size = new Size(1074, 675);
-            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(245, 166, 35);
-            kryptonPanel1.StateNormal.Color2 = Color.FromArgb(248, 231, 28);
+            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(75, 75, 75);
+            kryptonPanel1.StateNormal.Color2 = Color.Gray;
             kryptonPanel1.StateNormal.ColorAngle = 90F;
             kryptonPanel1.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel1.TabIndex = 13;

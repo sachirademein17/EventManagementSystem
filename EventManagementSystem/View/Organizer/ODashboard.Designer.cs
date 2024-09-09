@@ -43,6 +43,7 @@
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             kryptonButton2 = new Krypton.Toolkit.KryptonButton();
+            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -50,15 +51,17 @@
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
-            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Dock = DockStyle.Top;
             pictureBox1.Image = Properties.Resources.profile;
-            pictureBox1.Location = new Point(-3, -5);
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(335, 196);
+            pictureBox1.Size = new Size(328, 195);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -74,6 +77,7 @@
             // 
             // Username
             // 
+            Username.BackColor = Color.Transparent;
             Username.Dock = DockStyle.Fill;
             Username.Font = new Font("Microsoft Sans Serif", 12F);
             Username.Location = new Point(0, 0);
@@ -96,6 +100,7 @@
             // 
             // Role
             // 
+            Role.BackColor = Color.Transparent;
             Role.Dock = DockStyle.Fill;
             Role.Font = new Font("Microsoft Sans Serif", 12F);
             Role.Location = new Point(0, 0);
@@ -128,6 +133,7 @@
             // 
             // Email
             // 
+            Email.BackColor = Color.Transparent;
             Email.Dock = DockStyle.Fill;
             Email.Font = new Font("Microsoft Sans Serif", 12F);
             Email.Location = new Point(0, 0);
@@ -160,6 +166,7 @@
             // 
             // PhoneNumber
             // 
+            PhoneNumber.BackColor = Color.Transparent;
             PhoneNumber.Dock = DockStyle.Fill;
             PhoneNumber.Font = new Font("Microsoft Sans Serif", 12F);
             PhoneNumber.Location = new Point(0, 0);
@@ -182,9 +189,9 @@
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(pictureBox1);
             kryptonPanel1.Controls.Add(kryptonButton1);
             kryptonPanel1.Controls.Add(kryptonButton2);
-            kryptonPanel1.Controls.Add(pictureBox1);
             kryptonPanel1.Controls.Add(panel5);
             kryptonPanel1.Controls.Add(panel3);
             kryptonPanel1.Controls.Add(panel4);
@@ -193,8 +200,10 @@
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
             kryptonPanel1.Size = new Size(328, 675);
-            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(42, 42, 42);
-            kryptonPanel1.StateNormal.Color2 = Color.FromArgb(42, 42, 42);
+            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(75, 75, 75);
+            kryptonPanel1.StateNormal.Color2 = Color.Gray;
+            kryptonPanel1.StateNormal.ColorAngle = 90F;
+            kryptonPanel1.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel1.TabIndex = 5;
             // 
             // kryptonButton1
@@ -269,12 +278,25 @@
             kryptonButton2.Values.Text = "Change Password";
             kryptonButton2.Click += kryptonButton2_Click;
             // 
+            // kryptonPanel2
+            // 
+            kryptonPanel2.Dock = DockStyle.Fill;
+            kryptonPanel2.Location = new Point(328, 0);
+            kryptonPanel2.Name = "kryptonPanel2";
+            kryptonPanel2.Size = new Size(746, 675);
+            kryptonPanel2.StateNormal.Color1 = Color.FromArgb(75, 75, 75);
+            kryptonPanel2.StateNormal.Color2 = Color.Gray;
+            kryptonPanel2.StateNormal.ColorAngle = 90F;
+            kryptonPanel2.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            kryptonPanel2.TabIndex = 6;
+            // 
             // ODashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(42, 42, 42);
+            BackColor = Color.Gray;
             ClientSize = new Size(1074, 675);
+            Controls.Add(kryptonPanel2);
             Controls.Add(kryptonPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ODashboard";
@@ -286,6 +308,7 @@
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             ResumeLayout(false);
         }
 
@@ -305,5 +328,6 @@
         private Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
         private Krypton.Toolkit.KryptonButton kryptonButton2;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel2;
     }
 }

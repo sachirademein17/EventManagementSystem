@@ -12,9 +12,11 @@ namespace EventManagementSystem
 {
     public partial class Participant_Dashboard : Form
     {
-        public Participant_Dashboard()
+        Form1 close;
+        public Participant_Dashboard(Form1 close)
         {
             InitializeComponent();
+            this.close = close;
             loadform(new PDashboard());
         }
 
@@ -49,6 +51,21 @@ namespace EventManagementSystem
             Form1 form1 = new Form1();
             form1.Show();
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            close.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
         }
     }
 }

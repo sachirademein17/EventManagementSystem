@@ -37,7 +37,9 @@ namespace EventManagementSystem
             bookingsTable = new DataGridView();
             label2 = new Label();
             CancelBooking = new KryptonButton();
+            kryptonPanel1 = new KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)bookingsTable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             SuspendLayout();
             // 
             // bookingsTable
@@ -128,6 +130,18 @@ namespace EventManagementSystem
             CancelBooking.Values.Text = "Cancel Booking";
             CancelBooking.Click += CancelBooking_Click;
             // 
+            // kryptonPanel1
+            // 
+            kryptonPanel1.Dock = DockStyle.Fill;
+            kryptonPanel1.Location = new Point(0, 0);
+            kryptonPanel1.Name = "kryptonPanel1";
+            kryptonPanel1.Size = new Size(1074, 675);
+            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(75, 75, 75);
+            kryptonPanel1.StateNormal.Color2 = Color.Gray;
+            kryptonPanel1.StateNormal.ColorAngle = 90F;
+            kryptonPanel1.StateNormal.ColorStyle = PaletteColorStyle.Linear;
+            kryptonPanel1.TabIndex = 12;
+            // 
             // OManageBookings
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -137,10 +151,12 @@ namespace EventManagementSystem
             Controls.Add(CancelBooking);
             Controls.Add(bookingsTable);
             Controls.Add(label2);
+            Controls.Add(kryptonPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "OManageBookings";
             Text = "OViewParticipants";
             ((System.ComponentModel.ISupportInitialize)bookingsTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -150,5 +166,6 @@ namespace EventManagementSystem
         private DataGridView bookingsTable;
         private Label label2;
         private Krypton.Toolkit.KryptonButton CancelBooking;
+        private KryptonPanel kryptonPanel1;
     }
 }

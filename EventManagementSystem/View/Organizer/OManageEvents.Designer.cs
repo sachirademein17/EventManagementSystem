@@ -39,7 +39,9 @@ namespace EventManagementSystem
             eventsTable = new DataGridView();
             DeleteEvent = new KryptonButton();
             UpdateEvent = new KryptonButton();
+            kryptonPanel1 = new KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             SuspendLayout();
             // 
             // label2
@@ -184,6 +186,18 @@ namespace EventManagementSystem
             UpdateEvent.Values.Text = "UPDATE";
             UpdateEvent.Click += UpdateEvent_Click;
             // 
+            // kryptonPanel1
+            // 
+            kryptonPanel1.Dock = DockStyle.Fill;
+            kryptonPanel1.Location = new Point(0, 0);
+            kryptonPanel1.Name = "kryptonPanel1";
+            kryptonPanel1.Size = new Size(1074, 675);
+            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(75, 75, 75);
+            kryptonPanel1.StateNormal.Color2 = Color.Gray;
+            kryptonPanel1.StateNormal.ColorAngle = 90F;
+            kryptonPanel1.StateNormal.ColorStyle = PaletteColorStyle.Linear;
+            kryptonPanel1.TabIndex = 10;
+            // 
             // OManageEvents
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -195,10 +209,12 @@ namespace EventManagementSystem
             Controls.Add(eventsTable);
             Controls.Add(CreateEvent);
             Controls.Add(label2);
+            Controls.Add(kryptonPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "OManageEvents";
             Text = "OManageEvents";
             ((System.ComponentModel.ISupportInitialize)eventsTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -210,5 +226,6 @@ namespace EventManagementSystem
         private DataGridView eventsTable;
         private Krypton.Toolkit.KryptonButton DeleteEvent;
         private Krypton.Toolkit.KryptonButton UpdateEvent;
+        private KryptonPanel kryptonPanel1;
     }
 }

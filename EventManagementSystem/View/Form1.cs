@@ -41,7 +41,7 @@ namespace EventManagementSystem
                 }
                 else if (user.Role == "Participant")
                 {
-                    Participant_Dashboard participant_Dashboard = new Participant_Dashboard();
+                    Participant_Dashboard participant_Dashboard = new Participant_Dashboard(this);
                     participant_Dashboard.Show();
                     this.Hide();
                 }

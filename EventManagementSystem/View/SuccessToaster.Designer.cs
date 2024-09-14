@@ -61,8 +61,10 @@ namespace EventManagementSystem.View
             label1.Font = new Font("Microsoft Sans Serif", 10F);
             label1.ForeColor = Color.FromArgb(57, 128, 0);
             label1.Location = new Point(91, 28);
+            label1.MaximumSize = new Size(500, 0);
+            label1.MinimumSize = new Size(250, 0);
             label1.Name = "label1";
-            label1.Size = new Size(64, 25);
+            label1.Size = new Size(250, 25);
             label1.TabIndex = 2;
             label1.Text = "label1";
             // 
@@ -70,6 +72,8 @@ namespace EventManagementSystem.View
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(350, 80);
             Controls.Add(label1);
             Controls.Add(pictureBox1);

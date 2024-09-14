@@ -25,7 +25,7 @@ namespace EventManagementSystem.View
 
         private void CreateUser_Click(object sender, EventArgs e)
         {
-
+            new SuccessToaster("\r\n    this.Controls.Add(myLabel);\r\n    this.AutoSize = true;  // Form resizes based on the label content\r\n    this.AutoSizeMode = AutoSizeMode.GrowAndShrink; // Allow shrinking as well").Show();
             // Get the role value
             string role;
             if (participantrole.Checked)
@@ -43,7 +43,7 @@ namespace EventManagementSystem.View
             // Check textboxes are properly entered by user
             if (!validation)
             {
-                new DangerToaster(errormsg).Show();
+               // new DangerToaster(errormsg).Show();
                 return;
             }
 

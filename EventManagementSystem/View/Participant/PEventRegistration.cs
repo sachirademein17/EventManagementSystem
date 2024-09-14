@@ -33,8 +33,8 @@ namespace EventManagementSystem
             {
                 // Executing the cancel booking fuction
                 int rowIndex = RegisteredEvent.SelectedRows[0].Index;
-                int eventID = Convert.ToInt32(RegisteredEvent.Rows[rowIndex].Cells[0].Value);
-                (bool success, string message) = user.CancelBooking(eventID, user.UserID);
+                int bookingID = Convert.ToInt32(RegisteredEvent.Rows[rowIndex].Cells[0].Value);
+                (bool success, string message) = user.CancelBooking(bookingID);
 
                 // Giving user feedback 
                 if (success)

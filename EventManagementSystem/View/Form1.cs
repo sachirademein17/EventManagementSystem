@@ -21,7 +21,7 @@ namespace EventManagementSystem
             User user = User.LogIn(username, password);
             /*            CurrentUser.UserDetails = user;
             */
-            CurrentUser currentUser = new CurrentUser(user);
+            new CurrentUser(user);
 
             if (user != null)
             {
@@ -41,7 +41,7 @@ namespace EventManagementSystem
                 }
                 else if (user.Role == "Participant")
                 {
-                    Participant_Dashboard participant_Dashboard = new Participant_Dashboard(this);
+                    Participant_Dashboard participant_Dashboard = new Participant_Dashboard();
                     participant_Dashboard.Show();
                     this.Hide();
                 }
@@ -54,7 +54,7 @@ namespace EventManagementSystem
 
         private void kryptonLinkLabel1_LinkClicked_1(object sender, EventArgs e)
         {
-            new CreateAccount().Show();
+            new AddNewUser().Show();
 
         }
 

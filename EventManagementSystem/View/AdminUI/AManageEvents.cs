@@ -63,36 +63,42 @@ namespace EventManagementSystem
         // Update event functionality
         private void UpdateEvent_Click(object sender, EventArgs e)
         {
-            // Check whether is a row is selected
+            //Checking whether a row is selected 
             if (eventsTable.SelectedRows.Count > 0)
             {
-
-                // Gather all the information of the selected event
+                // Getting all the details from the selected row
                 int rowIndex = eventsTable.SelectedRows[0].Index;
-
                 int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
-                int organizerID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[1].Value);
-                string eventName = (string)eventsTable.Rows[rowIndex].Cells[2].Value;
+                string eventName = (string)eventsTable.Rows[rowIndex].Cells[1].Value;
                 string description = (string)eventsTable.Rows[rowIndex].Cells[3].Value;
                 DateTime startDate = (DateTime)eventsTable.Rows[rowIndex].Cells[4].Value;
                 DateTime endDate = (DateTime)eventsTable.Rows[rowIndex].Cells[5].Value;
                 string location = (string)eventsTable.Rows[rowIndex].Cells[6].Value;
                 int maxParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[7].Value);
                 int currentParticipants = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[8].Value);
+                int organizerID = user.UserID;
 
-                // Redirect to the update events form
+                // Creating an Event Object
                 Event eventDetails = new Event(eventID, organizerID, eventName, description, startDate, endDate, location, maxParticipants, currentParticipants);
-                AdminUpdateEvents adminUpdateEvents = new AdminUpdateEvents(eventDetails);
-                adminUpdateEvents.Show();
+
+                // Check if the event starts over 4 hours from now. if no can't update event
+                if (eventDetails.StartDate.AddHours(4) < DateTime.Now)
+                {
+                    new DangerToaster("Too Late to Update the Event").Show();
+                }
+                else
+                {
+                    AdminUpdateEvents updateEventForm = new AdminUpdateEvents(eventDetails);
+                    updateEventForm.Show();
+                }
+
+
             }
             else
             {
                 new DangerToaster("Please select a row to update").Show();
+
             }
-
-
-
-
 
         }
 

@@ -113,7 +113,7 @@ namespace EventManagementSystem
         // Load The DataGridView
         public void LoadEventsTable()
         {
-            DataTable dt = user.ViewAllEvents(user.UserID);
+            DataTable dt = user.ViewAllUpComingEvents(user.UserID);
             eventsTable.DataSource = dt;
         }
 

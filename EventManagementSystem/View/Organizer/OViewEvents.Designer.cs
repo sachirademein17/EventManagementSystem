@@ -28,21 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            eventTable = new Krypton.Toolkit.KryptonDataGridView();
+            label2 = new Label();
+            ((System.ComponentModel.ISupportInitialize)eventTable).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // eventTable
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 16F);
-            label1.ForeColor = Color.FromArgb(255, 0, 127);
-            label1.Location = new Point(388, 319);
-            label1.Name = "label1";
-            label1.Size = new Size(191, 37);
-            label1.TabIndex = 3;
-            label1.Text = "View Events";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            eventTable.BorderStyle = BorderStyle.None;
+            eventTable.ColumnHeadersHeight = 51;
+            eventTable.Location = new Point(12, 98);
+            eventTable.Name = "eventTable";
+            eventTable.RowHeadersWidth = 62;
+            eventTable.Size = new Size(1050, 565);
+            eventTable.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label2.ForeColor = Color.FromArgb(224, 224, 224);
+            label2.Location = new Point(24, 26);
+            label2.Name = "label2";
+            label2.Size = new Size(181, 45);
+            label2.TabIndex = 3;
+            label2.Text = "Event Logs";
             // 
             // OViewEvents
             // 
@@ -50,16 +60,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
-            Controls.Add(label1);
+            Controls.Add(label2);
+            Controls.Add(eventTable);
             FormBorderStyle = FormBorderStyle.None;
             Name = "OViewEvents";
             Text = "OViewEvents";
+            ((System.ComponentModel.ISupportInitialize)eventTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Krypton.Toolkit.KryptonDataGridView eventTable;
+        private Label label2;
     }
 }

@@ -61,7 +61,7 @@ namespace EventManagementSystem
         // Load table
         private void LoadTable()
         {
-            DataTable dt = user.ViewAllEvents();
+            DataTable dt = user.ViewAllAvailableEvents();
             if (dt == null)
             {
                 new DangerToaster("Can't Load the events").Show();

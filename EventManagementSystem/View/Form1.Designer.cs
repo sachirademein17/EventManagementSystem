@@ -70,36 +70,27 @@ namespace EventManagementSystem
             kryptonButton1.Cursor = Cursors.Hand;
             kryptonButton1.Location = new Point(123, 527);
             kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.Size = new Size(244, 38);
-
-            // Normal state colors
-            kryptonButton1.StateNormal.Back.Color1 = ColorTranslator.FromHtml("#7ED321");  // Green
-            kryptonButton1.StateNormal.Back.Color2 = ColorTranslator.FromHtml("#A2D600");  // Light Green
-            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateNormal.Content.ShortText.Color2 = Color.White;
-
-            // Hover state colors
-            kryptonButton1.StateTracking.Back.Color1 = ColorTranslator.FromHtml("#417505");  // Dark Green
-            kryptonButton1.StateTracking.Back.Color2 = ColorTranslator.FromHtml("#5B9F00");  // Medium Green
-            kryptonButton1.StateTracking.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateTracking.Content.ShortText.Color2 = Color.White;
-
-            // Pressed/Clicked state colors
-            kryptonButton1.StatePressed.Back.Color1 = ColorTranslator.FromHtml("#4A90E2");  // Light Blue
-            kryptonButton1.StatePressed.Back.Color2 = ColorTranslator.FromHtml("#7B92C0");  // Cool Gray
-            kryptonButton1.StatePressed.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StatePressed.Content.ShortText.Color2 = Color.White;
-
-            kryptonButton1.OverrideDefault.Back.Color1 = ColorTranslator.FromHtml("#7ED321");  // Green
-            kryptonButton1.OverrideDefault.Back.Color2 = ColorTranslator.FromHtml("#A2D600");  // Light Green
+            kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(126, 211, 33);
+            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(162, 214, 0);
             kryptonButton1.OverrideDefault.Content.ShortText.Color1 = Color.White;
             kryptonButton1.OverrideDefault.Content.ShortText.Color2 = Color.White;
-
+            kryptonButton1.Size = new Size(244, 38);
+            kryptonButton1.StateNormal.Back.Color1 = Color.FromArgb(126, 211, 33);
+            kryptonButton1.StateNormal.Back.Color2 = Color.FromArgb(162, 214, 0);
+            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.White;
+            kryptonButton1.StateNormal.Content.ShortText.Color2 = Color.White;
+            kryptonButton1.StatePressed.Back.Color1 = Color.FromArgb(74, 144, 226);
+            kryptonButton1.StatePressed.Back.Color2 = Color.FromArgb(123, 146, 192);
+            kryptonButton1.StatePressed.Content.ShortText.Color1 = Color.White;
+            kryptonButton1.StatePressed.Content.ShortText.Color2 = Color.White;
+            kryptonButton1.StateTracking.Back.Color1 = Color.FromArgb(65, 117, 5);
+            kryptonButton1.StateTracking.Back.Color2 = Color.FromArgb(91, 159, 0);
+            kryptonButton1.StateTracking.Content.ShortText.Color1 = Color.White;
+            kryptonButton1.StateTracking.Content.ShortText.Color2 = Color.White;
             kryptonButton1.TabIndex = 10;
             kryptonButton1.Values.DropDownArrowColor = Color.Empty;
             kryptonButton1.Values.Text = "LOGIN";
             kryptonButton1.Click += kryptonButton1_Click;
-
             // 
             // kryptonPanel1
             // 
@@ -139,10 +130,10 @@ namespace EventManagementSystem
             // 
             kryptonLinkLabel1.Location = new Point(159, 626);
             kryptonLinkLabel1.Name = "kryptonLinkLabel1";
-            kryptonLinkLabel1.OverrideFocus.ShortText.Color1 = Color.FromArgb(102, 204, 255);
-            kryptonLinkLabel1.OverrideFocus.ShortText.Color2 = Color.FromArgb(102, 204, 255);
-            kryptonLinkLabel1.OverrideNotVisited.ShortText.Color1 = Color.FromArgb(0, 153, 255);
-            kryptonLinkLabel1.OverrideNotVisited.ShortText.Color2 = Color.FromArgb(0, 153, 255);
+            kryptonLinkLabel1.OverrideFocus.ShortText.Color1 = Color.Purple;
+            kryptonLinkLabel1.OverrideFocus.ShortText.Color2 = Color.Purple;
+            kryptonLinkLabel1.OverrideNotVisited.ShortText.Color1 = Color.White;
+            kryptonLinkLabel1.OverrideNotVisited.ShortText.Color2 = Color.White;
             kryptonLinkLabel1.Size = new Size(138, 29);
             kryptonLinkLabel1.TabIndex = 8;
             kryptonLinkLabel1.Values.Text = "Create Account";
@@ -153,7 +144,7 @@ namespace EventManagementSystem
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 11F);
-            label3.ForeColor = Color.White;
+            label3.ForeColor = Color.Azure;
             label3.Location = new Point(123, 584);
             label3.Name = "label3";
             label3.Size = new Size(243, 30);

@@ -68,6 +68,7 @@ namespace EventManagementSystem.Models
             set { role = value; }
         }
 
+        //public virtual (bool, string) UpdateUser();
 
         public static User LogIn(string username, string password)
         {
@@ -149,13 +150,12 @@ namespace EventManagementSystem.Models
         {
             try
             {
-                MessageBox.Show($"{password} {userID}");
                 string query = "UPDATE users SET PasswordHash = @PasswordHash WHERE UserID = @UserID;";
 
                 MySqlParameter[] parameters = new MySqlParameter[]
                 {
                     new MySqlParameter("@PasswordHash", password),
-                    new MySqlParameter("@UserID", userID.ToString())
+                    new MySqlParameter("@UserID", userID)
                 };
 
                 int result = DBConnection.ExecuteNonQuery(query, parameters);

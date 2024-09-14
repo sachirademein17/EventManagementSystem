@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Participant_Dashboard));
             mainpanel = new Panel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
-            button2 = new Button();
-            button3 = new Button();
-            button1 = new Button();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             Dashboard = new Krypton.Toolkit.KryptonButton();
             EventRegistration = new Krypton.Toolkit.KryptonButton();
             LogOut = new Krypton.Toolkit.KryptonButton();
+            button1 = new Button();
+            button3 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
@@ -66,45 +67,6 @@
             kryptonPanel2.StateNormal.ColorAngle = 45F;
             kryptonPanel2.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel2.TabIndex = 7;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.Transparent;
-            button2.BackgroundImageLayout = ImageLayout.None;
-            button2.Image = Properties.Resources.minimize;
-            button2.Location = new Point(872, 18);
-            button2.Name = "button2";
-            button2.Size = new Size(55, 51);
-            button2.TabIndex = 1;
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
-            // button3
-            // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button3.BackColor = Color.Transparent;
-            button3.BackgroundImageLayout = ImageLayout.None;
-            button3.Image = Properties.Resources.maximize;
-            button3.Location = new Point(939, 18);
-            button3.Name = "button3";
-            button3.Size = new Size(55, 51);
-            button3.TabIndex = 2;
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.BackColor = Color.Transparent;
-            button1.BackgroundImageLayout = ImageLayout.None;
-            button1.Image = Properties.Resources.close;
-            button1.Location = new Point(1006, 18);
-            button1.Name = "button1";
-            button1.Size = new Size(55, 51);
-            button1.TabIndex = 0;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // kryptonPanel1
             // 
@@ -204,6 +166,45 @@
             LogOut.Values.Text = "LogOut";
             LogOut.Click += LogOut_Click;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.BackColor = Color.Transparent;
+            button1.BackgroundImageLayout = ImageLayout.None;
+            button1.Image = Properties.Resources.close;
+            button1.Location = new Point(1006, 18);
+            button1.Name = "button1";
+            button1.Size = new Size(55, 51);
+            button1.TabIndex = 0;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button3.BackColor = Color.Transparent;
+            button3.BackgroundImageLayout = ImageLayout.None;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.Location = new Point(939, 18);
+            button3.Name = "button3";
+            button3.Size = new Size(55, 51);
+            button3.TabIndex = 2;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.BackColor = Color.Transparent;
+            button2.BackgroundImageLayout = ImageLayout.None;
+            button2.Image = Properties.Resources.minimize;
+            button2.Location = new Point(872, 18);
+            button2.Name = "button2";
+            button2.Size = new Size(55, 51);
+            button2.TabIndex = 1;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // Participant_Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -230,8 +231,8 @@
         private Krypton.Toolkit.KryptonButton Dashboard;
         private Krypton.Toolkit.KryptonButton EventRegistration;
         private Krypton.Toolkit.KryptonButton LogOut;
-        private Button button1;
-        private Button button3;
         private Button button2;
+        private Button button3;
+        private Button button1;
     }
 }

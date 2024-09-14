@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using K4os.Compression.LZ4.Streams.Adapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,11 @@ namespace EventManagementSystem.Models
         {
             get { return userDetails; }
             private set { userDetails = value; }
+        }
+
+        public static void ClearUserDetails()
+        {
+            userDetails = null;
         }
     }
 }

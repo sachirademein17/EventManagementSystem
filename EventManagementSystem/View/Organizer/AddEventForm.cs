@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Database;
+using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -110,6 +111,9 @@ namespace EventManagementSystem
             endDatetxt.Value = startDatetxt.Value.AddHours(1);
         }
 
-        
+        private void startDatetxt_ValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

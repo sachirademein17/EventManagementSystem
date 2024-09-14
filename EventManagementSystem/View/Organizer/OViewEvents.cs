@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,18 @@ namespace EventManagementSystem
 {
     public partial class OViewEvents : Form
     {
+        Organizer user;
         public OViewEvents()
         {
             InitializeComponent();
+            user = CurrentUser.UserDetails as Organizer;
+            LoadTable();
+        }
+
+        private void LoadTable()
+        {
+            DataTable dt = user.ViewAllPastEvent(user.UserID);
+            eventTable.DataSource = dt; 
         }
     }
 }

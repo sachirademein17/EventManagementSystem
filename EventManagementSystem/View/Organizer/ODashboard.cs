@@ -16,14 +16,12 @@ namespace EventManagementSystem
     {
 
         User user = CurrentUser.UserDetails;
-
-        public ODashboard()
+        Form dashboard;
+        public ODashboard(Form dashboard)
         {
             InitializeComponent();
-            Username.Text = user.UserName;
-            Role.Text = user.Role;
-            Email.Text = user.Email;
-            PhoneNumber.Text = user.PhoneNumber;
+            LoadUserDetails();
+            this.dashboard = dashboard;
         }
 
         private void Username_Click(object sender, EventArgs e)
@@ -37,6 +35,9 @@ namespace EventManagementSystem
             if (success)
             {
                 new SuccessToaster(message).Show();
+                dashboard.Close();
+                new Form1().Show();
+                this.Close();
             }
             else
             {
@@ -46,7 +47,15 @@ namespace EventManagementSystem
 
         private void kryptonButton2_Click(object sender, EventArgs e)
         {
-            new ChangePassword().Show();
+            new UpdateProfile().Show();
+        }
+
+        public void LoadUserDetails()
+        {
+            Username.Text = user.UserName;
+            Role.Text = user.Role;
+            Email.Text = user.Email;
+            PhoneNumber.Text = user.PhoneNumber;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace EventManagementSystem
         public Organizer__Dashboard()
         {
             InitializeComponent();
-            loadform(new ODashboard());
+            loadform(new ODashboard(this));
         }
 
         // Functionality to load forms in the main form 
@@ -43,7 +43,7 @@ namespace EventManagementSystem
         // Load Dashboard form
         private void Dashboard_Click(object sender, EventArgs e)
         {
-            loadform(new ODashboard());
+            loadform(new ODashboard(this));
         }
 
         // Load Manage Events form

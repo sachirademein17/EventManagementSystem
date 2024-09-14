@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,9 @@ namespace EventManagementSystem
 {
     public partial class Participant_Dashboard : Form
     {
-        Form1 close;
-        public Participant_Dashboard(Form1 close)
+        public Participant_Dashboard()
         {
             InitializeComponent();
-            this.close = close;
             loadform(new PDashboard());
         }
 
@@ -48,14 +47,14 @@ namespace EventManagementSystem
 
         private void LogOut_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
+            new Form1().Show();
+            CurrentUser.ClearUserDetails();
             this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            close.Close();
+            Application.Exit();
         }
 
         private void button3_Click(object sender, EventArgs e)

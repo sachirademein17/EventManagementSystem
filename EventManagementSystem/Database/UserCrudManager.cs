@@ -13,26 +13,28 @@ namespace EventManagementSystem.Database
     internal class UserCrudManager
     {
 
+        // Query to check how many timews the username as repeated
         const string CheckUsername = "SELECT COUNT(*) FROM Users WHERE Username = @Username;";
         
-        
+        // Queries to add user 
         const string AddUserQuery = "INSERT INTO Users (Username, PasswordHash, Role, Email, PhoneNumber, DateCreated) VALUES (@Username, @PasswordHash, @Role, @Email, @PhoneNumber, NOW());";
         const string GetUserIdQuery = "SELECT UserID FROM Users WHERE Username = @Username;";
         const string ParticipantQuery = "INSERT INTO Participants (UserID, Name, Email, PhoneNumber) VALUES (@UserID, @Name, @Email, @PhoneNumber);";
 
 
-
+        // Query to remove user
         const string RemoveUserQuery = "DELETE FROM Users WHERE UserID = @UserID;";
 
-
+        // Query to update user
         const string UpdateUserQuery = "UPDATE Users SET Username = @Username, PasswordHash = @PasswordHash, Email = @Email, PhoneNumber = @PhoneNumber, Role = @Role WHERE UserID = @UserID;";
 
+        // Query to view all users
         const string ViewAllUsersQuery = "SELECT * FROM users;";
 
 
 
 
-
+        // Fuctionality to add user
         public static (bool, string) AddUser(User user)
         {
             try
@@ -44,8 +46,10 @@ namespace EventManagementSystem.Database
                     new MySqlParameter("@Username", user.UserName)
                 };
 
+                // Getting how much times that username has repeated
                 int count = Convert.ToInt32(DBConnection.ExecuteScalar(CheckUsername, checkUsernameParameter));
 
+                // If the count is > 0 that username is used
                 if (count > 0)
                 {
                     return (false, "This User Exists.");
@@ -60,13 +64,17 @@ namespace EventManagementSystem.Database
                     new MySqlParameter("@Email", user.Email),
                     new MySqlParameter("@PhoneNumber", user.PhoneNumber),
                 };
+
+                // Add the user
                 int result = DBConnection.ExecuteNonQuery(AddUserQuery, addUserParameters);
 
+                // Checking whether the user is createed successfully
                 if (!(result > 0))
                 {
                     return (false, "Unable to Create User");
                 }
 
+                // If the user role is participant, user needs to be added to the participants table
                 if (user.Role.Equals("Participant"))
                 {
 
@@ -76,6 +84,7 @@ namespace EventManagementSystem.Database
                         new MySqlParameter ("@Username", user.UserName)
                     };
 
+                    // Get the new user's ID
                     int newUserID = Convert.ToInt32(DBConnection.ExecuteScalar(GetUserIdQuery, getUserIdParameter));
 
 
@@ -87,7 +96,8 @@ namespace EventManagementSystem.Database
                         new MySqlParameter("@Email", user.Email),
                         new MySqlParameter("@PhoneNumber", user.PhoneNumber)
                     };
-                    MessageBox.Show("It Works Till here");
+
+                    // Adds the user to the participants table
                     int participantCreated = DBConnection.ExecuteNonQuery(ParticipantQuery, participantParameters);
 
                     if (participantCreated > 0)
@@ -100,10 +110,15 @@ namespace EventManagementSystem.Database
                     }
 
                 }
-
-                else
+                // if the user role is organizer show user feedback
+                else if (user.Role.Equals("Organizer"))
                 {
                     return (true, "Organizer Created Successfully");
+                }
+                // if the user role is admin show user feedback
+                else
+                {
+                    return (true, "Admin Created Successfully");
                 }
 
 
@@ -119,7 +134,7 @@ namespace EventManagementSystem.Database
 
 
 
-
+        // Functionality to remove user
         public static (bool, string) RemoveUser(int userID)
         {
 
@@ -131,6 +146,7 @@ namespace EventManagementSystem.Database
                     new MySqlParameter("@UserID", userID)
                 };
 
+                // Executing the remove user query
                 int result = DBConnection.ExecuteNonQuery(RemoveUserQuery, removeUserParameters);
 
                 if (result > 0)
@@ -154,7 +170,7 @@ namespace EventManagementSystem.Database
 
 
 
-
+        // Functionality to update user
         public static (bool, string) UpdateUser(User userDetails, string userName)
         {
 
@@ -166,10 +182,13 @@ namespace EventManagementSystem.Database
                     new MySqlParameter("@Username", userDetails.UserName)
                 };
 
+                // Check how many time does the username has repeated
                 int count = Convert.ToInt32(DBConnection.ExecuteScalar(CheckUsername, checkUsernameParameter));
 
+                // If it is the previous username allow it
                 if (!userDetails.UserName.Equals(userName))
                 {
+                    // if the username is reaped give error
                     if (count > 0)
                     {
                         return (false, "This User Exists.");
@@ -187,6 +206,8 @@ namespace EventManagementSystem.Database
                     new MySqlParameter("@PhoneNumber", userDetails.PhoneNumber),
                     new MySqlParameter("@UserID", userDetails.UserID)
                 };
+
+                //  Execute the update user query
                 int result = DBConnection.ExecuteNonQuery(UpdateUserQuery, updateUserParameter);
 
                 if (!(result > 0))
@@ -199,15 +220,14 @@ namespace EventManagementSystem.Database
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                return (false, "We are screwed");
+                return (false, "Database or Query Issue");
             }
 
         }
 
 
 
-
+        // Functionality to view all the users
         public static DataTable ViewAllUsers()
         {
             try
@@ -224,48 +244,56 @@ namespace EventManagementSystem.Database
 
 
 
-
+        // Functionality to validation all the user UI inputs
         public static (bool, string) UserTextBoxValidation(string username, string password, string confirmPassword, string email, string phoneNumber, string role)
         {
             int temp;
 
+            // Checking whether the username is entered
             if (string.IsNullOrEmpty(username))
             {
                 return (false, "Please Enter the Username");
             }
 
+            // Checking whether the password is entered
             if (string.IsNullOrEmpty(password))
             {
                 return (false, "Please Enter the Password");
             }
 
+            // Checking whether the confirm password is entered
             if (string.IsNullOrEmpty(confirmPassword))
             {
                 return (false, "Please Confirm the Password");
             }
 
+            // Checking whether the password is equal to the confirm password
             if (!password.Equals(confirmPassword))
             {
                 return (false, "Please Confirm Your Password");
             }
 
+            // Checking whether the email is entered
             if (string.IsNullOrEmpty(email))
             {
                 return (false, "Please Enter the Email");
             }
 
+            // Checking whether the phonenumber is entered
             if (string.IsNullOrEmpty(phoneNumber))
             {
                 return (false, "Please Enter the Phone Number");
             }
-
+                        
             bool isNumber = int.TryParse(phoneNumber, out temp);
 
+            // Checking whether the phone number is a number
             if (!isNumber)
             {
                 return (false, "Please Enter a Number as the Phone Number");
             }
-
+           
+            // Checking whether the role is entered
             if (string.IsNullOrEmpty(role))
             {
                 return (false, "Please Select a Role");

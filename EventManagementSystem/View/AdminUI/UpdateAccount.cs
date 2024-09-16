@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,14 @@ namespace EventManagementSystem.View.Admin
     {
         User userDetails;
         EventManagementSystem.Models.Admin user;
+        UserController userController;
+
         public UpdateAccount(User userDetails)
         {
             InitializeComponent();
             user = (EventManagementSystem.Models.Admin)CurrentUser.UserDetails;
             this.userDetails = userDetails ;
+            userController = new UserController();
             SetUserDetails(userDetails);
         }
 
@@ -38,7 +42,7 @@ namespace EventManagementSystem.View.Admin
             }
 
 
-            (bool validation, string errormsg) = user.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
+            (bool validation, string errormsg) = userController.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
 
             // Checking whether the validation is success
             if (!validation)
@@ -57,7 +61,7 @@ namespace EventManagementSystem.View.Admin
             User updateUser = new Organizer(userDetails.UserID, username, password, email, phoneNumber, role);
 
             // Execute the Update User functionality
-            (bool success, string message) = user.UpdateUser(updateUser,userDetails.UserName);
+            (bool success, string message) = userController.UpdateUser(updateUser,userDetails.UserName);
 
             // give user feedback
             if (success)

@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
@@ -17,12 +18,14 @@ namespace EventManagementSystem
     public partial class OManageEvents : Form
     {
         private Organizer user;
+        private EventController eventController;    
 
 
         public OManageEvents()
         {
             InitializeComponent();
-            user = (Organizer)CurrentUser.UserDetails;
+            user = CurrentUser.UserDetails as Organizer;
+            eventController = new EventController();
             LoadEventsTable();
         }
 
@@ -45,7 +48,7 @@ namespace EventManagementSystem
                 int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
 
                 // Executing Event Deleting Fuctionality
-                (bool success, string message) = user.DeleteEvent(eventID);
+                (bool success, string message) = eventController .DeleteEvent(eventID);
 
                 // Show message for User
                 if (success)
@@ -113,7 +116,7 @@ namespace EventManagementSystem
         // Load The DataGridView
         public void LoadEventsTable()
         {
-            DataTable dt = user.ViewAllUpComingEvents(user.UserID);
+            DataTable dt = eventController.ViewUpcomingEvents(user.UserID);
             eventsTable.DataSource = dt;
         }
 

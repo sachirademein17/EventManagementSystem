@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using EventManagementSystem.View.Admin;
 using System;
@@ -17,10 +18,13 @@ namespace EventManagementSystem
     public partial class AManageUsers : Form
     {
         Admin user;
+        UserController userController;
+
         public AManageUsers()
         {
             InitializeComponent();
             user = (Admin)CurrentUser.UserDetails;
+            userController = new UserController();
             LoadTable();
         }
 
@@ -39,7 +43,7 @@ namespace EventManagementSystem
                 // Execute the Remove User fuctionality
                 int rowIndex = usersTable.SelectedRows[0].Index;
                 int id = Convert.ToInt32(usersTable.Rows[rowIndex].Cells[0].Value);
-                (bool success, string message) = user.RemoveUser(id);
+                (bool success, string message) = userController.RemoveUser(id);
 
                 // Give user feedback
                 if (success)
@@ -94,7 +98,7 @@ namespace EventManagementSystem
         // Load the DataGridView
         private void LoadTable()
         {
-            DataTable dt = user.ViewAllUsers();
+            DataTable dt = userController.ViewAllUsers();
             usersTable.DataSource = dt;
         }
 

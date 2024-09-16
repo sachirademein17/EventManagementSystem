@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Database;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Database;
 using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
@@ -19,6 +20,7 @@ namespace EventManagementSystem
         // Creating a Organizer Object for the Current User ( To Get Current User Details )
         Organizer user;
         OManageEvents manageEvents;
+        EventController eventController;
 
         public AddEventForm(OManageEvents manageEvents)
         {
@@ -26,6 +28,8 @@ namespace EventManagementSystem
 
             // Defining the Current User Object
             user = (Organizer)CurrentUser.UserDetails;
+
+            eventController = new EventController();
 
             // Defining the OManageEvents Object ( To load the DataGridView )
             this.manageEvents = manageEvents;
@@ -57,7 +61,7 @@ namespace EventManagementSystem
 
 
             // Checking all the input value are valid and not empty
-            (bool validation, string validationmsg) = user.TextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text, descriptiontxt.Text);
+            (bool validation, string validationmsg) = eventController.EventTextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text,0, descriptiontxt.Text);
 
 
             // If Input Details are not valid show error message & exit 
@@ -86,7 +90,7 @@ namespace EventManagementSystem
 
 
             // Creating the event
-            (bool success, string message) = user.CreateEvent(eventDetails);
+            (bool success, string message) = eventController.CreateEvent(eventDetails);
 
 
             // According to the process show the output

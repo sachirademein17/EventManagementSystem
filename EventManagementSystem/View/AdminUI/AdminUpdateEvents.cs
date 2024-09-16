@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -15,15 +16,17 @@ namespace EventManagementSystem
     public partial class AdminUpdateEvents : Form
     {
 
-        int eventID;
+        Event eventDetails;
         Admin user;
+        EventController eventController;
 
         public AdminUpdateEvents(Event eventDetails)
         {
             InitializeComponent();
-            eventID = eventDetails.EventID;
+            this.eventDetails = eventDetails;
             SetEventDetails(eventDetails);
             user = (Admin)CurrentUser.UserDetails;
+            eventController = new EventController();    
         }
 
         // Update Event fuctionality
@@ -36,15 +39,15 @@ namespace EventManagementSystem
             DateTime startTime = startDatetxt.Value;
             DateTime endTime = endDatetxt.Value;
             int maxParticipants = int.Parse(maxParticipantstxt.Text);
-            int currentParticipants = int.Parse(currentParticipantstxt.Text);
+            int currentParticipants = this.eventDetails.CurrentParticipants;
             string description = descriptiontxt.Text;
 
 
 
-            Event eventDetails = new Event(eventID, user.UserID, name, description, startTime, endTime, location, maxParticipants, currentParticipants);
+            Event eventDetails = new Event(this.eventDetails.EventID, user.UserID, name, description, startTime, endTime, location, maxParticipants, currentParticipants);
             
             // Executing the update event functionality
-            (bool success, string message )= user.UpdateEvent(eventDetails);
+            (bool success, string message )= eventController.UpdateEvent(eventDetails);
 
             // Give user feedback
             if (success)
@@ -63,13 +66,11 @@ namespace EventManagementSystem
         // Set all the textfields with the previous details
         private void SetEventDetails(Event eventDetails)
         {
-            eventID = eventDetails.EventID;
             nametxt.Text = eventDetails.EventName;
             venuetxt.Text = eventDetails.Location;
             startDatetxt.Value = eventDetails.StartDate;
             endDatetxt.Value = eventDetails.EndDate;
             maxParticipantstxt.Text = (eventDetails.MaxParticipants).ToString();
-            currentParticipantstxt.Text = (eventDetails.CurrentParticipants).ToString();
             descriptiontxt.Text = (eventDetails.Description).ToString();
         }
 

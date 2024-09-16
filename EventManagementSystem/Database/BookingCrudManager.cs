@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -14,12 +15,14 @@ namespace EventManagementSystem.Database
     {
 
         // Query to View all Bookings
-        const string ViewAllOrganizedBookingsQuery = "SELECT b.BookingID, e.EventName, p.Name AS ParticipantName, p.Email AS ParticipantEmail, p.PhoneNumber AS ParticipantPhoneNumber " +
-                                            "FROM Bookings b" +
-                                            " JOIN Events e ON b.EventID = e.EventID " +
-                                            "JOIN Participants p ON b.ParticipantID = p.ParticipantID " +
-                                            "JOIN Users u ON e.OrganizerID = u.UserID " +
-                                            "WHERE u.UserID = @OrganizerUserID;";
+        const string ViewAllOrganizedBookingsQuery =
+                    "SELECT b.BookingID, e.EventName, p.Name AS ParticipantName, p.Email AS ParticipantEmail, p.PhoneNumber AS ParticipantPhoneNumber, b.BookingDate " +
+                    "FROM Bookings b " +
+                    "JOIN Events e ON b.EventID = e.EventID " +
+                    "JOIN Participants p ON b.ParticipantID = p.ParticipantID " +
+                    "JOIN Users u ON e.OrganizerID = u.UserID " +
+                    "WHERE u.UserID = @OrganizerUserID AND " +
+                    "e.StartDate > NOW();";
 
         // Query to Cancel Bookings
         const string CancelBookingQuery = "DELETE FROM bookings WHERE BookingID = @BookingID;";
@@ -27,28 +30,29 @@ namespace EventManagementSystem.Database
         const string DecrementCurrentEventParticipantsQuery = "UPDATE events SET CurrentParticipants = CurrentParticipants - 1 WHERE EventID = @EventID;";
 
 
-
+        // Query to Add Bookings
         const string AlreadyRegisteredQuery = "SELECT COUNT(*) FROM Bookings WHERE EventID = @EventID AND ParticipantID = @ParticipantID";
         const string AddBookingQuery = "INSERT INTO Bookings (EventID, ParticipantID, BookingDate) VALUES (@EventID, @ParticipantID, NOW());";
         const string IncreseCurrentParticipantsQuery = "UPDATE Events SET CurrentParticipants = CurrentParticipants + 1 WHERE EventID = @EventID;";
         
-        
+        // Query to get the Participant ID
         const string GetParticipantIdQuery = "SELECT ParticipantID FROM participants WHERE UserID = @UserID";
 
-
+        // Query to get the Maximum & the current participant number
         const string MaxParticipantsQuery = "SELECT MaxParticipants FROM events WHERE EventID = @EventID";
         const string CurrentParticipantsQuery = "SELECT CurrentParticipants FROM events WHERE EventID = @EventID";
 
 
+        // Query to get all the Registered Events
+        const string GetRegisteredEventsQuery = 
+                    "SELECT b.BookingID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location " +
+                    "FROM Events e " +
+                    "INNER JOIN Bookings b ON e.EventID = b.EventID " +
+                    "WHERE b.ParticipantID = @ParticipantID AND " +
+                    "e.StartDate > NOW();";
 
-        const string GetRegisteredEventsQuery =
-            "SELECT b.BookingID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location " +
-            "FROM Events e " +
-            "INNER JOIN Bookings b ON e.EventID = b.EventID " +
-            "WHERE b.ParticipantID = @ParticipantID;";
 
-
-
+        // Query to view all the Availble Events
         const string ViewAllAvailableEventsQuery =
                     "SELECT e.EventID, u.Username AS OrganizerName, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location, e.MaxParticipants, e.CurrentParticipants " +
                     "FROM events e " +
@@ -58,7 +62,7 @@ namespace EventManagementSystem.Database
 
 
 
-
+        // Functionality for Oragnizers view all the booking related to their Events
         public static DataTable ViewAllOrganizedBookings(int organizerID)
         {
             try
@@ -81,12 +85,11 @@ namespace EventManagementSystem.Database
                 new DangerToaster("Database or Query Issue");
                 return null;
             }
-
         }
 
 
 
-
+        // Functionality to cancel bookings
         public static (bool, string) CancelBooking(int bookingID)
         {
             try
@@ -148,7 +151,7 @@ namespace EventManagementSystem.Database
         }
 
 
-
+        // Functionality to book an Event
         public static (bool, string) BookEvent(int eventID, int userID)
         {
             try
@@ -293,7 +296,7 @@ namespace EventManagementSystem.Database
 
 
 
-
+        // Functionality to get all the registered events
         public static DataTable GetRegisteredEvents(int userID)
         {
             try
@@ -320,7 +323,7 @@ namespace EventManagementSystem.Database
 
         }
 
-
+        // Fuctionality to view all available events
 
         public static DataTable ViewAllAvailableEvents()
         {

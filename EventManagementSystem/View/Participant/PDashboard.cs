@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,13 @@ namespace EventManagementSystem
     public partial class PDashboard : Form
     {
         Participant user;
+        BookingController bookingController;
 
         public PDashboard()
         {
             InitializeComponent();
             user = CurrentUser.UserDetails as Participant;
-
+            bookingController = new BookingController();
             // Load the table
             LoadTable();
         }
@@ -36,7 +38,7 @@ namespace EventManagementSystem
                 int eventID = Convert.ToInt32(kryptonDataGridView1.Rows[rowIndex].Cells[0].Value);
 
                 // Perform thebook event fuctionality
-                (bool success, string message) = user.BookEvent(eventID,user.UserID);
+                (bool success, string message) = bookingController.BookEvent(eventID,user.UserID);
 
 
                 // Give user feedback
@@ -61,7 +63,7 @@ namespace EventManagementSystem
         // Load table
         private void LoadTable()
         {
-            DataTable dt = user.ViewAllAvailableEvents();
+            DataTable dt = bookingController.ViewAllAvailableEvents();
             if (dt == null)
             {
                 new DangerToaster("Can't Load the events").Show();

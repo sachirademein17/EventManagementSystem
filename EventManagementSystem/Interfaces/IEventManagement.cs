@@ -14,7 +14,10 @@ namespace EventManagementSystem.Interfaces
         (bool,string) CreateEvent(Event eventDetails);
         (bool, string) UpdateEvent(Event eventDetails);
         (bool, string) DeleteEvent(int eventID);
-        DataTable ViewAllEvents(int eventID);
+        DataTable ViewUpcomingEvents(int eventID);
+        DataTable ViewPastEvents(int eventID);
+
+        (bool, string) EventTextBoxValidation(string eventName, string location, DateTime startDateTime, DateTime endDateTime, string maxParticipants, int currentParticipants, string description);
 
 
     }

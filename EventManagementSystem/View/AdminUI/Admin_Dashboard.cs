@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventManagementSystem.View.AdminUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,6 +58,11 @@ namespace EventManagementSystem
             Form1 form1 = new Form1();
             form1.Show();
             this.Close();
+        }
+
+        private void kryptonButton5_Click(object sender, EventArgs e)
+        {
+            loadform(new PastEventLogs());
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Database;
+using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -15,11 +17,13 @@ namespace EventManagementSystem
     public partial class CreateAccount : Form
     {
         Admin user;
+        UserController userController;
 
         public CreateAccount()
         {
             InitializeComponent();
             user = (Admin)CurrentUser.UserDetails;
+            userController = new UserController();
         }
 
         private void CreateUser_Click(object sender, EventArgs e)
@@ -37,7 +41,7 @@ namespace EventManagementSystem
             }
 
 
-            (bool validation, string errormsg) = user.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
+            (bool validation, string errormsg) = userController.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
 
             // Check textboxes are properly entered by user
             if (!validation)
@@ -54,7 +58,7 @@ namespace EventManagementSystem
 
             User adduser = new Admin(1, username, password, email, phoneNumber, role);
 
-            (bool success, string message) = user.AddUser(adduser);
+            (bool success, string message) = userController.AddUser(adduser);
 
             // Give user feedback
             if (success)

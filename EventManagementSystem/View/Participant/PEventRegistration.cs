@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,12 @@ namespace EventManagementSystem
     public partial class PEventRegistration : Form
     {
         Participant user;
+        BookingController bookingController;
         public PEventRegistration()
         {
             InitializeComponent();
             user = (Participant)CurrentUser.UserDetails;
-
+            bookingController = new BookingController();
             // Load the table
             LoadTable();
         }
@@ -34,7 +36,7 @@ namespace EventManagementSystem
                 // Executing the cancel booking fuction
                 int rowIndex = RegisteredEvent.SelectedRows[0].Index;
                 int bookingID = Convert.ToInt32(RegisteredEvent.Rows[rowIndex].Cells[0].Value);
-                (bool success, string message) = user.CancelBooking(bookingID);
+                (bool success, string message) = bookingController.CancelBooking(bookingID);
 
                 // Giving user feedback 
                 if (success)
@@ -57,7 +59,7 @@ namespace EventManagementSystem
         // Load the Table
         private void LoadTable()
         {
-            DataTable dataTable = user.GetRegisteredEvents(user.UserID);
+            DataTable dataTable = bookingController.GetRegisteredEvents(user.UserID);
 
             if (dataTable == null) {
                 new DangerToaster("Database or Query Issue").Show();

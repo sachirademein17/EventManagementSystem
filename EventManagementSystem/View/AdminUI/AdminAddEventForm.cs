@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Database;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Database;
 using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
@@ -18,12 +19,13 @@ namespace EventManagementSystem
 
         Admin user;
         AdminAddEventForm addEventForm;
+        EventController eventController;    
 
         public AdminAddEventForm()
         {
             InitializeComponent();
             user = (Admin)CurrentUser.UserDetails;
-
+            eventController = new EventController();
         }
 
 
@@ -45,7 +47,7 @@ namespace EventManagementSystem
         {
 
             // Checking all the input value are valid and not empty
-            (bool validation, string validationmsg) = user.TextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text, descriptiontxt.Text);
+            (bool validation, string validationmsg) = eventController.EventTextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text,0, descriptiontxt.Text);
 
 
             // If Input Details are not valid show error message & exit 
@@ -66,7 +68,7 @@ namespace EventManagementSystem
             Event eventDetails = new Event(0, user.UserID, eventName, description, startDate, endDate, location, maxParticipants, 0);
 
             // Execute Create Event functionality
-            (bool success, string message) = user.CreateEvent(eventDetails);
+            (bool success, string message) = eventController.CreateEvent(eventDetails);
 
             // Show user feedback
             if (success)

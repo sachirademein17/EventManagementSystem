@@ -88,10 +88,10 @@
             // 
             usersTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             usersTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            usersTable.Location = new Point(37, 126);
+            usersTable.Location = new Point(12, 126);
             usersTable.Name = "usersTable";
             usersTable.RowHeadersWidth = 62;
-            usersTable.Size = new Size(1001, 513);
+            usersTable.Size = new Size(1050, 537);
             usersTable.TabIndex = 18;
             // 
             // CreateUser

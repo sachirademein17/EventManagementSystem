@@ -10,23 +10,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EventManagementSystem
+namespace EventManagementSystem.View.AdminUI
 {
-    public partial class OViewEvents : Form
+    public partial class PastEventLogs : Form
     {
+        EventManagementSystem.Models.Admin user;
         EventController eventController;
-        public OViewEvents()
+        public PastEventLogs()
         {
             InitializeComponent();
+            user = CurrentUser.UserDetails as EventManagementSystem.Models.Admin;
             eventController = new EventController();
             LoadTable();
         }
 
-        // Load the past event table
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void LoadTable()
         {
-            DataTable datatable = eventController.ViewPastEvents(CurrentUser.UserDetails.UserID);
-            eventTable.DataSource = datatable; 
+            DataTable pastEventData = eventController.ViewPastEvents();
+            eventsTable.DataSource = pastEventData;
         }
     }
 }

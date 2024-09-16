@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace EventManagementSystem.Database
 {
@@ -14,49 +15,48 @@ namespace EventManagementSystem.Database
     {
 
         // Query to Create an Event
-        const string CreateEventQuery = "INSERT INTO Events (OrganizerID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants) " +
-                                        "VALUES (@OrganizerID, @EventName, @Description, @StartDate, @EndDate, @Location, @MaxParticipants, @CurrentParticipants);";
+        const string CreateEventQuery = 
+                    "INSERT INTO Events (OrganizerID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants) " +
+                    "VALUES (@OrganizerID, @EventName, @Description, @StartDate, @EndDate, @Location, @MaxParticipants, @CurrentParticipants);";
 
         // Query to Delete an Event
         const string DeleteEventQuery = "DELETE FROM events WHERE EventID = @EventID;";
 
         // Query to Update an Event
-        const string UpdateEventQuery = "UPDATE Events" +
-                                        " SET EventName = @EventName, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, Location = @Location, MaxParticipants = @MaxParticipants" +
-                                        " WHERE EventID = @EventID;";
+        const string UpdateEventQuery = 
+                    "UPDATE Events" +
+                    " SET EventName = @EventName, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, Location = @Location, MaxParticipants = @MaxParticipants" +
+                    " WHERE EventID = @EventID;";
 
         // Query to View all Organized Upcoming Events
         const string ViewAllOrganizedUpcomingEventsQuery =
-    "SELECT EventID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants " +
-    "FROM Events " +
-    "WHERE OrganizerID = @OrganizerID AND StartDate >= NOW();";
+                    "SELECT EventID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants " +
+                    "FROM Events " +
+                    "WHERE OrganizerID = @OrganizerID AND StartDate >= NOW();";
 
         // Query to View all Organized Past Events
         const string ViewAllOrganizedPastEventsQuery =
-    "SELECT EventID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants " +
-    "FROM Events " +
-    "WHERE OrganizerID = @OrganizerID AND StartDate < NOW();";
+                    "SELECT EventID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants " +
+                    "FROM Events " +
+                    "WHERE OrganizerID = @OrganizerID AND StartDate < NOW();";
 
 
-        // Query to View all Events
-        const string ViewAllEventsQuery = "SELECT e.EventID, e.EventName,u.Username AS OrganizerName, e.Description, e.StartDate, e.EndDate, e.Location, e.MaxParticipants, e.CurrentParticipants " +
-                                "FROM events e " +
-                                "JOIN users u " +
-                                "ON e.OrganizerID = u.UserID;";
-
-
-        const string ViewAllAvailableEventsQuery =
-                    "SELECT e.EventID, u.Username AS OrganizerName, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location, e.MaxParticipants, e.CurrentParticipants " +
+        // Query to View all Upcoming Events
+        const string ViewAllUpcomingEventsQuery = 
+                    "SELECT e.EventID, e.EventName,u.Username AS OrganizerName, e.Description, e.StartDate, e.EndDate, e.Location, e.MaxParticipants, e.CurrentParticipants " +
                     "FROM events e " +
                     "JOIN users u ON e.OrganizerID = u.UserID " +
-                    "WHERE e.StartDate > NOW()";
+                    "WHERE e.StartDate >= NOW();";
+
+        // Query to view all past events
+        const string ViewAllPastEventsQuery =
+                    "SELECT e.EventID, e.EventName,u.Username AS OrganizerName, e.Description, e.StartDate, e.EndDate, e.Location, e.MaxParticipants, e.CurrentParticipants " +
+                    "FROM events e " +
+                    "JOIN users u ON e.OrganizerID = u.UserID " +
+                    "WHERE e.StartDate < NOW();";
 
 
-        const string ViewAllOragaizedEventsQuery = "SELECT EventID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants " +
-                                            "FROM Events " +
-                                            "WHERE OrganizerID = @OrganizerID;";
-
-
+        // Functionality to create and event
         public static (bool, string) CreateEvent(Event eventDetails)
         {
             try
@@ -99,7 +99,7 @@ namespace EventManagementSystem.Database
 
 
 
-
+        // Functionality to delete an event
         public static (bool, string) DeleteEvent(int eventID)
         {
             try
@@ -135,7 +135,7 @@ namespace EventManagementSystem.Database
 
 
 
-
+        // Functionality to update an event
         public static (bool, string) UpdateEvent(Event eventDetails)
         {
             try
@@ -174,7 +174,7 @@ namespace EventManagementSystem.Database
 
 
 
-
+        // Functionality to view all organized Up coming events 
         public static DataTable ViewAllOraganizedUpComingEvents(int organizerID)
         {
             try
@@ -200,7 +200,7 @@ namespace EventManagementSystem.Database
 
 
 
-
+        // Functionality to view all oraganized past events
         public static DataTable ViewAllOraganizedPastEvents(int organizerID)
         {
             try
@@ -212,10 +212,10 @@ namespace EventManagementSystem.Database
                 };
 
                 // Executing the ViewAllEventsQuery
-                DataTable allEvents = DBConnection.ExcecuteQuery(ViewAllOrganizedPastEventsQuery, viewAllEventsPastParameters);
+                DataTable allPastEvents = DBConnection.ExcecuteQuery(ViewAllOrganizedPastEventsQuery, viewAllEventsPastParameters);
 
                 // Returning DataTable for the DataGridView
-                return allEvents;
+                return allPastEvents;
             }
             catch (Exception ex)
             {
@@ -225,13 +225,29 @@ namespace EventManagementSystem.Database
         }
 
 
-
-        public static DataTable ViewAllEvents()
+        // Functionality to view all the up coming events
+        public static DataTable ViewAllUpComingEvents()
         {
             try
             {
 
-                DataTable allEvents = DBConnection.ExcecuteQuery(ViewAllEventsQuery);
+                DataTable allUpcomingEvents = DBConnection.ExcecuteQuery(ViewAllUpcomingEventsQuery);
+                return allUpcomingEvents;
+            }
+            catch (Exception ex)
+            {
+                new DangerToaster("Database or Query Issue");
+                return null;
+            }
+        }
+
+        // Functionality to view all the past events
+        public static DataTable ViewAllPastEvents()
+        {
+            try
+            {
+
+                DataTable allEvents = DBConnection.ExcecuteQuery(ViewAllPastEventsQuery);
                 return allEvents;
             }
             catch (Exception ex)
@@ -243,8 +259,8 @@ namespace EventManagementSystem.Database
 
 
 
-
-        public static (bool, string) TextBoxValidation(string eventName, string location, DateTime startDateTime, DateTime endDateTime, string maxParticipants, string description)
+        // Functionality to validation all the user UI inputs
+        public static (bool, string) EventTextBoxValidation(string eventName, string location, DateTime startDateTime, DateTime endDateTime, string maxParticipants, int currentParticipants, string description)
         {
             int temp;
 
@@ -294,6 +310,10 @@ namespace EventManagementSystem.Database
             if (temp <= 0)
             {
                 return (false, "Please Enter a valid Maximum Number of Participants");
+            }
+
+            if (temp < currentParticipants) {
+                return (false, "Max Participant Number must be greater than the current participant number");
             }
 
             // Checking whether the description field is entered

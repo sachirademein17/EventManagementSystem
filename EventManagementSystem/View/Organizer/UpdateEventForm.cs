@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EventManagementSystem.Controllers;
 using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -20,6 +21,7 @@ namespace EventManagementSystem
         Organizer user;
         OManageEvents manageEvents;
         Event eventDetails;
+        EventController eventController;
 
         public UpdateEventForm(Event eventDetails, OManageEvents manageEvents)
         {
@@ -29,6 +31,7 @@ namespace EventManagementSystem
             SetEventDetails(eventDetails);
             eventID = eventDetails.EventID;
             user = (Organizer)CurrentUser.UserDetails;
+            eventController = new EventController();
             this.eventDetails = eventDetails;
             this.manageEvents = manageEvents;
 
@@ -65,7 +68,7 @@ namespace EventManagementSystem
 
 
             // Checking textbox are entered properly
-            (bool validation, string validationmsg) = user.TextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text, descriptiontxt.Text);
+            (bool validation, string validationmsg) = eventController.EventTextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text, this.eventDetails.CurrentParticipants, descriptiontxt.Text);
 
             // Giving user feedback if not entered properly
             if (!validation)
@@ -86,7 +89,7 @@ namespace EventManagementSystem
             // The last row ( Current Participants ) is set to 0 but not used anywhere when update. Used just to create the Event Object
             // Executing the Update Event fuction
             Event eventDetails = new Event(eventID, user.UserID, name, description, startTime, endTime, location, maxParticipants, 0);
-            (bool success, string message )= user.UpdateEvent(eventDetails);
+            (bool success, string message )= eventController.UpdateEvent(eventDetails);
 
             // giving user feedback
             if (success)

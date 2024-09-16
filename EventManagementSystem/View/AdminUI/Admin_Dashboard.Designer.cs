@@ -36,6 +36,7 @@ namespace EventManagementSystem
             kryptonButton2 = new Krypton.Toolkit.KryptonButton();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             mainpanel = new Panel();
+            kryptonButton5 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
@@ -43,6 +44,7 @@ namespace EventManagementSystem
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(kryptonButton5);
             kryptonPanel1.Controls.Add(kryptonButton3);
             kryptonPanel1.Controls.Add(kryptonButton4);
             kryptonPanel1.Controls.Add(kryptonButton1);
@@ -60,7 +62,7 @@ namespace EventManagementSystem
             // kryptonButton3
             // 
             kryptonButton3.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            kryptonButton3.Location = new Point(0, 277);
+            kryptonButton3.Location = new Point(0, 372);
             kryptonButton3.Name = "kryptonButton3";
             kryptonButton3.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
             kryptonButton3.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -202,6 +204,38 @@ namespace EventManagementSystem
             mainpanel.Size = new Size(1074, 675);
             mainpanel.TabIndex = 2;
             // 
+            // kryptonButton5
+            // 
+            kryptonButton5.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
+            kryptonButton5.Location = new Point(0, 277);
+            kryptonButton5.Name = "kryptonButton5";
+            kryptonButton5.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
+            kryptonButton5.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            kryptonButton5.OverrideDefault.Border.Color1 = Color.FromArgb(0, 114, 184);
+            kryptonButton5.OverrideDefault.Content.ShortText.Color1 = Color.LimeGreen;
+            kryptonButton5.OverrideDefault.Content.ShortText.Color2 = Color.ForestGreen;
+            kryptonButton5.OverrideDefault.Content.ShortText.ColorAngle = 45F;
+            kryptonButton5.OverrideDefault.Content.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            kryptonButton5.Size = new Size(245, 95);
+            kryptonButton5.StateCommon.Back.Color1 = Color.FromArgb(0, 90, 156);
+            kryptonButton5.StateCommon.Back.Color2 = Color.FromArgb(0, 63, 107);
+            kryptonButton5.StateCommon.Back.ColorAngle = 45F;
+            kryptonButton5.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            kryptonButton5.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.StateCommon.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.StatePressed.Back.Color1 = Color.FromArgb(0, 63, 107);
+            kryptonButton5.StatePressed.Back.Color2 = Color.FromArgb(0, 42, 71);
+            kryptonButton5.StatePressed.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.StatePressed.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.StateTracking.Back.Color1 = Color.FromArgb(0, 111, 184);
+            kryptonButton5.StateTracking.Back.Color2 = Color.FromArgb(0, 77, 128);
+            kryptonButton5.StateTracking.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.StateTracking.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.TabIndex = 7;
+            kryptonButton5.Values.DropDownArrowColor = Color.AliceBlue;
+            kryptonButton5.Values.Text = "Past Event Logs";
+            kryptonButton5.Click += kryptonButton5_Click;
+            // 
             // Admin_Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -232,5 +266,6 @@ namespace EventManagementSystem
         private Panel mainpanel;
         private Krypton.Toolkit.KryptonButton kryptonButton3;
         private Krypton.Toolkit.KryptonButton kryptonButton4;
+        private Krypton.Toolkit.KryptonButton kryptonButton5;
     }
 }

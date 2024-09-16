@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,12 @@ namespace EventManagementSystem
     public partial class OManageBookings : Form
     {
         Organizer user;
-
+        BookingController bookingController;
         public OManageBookings()
         {
             InitializeComponent();
             user = (Organizer)CurrentUser.UserDetails;
+            bookingController = new BookingController();
             LoadBookingTable();
         }
 
@@ -33,7 +35,7 @@ namespace EventManagementSystem
                 // Excuting the CancelBooking fuctionality
                 int rowIndex = bookingsTable.SelectedRows[0].Index;
                 int bookingID = Convert.ToInt32(bookingsTable.Rows[rowIndex].Cells[0].Value);
-                (bool success, string message) = user.CancelBooking(bookingID);
+                (bool success, string message) = bookingController.CancelBooking(bookingID);
 
                 // Giving user feedback
                 if (success)
@@ -57,7 +59,7 @@ namespace EventManagementSystem
         // Loading BookingTable DataGridView
         private void LoadBookingTable()
         {
-            DataTable dt = user.ViewAllBookings(user.UserID);
+            DataTable dt = bookingController.ViewAllBookings(user.UserID);
             bookingsTable.DataSource = dt;
         }
 

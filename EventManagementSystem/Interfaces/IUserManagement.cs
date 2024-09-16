@@ -13,7 +13,7 @@ namespace EventManagementSystem.Interfaces
         (bool, string) AddUser(User user);
         (bool, string) RemoveUser(int userID);
         (bool, string) UpdateUser(User userID, string username);
-
+        (bool, string) UserTextBoxValidation(string username, string password, string confirmPassword, string email, string phoneNumber, string role);
 
         DataTable ViewAllUsers();
     }

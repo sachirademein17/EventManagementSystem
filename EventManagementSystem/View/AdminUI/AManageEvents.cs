@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,13 @@ namespace EventManagementSystem
     public partial class AManageEvents : Form
     {
         Admin user;
+        EventController eventController;
 
         public AManageEvents()
         {
             InitializeComponent();
             user = (Admin)CurrentUser.UserDetails;
+            eventController = new EventController();
             LoadTable();
         }
 
@@ -41,7 +44,7 @@ namespace EventManagementSystem
                 // Executing the delete event fuction
                 int rowIndex = eventsTable.SelectedRows[0].Index;
                 int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
-                (bool success, string message) = user.DeleteEvent(eventID);
+                (bool success, string message) = eventController.DeleteEvent(eventID);
 
                 // Give user feedback
                 if (success)
@@ -104,7 +107,7 @@ namespace EventManagementSystem
 
         private void LoadTable()
         {
-            DataTable dt = user.ViewAllEvents();
+            DataTable dt = eventController.ViewUpcomingEvents();
             eventsTable.DataSource = dt;
         }
 

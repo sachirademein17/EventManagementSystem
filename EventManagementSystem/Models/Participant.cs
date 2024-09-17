@@ -21,6 +21,15 @@ namespace EventManagementSystem.Models
         {
         }
 
-                
+        public override (bool, string) DeleteProfile(int userID)
+        {
+            return base.DeleteProfile(userID);
+        }
+
+        public override void LogOut()
+        {
+            base.LogOut();
+        }
+
     }
 }

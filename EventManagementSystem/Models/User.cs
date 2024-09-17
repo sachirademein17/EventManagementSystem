@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using EventManagementSystem.Database;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,7 +21,7 @@ namespace EventManagementSystem.Models
         private string phoneNumber;
         private string role;
 
-        public User(int userID, string username, string passwordHash, string email, string phoneNumber,string role)
+        public User(int userID, string username, string passwordHash, string email, string phoneNumber, string role)
         {
             this.userID = userID;
             this.username = username;
@@ -94,7 +95,7 @@ namespace EventManagementSystem.Models
                     string role = result.Rows[0]["Role"].ToString();
 
 
-                    
+
                     switch (role)
                     {
                         case "Admin":
@@ -114,39 +115,25 @@ namespace EventManagementSystem.Models
                 MessageBox.Show(ex.ToString());
                 return null;
             }
-            
-            }
+
+        }
 
 
-        public static (bool, string) DeleteProfile(int userID)
+        public virtual (bool, string) DeleteProfile(int userID)
         {
-            try
-            {
-                string query = "DELETE FROM Users WHERE UserID = @UserID;";
-
-                MySqlParameter[] parameters = new MySqlParameter[]
-                {
-                    new MySqlParameter("@UserID", userID)
-                };
-
-                int result = DBConnection.ExecuteNonQuery(query, parameters);
-
-                if (result > 0)
-                {
-                    return (true, "The Profile is Deleted Successfully");
-                }
-
-                return (false, "Unable to Delete the Profile");
-
-            }
-            catch (Exception ex)
-            {
-                return (false, "Database or Query Issue");
-            }
+            return UserCrudManager.RemoveUser(userID);
 
         }
 
-        
+        public virtual void LogOut()
+        {
+            CurrentUser.ClearUserDetails();
+        }
+
+        public virtual void LoadUserDetails()
+        {
 
         }
+
+    }
 }

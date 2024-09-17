@@ -1,6 +1,6 @@
-﻿namespace EventManagementSystem
+﻿namespace EventManagementSystem.View.AdminUI
 {
-    partial class ADashboard
+    partial class AViewParticipants
     {
         /// <summary>
         /// Required designer variable.
@@ -36,23 +36,22 @@
             // 
             kryptonDataGridView1.BorderStyle = BorderStyle.None;
             kryptonDataGridView1.ColumnHeadersHeight = 51;
-            kryptonDataGridView1.Location = new Point(12, 100);
+            kryptonDataGridView1.Location = new Point(12, 12);
             kryptonDataGridView1.Name = "kryptonDataGridView1";
             kryptonDataGridView1.RowHeadersWidth = 62;
-            kryptonDataGridView1.Size = new Size(360, 225);
+            kryptonDataGridView1.Size = new Size(1067, 600);
             kryptonDataGridView1.TabIndex = 0;
             // 
-            // ADashboard
+            // AViewParticipants
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(42, 42, 42);
-            ClientSize = new Size(1074, 675);
+            BackColor = Color.FromArgb(28, 28, 28);
+            ClientSize = new Size(1095, 624);
             Controls.Add(kryptonDataGridView1);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "ADashboard";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "ADashboard";
+            Name = "AViewParticipants";
+            Text = "AViewParticipants";
+            Load += AViewParticipants_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonDataGridView1).EndInit();
             ResumeLayout(false);
         }

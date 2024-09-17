@@ -30,6 +30,7 @@
         {
             eventsTable = new DataGridView();
             label2 = new Label();
+            CreateUser = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
             // 
@@ -54,12 +55,36 @@
             label2.TabIndex = 17;
             label2.Text = "Past Events Log";
             // 
+            // CreateUser
+            // 
+            CreateUser.Cursor = Cursors.Hand;
+            CreateUser.Location = new Point(784, 27);
+            CreateUser.Name = "CreateUser";
+            CreateUser.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            CreateUser.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            CreateUser.Size = new Size(244, 38);
+            CreateUser.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            CreateUser.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            CreateUser.StateCommon.Content.ShortText.Color1 = Color.White;
+            CreateUser.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CreateUser.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            CreateUser.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            CreateUser.StateNormal.Content.ShortText.Color1 = Color.White;
+            CreateUser.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CreateUser.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            CreateUser.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            CreateUser.TabIndex = 18;
+            CreateUser.Values.DropDownArrowColor = Color.Empty;
+            CreateUser.Values.Text = "View Participants";
+            CreateUser.Click += CreateUser_Click;
+            // 
             // PastEventLogs
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
+            Controls.Add(CreateUser);
             Controls.Add(label2);
             Controls.Add(eventsTable);
             FormBorderStyle = FormBorderStyle.None;
@@ -74,5 +99,6 @@
 
         private DataGridView eventsTable;
         private Label label2;
+        private Krypton.Toolkit.KryptonButton CreateUser;
     }
 }

@@ -29,17 +29,32 @@ namespace EventManagementSystem.Controllers
             return BookingCrudManager.ViewAllAvailableEvents();
         }
 
-        // Fuctionality to View all Bookings
-        public DataTable ViewAllBookings(int organizerID)
+        // Fuctionality to View all upcoming Bookings
+        public DataTable ViewAllUpcomingBookings(int organizerID)
         {
-            return BookingCrudManager.ViewAllOrganizedBookings(organizerID);
+            return BookingCrudManager.ViewAllOrganizedUpcomingBookings(organizerID);
         }
 
-        // Fuctionality to get the registered events
-        public DataTable GetRegisteredEvents(int userID)
+        // Functionality to view all past bookings
+        public DataTable ViewAllPastBookings(int organizerID)
         {
-            return BookingCrudManager.GetRegisteredEvents(userID);
-
+            return BookingCrudManager.ViewAllOrganizedPastBookings(organizerID);
         }
+
+
+        // Fuctionality to get the registered Up Coming events
+        public DataTable RegisteredUpcomingEvents(int userID)
+        {
+            return BookingCrudManager.RegisteredUpcomingEvents(userID);
+        }
+
+        // Fuctionality to get the registered Past events
+        public DataTable RegisteredPastEvents(int userID)
+        {
+            return BookingCrudManager.RegisteredPastEvents(userID);
+        }
+
+   
+
     }
 }

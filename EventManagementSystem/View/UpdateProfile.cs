@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,14 @@ namespace EventManagementSystem.View
     public partial class UpdateProfile : Form
     {
         Organizer user;
-        public UpdateProfile()
+        private UserController userController;
+        Organizer__Dashboard dashboard;
+        public UpdateProfile(Organizer__Dashboard dashboard)
         {
             InitializeComponent();
             user = CurrentUser.UserDetails as Organizer;
+            userController = new UserController();
+            this.dashboard = dashboard;
             SetUserDetails();
         }
 
@@ -26,7 +31,7 @@ namespace EventManagementSystem.View
             // Getting the role value
             string role = "Organizer";
 
-            (bool validation, string errormsg) = user.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
+            (bool validation, string errormsg) = userController.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
 
             // Checking whether the validation is success
             if (!validation)
@@ -45,13 +50,14 @@ namespace EventManagementSystem.View
             User updateUser = new Organizer(user.UserID, username, password, email, phoneNumber, role);
 
             // Execute the Update User functionality
-            (bool success, string message) = user.UpdateUser(updateUser, user.UserName);
+            (bool success, string message) = userController.UpdateUser(updateUser, user.UserName);
 
             // give user feedback
             if (success)
             {
                 new SuccessToaster(message).Show();
                 new CurrentUser(updateUser);
+                dashboard.LoadUserDetails(updateUser);
                 this.Close();   
             }
             else

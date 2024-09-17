@@ -14,15 +14,26 @@ namespace EventManagementSystem.Database
     internal class BookingCrudManager
     {
 
-        // Query to View all Bookings
-        const string ViewAllOrganizedBookingsQuery =
-                    "SELECT b.BookingID, e.EventName, p.Name AS ParticipantName, p.Email AS ParticipantEmail, p.PhoneNumber AS ParticipantPhoneNumber, b.BookingDate " +
+        // Query to View all Organized Upcoming Bookings
+        const string ViewAllOrganizedUpcomingBookingsQuery =
+                    "SELECT b.BookingID, e.EventID, e.EventName, p.Name AS ParticipantName, p.Email AS ParticipantEmail, p.PhoneNumber AS ParticipantPhoneNumber, b.BookingDate " +
                     "FROM Bookings b " +
                     "JOIN Events e ON b.EventID = e.EventID " +
                     "JOIN Participants p ON b.ParticipantID = p.ParticipantID " +
                     "JOIN Users u ON e.OrganizerID = u.UserID " +
                     "WHERE u.UserID = @OrganizerUserID AND " +
                     "e.StartDate > NOW();";
+
+        //Query to view all organized past bookings
+        const string ViewAllOrganizedPastBookingsQuery =
+                    "SELECT b.BookingID, e.EventID, e.EventName, p.Name AS ParticipantName, p.Email AS ParticipantEmail, p.PhoneNumber AS ParticipantPhoneNumber, b.BookingDate " +
+                    "FROM Bookings b " +
+                    "JOIN Events e ON b.EventID = e.EventID " +
+                    "JOIN Participants p ON b.ParticipantID = p.ParticipantID " +
+                    "JOIN Users u ON e.OrganizerID = u.UserID " +
+                    "WHERE u.UserID = @OrganizerUserID AND " +
+                    "e.StartDate <= NOW();";
+
 
         // Query to Cancel Bookings
         const string CancelBookingQuery = "DELETE FROM bookings WHERE BookingID = @BookingID;";
@@ -44,12 +55,20 @@ namespace EventManagementSystem.Database
 
 
         // Query to get all the Registered Events
-        const string GetRegisteredEventsQuery = 
+        const string RegisteredUpcomingEventsQuery = 
                     "SELECT b.BookingID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location " +
                     "FROM Events e " +
                     "INNER JOIN Bookings b ON e.EventID = b.EventID " +
                     "WHERE b.ParticipantID = @ParticipantID AND " +
                     "e.StartDate > NOW();";
+
+        // Query to get all the Registered Events
+        const string RegisteredPastEventsQuery =
+                    "SELECT b.BookingID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location " +
+                    "FROM Events e " +
+                    "INNER JOIN Bookings b ON e.EventID = b.EventID " +
+                    "WHERE b.ParticipantID = @ParticipantID AND " +
+                    "e.StartDate <= NOW();";
 
 
         // Query to view all the Availble Events
@@ -62,8 +81,8 @@ namespace EventManagementSystem.Database
 
 
 
-        // Functionality for Oragnizers view all the booking related to their Events
-        public static DataTable ViewAllOrganizedBookings(int organizerID)
+        // Functionality for Oragnizers view all the booking related to their Upcoming Events
+        public static DataTable ViewAllOrganizedUpcomingBookings(int organizerID)
         {
             try
             {
@@ -75,7 +94,7 @@ namespace EventManagementSystem.Database
                 };
 
                 // Executing the ViewAllBookingsQuery
-                DataTable allEvents = DBConnection.ExcecuteQuery(ViewAllOrganizedBookingsQuery, viewAllOrganizedBookingsParameter);
+                DataTable allEvents = DBConnection.ExcecuteQuery(ViewAllOrganizedUpcomingBookingsQuery, viewAllOrganizedBookingsParameter);
 
                 // Returning DataTable for the DataGridView
                 return allEvents;
@@ -87,7 +106,30 @@ namespace EventManagementSystem.Database
             }
         }
 
+        // Functionality for Oragnizers view all the booking related to their Past Events
+        public static DataTable ViewAllOrganizedPastBookings(int organizerID)
+        {
+            try
+            {
 
+                // Parameters for the ViewAllBookingsQuery
+                MySqlParameter[] viewAllOrganizedBookingsParameter = new MySqlParameter[]
+                {
+                    new MySqlParameter("@OrganizerUserID", organizerID)
+                };
+
+                // Executing the ViewAllBookingsQuery
+                DataTable allEvents = DBConnection.ExcecuteQuery(ViewAllOrganizedPastBookingsQuery, viewAllOrganizedBookingsParameter);
+
+                // Returning DataTable for the DataGridView
+                return allEvents;
+            }
+            catch (Exception ex)
+            {
+                new DangerToaster("Database or Query Issue");
+                return null;
+            }
+        }
 
         // Functionality to cancel bookings
         public static (bool, string) CancelBooking(int bookingID)
@@ -140,7 +182,7 @@ namespace EventManagementSystem.Database
                     return (false, "Booking Not Cancelled");
                 }
 
-
+                 
 
             }
             catch (Exception ex)
@@ -296,8 +338,8 @@ namespace EventManagementSystem.Database
 
 
 
-        // Functionality to get all the registered events
-        public static DataTable GetRegisteredEvents(int userID)
+        // Functionality to get all the registered Up Coming events
+        public static DataTable RegisteredUpcomingEvents(int userID)
         {
             try
             {
@@ -313,7 +355,7 @@ namespace EventManagementSystem.Database
                 };
 
                 //Execute the Get Registered Event Query
-                DataTable dt = DBConnection.ExcecuteQuery(GetRegisteredEventsQuery, getRegisteredEventsParameter);
+                DataTable dt = DBConnection.ExcecuteQuery(RegisteredUpcomingEventsQuery, getRegisteredEventsParameter);
                 return dt;
             }
             catch (Exception ex)
@@ -322,6 +364,35 @@ namespace EventManagementSystem.Database
             }
 
         }
+
+
+        // Functionality to get all the registered Past events
+        public static DataTable RegisteredPastEvents(int userID)
+        {
+            try
+            {
+                // Get the participant ID
+                int participantID = GetParticipantId(userID);
+
+
+
+                // Parameters for the Get Registered Events Query
+                MySqlParameter[] getRegisteredEventsParameter = new MySqlParameter[]
+                {
+                    new MySqlParameter ("@ParticipantID", participantID)
+                };
+
+                //Execute the Get Registered Event Query
+                DataTable dt = DBConnection.ExcecuteQuery(RegisteredPastEventsQuery, getRegisteredEventsParameter);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
 
         // Fuctionality to view all available events
 

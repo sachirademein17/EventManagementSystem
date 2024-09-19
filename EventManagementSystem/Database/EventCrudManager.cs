@@ -55,14 +55,6 @@ namespace EventManagementSystem.Database
                     "JOIN users u ON e.OrganizerID = u.UserID " +
                     "WHERE e.StartDate < NOW();";
 
-        // Query to view all the registered participants in an event
-        const string ViewAllRegisteredParticipantsQuery =
-                "SELECT b.BookingID, b.ParticipantID, u.UserID, u.Username, u.Email " +
-                "FROM Bookings b " +
-                "INNER JOIN Participants p ON b.ParticipantID = p.ParticipantID " +
-                "INNER JOIN Users u ON p.UserID = u.UserID " +
-                "WHERE b.EventID = @EventID;";
-
 
         // Functionality to create and event
         public static (bool, string) CreateEvent(Event eventDetails)
@@ -204,32 +196,6 @@ namespace EventManagementSystem.Database
                 new DangerToaster("Database or Query Issue");
                 return null;
             }
-        }
-
-        
-
-
-
-        public static DataTable ViewAllRegisteredParticipants(int eventID)
-        {
-            try
-            {
-                // Parameter for the ViewAllBookedParticipants
-                MySqlParameter[] viewAllRegisteredParticipantsParameters = new MySqlParameter[]
-                {
-                    new MySqlParameter ("@EventID", eventID)
-                };
-
-                // Executing the ViewAllBookedParticipants
-                DataTable allParticipants = DBConnection.ExcecuteQuery(ViewAllRegisteredParticipantsQuery, viewAllRegisteredParticipantsParameters);
-                return allParticipants;
-            }
-            catch
-            {
-                new DangerToaster("Database or Query Issue");
-                return null;
-            }
-
         }
 
 

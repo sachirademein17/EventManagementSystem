@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            kryptonDataGridView1 = new Krypton.Toolkit.KryptonDataGridView();
-            ((System.ComponentModel.ISupportInitialize)kryptonDataGridView1).BeginInit();
+            label1 = new Label();
             SuspendLayout();
             // 
-            // kryptonDataGridView1
+            // label1
             // 
-            kryptonDataGridView1.BorderStyle = BorderStyle.None;
-            kryptonDataGridView1.ColumnHeadersHeight = 51;
-            kryptonDataGridView1.Location = new Point(12, 100);
-            kryptonDataGridView1.Name = "kryptonDataGridView1";
-            kryptonDataGridView1.RowHeadersWidth = 62;
-            kryptonDataGridView1.Size = new Size(360, 225);
-            kryptonDataGridView1.TabIndex = 0;
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 16F);
+            label1.ForeColor = Color.FromArgb(255, 0, 127);
+            label1.Location = new Point(450, 319);
+            label1.Name = "label1";
+            label1.Size = new Size(175, 37);
+            label1.TabIndex = 1;
+            label1.Text = "Dashboard";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // ADashboard
             // 
@@ -48,17 +51,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
-            Controls.Add(kryptonDataGridView1);
+            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ADashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ADashboard";
-            ((System.ComponentModel.ISupportInitialize)kryptonDataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
+        private Label label1;
     }
 }

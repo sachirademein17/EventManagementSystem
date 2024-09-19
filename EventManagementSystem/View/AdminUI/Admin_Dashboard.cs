@@ -1,5 +1,4 @@
-﻿using EventManagementSystem.Models;
-using EventManagementSystem.View.AdminUI;
+﻿using EventManagementSystem.View.AdminUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +13,9 @@ namespace EventManagementSystem
 {
     public partial class Admin_Dashboard : Form
     {
-        EventManagementSystem.Models.Admin user;
         public Admin_Dashboard()
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as EventManagementSystem.Models.Admin;
-            LoadUserDetails();
             loadform(new ADashboard());
         }
 
@@ -59,51 +55,14 @@ namespace EventManagementSystem
 
         private void kryptonButton4_Click_1(object sender, EventArgs e)
         {
-            new Form1().Show();
-            user.LogOut();
+            Form1 form1 = new Form1();
+            form1.Show();
             this.Close();
         }
 
         private void kryptonButton5_Click(object sender, EventArgs e)
         {
             loadform(new PastEventLogs());
-        }
-
-        public void LoadUserDetails()
-        {
-            Username.Text = user.UserName;
-            Role.Text = user.Role;
-            Email.Text = user.Email;
-            PhoneNumber.Text = user.PhoneNumber;
-        }
-
-        private void kryptonButton7_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        bool minMax = true;
-
-        private void kryptonButton6_Click(object sender, EventArgs e)
-        {
-
-            if (minMax)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                minMax = false;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-                minMax = true;
-            }
-
-        }
-
-        private void closebtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-
         }
     }
 }

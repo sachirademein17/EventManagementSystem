@@ -59,7 +59,7 @@ namespace EventManagementSystem
         // Loading BookingTable DataGridView
         private void LoadBookingTable()
         {
-            DataTable dt = bookingController.ViewAllUpcomingBookings(user.UserID);
+            DataTable dt = bookingController.ViewAllBookings(user.UserID);
             bookingsTable.DataSource = dt;
         }
 

@@ -22,16 +22,17 @@ namespace EventManagementSystem.Models
         }
 
 
-        public override (bool, string) DeleteProfile(int userID)
+
+        public (bool, string) UserTextBoxValidation(string username, string password, string confirmPassword, string email, string phoneNumber, string role)
         {
-            return base.DeleteProfile(userID);
+            return UserCrudManager.UserTextBoxValidation(username, password, confirmPassword, email, phoneNumber, role);
         }
 
-        public override void LogOut()
+        public (bool, string) UpdateUser(User userDetails, string userName)
         {
-            base.LogOut();
-        }
+            return UserCrudManager.UpdateUser(userDetails, userName);
 
+        }
 
         
 

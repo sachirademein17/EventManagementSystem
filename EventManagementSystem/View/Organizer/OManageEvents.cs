@@ -18,7 +18,7 @@ namespace EventManagementSystem
     public partial class OManageEvents : Form
     {
         private Organizer user;
-        private EventController eventController;
+        private EventController eventController;    
 
 
         public OManageEvents()
@@ -48,13 +48,13 @@ namespace EventManagementSystem
                 int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
 
                 // Executing Event Deleting Fuctionality
-                (bool success, string message) = eventController.DeleteEvent(eventID);
+                (bool success, string message) = eventController .DeleteEvent(eventID);
 
                 // Show message for User
                 if (success)
                 {
-                    new SuccessToaster(message).Show();
-
+                    new SuccessToaster(message).Show();   
+                    
                     // Remove the row from the DataGridView
                     eventsTable.Rows.RemoveAt(rowIndex);
                 }
@@ -103,7 +103,7 @@ namespace EventManagementSystem
                     UpdateEventForm updateEventForm = new UpdateEventForm(eventDetails, this);
                     updateEventForm.Show();
                 }
-
+                              
 
             }
             else
@@ -120,9 +120,7 @@ namespace EventManagementSystem
             eventsTable.DataSource = dt;
         }
 
-        private void eventsTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
+
     }
 }

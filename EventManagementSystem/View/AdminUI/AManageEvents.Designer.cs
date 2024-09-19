@@ -33,7 +33,6 @@
             eventsTable = new DataGridView();
             CreateEvent = new Krypton.Toolkit.KryptonButton();
             label2 = new Label();
-            CreateUser = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
             // 
@@ -41,11 +40,11 @@
             // 
             UpdateEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             UpdateEvent.Cursor = Cursors.Hand;
-            UpdateEvent.Location = new Point(582, 35);
+            UpdateEvent.Location = new Point(204, 35);
             UpdateEvent.Name = "UpdateEvent";
             UpdateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
             UpdateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            UpdateEvent.Size = new Size(111, 38);
+            UpdateEvent.Size = new Size(244, 38);
             UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
             UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
             UpdateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
@@ -65,11 +64,11 @@
             // 
             DeleteEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DeleteEvent.Cursor = Cursors.Hand;
-            DeleteEvent.Location = new Point(713, 35);
+            DeleteEvent.Location = new Point(496, 35);
             DeleteEvent.Name = "DeleteEvent";
             DeleteEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
             DeleteEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            DeleteEvent.Size = new Size(122, 38);
+            DeleteEvent.Size = new Size(244, 38);
             DeleteEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
             DeleteEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
             DeleteEvent.StateCommon.Content.ShortText.Color1 = Color.White;
@@ -99,11 +98,11 @@
             // 
             CreateEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CreateEvent.Cursor = Cursors.Hand;
-            CreateEvent.Location = new Point(868, 35);
+            CreateEvent.Location = new Point(794, 35);
             CreateEvent.Name = "CreateEvent";
             CreateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
             CreateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateEvent.Size = new Size(170, 38);
+            CreateEvent.Size = new Size(244, 38);
             CreateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
             CreateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
             CreateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
@@ -130,36 +129,12 @@
             label2.TabIndex = 11;
             label2.Text = "EVENTS";
             // 
-            // CreateUser
-            // 
-            CreateUser.Cursor = Cursors.Hand;
-            CreateUser.Location = new Point(361, 36);
-            CreateUser.Name = "CreateUser";
-            CreateUser.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CreateUser.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateUser.Size = new Size(202, 38);
-            CreateUser.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CreateUser.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateUser.StateCommon.Content.ShortText.Color1 = Color.White;
-            CreateUser.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CreateUser.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CreateUser.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateUser.StateNormal.Content.ShortText.Color1 = Color.White;
-            CreateUser.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CreateUser.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            CreateUser.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            CreateUser.TabIndex = 19;
-            CreateUser.Values.DropDownArrowColor = Color.Empty;
-            CreateUser.Values.Text = "View Participants";
-            CreateUser.Click += CreateUser_Click;
-            // 
             // AManageEvents
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
-            Controls.Add(CreateUser);
             Controls.Add(UpdateEvent);
             Controls.Add(DeleteEvent);
             Controls.Add(eventsTable);
@@ -180,6 +155,5 @@
         private DataGridView eventsTable;
         private Krypton.Toolkit.KryptonButton CreateEvent;
         private Label label2;
-        private Krypton.Toolkit.KryptonButton CreateUser;
     }
 }

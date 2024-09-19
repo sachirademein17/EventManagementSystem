@@ -59,7 +59,7 @@ namespace EventManagementSystem
         // Load the Table
         private void LoadTable()
         {
-            DataTable dataTable = bookingController.RegisteredUpcomingEvents(user.UserID);
+            DataTable dataTable = bookingController.GetRegisteredEvents(user.UserID);
 
             if (dataTable == null) {
                 new DangerToaster("Database or Query Issue").Show();

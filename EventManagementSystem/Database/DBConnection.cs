@@ -4,7 +4,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EventManagementSystem.Models;
 using MySql.Data.MySqlClient;
 
 namespace EventManagementSystem
@@ -80,8 +79,9 @@ namespace EventManagementSystem
         /// <param name="parameters"></param>
         /// <returns></returns>
 
-        /*public static Event ExecuteReader(string query, MySqlParameter[] parameters)
+        public static List<Dictionary<string, object>> ExecuteReader(string query, MySqlParameter[] parameters)
         {
+            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
 
             using (MySqlConnection conn = GetConnection())
             {
@@ -92,32 +92,29 @@ namespace EventManagementSystem
                         cmd.Parameters.AddRange(parameters);
                     }
 
+                    conn.Open();
+
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.HasRows)
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                int eventId = reader.GetInt32("EventID");
-                                string eventName = reader.GetString("EventName");
-                                string description = reader.GetString("Description");
-                                DateTime startDate = reader.GetDateTime("StartDate");
-                                DateTime endDate = reader.GetDateTime("EndDate");
-                                string location = reader.GetString("Location");
-                                int maxParticipants = reader.GetInt32("MaxParticipants");
-                                int currentParticipants = reader.GetInt32("CurrentParticipants");
-                                string organizerName = reader.GetString("OrganizerName");
+                            Dictionary<string, object> row = new Dictionary<string, object>();
 
-                                object() eventDetails = new object() {eventId, eventName, description, startDate, endDate, maxParticipants, currentParticipants};
-                                
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                string columnName = reader.GetName(i);
+                                object columnValue = reader.GetValue(i);
+                                row.Add(columnName, columnValue);
                             }
+
+                            result.Add(row);
                         }
                     }
                 }
             }
 
             return result;
-        }*/
+        }
 
 
 

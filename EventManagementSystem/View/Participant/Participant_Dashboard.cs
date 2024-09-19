@@ -1,5 +1,4 @@
 ﻿using EventManagementSystem.Models;
-using EventManagementSystem.View.Participant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +13,9 @@ namespace EventManagementSystem
 {
     public partial class Participant_Dashboard : Form
     {
-
-        Participant user;
         public Participant_Dashboard()
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Participant;
             loadform(new PDashboard());
         }
 
@@ -52,57 +48,23 @@ namespace EventManagementSystem
         private void LogOut_Click(object sender, EventArgs e)
         {
             new Form1().Show();
-            user.LogOut();
+            CurrentUser.ClearUserDetails();
             this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-        }
-
-        private void kryptonButton2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-
-        bool minMax = true;
-
-        private void kryptonButton1_Click(object sender, EventArgs e)
-        {
-
-
-
-            if (minMax)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                minMax = false;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-                minMax = true;
-            }
-
-        }
-
-        private void closebtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void kryptonButton3_Click(object sender, EventArgs e)
-        {
-            loadform(new PEventPastRegistration());
+            this.WindowState = FormWindowState.Normal;
         }
     }
 }

@@ -10,9 +10,9 @@ namespace EventManagementSystem.Interfaces
     internal interface IBookingManagement 
     {
         (bool, string) CancelBooking(int bookingID);
+        DataTable ViewAllBookings(int organizerID);
         (bool, string) BookEvent(int eventID, int userID);
         DataTable ViewAllAvailableEvents();
-        DataTable RegisteredUpcomingEvents(int userID);
-        DataTable RegisteredPastEvents(int userID);
+        DataTable GetRegisteredEvents(int userID);
     }
 }

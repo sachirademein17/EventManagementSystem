@@ -1,5 +1,4 @@
-﻿using EventManagementSystem.Controllers;
-using EventManagementSystem.Models;
+﻿using EventManagementSystem.Models;
 using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -18,13 +17,11 @@ namespace EventManagementSystem
 
         User user = CurrentUser.UserDetails;
         Form dashboard;
-        BookingController bookingController;
         public ODashboard(Form dashboard)
         {
             InitializeComponent();
-            bookingController = new BookingController();
+            LoadUserDetails();
             this.dashboard = dashboard;
-            LoadTable();
         }
 
         private void Username_Click(object sender, EventArgs e)
@@ -33,7 +30,7 @@ namespace EventManagementSystem
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-            (bool success, string message) = user.DeleteProfile(user.UserID);
+            (bool success, string message) = User.DeleteProfile(user.UserID);
 
             if (success)
             {
@@ -50,17 +47,15 @@ namespace EventManagementSystem
 
         private void kryptonButton2_Click(object sender, EventArgs e)
         {
+            new UpdateProfile().Show();
         }
 
-        public void LoadTable()
+        public void LoadUserDetails()
         {
-            DataTable table = bookingController.ViewAllPastBookings(user.UserID);
-            kryptonDataGridView1.DataSource = table;
-        }
-
-        private void UpdateEvent_Click(object sender, EventArgs e)
-        {
-
+            Username.Text = user.UserName;
+            Role.Text = user.Role;
+            Email.Text = user.Email;
+            PhoneNumber.Text = user.PhoneNumber;
         }
     }
 }

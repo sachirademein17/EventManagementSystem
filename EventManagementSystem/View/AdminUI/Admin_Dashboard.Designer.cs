@@ -30,37 +30,20 @@ namespace EventManagementSystem
         private void InitializeComponent()
         {
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            PhoneNumber = new Label();
-            Email = new Label();
-            Username = new Label();
-            pictureBox1 = new PictureBox();
-            Role = new Label();
-            kryptonButton5 = new Krypton.Toolkit.KryptonButton();
             kryptonButton3 = new Krypton.Toolkit.KryptonButton();
             kryptonButton4 = new Krypton.Toolkit.KryptonButton();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             kryptonButton2 = new Krypton.Toolkit.KryptonButton();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
-            closebtn = new Krypton.Toolkit.KryptonButton();
-            kryptonButton6 = new Krypton.Toolkit.KryptonButton();
-            kryptonButton7 = new Krypton.Toolkit.KryptonButton();
             mainpanel = new Panel();
-            kryptonButton8 = new Krypton.Toolkit.KryptonButton();
+            kryptonButton5 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
-            kryptonPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // kryptonPanel1
             // 
-            kryptonPanel1.Controls.Add(kryptonButton8);
-            kryptonPanel1.Controls.Add(PhoneNumber);
-            kryptonPanel1.Controls.Add(Email);
-            kryptonPanel1.Controls.Add(Username);
-            kryptonPanel1.Controls.Add(pictureBox1);
-            kryptonPanel1.Controls.Add(Role);
             kryptonPanel1.Controls.Add(kryptonButton5);
             kryptonPanel1.Controls.Add(kryptonButton3);
             kryptonPanel1.Controls.Add(kryptonButton4);
@@ -76,102 +59,10 @@ namespace EventManagementSystem
             kryptonPanel1.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel1.TabIndex = 0;
             // 
-            // PhoneNumber
-            // 
-            PhoneNumber.BackColor = Color.Transparent;
-            PhoneNumber.Font = new Font("Microsoft Sans Serif", 8F);
-            PhoneNumber.ForeColor = SystemColors.ControlLightLight;
-            PhoneNumber.Location = new Point(3, 256);
-            PhoneNumber.Name = "PhoneNumber";
-            PhoneNumber.Size = new Size(250, 27);
-            PhoneNumber.TabIndex = 13;
-            PhoneNumber.Text = "Phone Number";
-            PhoneNumber.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // Email
-            // 
-            Email.BackColor = Color.Transparent;
-            Email.Font = new Font("Microsoft Sans Serif", 8F);
-            Email.ForeColor = SystemColors.ControlLightLight;
-            Email.Location = new Point(0, 229);
-            Email.Name = "Email";
-            Email.Size = new Size(250, 27);
-            Email.TabIndex = 11;
-            Email.Text = "Email";
-            Email.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // Username
-            // 
-            Username.BackColor = Color.Transparent;
-            Username.Font = new Font("Microsoft Sans Serif", 12F);
-            Username.ForeColor = SystemColors.ControlLightLight;
-            Username.Location = new Point(3, 163);
-            Username.Name = "Username";
-            Username.Size = new Size(250, 39);
-            Username.TabIndex = 10;
-            Username.Text = "UserName";
-            Username.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Dock = DockStyle.Top;
-            pictureBox1.Image = Properties.Resources.profile;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(245, 160);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
-            // Role
-            // 
-            Role.BackColor = Color.Transparent;
-            Role.Font = new Font("Microsoft Sans Serif", 8F);
-            Role.ForeColor = SystemColors.ControlLightLight;
-            Role.Location = new Point(0, 202);
-            Role.Name = "Role";
-            Role.Size = new Size(250, 27);
-            Role.TabIndex = 12;
-            Role.Text = "Role";
-            Role.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // kryptonButton5
-            // 
-            kryptonButton5.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            kryptonButton5.Location = new Point(3, 476);
-            kryptonButton5.Name = "kryptonButton5";
-            kryptonButton5.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
-            kryptonButton5.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            kryptonButton5.OverrideDefault.Border.Color1 = Color.FromArgb(0, 114, 184);
-            kryptonButton5.OverrideDefault.Content.ShortText.Color1 = Color.LimeGreen;
-            kryptonButton5.OverrideDefault.Content.ShortText.Color2 = Color.ForestGreen;
-            kryptonButton5.OverrideDefault.Content.ShortText.ColorAngle = 45F;
-            kryptonButton5.OverrideDefault.Content.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            kryptonButton5.Size = new Size(245, 95);
-            kryptonButton5.StateCommon.Back.Color1 = Color.FromArgb(0, 90, 156);
-            kryptonButton5.StateCommon.Back.Color2 = Color.FromArgb(0, 63, 107);
-            kryptonButton5.StateCommon.Back.ColorAngle = 45F;
-            kryptonButton5.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            kryptonButton5.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton5.StateCommon.Content.ShortText.Color2 = Color.White;
-            kryptonButton5.StatePressed.Back.Color1 = Color.FromArgb(0, 63, 107);
-            kryptonButton5.StatePressed.Back.Color2 = Color.FromArgb(0, 42, 71);
-            kryptonButton5.StatePressed.Content.ShortText.Color1 = Color.White;
-            kryptonButton5.StatePressed.Content.ShortText.Color2 = Color.White;
-            kryptonButton5.StateTracking.Back.Color1 = Color.FromArgb(0, 111, 184);
-            kryptonButton5.StateTracking.Back.Color2 = Color.FromArgb(0, 77, 128);
-            kryptonButton5.StateTracking.Content.ShortText.Color1 = Color.White;
-            kryptonButton5.StateTracking.Content.ShortText.Color2 = Color.White;
-            kryptonButton5.TabIndex = 7;
-            kryptonButton5.Values.DropDownArrowColor = Color.AliceBlue;
-            kryptonButton5.Values.Text = "Past Event Logs";
-            kryptonButton5.Click += kryptonButton5_Click;
-            // 
             // kryptonButton3
             // 
             kryptonButton3.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            kryptonButton3.Location = new Point(3, 566);
+            kryptonButton3.Location = new Point(0, 372);
             kryptonButton3.Name = "kryptonButton3";
             kryptonButton3.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
             kryptonButton3.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -230,7 +121,7 @@ namespace EventManagementSystem
             // kryptonButton1
             // 
             kryptonButton1.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            kryptonButton1.Location = new Point(3, 387);
+            kryptonButton1.Location = new Point(0, 182);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
             kryptonButton1.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -262,7 +153,7 @@ namespace EventManagementSystem
             // kryptonButton2
             // 
             kryptonButton2.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            kryptonButton2.Location = new Point(3, 295);
+            kryptonButton2.Location = new Point(0, 87);
             kryptonButton2.Name = "kryptonButton2";
             kryptonButton2.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
             kryptonButton2.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -293,13 +184,10 @@ namespace EventManagementSystem
             // 
             // kryptonPanel2
             // 
-            kryptonPanel2.Controls.Add(closebtn);
-            kryptonPanel2.Controls.Add(kryptonButton6);
-            kryptonPanel2.Controls.Add(kryptonButton7);
             kryptonPanel2.Dock = DockStyle.Top;
             kryptonPanel2.Location = new Point(245, 0);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(1074, 38);
+            kryptonPanel2.Size = new Size(1074, 87);
             kryptonPanel2.StateCommon.Color1 = Color.FromArgb(28, 28, 28);
             kryptonPanel2.StateNormal.Color1 = Color.FromArgb(0, 114, 184);
             kryptonPanel2.StateNormal.Color2 = Color.DeepSkyBlue;
@@ -307,68 +195,46 @@ namespace EventManagementSystem
             kryptonPanel2.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel2.TabIndex = 1;
             // 
-            // closebtn
-            // 
-            closebtn.Location = new Point(977, 6);
-            closebtn.Name = "closebtn";
-            closebtn.Size = new Size(26, 26);
-            closebtn.StateCommon.Back.Color1 = Color.FromArgb(128, 128, 255);
-            closebtn.StateCommon.Back.Color2 = Color.Blue;
-            closebtn.StateCommon.Border.Rounding = 20F;
-            closebtn.TabIndex = 6;
-            closebtn.Values.DropDownArrowColor = Color.Empty;
-            closebtn.Values.Text = "";
-            closebtn.Click += closebtn_Click;
-            // 
-            // kryptonButton6
-            // 
-            kryptonButton6.Location = new Point(1009, 6);
-            kryptonButton6.Name = "kryptonButton6";
-            kryptonButton6.Size = new Size(26, 26);
-            kryptonButton6.StateCommon.Back.Color1 = Color.FromArgb(255, 255, 128);
-            kryptonButton6.StateCommon.Back.Color2 = Color.Yellow;
-            kryptonButton6.StateCommon.Border.Rounding = 20F;
-            kryptonButton6.TabIndex = 7;
-            kryptonButton6.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton6.Values.Text = "";
-            kryptonButton6.Click += kryptonButton6_Click;
-            // 
-            // kryptonButton7
-            // 
-            kryptonButton7.Location = new Point(1041, 6);
-            kryptonButton7.Name = "kryptonButton7";
-            kryptonButton7.Size = new Size(26, 26);
-            kryptonButton7.StateCommon.Back.Color1 = Color.Red;
-            kryptonButton7.StateCommon.Back.Color2 = Color.DarkRed;
-            kryptonButton7.StateCommon.Border.Rounding = 20F;
-            kryptonButton7.TabIndex = 8;
-            kryptonButton7.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton7.Values.Text = "";
-            kryptonButton7.Click += kryptonButton7_Click;
-            // 
             // mainpanel
             // 
             mainpanel.BackColor = Color.FromArgb(42, 42, 42);
             mainpanel.Dock = DockStyle.Fill;
-            mainpanel.Location = new Point(245, 38);
+            mainpanel.Location = new Point(245, 87);
             mainpanel.Name = "mainpanel";
-            mainpanel.Size = new Size(1074, 724);
+            mainpanel.Size = new Size(1074, 675);
             mainpanel.TabIndex = 2;
             // 
-            // kryptonButton8
+            // kryptonButton5
             // 
-            kryptonButton8.Cursor = Cursors.Hand;
-            kryptonButton8.Location = new Point(159, 101);
-            kryptonButton8.Name = "kryptonButton8";
-            kryptonButton8.Size = new Size(38, 38);
-            kryptonButton8.StateCommon.Back.Color1 = Color.Transparent;
-            kryptonButton8.StateCommon.Back.Color2 = Color.Transparent;
-            kryptonButton8.StateCommon.Back.Image = Properties.Resources.pen;
-            kryptonButton8.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Stretch;
-            kryptonButton8.StateCommon.Border.Rounding = 20F;
-            kryptonButton8.TabIndex = 1;
-            kryptonButton8.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton8.Values.Text = "";
+            kryptonButton5.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
+            kryptonButton5.Location = new Point(0, 277);
+            kryptonButton5.Name = "kryptonButton5";
+            kryptonButton5.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
+            kryptonButton5.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            kryptonButton5.OverrideDefault.Border.Color1 = Color.FromArgb(0, 114, 184);
+            kryptonButton5.OverrideDefault.Content.ShortText.Color1 = Color.LimeGreen;
+            kryptonButton5.OverrideDefault.Content.ShortText.Color2 = Color.ForestGreen;
+            kryptonButton5.OverrideDefault.Content.ShortText.ColorAngle = 45F;
+            kryptonButton5.OverrideDefault.Content.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            kryptonButton5.Size = new Size(245, 95);
+            kryptonButton5.StateCommon.Back.Color1 = Color.FromArgb(0, 90, 156);
+            kryptonButton5.StateCommon.Back.Color2 = Color.FromArgb(0, 63, 107);
+            kryptonButton5.StateCommon.Back.ColorAngle = 45F;
+            kryptonButton5.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            kryptonButton5.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.StateCommon.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.StatePressed.Back.Color1 = Color.FromArgb(0, 63, 107);
+            kryptonButton5.StatePressed.Back.Color2 = Color.FromArgb(0, 42, 71);
+            kryptonButton5.StatePressed.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.StatePressed.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.StateTracking.Back.Color1 = Color.FromArgb(0, 111, 184);
+            kryptonButton5.StateTracking.Back.Color2 = Color.FromArgb(0, 77, 128);
+            kryptonButton5.StateTracking.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.StateTracking.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.TabIndex = 7;
+            kryptonButton5.Values.DropDownArrowColor = Color.AliceBlue;
+            kryptonButton5.Values.Text = "Past Event Logs";
+            kryptonButton5.Click += kryptonButton5_Click;
             // 
             // Admin_Dashboard
             // 
@@ -378,14 +244,11 @@ namespace EventManagementSystem
             Controls.Add(mainpanel);
             Controls.Add(kryptonPanel2);
             Controls.Add(kryptonPanel1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Admin_Dashboard";
             Text = "Admin_Dashboard";
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
-            kryptonPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -404,14 +267,5 @@ namespace EventManagementSystem
         private Krypton.Toolkit.KryptonButton kryptonButton3;
         private Krypton.Toolkit.KryptonButton kryptonButton4;
         private Krypton.Toolkit.KryptonButton kryptonButton5;
-        private Label PhoneNumber;
-        private Label Email;
-        private Label Username;
-        private PictureBox pictureBox1;
-        private Label Role;
-        private Krypton.Toolkit.KryptonButton closebtn;
-        private Krypton.Toolkit.KryptonButton kryptonButton6;
-        private Krypton.Toolkit.KryptonButton kryptonButton7;
-        private Krypton.Toolkit.KryptonButton kryptonButton8;
     }
 }

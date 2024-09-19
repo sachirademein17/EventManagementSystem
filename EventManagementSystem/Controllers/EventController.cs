@@ -63,11 +63,6 @@ namespace EventManagementSystem.Controllers
             return EventCrudManager.EventTextBoxValidation(eventName, location, startDateTime, endDateTime, maxParticipants, currentParticipants, description);
         }
 
-        public DataTable ViewAllRegisteredParticipants(int eventID)
-        {
-            return EventCrudManager.ViewAllRegisteredParticipants(eventID);
-        }
-
 
 
     }

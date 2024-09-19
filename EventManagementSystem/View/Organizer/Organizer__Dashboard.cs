@@ -1,6 +1,4 @@
 ﻿using EventManagementSystem.Models;
-using EventManagementSystem.View;
-using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +13,10 @@ namespace EventManagementSystem
 {
     public partial class Organizer__Dashboard : Form
     {
-        Organizer user;
         public Organizer__Dashboard()
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Organizer;
             loadform(new ODashboard(this));
-            LoadUserDetails(user);
         }
 
         // Functionality to load forms in the main form 
@@ -66,51 +61,9 @@ namespace EventManagementSystem
         // LogOut fuctionality
         private void LogOut_Click(object sender, EventArgs e)
         {
-            new Form1().Show();
-            user.LogOut();
+            Form1 form1 = new Form1();
+            form1.Show();
             this.Close();
-        }
-
-        public void LoadUserDetails(EventManagementSystem.Models.User user)
-        {
-            Username.Text = user.UserName;
-            Role.Text = user.Role;
-            Email.Text = user.Email;
-            PhoneNumber.Text = user.PhoneNumber;
-        }
-
-        private void kryptonButton1_Click(object sender, EventArgs e)
-        {
-            new UpdateProfile(this).Show();
-        }
-
-        private void kryptonButton3_Click(object sender, EventArgs e)
-        {
-
-            Application.Exit();
-        }
-
-        bool minMax = true;
-
-        private void kryptonButton2_Click(object sender, EventArgs e)
-        {
-
-            if (minMax)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                minMax = false;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-                minMax = true;
-            }
-
-        }
-
-        private void closebtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

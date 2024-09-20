@@ -41,11 +41,15 @@ namespace EventManagementSystem
             kryptonButton3 = new Krypton.Toolkit.KryptonButton();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            CloseBtn = new Krypton.Toolkit.KryptonButton();
+            RestoreBtn = new Krypton.Toolkit.KryptonButton();
+            MinmaxBtn = new Krypton.Toolkit.KryptonButton();
             mainpanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
+            kryptonPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // kryptonPanel1
@@ -85,6 +89,7 @@ namespace EventManagementSystem
             // 
             // LogOut
             // 
+            LogOut.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             LogOut.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
             LogOut.Location = new Point(0, 678);
             LogOut.Name = "LogOut";
@@ -93,7 +98,7 @@ namespace EventManagementSystem
             LogOut.OverrideFocus.Back.ColorAngle = 45F;
             LogOut.OverrideFocus.Content.ShortText.Color1 = Color.White;
             LogOut.OverrideFocus.Content.ShortText.Color2 = Color.White;
-            LogOut.Size = new Size(263, 84);
+            LogOut.Size = new Size(245, 84);
             LogOut.StateCommon.Back.Color1 = Color.FromArgb(200, 50, 50);
             LogOut.StateCommon.Back.Color2 = Color.FromArgb(255, 0, 0);
             LogOut.StateCommon.Back.ColorAngle = 45F;
@@ -120,43 +125,44 @@ namespace EventManagementSystem
             // 
             // PhoneNumber
             // 
-            PhoneNumber.AutoSize = true;
             PhoneNumber.BackColor = Color.Transparent;
-            PhoneNumber.Location = new Point(77, 255);
+            PhoneNumber.Location = new Point(0, 255);
             PhoneNumber.Name = "PhoneNumber";
-            PhoneNumber.Size = new Size(59, 25);
+            PhoneNumber.Size = new Size(245, 25);
             PhoneNumber.TabIndex = 20;
             PhoneNumber.Text = "label4";
+            PhoneNumber.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Email
             // 
-            Email.AutoSize = true;
             Email.BackColor = Color.Transparent;
-            Email.Location = new Point(77, 230);
+            Email.Location = new Point(0, 226);
             Email.Name = "Email";
-            Email.Size = new Size(59, 25);
+            Email.Size = new Size(245, 25);
             Email.TabIndex = 19;
             Email.Text = "label3";
+            Email.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Role
             // 
-            Role.AutoSize = true;
             Role.BackColor = Color.Transparent;
-            Role.Location = new Point(77, 196);
+            Role.Location = new Point(0, 196);
             Role.Name = "Role";
-            Role.Size = new Size(59, 25);
+            Role.Size = new Size(245, 25);
             Role.TabIndex = 18;
             Role.Text = "label2";
+            Role.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Username
             // 
-            Username.AutoSize = true;
             Username.BackColor = Color.Transparent;
-            Username.Location = new Point(77, 161);
+            Username.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Username.Location = new Point(0, 161);
             Username.Name = "Username";
-            Username.Size = new Size(59, 25);
+            Username.Size = new Size(245, 32);
             Username.TabIndex = 17;
             Username.Text = "label1";
+            Username.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -173,7 +179,7 @@ namespace EventManagementSystem
             // kryptonButton5
             // 
             kryptonButton5.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            kryptonButton5.Location = new Point(0, 456);
+            kryptonButton5.Location = new Point(0, 395);
             kryptonButton5.Name = "kryptonButton5";
             kryptonButton5.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
             kryptonButton5.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
@@ -216,7 +222,7 @@ namespace EventManagementSystem
             // kryptonButton3
             // 
             kryptonButton3.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            kryptonButton3.Location = new Point(0, 577);
+            kryptonButton3.Location = new Point(0, 490);
             kryptonButton3.Name = "kryptonButton3";
             kryptonButton3.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
             kryptonButton3.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
@@ -259,7 +265,7 @@ namespace EventManagementSystem
             // kryptonButton1
             // 
             kryptonButton1.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            kryptonButton1.Location = new Point(3, 341);
+            kryptonButton1.Location = new Point(0, 300);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(28, 28, 28);
             kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(28, 28, 28);
@@ -301,10 +307,13 @@ namespace EventManagementSystem
             // 
             // kryptonPanel2
             // 
+            kryptonPanel2.Controls.Add(CloseBtn);
+            kryptonPanel2.Controls.Add(RestoreBtn);
+            kryptonPanel2.Controls.Add(MinmaxBtn);
             kryptonPanel2.Dock = DockStyle.Top;
             kryptonPanel2.Location = new Point(245, 0);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(1074, 87);
+            kryptonPanel2.Size = new Size(1074, 40);
             kryptonPanel2.StateCommon.Color1 = Color.FromArgb(28, 28, 28);
             kryptonPanel2.StateNormal.Color1 = Color.FromArgb(0, 114, 184);
             kryptonPanel2.StateNormal.Color2 = Color.DeepSkyBlue;
@@ -312,13 +321,82 @@ namespace EventManagementSystem
             kryptonPanel2.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel2.TabIndex = 1;
             // 
+            // CloseBtn
+            // 
+            CloseBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CloseBtn.Location = new Point(1036, 9);
+            CloseBtn.Name = "CloseBtn";
+            CloseBtn.OverrideDefault.Back.Color1 = Color.FromArgb(255, 100, 90);
+            CloseBtn.OverrideDefault.Back.Color2 = Color.FromArgb(255, 70, 70);
+            CloseBtn.OverrideDefault.Border.Color1 = Color.FromArgb(255, 100, 90);
+            CloseBtn.OverrideDefault.Border.Color2 = Color.FromArgb(255, 70, 70);
+            CloseBtn.Size = new Size(26, 25);
+            CloseBtn.StateCommon.Back.Color1 = Color.FromArgb(255, 100, 90);
+            CloseBtn.StateCommon.Back.Color2 = Color.FromArgb(255, 70, 70);
+            CloseBtn.StateCommon.Border.Color1 = Color.FromArgb(255, 100, 90);
+            CloseBtn.StateCommon.Border.Color2 = Color.FromArgb(255, 70, 70);
+            CloseBtn.StateCommon.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            CloseBtn.StateCommon.Border.Rounding = 20F;
+            CloseBtn.StateTracking.Back.Color1 = Color.FromArgb(230, 85, 85);
+            CloseBtn.StateTracking.Back.Color2 = Color.FromArgb(200, 60, 60);
+            CloseBtn.TabIndex = 0;
+            CloseBtn.Values.DropDownArrowColor = Color.Empty;
+            CloseBtn.Values.Text = "";
+            CloseBtn.Click += CloseBtn_Click;
+            // 
+            // RestoreBtn
+            // 
+            RestoreBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            RestoreBtn.Location = new Point(956, 9);
+            RestoreBtn.Name = "RestoreBtn";
+            RestoreBtn.OverrideDefault.Back.Color1 = Color.FromArgb(40, 200, 64);
+            RestoreBtn.OverrideDefault.Back.Color2 = Color.FromArgb(34, 180, 58);
+            RestoreBtn.OverrideDefault.Border.Color1 = Color.FromArgb(40, 200, 64);
+            RestoreBtn.OverrideDefault.Border.Color2 = Color.FromArgb(34, 180, 58);
+            RestoreBtn.Size = new Size(26, 25);
+            RestoreBtn.StateCommon.Back.Color1 = Color.FromArgb(40, 200, 64);
+            RestoreBtn.StateCommon.Back.Color2 = Color.FromArgb(34, 180, 58);
+            RestoreBtn.StateCommon.Border.Color1 = Color.FromArgb(40, 200, 64);
+            RestoreBtn.StateCommon.Border.Color2 = Color.FromArgb(34, 180, 58);
+            RestoreBtn.StateCommon.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            RestoreBtn.StateCommon.Border.Rounding = 20F;
+            RestoreBtn.StateTracking.Back.Color1 = Color.FromArgb(36, 161, 51);
+            RestoreBtn.StateTracking.Back.Color2 = Color.FromArgb(30, 140, 45);
+            RestoreBtn.TabIndex = 1;
+            RestoreBtn.Values.DropDownArrowColor = Color.Empty;
+            RestoreBtn.Values.Text = "";
+            RestoreBtn.Click += RestoreBtn_Click_1;
+            // 
+            // MinmaxBtn
+            // 
+            MinmaxBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            MinmaxBtn.Location = new Point(995, 9);
+            MinmaxBtn.Name = "MinmaxBtn";
+            MinmaxBtn.OverrideDefault.Back.Color1 = Color.FromArgb(255, 189, 46);
+            MinmaxBtn.OverrideDefault.Back.Color2 = Color.FromArgb(255, 174, 40);
+            MinmaxBtn.OverrideDefault.Border.Color1 = Color.FromArgb(255, 189, 46);
+            MinmaxBtn.OverrideDefault.Border.Color2 = Color.FromArgb(255, 174, 40);
+            MinmaxBtn.Size = new Size(26, 25);
+            MinmaxBtn.StateCommon.Back.Color1 = Color.FromArgb(255, 189, 46);
+            MinmaxBtn.StateCommon.Back.Color2 = Color.FromArgb(255, 174, 40);
+            MinmaxBtn.StateCommon.Border.Color1 = Color.FromArgb(255, 189, 46);
+            MinmaxBtn.StateCommon.Border.Color2 = Color.FromArgb(255, 174, 40);
+            MinmaxBtn.StateCommon.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            MinmaxBtn.StateCommon.Border.Rounding = 20F;
+            MinmaxBtn.StateTracking.Back.Color1 = Color.FromArgb(224, 162, 30);
+            MinmaxBtn.StateTracking.Back.Color2 = Color.FromArgb(224, 145, 24);
+            MinmaxBtn.TabIndex = 2;
+            MinmaxBtn.Values.DropDownArrowColor = Color.Empty;
+            MinmaxBtn.Values.Text = "";
+            MinmaxBtn.Click += MinmaxBtn_Click_1;
+            // 
             // mainpanel
             // 
-            mainpanel.BackColor = Color.FromArgb(42, 42, 42);
+            mainpanel.BackColor = Color.FromArgb(28, 28, 28);
             mainpanel.Dock = DockStyle.Fill;
-            mainpanel.Location = new Point(245, 87);
+            mainpanel.Location = new Point(245, 40);
             mainpanel.Name = "mainpanel";
-            mainpanel.Size = new Size(1074, 675);
+            mainpanel.Size = new Size(1074, 722);
             mainpanel.TabIndex = 2;
             // 
             // Admin_Dashboard
@@ -329,13 +407,14 @@ namespace EventManagementSystem
             Controls.Add(mainpanel);
             Controls.Add(kryptonPanel2);
             Controls.Add(kryptonPanel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Admin_Dashboard";
             Text = "Admin_Dashboard";
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
-            kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
+            kryptonPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -359,5 +438,8 @@ namespace EventManagementSystem
         private Label Username;
         private PictureBox pictureBox1;
         private Krypton.Toolkit.KryptonButton UpdateProfile;
+        private Krypton.Toolkit.KryptonButton CloseBtn;
+        private Krypton.Toolkit.KryptonButton MinmaxBtn;
+        private Krypton.Toolkit.KryptonButton RestoreBtn;
     }
 }

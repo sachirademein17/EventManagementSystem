@@ -50,18 +50,6 @@ namespace EventManagementSystem
             loadform(new AManageUsers());
         }
 
-        private void kryptonButton4_Click(object sender, EventArgs e)
-        {
-            loadform(new AManageParticipants());
-        }
-
-        private void kryptonButton4_Click_1(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1();
-            form1.Show();
-            this.Close();
-        }
-
         private void kryptonButton5_Click(object sender, EventArgs e)
         {
             loadform(new PastEventLogs());
@@ -86,6 +74,36 @@ namespace EventManagementSystem
         private void UpdateProfile_Click(object sender, EventArgs e)
         {
             user.UpdateProfile();
+        }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        bool minMax = true;
+
+       
+
+        private void MinmaxBtn_Click_1(object sender, EventArgs e)
+        {
+            if (minMax)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                minMax = false;
+
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                minMax= true;
+            }
+        }
+
+        private void RestoreBtn_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
         }
     }
 }

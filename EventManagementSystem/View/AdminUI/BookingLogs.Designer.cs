@@ -58,7 +58,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(28, 28, 28);
+            BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1101, 688);
             Controls.Add(eventsTable);
             Controls.Add(label2);

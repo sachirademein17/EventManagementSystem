@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             UpdateUser = new Krypton.Toolkit.KryptonButton();
             DeleteUser = new Krypton.Toolkit.KryptonButton();
-            usersTable = new DataGridView();
             CreateUser = new Krypton.Toolkit.KryptonButton();
             label2 = new Label();
+            usersTable = new Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)usersTable).BeginInit();
             SuspendLayout();
             // 
@@ -84,16 +86,6 @@
             DeleteUser.Values.Text = "Delete";
             DeleteUser.Click += DeleteUser_Click;
             // 
-            // usersTable
-            // 
-            usersTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            usersTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            usersTable.Location = new Point(12, 126);
-            usersTable.Name = "usersTable";
-            usersTable.RowHeadersWidth = 62;
-            usersTable.Size = new Size(1050, 537);
-            usersTable.TabIndex = 18;
-            // 
             // CreateUser
             // 
             CreateUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -129,15 +121,51 @@
             label2.TabIndex = 16;
             label2.Text = "USERS";
             // 
+            // usersTable
+            // 
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(35, 35, 35);
+            usersTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            usersTable.BorderStyle = BorderStyle.None;
+            usersTable.ColumnHeadersHeight = 51;
+            usersTable.Location = new Point(12, 117);
+            usersTable.Name = "usersTable";
+            usersTable.RowHeadersWidth = 62;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
+            usersTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            usersTable.Size = new Size(1050, 546);
+            usersTable.StateCommon.Background.Color1 = Color.FromArgb(30, 30, 30);
+            usersTable.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            usersTable.StateCommon.DataCell.Back.Color1 = Color.FromArgb(40, 40, 40);
+            usersTable.StateCommon.DataCell.Back.Color2 = Color.FromArgb(40, 40, 40);
+            usersTable.StateCommon.DataCell.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Rounded;
+            usersTable.StateCommon.DataCell.Content.Color1 = Color.LightGray;
+            usersTable.StateCommon.DataCell.Content.Font = new Font("Segoe UI", 9F);
+            usersTable.StateCommon.HeaderColumn.Back.Color1 = Color.FromArgb(60, 60, 60);
+            usersTable.StateCommon.HeaderColumn.Back.Color2 = Color.FromArgb(80, 80, 80);
+            usersTable.StateCommon.HeaderColumn.Content.Color1 = Color.White;
+            usersTable.StateCommon.HeaderColumn.Content.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            usersTable.StateSelected.DataCell.Back.Color1 = Color.FromArgb(60, 180, 75);
+            usersTable.StateSelected.DataCell.Back.Color2 = Color.FromArgb(50, 150, 65);
+            usersTable.StateSelected.DataCell.Back.ColorAngle = 45F;
+            usersTable.StateSelected.DataCell.Border.Color1 = Color.FromArgb(255, 255, 255);
+            usersTable.StateSelected.DataCell.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            usersTable.StateSelected.DataCell.Border.Width = 2;
+            usersTable.StateSelected.DataCell.Content.Color1 = Color.White;
+            usersTable.StateTracking.HeaderRow.Back.Color1 = Color.FromArgb(70, 70, 70);
+            usersTable.StateTracking.HeaderRow.Back.Color2 = Color.FromArgb(60, 60, 60);
+            usersTable.StateTracking.HeaderRow.Back.ColorAngle = 0F;
+            usersTable.StateTracking.HeaderRow.Content.Color1 = Color.White;
+            usersTable.TabIndex = 21;
+            // 
             // AManageUsers
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
+            Controls.Add(usersTable);
             Controls.Add(UpdateUser);
             Controls.Add(DeleteUser);
-            Controls.Add(usersTable);
             Controls.Add(CreateUser);
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
@@ -152,8 +180,8 @@
 
         private Krypton.Toolkit.KryptonButton UpdateUser;
         private Krypton.Toolkit.KryptonButton DeleteUser;
-        private DataGridView usersTable;
         private Krypton.Toolkit.KryptonButton CreateUser;
         private Label label2;
+        private Krypton.Toolkit.KryptonDataGridView usersTable;
     }
 }

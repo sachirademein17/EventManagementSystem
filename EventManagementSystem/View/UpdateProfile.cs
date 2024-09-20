@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,20 +14,22 @@ namespace EventManagementSystem.View
 {
     public partial class UpdateProfile : Form
     {
-        Organizer user;
+        User user;
+        UserController UserController;
         public UpdateProfile()
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Organizer;
-            SetUserDetails();
+            user = CurrentUser.UserDetails;
+            UserController = new UserController();
+            SetUserDetails(user);
         }
 
         private void UpdateUser_Click(object sender, EventArgs e)
         {
             // Getting the role value
-            string role = "Organizer";
+            string role = user.Role;
 
-            (bool validation, string errormsg) = user.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
+            (bool validation, string errormsg) = UserController.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
 
             // Checking whether the validation is success
             if (!validation)
@@ -45,7 +48,7 @@ namespace EventManagementSystem.View
             User updateUser = new Organizer(user.UserID, username, password, email, phoneNumber, role);
 
             // Execute the Update User functionality
-            (bool success, string message) = user.UpdateUser(updateUser, user.UserName);
+            (bool success, string message) = UserController.UpdateUser(updateUser, user.UserName);
 
             // give user feedback
             if (success)
@@ -61,8 +64,9 @@ namespace EventManagementSystem.View
         }
 
         // Set Input fields according to the previous user details
-        private void SetUserDetails()
+        private void SetUserDetails(User user)
         {
+            MessageBox.Show(user.UserName);
             usernametxt.Text = user.UserName;
             emailtxt.Text = user.Email;
             phonenumbertxt.Text = user.PhoneNumber;

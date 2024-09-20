@@ -35,11 +35,29 @@ namespace EventManagementSystem.Controllers
             return BookingCrudManager.ViewAllOrganizedBookings(organizerID);
         }
 
+        // Functionality to view all booking logs
+        public DataTable ViewAllBookingLog(int organizerID)
+        {
+            return BookingCrudManager.ViewAllOrganizedBookingLogs(organizerID);
+        }
+
         // Fuctionality to get the registered events
         public DataTable GetRegisteredEvents(int userID)
         {
             return BookingCrudManager.GetRegisteredEvents(userID);
 
         }
+
+        // Functionality to get the registered events log
+        public DataTable GetRegisteredEventLogs(int userID)
+        {
+            return BookingCrudManager.GetRegisteredEventLogs(userID);
+        }
+
+        public DataTable RegisteredParticipants(int eventID)
+        {
+            return BookingCrudManager.RegisteredParticipants(eventID);
+        }
+
     }
 }

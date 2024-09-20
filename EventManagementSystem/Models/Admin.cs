@@ -19,12 +19,19 @@ namespace EventManagementSystem.Models
         {
         }
 
-       
+
+        public override (bool, string) LogOut( )
+        {
+            return base.LogOut();
+        }
+
+        public override void UpdateProfile( )
+        {
+            base.UpdateProfile();
+        }
 
 
 
 
-
-       
     }
 }

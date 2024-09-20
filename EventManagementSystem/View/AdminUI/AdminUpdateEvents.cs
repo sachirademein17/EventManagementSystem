@@ -33,6 +33,17 @@ namespace EventManagementSystem
         private void UpdateEvemt_Click(object sender, EventArgs e)
         {
 
+            // Checking all the input value are valid and not empty
+            (bool validation, string validationmsg) = eventController.EventTextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text, this.eventDetails.CurrentParticipants, descriptiontxt.Text);
+
+
+            // If Input Details are not valid show error message & exit 
+            if (!validation)
+            {
+                new DangerToaster(validationmsg).Show();
+                return;
+            }
+
             // Get the values from the textboxes
             string name = nametxt.Text;
             string location = venuetxt.Text;

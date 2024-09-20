@@ -1,4 +1,6 @@
-﻿using EventManagementSystem.View.AdminUI;
+﻿using EventManagementSystem.Models;
+using EventManagementSystem.View;
+using EventManagementSystem.View.AdminUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +15,14 @@ namespace EventManagementSystem
 {
     public partial class Admin_Dashboard : Form
     {
+
+        Admin user;
+
         public Admin_Dashboard()
         {
             InitializeComponent();
-            loadform(new ADashboard());
+            user = CurrentUser.UserDetails as Admin;
+            LoadUserDetail();
         }
 
         public void loadform(object Form)
@@ -33,10 +39,6 @@ namespace EventManagementSystem
             form.Show();
         }
 
-        private void kryptonButton2_Click(object sender, EventArgs e)
-        {
-            loadform(new ADashboard());
-        }
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
@@ -63,6 +65,27 @@ namespace EventManagementSystem
         private void kryptonButton5_Click(object sender, EventArgs e)
         {
             loadform(new PastEventLogs());
+        }
+
+        private void LoadUserDetail()
+        {
+            Username.Text = user.UserName;
+            Email.Text = user.Email;
+            PhoneNumber.Text = user.PhoneNumber;
+            Role.Text = user.Role;
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            (bool success, string message) = user.LogOut();
+            new Form1().Show();
+            this.Close();
+            new SuccessToaster(message);
+        }
+
+        private void UpdateProfile_Click(object sender, EventArgs e)
+        {
+            user.UpdateProfile();
         }
     }
 }

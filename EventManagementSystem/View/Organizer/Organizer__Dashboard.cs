@@ -13,10 +13,13 @@ namespace EventManagementSystem
 {
     public partial class Organizer__Dashboard : Form
     {
+        Organizer user;
         public Organizer__Dashboard()
         {
             InitializeComponent();
-            loadform(new ODashboard(this));
+            user = CurrentUser.UserDetails as Organizer; 
+            loadform(new OBookingLogs());
+            LoadUserDetail();
         }
 
         // Functionality to load forms in the main form 
@@ -34,36 +37,44 @@ namespace EventManagementSystem
             form.Show();
         }
 
-        // Load View Events form
-        private void ViewEvents_Click(object sender, EventArgs e)
-        {
-            loadform(new OViewEvents());
-        }
 
-        // Load Dashboard form
-        private void Dashboard_Click(object sender, EventArgs e)
-        {
-            loadform(new ODashboard(this));
-        }
-
-        // Load Manage Events form
-        private void ManageEvents_Click(object sender, EventArgs e)
-        {
-            loadform(new OManageEvents());
-        }
-
-        // Load Manage Bookings form
-        private void ManageBookings_Click(object sender, EventArgs e)
-        {
-            loadform(new OManageBookings());
-        }
 
         // LogOut fuctionality
         private void LogOut_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.Show();
+            this.user.LogOut();
             this.Close();
+        }
+
+
+        private void LoadUserDetail()
+        {
+            Username.Text = user.UserName;
+            Email.Text = user.Email;
+            PhoneNumber.Text = user.PhoneNumber;
+            Role.Text = user.Role;
+        }
+
+        private void BookingLogs_Click(object sender, EventArgs e)
+        {
+            loadform(new OBookingLogs());
+        }
+
+        private void EventLogs_Click(object sender, EventArgs e)
+        {
+            loadform(new OViewEvents());
+        }
+
+        private void ManageEvents_Click(object sender, EventArgs e)
+        {
+            loadform(new OManageEvents());
+        }
+
+        private void ManageBookings_Click(object sender, EventArgs e)
+        {
+            loadform(new OManageBookings());
         }
     }
 }

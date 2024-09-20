@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.View;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -146,6 +148,19 @@ namespace EventManagementSystem.Models
 
         }
 
+
+        public virtual (bool, string) LogOut()
+        {
+            CurrentUser.ClearUserDetails();
+            
+            return (true, "Logged Out Successfully.");
+        }
+
+        public virtual void UpdateProfile()
+        {
+            new UpdateProfile().Show();
+        }
+        
         
 
         }

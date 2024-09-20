@@ -21,20 +21,13 @@ namespace EventManagementSystem.Models
         {
         }
 
-
-
-        public (bool, string) UserTextBoxValidation(string username, string password, string confirmPassword, string email, string phoneNumber, string role)
+        public override (bool, string) LogOut( )  
         {
-            return UserCrudManager.UserTextBoxValidation(username, password, confirmPassword, email, phoneNumber, role);
+            return base.LogOut();
         }
 
-        public (bool, string) UpdateUser(User userDetails, string userName)
-        {
-            return UserCrudManager.UpdateUser(userDetails, userName);
 
-        }
-
-        
+               
 
     }
 }

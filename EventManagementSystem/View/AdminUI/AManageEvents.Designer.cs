@@ -33,6 +33,7 @@
             eventsTable = new DataGridView();
             CreateEvent = new Krypton.Toolkit.KryptonButton();
             label2 = new Label();
+            ViewBookings = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
             // 
@@ -40,11 +41,11 @@
             // 
             UpdateEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             UpdateEvent.Cursor = Cursors.Hand;
-            UpdateEvent.Location = new Point(204, 35);
+            UpdateEvent.Location = new Point(517, 35);
             UpdateEvent.Name = "UpdateEvent";
             UpdateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
             UpdateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            UpdateEvent.Size = new Size(244, 38);
+            UpdateEvent.Size = new Size(145, 38);
             UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
             UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
             UpdateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
@@ -64,11 +65,11 @@
             // 
             DeleteEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DeleteEvent.Cursor = Cursors.Hand;
-            DeleteEvent.Location = new Point(496, 35);
+            DeleteEvent.Location = new Point(705, 35);
             DeleteEvent.Name = "DeleteEvent";
             DeleteEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
             DeleteEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            DeleteEvent.Size = new Size(244, 38);
+            DeleteEvent.Size = new Size(145, 38);
             DeleteEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
             DeleteEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
             DeleteEvent.StateCommon.Content.ShortText.Color1 = Color.White;
@@ -98,11 +99,11 @@
             // 
             CreateEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CreateEvent.Cursor = Cursors.Hand;
-            CreateEvent.Location = new Point(794, 35);
+            CreateEvent.Location = new Point(893, 35);
             CreateEvent.Name = "CreateEvent";
             CreateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
             CreateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateEvent.Size = new Size(244, 38);
+            CreateEvent.Size = new Size(145, 38);
             CreateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
             CreateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
             CreateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
@@ -129,12 +130,37 @@
             label2.TabIndex = 11;
             label2.Text = "EVENTS";
             // 
+            // ViewBookings
+            // 
+            ViewBookings.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ViewBookings.Cursor = Cursors.Hand;
+            ViewBookings.Location = new Point(329, 35);
+            ViewBookings.Name = "ViewBookings";
+            ViewBookings.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
+            ViewBookings.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
+            ViewBookings.Size = new Size(145, 38);
+            ViewBookings.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
+            ViewBookings.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
+            ViewBookings.StateCommon.Content.ShortText.Color1 = Color.White;
+            ViewBookings.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ViewBookings.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
+            ViewBookings.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
+            ViewBookings.StateNormal.Content.ShortText.Color1 = Color.White;
+            ViewBookings.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ViewBookings.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
+            ViewBookings.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
+            ViewBookings.TabIndex = 16;
+            ViewBookings.Values.DropDownArrowColor = Color.Empty;
+            ViewBookings.Values.Text = "BOOKINGS";
+            ViewBookings.Click += ViewBookings_Click;
+            // 
             // AManageEvents
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
+            Controls.Add(ViewBookings);
             Controls.Add(UpdateEvent);
             Controls.Add(DeleteEvent);
             Controls.Add(eventsTable);
@@ -155,5 +181,6 @@
         private DataGridView eventsTable;
         private Krypton.Toolkit.KryptonButton CreateEvent;
         private Label label2;
+        private Krypton.Toolkit.KryptonButton ViewBookings;
     }
 }

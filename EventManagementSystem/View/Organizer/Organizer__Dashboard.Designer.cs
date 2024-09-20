@@ -42,16 +42,20 @@
             mainpanel = new Panel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            LogOut = new Krypton.Toolkit.KryptonButton();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            Dashboard = new Krypton.Toolkit.KryptonButton();
-            ViewEvents = new Krypton.Toolkit.KryptonButton();
+            PhoneNumber = new Label();
+            Email = new Label();
+            Role = new Label();
+            Username = new Label();
+            pictureBox1 = new PictureBox();
+            EventLogs = new Krypton.Toolkit.KryptonButton();
             ManageEvents = new Krypton.Toolkit.KryptonButton();
             ManageBookings = new Krypton.Toolkit.KryptonButton();
+            BookingLogs = new Krypton.Toolkit.KryptonButton();
+            LogOut = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // mainpanel
@@ -69,208 +73,146 @@
             kryptonPanel2.Location = new Point(250, 0);
             kryptonPanel2.Name = "kryptonPanel2";
             kryptonPanel2.Size = new Size(1069, 87);
-            kryptonPanel2.StateCommon.Color1 = Color.FromArgb(15, 15, 15);
-            kryptonPanel2.StateCommon.Color2 = Color.FromArgb(31, 31, 31);
+            kryptonPanel2.StateCommon.Color1 = Color.FromArgb(0, 114, 184);
+            kryptonPanel2.StateCommon.Color2 = Color.DeepSkyBlue;
             kryptonPanel2.StateCommon.ColorAngle = 45F;
             kryptonPanel2.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel2.TabIndex = 4;
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(PhoneNumber);
+            kryptonPanel1.Controls.Add(Email);
+            kryptonPanel1.Controls.Add(Role);
+            kryptonPanel1.Controls.Add(Username);
+            kryptonPanel1.Controls.Add(pictureBox1);
+            kryptonPanel1.Controls.Add(EventLogs);
+            kryptonPanel1.Controls.Add(ManageEvents);
+            kryptonPanel1.Controls.Add(ManageBookings);
+            kryptonPanel1.Controls.Add(BookingLogs);
             kryptonPanel1.Controls.Add(LogOut);
-            kryptonPanel1.Controls.Add(flowLayoutPanel1);
             kryptonPanel1.Dock = DockStyle.Left;
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
             kryptonPanel1.Size = new Size(250, 762);
-            kryptonPanel1.StateCommon.Color1 = Color.FromArgb(15, 15, 15);
-            kryptonPanel1.StateCommon.Color2 = Color.FromArgb(31, 31, 31);
-            kryptonPanel1.StateCommon.ColorAngle = 45F;
+            kryptonPanel1.StateCommon.Color1 = Color.FromArgb(0, 114, 184);
+            kryptonPanel1.StateCommon.Color2 = Color.DeepSkyBlue;
+            kryptonPanel1.StateCommon.ColorAngle = 90F;
             kryptonPanel1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel1.TabIndex = 3;
             // 
-            // LogOut
+            // PhoneNumber
             // 
-            LogOut.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            LogOut.Location = new Point(0, 678);
-            LogOut.Name = "LogOut";
-            LogOut.Size = new Size(263, 84);
-            LogOut.TabIndex = 0;
-            LogOut.Values.Text = "LogOut";
-            LogOut.Click += LogOut_Click;
-
-            // Default state
-            LogOut.StateCommon.Back.Color1 = Color.FromArgb(200, 50, 50); // Dark Red
-            LogOut.StateCommon.Back.Color2 = Color.FromArgb(255, 0, 0);   // Bright Red
-            LogOut.StateCommon.Back.ColorAngle = 45F;
-            LogOut.StateCommon.Content.ShortText.Color1 = Color.White; // White Text
-            LogOut.StateCommon.Content.ShortText.Color2 = Color.White; // White Text
-
-            // Disabled state
-            LogOut.StateDisabled.Back.Color1 = Color.FromArgb(150, 30, 30); // Darker Red
-            LogOut.StateDisabled.Back.Color2 = Color.FromArgb(150, 30, 30); // Darker Red
-            LogOut.StateDisabled.Content.ShortText.Color1 = Color.FromArgb(100, 100, 100); // Gray
-            LogOut.StateDisabled.Content.ShortText.Color2 = Color.FromArgb(100, 100, 100); // Gray
-
-            // Normal state
-            LogOut.StateNormal.Back.Color1 = Color.FromArgb(200, 50, 50); // Dark Red
-            LogOut.StateNormal.Back.Color2 = Color.FromArgb(255, 0, 0);   // Bright Red
-            LogOut.StateNormal.Back.ColorAngle = 45F;
-            LogOut.StateNormal.Content.ShortText.Color1 = Color.White; // White Text
-            LogOut.StateNormal.Content.ShortText.Color2 = Color.White; // White Text
-
-            // Pressed state
-            LogOut.StatePressed.Back.Color1 = Color.FromArgb(150, 0, 0); // Dark Red
-            LogOut.StatePressed.Back.Color2 = Color.FromArgb(180, 0, 0); // Even Darker Red
-            LogOut.StatePressed.Back.ColorAngle = 45F;
-            LogOut.StatePressed.Content.ShortText.Color1 = Color.White; // White Text
-            LogOut.StatePressed.Content.ShortText.Color2 = Color.White; // White Text
-
-            // Focus state
-            LogOut.OverrideFocus.Back.Color1 = Color.FromArgb(180, 0, 0); // Dark Red
-            LogOut.OverrideFocus.Back.Color2 = Color.FromArgb(220, 0, 0); // Bright Red
-            LogOut.OverrideFocus.Back.ColorAngle = 45F;
-            LogOut.OverrideFocus.Content.ShortText.Color1 = Color.White; // White Text
-            LogOut.OverrideFocus.Content.ShortText.Color2 = Color.White; // White Text
-
-            // Dropdown arrow color
-            LogOut.Values.DropDownArrowColor = Color.White; // White
-
+            PhoneNumber.AutoSize = true;
+            PhoneNumber.BackColor = Color.Transparent;
+            PhoneNumber.Location = new Point(86, 268);
+            PhoneNumber.Name = "PhoneNumber";
+            PhoneNumber.Size = new Size(59, 25);
+            PhoneNumber.TabIndex = 14;
+            PhoneNumber.Text = "label4";
             // 
-            // flowLayoutPanel1
+            // Email
             // 
-            flowLayoutPanel1.BackColor = Color.Transparent;
-            flowLayoutPanel1.Controls.Add(Dashboard);
-            flowLayoutPanel1.Controls.Add(ViewEvents);
-            flowLayoutPanel1.Controls.Add(ManageEvents);
-            flowLayoutPanel1.Controls.Add(ManageBookings);
-            flowLayoutPanel1.Location = new Point(0, 93);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(245, 391);
-            flowLayoutPanel1.TabIndex = 3;
+            Email.AutoSize = true;
+            Email.BackColor = Color.Transparent;
+            Email.Location = new Point(86, 230);
+            Email.Name = "Email";
+            Email.Size = new Size(59, 25);
+            Email.TabIndex = 13;
+            Email.Text = "label3";
             // 
-            // Dashboard
+            // Role
             // 
-            Dashboard.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            Dashboard.Location = new Point(3, 3);
-            Dashboard.Name = "Dashboard";
-            Dashboard.OverrideDefault.Back.Color1 = Color.FromArgb(31, 31, 31);
-            Dashboard.OverrideDefault.Back.Color2 = Color.FromArgb(31, 31, 31);
-            Dashboard.OverrideDefault.Border.Color1 = Color.FromArgb(0, 153, 255);
-            Dashboard.OverrideDefault.Border.Color2 = Color.FromArgb(0, 153, 255);
-            Dashboard.OverrideDefault.Content.ShortText.Color1 = Color.FromArgb(0, 153, 255);
-            Dashboard.OverrideDefault.Content.ShortText.Color2 = Color.FromArgb(0, 153, 255);
-            Dashboard.OverrideFocus.Back.Color1 = Color.FromArgb(25, 25, 25);
-            Dashboard.OverrideFocus.Back.Color2 = Color.FromArgb(25, 25, 25);
-            Dashboard.OverrideFocus.Border.Color1 = Color.FromArgb(0, 122, 204);
-            Dashboard.OverrideFocus.Border.Color2 = Color.FromArgb(0, 122, 204);
-            Dashboard.Size = new Size(260, 90);
-            Dashboard.StateCommon.Back.Color1 = Color.FromArgb(44, 72, 117);
-            Dashboard.StateCommon.Back.Color2 = Color.FromArgb(31, 31, 31);
-            Dashboard.StateCommon.Border.Color1 = Color.FromArgb(44, 72, 117);
-            Dashboard.StateCommon.Border.Color2 = Color.FromArgb(31, 31, 31);
-            Dashboard.StateCommon.Border.Rounding = 8F;
-            Dashboard.StateCommon.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            Dashboard.StateDisabled.Back.Color1 = Color.FromArgb(44, 72, 117);
-            Dashboard.StateDisabled.Back.Color2 = Color.FromArgb(44, 72, 117);
-            Dashboard.StateDisabled.Content.ShortText.Color1 = Color.FromArgb(150, 150, 150);
-            Dashboard.StateDisabled.Content.ShortText.Color2 = Color.FromArgb(150, 150, 150);
-            Dashboard.StateNormal.Back.Color1 = Color.FromArgb(15, 15, 15);
-            Dashboard.StateNormal.Back.Color2 = Color.FromArgb(15, 15, 15);
-            Dashboard.StateNormal.Border.Color1 = Color.FromArgb(15, 15, 15);
-            Dashboard.StateNormal.Border.Color2 = Color.FromArgb(15, 15, 15);
-            Dashboard.StateNormal.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            Dashboard.StatePressed.Back.Color1 = Color.FromArgb(46, 46, 46);
-            Dashboard.StatePressed.Back.Color2 = Color.FromArgb(46, 46, 46);
-            Dashboard.StateTracking.Back.Color1 = Color.FromArgb(60, 60, 60);
-            Dashboard.StateTracking.Back.Color2 = Color.FromArgb(60, 60, 60);
-            Dashboard.StateTracking.Border.Color1 = Color.FromArgb(0, 153, 255);
-            Dashboard.StateTracking.Border.Color2 = Color.FromArgb(0, 153, 255);
-            Dashboard.TabIndex = 6;
-            Dashboard.Values.DropDownArrowColor = Color.AliceBlue;
-            Dashboard.Values.Text = "Dashboard";
-            Dashboard.Click += Dashboard_Click;
+            Role.AutoSize = true;
+            Role.BackColor = Color.Transparent;
+            Role.Location = new Point(86, 196);
+            Role.Name = "Role";
+            Role.Size = new Size(59, 25);
+            Role.TabIndex = 12;
+            Role.Text = "label2";
             // 
-            // ViewEvents
+            // Username
             // 
-            ViewEvents.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            ViewEvents.Location = new Point(3, 99);
-            ViewEvents.Name = "ViewEvents";
-            ViewEvents.OverrideDefault.Back.Color1 = Color.FromArgb(31, 31, 31);
-            ViewEvents.OverrideDefault.Back.Color2 = Color.FromArgb(31, 31, 31);
-            ViewEvents.OverrideDefault.Border.Color1 = Color.FromArgb(0, 153, 255);
-            ViewEvents.OverrideDefault.Border.Color2 = Color.FromArgb(0, 153, 255);
-            ViewEvents.OverrideDefault.Content.ShortText.Color1 = Color.FromArgb(0, 153, 255);
-            ViewEvents.OverrideDefault.Content.ShortText.Color2 = Color.FromArgb(0, 153, 255);
-            ViewEvents.OverrideFocus.Back.Color1 = Color.FromArgb(25, 25, 25);
-            ViewEvents.OverrideFocus.Back.Color2 = Color.FromArgb(25, 25, 25);
-            ViewEvents.OverrideFocus.Border.Color1 = Color.FromArgb(0, 122, 204);
-            ViewEvents.OverrideFocus.Border.Color2 = Color.FromArgb(0, 122, 204);
-            ViewEvents.Size = new Size(260, 90);
-            ViewEvents.StateCommon.Back.Color1 = Color.FromArgb(44, 72, 117);
-            ViewEvents.StateCommon.Back.Color2 = Color.FromArgb(31, 31, 31);
-            ViewEvents.StateCommon.Border.Color1 = Color.FromArgb(44, 72, 117);
-            ViewEvents.StateCommon.Border.Color2 = Color.FromArgb(31, 31, 31);
-            ViewEvents.StateCommon.Border.Rounding = 8F;
-            ViewEvents.StateCommon.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            ViewEvents.StateDisabled.Back.Color1 = Color.FromArgb(44, 72, 117);
-            ViewEvents.StateDisabled.Back.Color2 = Color.FromArgb(44, 72, 117);
-            ViewEvents.StateDisabled.Content.ShortText.Color1 = Color.FromArgb(150, 150, 150);
-            ViewEvents.StateDisabled.Content.ShortText.Color2 = Color.FromArgb(150, 150, 150);
-            ViewEvents.StateNormal.Back.Color1 = Color.FromArgb(15, 15, 15);
-            ViewEvents.StateNormal.Back.Color2 = Color.FromArgb(15, 15, 15);
-            ViewEvents.StateNormal.Border.Color1 = Color.FromArgb(15, 15, 15);
-            ViewEvents.StateNormal.Border.Color2 = Color.FromArgb(15, 15, 15);
-            ViewEvents.StateNormal.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            ViewEvents.StatePressed.Back.Color1 = Color.FromArgb(46, 46, 46);
-            ViewEvents.StatePressed.Back.Color2 = Color.FromArgb(46, 46, 46);
-            ViewEvents.StateTracking.Back.Color1 = Color.FromArgb(60, 60, 60);
-            ViewEvents.StateTracking.Back.Color2 = Color.FromArgb(60, 60, 60);
-            ViewEvents.StateTracking.Border.Color1 = Color.FromArgb(0, 153, 255);
-            ViewEvents.StateTracking.Border.Color2 = Color.FromArgb(0, 153, 255);
-            ViewEvents.TabIndex = 5;
-            ViewEvents.Values.DropDownArrowColor = Color.AliceBlue;
-            ViewEvents.Values.Text = "View Events";
-            ViewEvents.Click += ViewEvents_Click;
+            Username.AutoSize = true;
+            Username.BackColor = Color.Transparent;
+            Username.Location = new Point(86, 161);
+            Username.Name = "Username";
+            Username.Size = new Size(59, 25);
+            Username.TabIndex = 11;
+            Username.Text = "label1";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Dock = DockStyle.Top;
+            pictureBox1.Image = Properties.Resources.profile;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(250, 158);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
+            // EventLogs
+            // 
+            EventLogs.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
+            EventLogs.Location = new Point(3, 409);
+            EventLogs.Name = "EventLogs";
+            EventLogs.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
+            EventLogs.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            EventLogs.OverrideDefault.Border.Color1 = Color.FromArgb(0, 114, 184);
+            EventLogs.OverrideDefault.Content.ShortText.Color1 = Color.LimeGreen;
+            EventLogs.OverrideDefault.Content.ShortText.Color2 = Color.ForestGreen;
+            EventLogs.OverrideDefault.Content.ShortText.ColorAngle = 45F;
+            EventLogs.OverrideDefault.Content.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            EventLogs.Size = new Size(245, 95);
+            EventLogs.StateCommon.Back.Color1 = Color.FromArgb(0, 90, 156);
+            EventLogs.StateCommon.Back.Color2 = Color.FromArgb(0, 63, 107);
+            EventLogs.StateCommon.Back.ColorAngle = 45F;
+            EventLogs.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            EventLogs.StateCommon.Content.ShortText.Color1 = Color.White;
+            EventLogs.StateCommon.Content.ShortText.Color2 = Color.White;
+            EventLogs.StatePressed.Back.Color1 = Color.FromArgb(0, 63, 107);
+            EventLogs.StatePressed.Back.Color2 = Color.FromArgb(0, 42, 71);
+            EventLogs.StatePressed.Content.ShortText.Color1 = Color.White;
+            EventLogs.StatePressed.Content.ShortText.Color2 = Color.White;
+            EventLogs.StateTracking.Back.Color1 = Color.FromArgb(0, 111, 184);
+            EventLogs.StateTracking.Back.Color2 = Color.FromArgb(0, 77, 128);
+            EventLogs.StateTracking.Content.ShortText.Color1 = Color.White;
+            EventLogs.StateTracking.Content.ShortText.Color2 = Color.White;
+            EventLogs.TabIndex = 9;
+            EventLogs.Values.DropDownArrowColor = Color.AliceBlue;
+            EventLogs.Values.Text = "Events Logs";
+            EventLogs.Click += EventLogs_Click;
             // 
             // ManageEvents
             // 
             ManageEvents.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            ManageEvents.Location = new Point(3, 195);
+            ManageEvents.Location = new Point(5, 498);
             ManageEvents.Name = "ManageEvents";
-            ManageEvents.OverrideDefault.Back.Color1 = Color.FromArgb(31, 31, 31);
-            ManageEvents.OverrideDefault.Back.Color2 = Color.FromArgb(31, 31, 31);
-            ManageEvents.OverrideDefault.Border.Color1 = Color.FromArgb(0, 153, 255);
-            ManageEvents.OverrideDefault.Border.Color2 = Color.FromArgb(0, 153, 255);
-            ManageEvents.OverrideDefault.Content.ShortText.Color1 = Color.FromArgb(0, 153, 255);
-            ManageEvents.OverrideDefault.Content.ShortText.Color2 = Color.FromArgb(0, 153, 255);
-            ManageEvents.OverrideFocus.Back.Color1 = Color.FromArgb(25, 25, 25);
-            ManageEvents.OverrideFocus.Back.Color2 = Color.FromArgb(25, 25, 25);
-            ManageEvents.OverrideFocus.Border.Color1 = Color.FromArgb(0, 122, 204);
-            ManageEvents.OverrideFocus.Border.Color2 = Color.FromArgb(0, 122, 204);
-            ManageEvents.Size = new Size(260, 90);
-            ManageEvents.StateCommon.Back.Color1 = Color.FromArgb(44, 72, 117);
-            ManageEvents.StateCommon.Back.Color2 = Color.FromArgb(31, 31, 31);
-            ManageEvents.StateCommon.Border.Color1 = Color.FromArgb(44, 72, 117);
-            ManageEvents.StateCommon.Border.Color2 = Color.FromArgb(31, 31, 31);
-            ManageEvents.StateCommon.Border.Rounding = 8F;
-            ManageEvents.StateCommon.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            ManageEvents.StateDisabled.Back.Color1 = Color.FromArgb(44, 72, 117);
-            ManageEvents.StateDisabled.Back.Color2 = Color.FromArgb(44, 72, 117);
-            ManageEvents.StateDisabled.Content.ShortText.Color1 = Color.FromArgb(150, 150, 150);
-            ManageEvents.StateDisabled.Content.ShortText.Color2 = Color.FromArgb(150, 150, 150);
-            ManageEvents.StateNormal.Back.Color1 = Color.FromArgb(15, 15, 15);
-            ManageEvents.StateNormal.Back.Color2 = Color.FromArgb(15, 15, 15);
-            ManageEvents.StateNormal.Border.Color1 = Color.FromArgb(15, 15, 15);
-            ManageEvents.StateNormal.Border.Color2 = Color.FromArgb(15, 15, 15);
-            ManageEvents.StateNormal.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            ManageEvents.StatePressed.Back.Color1 = Color.FromArgb(46, 46, 46);
-            ManageEvents.StatePressed.Back.Color2 = Color.FromArgb(46, 46, 46);
-            ManageEvents.StateTracking.Back.Color1 = Color.FromArgb(60, 60, 60);
-            ManageEvents.StateTracking.Back.Color2 = Color.FromArgb(60, 60, 60);
-            ManageEvents.StateTracking.Border.Color1 = Color.FromArgb(0, 153, 255);
-            ManageEvents.StateTracking.Border.Color2 = Color.FromArgb(0, 153, 255);
-            ManageEvents.TabIndex = 5;
+            ManageEvents.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
+            ManageEvents.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            ManageEvents.OverrideDefault.Border.Color1 = Color.FromArgb(0, 114, 184);
+            ManageEvents.OverrideDefault.Content.ShortText.Color1 = Color.LimeGreen;
+            ManageEvents.OverrideDefault.Content.ShortText.Color2 = Color.ForestGreen;
+            ManageEvents.OverrideDefault.Content.ShortText.ColorAngle = 45F;
+            ManageEvents.OverrideDefault.Content.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            ManageEvents.Size = new Size(245, 95);
+            ManageEvents.StateCommon.Back.Color1 = Color.FromArgb(0, 90, 156);
+            ManageEvents.StateCommon.Back.Color2 = Color.FromArgb(0, 63, 107);
+            ManageEvents.StateCommon.Back.ColorAngle = 45F;
+            ManageEvents.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            ManageEvents.StateCommon.Content.ShortText.Color1 = Color.White;
+            ManageEvents.StateCommon.Content.ShortText.Color2 = Color.White;
+            ManageEvents.StatePressed.Back.Color1 = Color.FromArgb(0, 63, 107);
+            ManageEvents.StatePressed.Back.Color2 = Color.FromArgb(0, 42, 71);
+            ManageEvents.StatePressed.Content.ShortText.Color1 = Color.White;
+            ManageEvents.StatePressed.Content.ShortText.Color2 = Color.White;
+            ManageEvents.StateTracking.Back.Color1 = Color.FromArgb(0, 111, 184);
+            ManageEvents.StateTracking.Back.Color2 = Color.FromArgb(0, 77, 128);
+            ManageEvents.StateTracking.Content.ShortText.Color1 = Color.White;
+            ManageEvents.StateTracking.Content.ShortText.Color2 = Color.White;
+            ManageEvents.TabIndex = 8;
             ManageEvents.Values.DropDownArrowColor = Color.AliceBlue;
             ManageEvents.Values.Text = "Manage Events";
             ManageEvents.Click += ManageEvents_Click;
@@ -278,44 +220,101 @@
             // ManageBookings
             // 
             ManageBookings.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            ManageBookings.Location = new Point(3, 291);
+            ManageBookings.Location = new Point(5, 589);
             ManageBookings.Name = "ManageBookings";
-            ManageBookings.OverrideDefault.Back.Color1 = Color.FromArgb(31, 31, 31);
-            ManageBookings.OverrideDefault.Back.Color2 = Color.FromArgb(31, 31, 31);
-            ManageBookings.OverrideDefault.Border.Color1 = Color.FromArgb(0, 153, 255);
-            ManageBookings.OverrideDefault.Border.Color2 = Color.FromArgb(0, 153, 255);
-            ManageBookings.OverrideDefault.Content.ShortText.Color1 = Color.FromArgb(0, 153, 255);
-            ManageBookings.OverrideDefault.Content.ShortText.Color2 = Color.FromArgb(0, 153, 255);
-            ManageBookings.OverrideFocus.Back.Color1 = Color.FromArgb(25, 25, 25);
-            ManageBookings.OverrideFocus.Back.Color2 = Color.FromArgb(25, 25, 25);
-            ManageBookings.OverrideFocus.Border.Color1 = Color.FromArgb(0, 122, 204);
-            ManageBookings.OverrideFocus.Border.Color2 = Color.FromArgb(0, 122, 204);
-            ManageBookings.Size = new Size(260, 90);
-            ManageBookings.StateCommon.Back.Color1 = Color.FromArgb(44, 72, 117);
-            ManageBookings.StateCommon.Back.Color2 = Color.FromArgb(31, 31, 31);
-            ManageBookings.StateCommon.Border.Color1 = Color.FromArgb(44, 72, 117);
-            ManageBookings.StateCommon.Border.Color2 = Color.FromArgb(31, 31, 31);
-            ManageBookings.StateCommon.Border.Rounding = 8F;
-            ManageBookings.StateCommon.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            ManageBookings.StateDisabled.Back.Color1 = Color.FromArgb(44, 72, 117);
-            ManageBookings.StateDisabled.Back.Color2 = Color.FromArgb(44, 72, 117);
-            ManageBookings.StateDisabled.Content.ShortText.Color1 = Color.FromArgb(150, 150, 150);
-            ManageBookings.StateDisabled.Content.ShortText.Color2 = Color.FromArgb(150, 150, 150);
-            ManageBookings.StateNormal.Back.Color1 = Color.FromArgb(15, 15, 15);
-            ManageBookings.StateNormal.Back.Color2 = Color.FromArgb(15, 15, 15);
-            ManageBookings.StateNormal.Border.Color1 = Color.FromArgb(15, 15, 15);
-            ManageBookings.StateNormal.Border.Color2 = Color.FromArgb(15, 15, 15);
-            ManageBookings.StateNormal.Content.ShortText.Color1 = Color.FromArgb(224, 224, 224);
-            ManageBookings.StatePressed.Back.Color1 = Color.FromArgb(46, 46, 46);
-            ManageBookings.StatePressed.Back.Color2 = Color.FromArgb(46, 46, 46);
-            ManageBookings.StateTracking.Back.Color1 = Color.FromArgb(60, 60, 60);
-            ManageBookings.StateTracking.Back.Color2 = Color.FromArgb(60, 60, 60);
-            ManageBookings.StateTracking.Border.Color1 = Color.FromArgb(0, 153, 255);
-            ManageBookings.StateTracking.Border.Color2 = Color.FromArgb(0, 153, 255);
-            ManageBookings.TabIndex = 6;
+            ManageBookings.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
+            ManageBookings.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            ManageBookings.OverrideDefault.Border.Color1 = Color.FromArgb(0, 114, 184);
+            ManageBookings.OverrideDefault.Content.ShortText.Color1 = Color.LimeGreen;
+            ManageBookings.OverrideDefault.Content.ShortText.Color2 = Color.ForestGreen;
+            ManageBookings.OverrideDefault.Content.ShortText.ColorAngle = 45F;
+            ManageBookings.OverrideDefault.Content.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            ManageBookings.Size = new Size(245, 95);
+            ManageBookings.StateCommon.Back.Color1 = Color.FromArgb(0, 90, 156);
+            ManageBookings.StateCommon.Back.Color2 = Color.FromArgb(0, 63, 107);
+            ManageBookings.StateCommon.Back.ColorAngle = 45F;
+            ManageBookings.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            ManageBookings.StateCommon.Content.ShortText.Color1 = Color.White;
+            ManageBookings.StateCommon.Content.ShortText.Color2 = Color.White;
+            ManageBookings.StatePressed.Back.Color1 = Color.FromArgb(0, 63, 107);
+            ManageBookings.StatePressed.Back.Color2 = Color.FromArgb(0, 42, 71);
+            ManageBookings.StatePressed.Content.ShortText.Color1 = Color.White;
+            ManageBookings.StatePressed.Content.ShortText.Color2 = Color.White;
+            ManageBookings.StateTracking.Back.Color1 = Color.FromArgb(0, 111, 184);
+            ManageBookings.StateTracking.Back.Color2 = Color.FromArgb(0, 77, 128);
+            ManageBookings.StateTracking.Content.ShortText.Color1 = Color.White;
+            ManageBookings.StateTracking.Content.ShortText.Color2 = Color.White;
+            ManageBookings.TabIndex = 7;
             ManageBookings.Values.DropDownArrowColor = Color.AliceBlue;
             ManageBookings.Values.Text = "Manage Bookings";
             ManageBookings.Click += ManageBookings_Click;
+            // 
+            // BookingLogs
+            // 
+            BookingLogs.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
+            BookingLogs.Location = new Point(2, 308);
+            BookingLogs.Name = "BookingLogs";
+            BookingLogs.OverrideDefault.Back.Color1 = Color.FromArgb(75, 75, 75);
+            BookingLogs.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            BookingLogs.OverrideDefault.Border.Color1 = Color.FromArgb(0, 114, 184);
+            BookingLogs.OverrideDefault.Content.ShortText.Color1 = Color.LimeGreen;
+            BookingLogs.OverrideDefault.Content.ShortText.Color2 = Color.ForestGreen;
+            BookingLogs.OverrideDefault.Content.ShortText.ColorAngle = 45F;
+            BookingLogs.OverrideDefault.Content.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            BookingLogs.Size = new Size(245, 95);
+            BookingLogs.StateCommon.Back.Color1 = Color.FromArgb(0, 90, 156);
+            BookingLogs.StateCommon.Back.Color2 = Color.FromArgb(0, 63, 107);
+            BookingLogs.StateCommon.Back.ColorAngle = 45F;
+            BookingLogs.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            BookingLogs.StateCommon.Content.ShortText.Color1 = Color.White;
+            BookingLogs.StateCommon.Content.ShortText.Color2 = Color.White;
+            BookingLogs.StatePressed.Back.Color1 = Color.FromArgb(0, 63, 107);
+            BookingLogs.StatePressed.Back.Color2 = Color.FromArgb(0, 42, 71);
+            BookingLogs.StatePressed.Content.ShortText.Color1 = Color.White;
+            BookingLogs.StatePressed.Content.ShortText.Color2 = Color.White;
+            BookingLogs.StateTracking.Back.Color1 = Color.FromArgb(0, 111, 184);
+            BookingLogs.StateTracking.Back.Color2 = Color.FromArgb(0, 77, 128);
+            BookingLogs.StateTracking.Content.ShortText.Color1 = Color.White;
+            BookingLogs.StateTracking.Content.ShortText.Color2 = Color.White;
+            BookingLogs.TabIndex = 6;
+            BookingLogs.Values.DropDownArrowColor = Color.AliceBlue;
+            BookingLogs.Values.Text = "Booking Logs";
+            BookingLogs.Click += BookingLogs_Click;
+            // 
+            // LogOut
+            // 
+            LogOut.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
+            LogOut.Location = new Point(0, 678);
+            LogOut.Name = "LogOut";
+            LogOut.OverrideFocus.Back.Color1 = Color.FromArgb(180, 0, 0);
+            LogOut.OverrideFocus.Back.Color2 = Color.FromArgb(220, 0, 0);
+            LogOut.OverrideFocus.Back.ColorAngle = 45F;
+            LogOut.OverrideFocus.Content.ShortText.Color1 = Color.White;
+            LogOut.OverrideFocus.Content.ShortText.Color2 = Color.White;
+            LogOut.Size = new Size(263, 84);
+            LogOut.StateCommon.Back.Color1 = Color.FromArgb(200, 50, 50);
+            LogOut.StateCommon.Back.Color2 = Color.FromArgb(255, 0, 0);
+            LogOut.StateCommon.Back.ColorAngle = 45F;
+            LogOut.StateCommon.Content.ShortText.Color1 = Color.White;
+            LogOut.StateCommon.Content.ShortText.Color2 = Color.White;
+            LogOut.StateDisabled.Back.Color1 = Color.FromArgb(150, 30, 30);
+            LogOut.StateDisabled.Back.Color2 = Color.FromArgb(150, 30, 30);
+            LogOut.StateDisabled.Content.ShortText.Color1 = Color.FromArgb(100, 100, 100);
+            LogOut.StateDisabled.Content.ShortText.Color2 = Color.FromArgb(100, 100, 100);
+            LogOut.StateNormal.Back.Color1 = Color.FromArgb(200, 50, 50);
+            LogOut.StateNormal.Back.Color2 = Color.FromArgb(255, 0, 0);
+            LogOut.StateNormal.Back.ColorAngle = 45F;
+            LogOut.StateNormal.Content.ShortText.Color1 = Color.White;
+            LogOut.StateNormal.Content.ShortText.Color2 = Color.White;
+            LogOut.StatePressed.Back.Color1 = Color.FromArgb(150, 0, 0);
+            LogOut.StatePressed.Back.Color2 = Color.FromArgb(180, 0, 0);
+            LogOut.StatePressed.Back.ColorAngle = 45F;
+            LogOut.StatePressed.Content.ShortText.Color1 = Color.White;
+            LogOut.StatePressed.Content.ShortText.Color2 = Color.White;
+            LogOut.TabIndex = 0;
+            LogOut.Values.DropDownArrowColor = Color.White;
+            LogOut.Values.Text = "LogOut";
+            LogOut.Click += LogOut_Click;
             // 
             // Organizer__Dashboard
             // 
@@ -330,7 +329,8 @@
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
+            kryptonPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -339,11 +339,16 @@
         private Panel mainpanel;
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Krypton.Toolkit.KryptonButton Dashboard;
-        private Krypton.Toolkit.KryptonButton ViewEvents;
+        private Krypton.Toolkit.KryptonButton LogOut;
+        private Krypton.Toolkit.KryptonButton BookingLogs;
+        private Krypton.Toolkit.KryptonButton EventLogs;
         private Krypton.Toolkit.KryptonButton ManageEvents;
         private Krypton.Toolkit.KryptonButton ManageBookings;
-        private Krypton.Toolkit.KryptonButton LogOut;
+        private Label PhoneNumber;
+        private Label Email;
+        private Label Role;
+        private Label Username;
+        private PictureBox pictureBox1;
     }
 }

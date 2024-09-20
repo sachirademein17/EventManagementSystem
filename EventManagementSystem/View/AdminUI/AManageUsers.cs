@@ -23,7 +23,7 @@ namespace EventManagementSystem
         public AManageUsers()
         {
             InitializeComponent();
-            user = (Admin)CurrentUser.UserDetails;
+            user = CurrentUser.UserDetails as Admin;
             userController = new UserController();
             LoadTable();
         }

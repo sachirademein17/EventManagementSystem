@@ -1,4 +1,6 @@
 ﻿using EventManagementSystem.Models;
+using EventManagementSystem.View.Participant;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,14 +11,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace EventManagementSystem
 {
     public partial class Participant_Dashboard : Form
     {
+        Models.User user;
         public Participant_Dashboard()
         {
             InitializeComponent();
+            user = CurrentUser.UserDetails;
             loadform(new PDashboard());
+            LoadUserDetail();
         }
 
 
@@ -65,6 +71,30 @@ namespace EventManagementSystem
         private void button2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void LoadUserDetail()
+        {
+            Username.Text = user.UserName;
+            Email.Text = user.Email;
+            PhoneNumber.Text = user.PhoneNumber;
+            Role.Text = user.Role;
+        }
+
+        private void ViewBookings_Click(object sender, EventArgs e)
+        {
+            loadform(new PEventRegistration());
+        }
+
+        private void ViewEvents_Click(object sender, EventArgs e)
+        {
+            loadform(new PDashboard());
+
+        }
+
+        private void BookingsLogs_Click(object sender, EventArgs e)
+        {
+            loadform(new BookingLogs());
         }
     }
 }

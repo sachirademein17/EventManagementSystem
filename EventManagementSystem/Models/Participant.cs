@@ -21,6 +21,11 @@ namespace EventManagementSystem.Models
         {
         }
 
-                
+        public override (bool, string) LogOut( )
+        {
+            return base.LogOut();
+        }
+
+
     }
 }

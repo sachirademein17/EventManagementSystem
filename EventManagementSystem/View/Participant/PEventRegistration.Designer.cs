@@ -28,23 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            RegisteredEvent = new Krypton.Toolkit.KryptonDataGridView();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             CancelBooking = new Krypton.Toolkit.KryptonButton();
-            kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            RegisteredEvent = new Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)RegisteredEvent).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             SuspendLayout();
-            // 
-            // RegisteredEvent
-            // 
-            RegisteredEvent.BorderStyle = BorderStyle.None;
-            RegisteredEvent.ColumnHeadersHeight = 51;
-            RegisteredEvent.Location = new Point(44, 118);
-            RegisteredEvent.Name = "RegisteredEvent";
-            RegisteredEvent.RowHeadersWidth = 62;
-            RegisteredEvent.Size = new Size(988, 517);
-            RegisteredEvent.TabIndex = 0;
             // 
             // label1
             // 
@@ -87,17 +77,41 @@
             CancelBooking.Values.Text = "Cancel";
             CancelBooking.Click += CancelBooking_Click;
             // 
-            // kryptonPanel1
+            // RegisteredEvent
             // 
-            kryptonPanel1.Dock = DockStyle.Fill;
-            kryptonPanel1.Location = new Point(0, 0);
-            kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1074, 675);
-            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(75, 75, 75);
-            kryptonPanel1.StateNormal.Color2 = Color.Gray;
-            kryptonPanel1.StateNormal.ColorAngle = 90F;
-            kryptonPanel1.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
-            kryptonPanel1.TabIndex = 13;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(35, 35, 35);
+            RegisteredEvent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            RegisteredEvent.BorderStyle = BorderStyle.None;
+            RegisteredEvent.ColumnHeadersHeight = 51;
+            RegisteredEvent.Location = new Point(12, 117);
+            RegisteredEvent.Name = "RegisteredEvent";
+            RegisteredEvent.RowHeadersWidth = 62;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
+            RegisteredEvent.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            RegisteredEvent.Size = new Size(1050, 546);
+            RegisteredEvent.StateCommon.Background.Color1 = Color.FromArgb(30, 30, 30);
+            RegisteredEvent.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            RegisteredEvent.StateCommon.DataCell.Back.Color1 = Color.FromArgb(40, 40, 40);
+            RegisteredEvent.StateCommon.DataCell.Back.Color2 = Color.FromArgb(40, 40, 40);
+            RegisteredEvent.StateCommon.DataCell.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Rounded;
+            RegisteredEvent.StateCommon.DataCell.Content.Color1 = Color.LightGray;
+            RegisteredEvent.StateCommon.DataCell.Content.Font = new Font("Segoe UI", 9F);
+            RegisteredEvent.StateCommon.HeaderColumn.Back.Color1 = Color.FromArgb(60, 60, 60);
+            RegisteredEvent.StateCommon.HeaderColumn.Back.Color2 = Color.FromArgb(80, 80, 80);
+            RegisteredEvent.StateCommon.HeaderColumn.Content.Color1 = Color.White;
+            RegisteredEvent.StateCommon.HeaderColumn.Content.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            RegisteredEvent.StateSelected.DataCell.Back.Color1 = Color.FromArgb(60, 180, 75);
+            RegisteredEvent.StateSelected.DataCell.Back.Color2 = Color.FromArgb(50, 150, 65);
+            RegisteredEvent.StateSelected.DataCell.Back.ColorAngle = 45F;
+            RegisteredEvent.StateSelected.DataCell.Border.Color1 = Color.FromArgb(255, 255, 255);
+            RegisteredEvent.StateSelected.DataCell.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            RegisteredEvent.StateSelected.DataCell.Border.Width = 2;
+            RegisteredEvent.StateSelected.DataCell.Content.Color1 = Color.White;
+            RegisteredEvent.StateTracking.HeaderRow.Back.Color1 = Color.FromArgb(70, 70, 70);
+            RegisteredEvent.StateTracking.HeaderRow.Back.Color2 = Color.FromArgb(60, 60, 60);
+            RegisteredEvent.StateTracking.HeaderRow.Back.ColorAngle = 0F;
+            RegisteredEvent.StateTracking.HeaderRow.Content.Color1 = Color.White;
+            RegisteredEvent.TabIndex = 18;
             // 
             // PEventRegistration
             // 
@@ -105,24 +119,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
+            Controls.Add(RegisteredEvent);
             Controls.Add(CancelBooking);
             Controls.Add(label1);
-            Controls.Add(RegisteredEvent);
-            Controls.Add(kryptonPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "PEventRegistration";
             Text = "PEventRegistration";
             ((System.ComponentModel.ISupportInitialize)RegisteredEvent).EndInit();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Krypton.Toolkit.KryptonDataGridView RegisteredEvent;
         private Label label1;
         private Krypton.Toolkit.KryptonButton CancelBooking;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private Krypton.Toolkit.KryptonDataGridView RegisteredEvent;
     }
 }

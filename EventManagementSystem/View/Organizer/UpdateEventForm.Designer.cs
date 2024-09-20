@@ -206,10 +206,8 @@ namespace EventManagementSystem
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
             kryptonPanel1.Size = new Size(986, 749);
-            kryptonPanel1.StateNormal.Color1 = Color.SpringGreen;
-            kryptonPanel1.StateNormal.Color2 = Color.LimeGreen;
             kryptonPanel1.StateNormal.ColorAngle = 90F;
-            kryptonPanel1.StateNormal.ColorStyle = PaletteColorStyle.Linear;
+            kryptonPanel1.StateNormal.ColorStyle = PaletteColorStyle.Dashed;
             kryptonPanel1.TabIndex = 37;
             // 
             // UpdateEventForm

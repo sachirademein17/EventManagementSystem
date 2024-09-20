@@ -26,7 +26,7 @@ namespace EventManagementSystem
         private void LoadTable()
         {
             DataTable datatable = eventController.ViewPastEvents(CurrentUser.UserDetails.UserID);
-            eventTable.DataSource = datatable; 
+            eventsTable.DataSource = datatable; 
         }
     }
 }

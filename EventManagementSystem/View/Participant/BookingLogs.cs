@@ -25,7 +25,7 @@ namespace EventManagementSystem.View.Participant
         public void LoadTable()
         {
             DataTable dt = bookingController.GetRegisteredEventLogs(CurrentUser.UserDetails.UserID);
-            kryptonDataGridView1.DataSource = dt;
+            eventsTable.DataSource = dt;
         }
     }
 }

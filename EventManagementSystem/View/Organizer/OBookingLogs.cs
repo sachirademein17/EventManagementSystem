@@ -29,7 +29,7 @@ namespace EventManagementSystem
         private void LoadTable()
         {
             DataTable dt = bookingController.ViewAllBookingLog(CurrentUser.UserDetails.UserID);
-            kryptonDataGridView1.DataSource = dt;
+            eventsTable.DataSource = dt;
         }
 
     }

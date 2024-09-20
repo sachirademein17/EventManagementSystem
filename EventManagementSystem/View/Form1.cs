@@ -71,5 +71,10 @@ namespace EventManagementSystem
             }
 
         }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

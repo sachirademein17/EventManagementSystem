@@ -39,6 +39,7 @@ namespace EventManagementSystem
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            CloseBtn = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -94,6 +95,7 @@ namespace EventManagementSystem
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(CloseBtn);
             kryptonPanel1.Controls.Add(checkBox1);
             kryptonPanel1.Controls.Add(kryptonLinkLabel1);
             kryptonPanel1.Controls.Add(label3);
@@ -179,12 +181,35 @@ namespace EventManagementSystem
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.login;
-            pictureBox1.Location = new Point(159, 38);
+            pictureBox1.Location = new Point(159, 71);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(172, 168);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // CloseBtn
+            // 
+            CloseBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CloseBtn.Location = new Point(453, 12);
+            CloseBtn.Name = "CloseBtn";
+            CloseBtn.OverrideDefault.Back.Color1 = Color.FromArgb(255, 100, 90);
+            CloseBtn.OverrideDefault.Back.Color2 = Color.FromArgb(255, 70, 70);
+            CloseBtn.OverrideDefault.Border.Color1 = Color.FromArgb(255, 100, 90);
+            CloseBtn.OverrideDefault.Border.Color2 = Color.FromArgb(255, 70, 70);
+            CloseBtn.Size = new Size(26, 25);
+            CloseBtn.StateCommon.Back.Color1 = Color.FromArgb(255, 100, 90);
+            CloseBtn.StateCommon.Back.Color2 = Color.FromArgb(255, 70, 70);
+            CloseBtn.StateCommon.Border.Color1 = Color.FromArgb(255, 100, 90);
+            CloseBtn.StateCommon.Border.Color2 = Color.FromArgb(255, 70, 70);
+            CloseBtn.StateCommon.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            CloseBtn.StateCommon.Border.Rounding = 20F;
+            CloseBtn.StateTracking.Back.Color1 = Color.FromArgb(230, 85, 85);
+            CloseBtn.StateTracking.Back.Color2 = Color.FromArgb(200, 60, 60);
+            CloseBtn.TabIndex = 11;
+            CloseBtn.Values.DropDownArrowColor = Color.Empty;
+            CloseBtn.Values.Text = "";
+            CloseBtn.Click += CloseBtn_Click;
             // 
             // Form1
             // 
@@ -196,6 +221,7 @@ namespace EventManagementSystem
             Controls.Add(usernametxt);
             Controls.Add(kryptonPanel1);
             ForeColor = Color.FromArgb(224, 224, 224);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             Text = "Sign In";
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
@@ -222,5 +248,6 @@ namespace EventManagementSystem
         private Label label3;
         private Krypton.Toolkit.KryptonLinkLabel kryptonLinkLabel1;
         private CheckBox checkBox1;
+        private Krypton.Toolkit.KryptonButton CloseBtn;
     }
 }

@@ -16,11 +16,11 @@ namespace EventManagementSystem
 {
     public partial class Participant_Dashboard : Form
     {
-        Models.User user;
+        Participant user;
         public Participant_Dashboard()
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails;
+            user = CurrentUser.UserDetails as Participant;
             loadform(new PDashboard());
             LoadUserDetail();
         }
@@ -83,18 +83,69 @@ namespace EventManagementSystem
 
         private void ViewBookings_Click(object sender, EventArgs e)
         {
-            loadform(new PEventRegistration());
         }
 
         private void ViewEvents_Click(object sender, EventArgs e)
         {
-            loadform(new PDashboard());
 
         }
 
         private void BookingsLogs_Click(object sender, EventArgs e)
         {
+        }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        bool minMax = true;
+
+        private void MinmaxBtn_Click(object sender, EventArgs e)
+        {
+            if (minMax)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                minMax = false;
+
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                minMax = true;
+            }
+        }
+
+        private void RestoreBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void LogOut_Click_1(object sender, EventArgs e)
+        {
+            user.LogOut();
+            this.Close();
+            new Form1().Show();
+        }
+
+        private void ViewEvents_Click_1(object sender, EventArgs e)
+        {
+            loadform(new PDashboard());
+
+        }
+
+        private void ViewBookings_Click_1(object sender, EventArgs e)
+        {
+            loadform(new PEventRegistration());
+
+        }
+
+        private void BookingLogs_Click(object sender, EventArgs e)
+        {
             loadform(new BookingLogs());
+
         }
     }
 }

@@ -28,20 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            eventTable = new Krypton.Toolkit.KryptonDataGridView();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)eventTable).BeginInit();
+            eventsTable = new Krypton.Toolkit.KryptonDataGridView();
+            ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
-            // 
-            // eventTable
-            // 
-            eventTable.BorderStyle = BorderStyle.None;
-            eventTable.ColumnHeadersHeight = 51;
-            eventTable.Location = new Point(12, 98);
-            eventTable.Name = "eventTable";
-            eventTable.RowHeadersWidth = 62;
-            eventTable.Size = new Size(1050, 565);
-            eventTable.TabIndex = 0;
             // 
             // label2
             // 
@@ -54,25 +46,60 @@
             label2.TabIndex = 3;
             label2.Text = "Event Logs";
             // 
+            // eventsTable
+            // 
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(35, 35, 35);
+            eventsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            eventsTable.BorderStyle = BorderStyle.None;
+            eventsTable.ColumnHeadersHeight = 51;
+            eventsTable.Location = new Point(12, 117);
+            eventsTable.Name = "eventsTable";
+            eventsTable.RowHeadersWidth = 62;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
+            eventsTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            eventsTable.Size = new Size(1050, 546);
+            eventsTable.StateCommon.Background.Color1 = Color.FromArgb(30, 30, 30);
+            eventsTable.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            eventsTable.StateCommon.DataCell.Back.Color1 = Color.FromArgb(40, 40, 40);
+            eventsTable.StateCommon.DataCell.Back.Color2 = Color.FromArgb(40, 40, 40);
+            eventsTable.StateCommon.DataCell.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Rounded;
+            eventsTable.StateCommon.DataCell.Content.Color1 = Color.LightGray;
+            eventsTable.StateCommon.DataCell.Content.Font = new Font("Segoe UI", 9F);
+            eventsTable.StateCommon.HeaderColumn.Back.Color1 = Color.FromArgb(60, 60, 60);
+            eventsTable.StateCommon.HeaderColumn.Back.Color2 = Color.FromArgb(80, 80, 80);
+            eventsTable.StateCommon.HeaderColumn.Content.Color1 = Color.White;
+            eventsTable.StateCommon.HeaderColumn.Content.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            eventsTable.StateSelected.DataCell.Back.Color1 = Color.FromArgb(60, 180, 75);
+            eventsTable.StateSelected.DataCell.Back.Color2 = Color.FromArgb(50, 150, 65);
+            eventsTable.StateSelected.DataCell.Back.ColorAngle = 45F;
+            eventsTable.StateSelected.DataCell.Border.Color1 = Color.FromArgb(255, 255, 255);
+            eventsTable.StateSelected.DataCell.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            eventsTable.StateSelected.DataCell.Border.Width = 2;
+            eventsTable.StateSelected.DataCell.Content.Color1 = Color.White;
+            eventsTable.StateTracking.HeaderRow.Back.Color1 = Color.FromArgb(70, 70, 70);
+            eventsTable.StateTracking.HeaderRow.Back.Color2 = Color.FromArgb(60, 60, 60);
+            eventsTable.StateTracking.HeaderRow.Back.ColorAngle = 0F;
+            eventsTable.StateTracking.HeaderRow.Content.Color1 = Color.White;
+            eventsTable.TabIndex = 18;
+            // 
             // OViewEvents
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
+            Controls.Add(eventsTable);
             Controls.Add(label2);
-            Controls.Add(eventTable);
             FormBorderStyle = FormBorderStyle.None;
             Name = "OViewEvents";
             Text = "OViewEvents";
-            ((System.ComponentModel.ISupportInitialize)eventTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)eventsTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Krypton.Toolkit.KryptonDataGridView eventTable;
         private Label label2;
+        private Krypton.Toolkit.KryptonDataGridView eventsTable;
     }
 }

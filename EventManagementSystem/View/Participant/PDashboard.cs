@@ -31,11 +31,11 @@ namespace EventManagementSystem
         private void BookingEvent_Click(object sender, EventArgs e)
         {
             // Checking whether a row is selected
-            if (kryptonDataGridView1.SelectedRows.Count > 0)
+            if (eventsTable.SelectedRows.Count > 0)
             {
                 // Getting the eventID from the DataGridView
-                int rowIndex = kryptonDataGridView1.SelectedRows[0].Index;
-                int eventID = Convert.ToInt32(kryptonDataGridView1.Rows[rowIndex].Cells[0].Value);
+                int rowIndex = eventsTable.SelectedRows[0].Index;
+                int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
 
                 // Perform thebook event fuctionality
                 (bool success, string message) = bookingController.BookEvent(eventID,user.UserID);
@@ -68,7 +68,7 @@ namespace EventManagementSystem
             {
                 new DangerToaster("Can't Load the events").Show();
             }
-            kryptonDataGridView1.DataSource = dt;
+            eventsTable.DataSource = dt;
         }
 
     }

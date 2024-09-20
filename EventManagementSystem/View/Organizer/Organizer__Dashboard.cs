@@ -17,7 +17,7 @@ namespace EventManagementSystem
         public Organizer__Dashboard()
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Organizer; 
+            user = CurrentUser.UserDetails as Organizer;
             loadform(new OBookingLogs());
             LoadUserDetail();
         }
@@ -59,22 +59,68 @@ namespace EventManagementSystem
 
         private void BookingLogs_Click(object sender, EventArgs e)
         {
-            loadform(new OBookingLogs());
+
         }
 
         private void EventLogs_Click(object sender, EventArgs e)
         {
-            loadform(new OViewEvents());
         }
 
         private void ManageEvents_Click(object sender, EventArgs e)
         {
-            loadform(new OManageEvents());
         }
 
         private void ManageBookings_Click(object sender, EventArgs e)
         {
+        }
+
+        private void BookingLogs_Click_1(object sender, EventArgs e)
+        {
+            loadform(new OBookingLogs());
+        }
+
+        private void EventLogs_Click_1(object sender, EventArgs e)
+        {
+            loadform(new OViewEvents());
+        }
+
+        private void ManageEvents_Click_1(object sender, EventArgs e)
+        {
+            loadform(new OManageEvents());
+        }
+
+        private void ManageBookings_Click_1(object sender, EventArgs e)
+        {
             loadform(new OManageBookings());
+        }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        bool minMax = true;
+
+        private void MinmaxBtn_Click(object sender, EventArgs e)
+        {
+            if (minMax)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                minMax = false;
+
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                minMax = true;
+            }
+        }
+
+        private void RestoreBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
         }
     }
 }

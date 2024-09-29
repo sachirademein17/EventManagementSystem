@@ -18,10 +18,10 @@ namespace EventManagementSystem
     {
         Participant user;
         BookingController bookingController;
-        public PEventRegistration()
+        public PEventRegistration(Participant user)
         {
             InitializeComponent();
-            user = (Participant)CurrentUser.UserDetails;
+            this.user= user;
             bookingController = new BookingController();
             // Load the table
             LoadTable();

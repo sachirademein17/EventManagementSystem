@@ -73,6 +73,8 @@
             kryptonPanel2.StateNormal.ColorAngle = 45F;
             kryptonPanel2.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel2.TabIndex = 7;
+            kryptonPanel2.MouseDown += mouse_down;
+            kryptonPanel2.MouseMove += mouse_move;
             // 
             // CloseBtn
             // 

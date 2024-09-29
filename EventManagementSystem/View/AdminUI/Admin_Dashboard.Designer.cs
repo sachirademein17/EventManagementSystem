@@ -259,7 +259,7 @@ namespace EventManagementSystem
             kryptonButton3.StateTracking.Content.ShortText.Color2 = Color.White;
             kryptonButton3.TabIndex = 3;
             kryptonButton3.Values.DropDownArrowColor = Color.AliceBlue;
-            kryptonButton3.Values.Text = "Profile";
+            kryptonButton3.Values.Text = "Manage Users";
             kryptonButton3.Click += kryptonButton3_Click;
             // 
             // kryptonButton1
@@ -320,6 +320,8 @@ namespace EventManagementSystem
             kryptonPanel2.StateNormal.ColorAngle = 45F;
             kryptonPanel2.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel2.TabIndex = 1;
+            kryptonPanel2.MouseDown += mouse_down;
+            kryptonPanel2.MouseMove += mouse_move;
             // 
             // CloseBtn
             // 

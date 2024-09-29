@@ -1,6 +1,6 @@
-﻿namespace EventManagementSystem.View.AdminUI
+﻿namespace EventManagementSystem
 {
-    partial class PastEventLogs
+    partial class PDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,8 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label2 = new Label();
-            ViewBookings = new Krypton.Toolkit.KryptonButton();
+            label1 = new Label();
+            BookingEvent = new Krypton.Toolkit.KryptonButton();
             eventsTable = new Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
@@ -41,35 +42,56 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 16F);
             label2.ForeColor = SystemColors.Window;
-            label2.Location = new Point(34, 27);
+            label2.Location = new Point(37, 36);
             label2.Name = "label2";
-            label2.Size = new Size(249, 37);
-            label2.TabIndex = 17;
-            label2.Text = "Past Events Log";
+            label2.Size = new Size(146, 37);
+            label2.TabIndex = 9;
+            label2.Text = "EVENTS";
             // 
-            // ViewBookings
+            // label1
             // 
-            ViewBookings.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ViewBookings.Cursor = Cursors.Hand;
-            ViewBookings.Location = new Point(905, 27);
-            ViewBookings.Name = "ViewBookings";
-            ViewBookings.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            ViewBookings.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            ViewBookings.Size = new Size(145, 38);
-            ViewBookings.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            ViewBookings.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            ViewBookings.StateCommon.Content.ShortText.Color1 = Color.White;
-            ViewBookings.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ViewBookings.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            ViewBookings.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            ViewBookings.StateNormal.Content.ShortText.Color1 = Color.White;
-            ViewBookings.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ViewBookings.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            ViewBookings.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            ViewBookings.TabIndex = 18;
-            ViewBookings.Values.DropDownArrowColor = Color.Empty;
-            ViewBookings.Values.Text = "BOOKINGS";
-            ViewBookings.Click += ViewBookings_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 16F);
+            label1.ForeColor = SystemColors.Window;
+            label1.Location = new Point(37, 36);
+            label1.Name = "label1";
+            label1.Size = new Size(146, 37);
+            label1.TabIndex = 9;
+            label1.Text = "EVENTS";
+            // 
+            // BookingEvent
+            // 
+            BookingEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BookingEvent.Cursor = Cursors.Hand;
+            BookingEvent.Location = new Point(794, 36);
+            BookingEvent.Name = "BookingEvent";
+            BookingEvent.OverrideDefault.Back.Color1 = Color.FromArgb(255, 152, 0);
+            BookingEvent.OverrideDefault.Back.Color2 = Color.FromArgb(255, 183, 77);
+            BookingEvent.OverrideDefault.Back.ColorAngle = 45F;
+            BookingEvent.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            BookingEvent.Size = new Size(244, 38);
+            BookingEvent.StateCommon.Back.Color1 = Color.FromArgb(255, 152, 0);
+            BookingEvent.StateCommon.Back.Color2 = Color.FromArgb(255, 183, 77);
+            BookingEvent.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            BookingEvent.StateCommon.Border.Color1 = Color.FromArgb(255, 152, 0);
+            BookingEvent.StateCommon.Border.Color2 = Color.FromArgb(255, 183, 77);
+            BookingEvent.StateCommon.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            BookingEvent.StateCommon.Border.Rounding = 20F;
+            BookingEvent.StateCommon.Border.Width = 1;
+            BookingEvent.StateCommon.Content.ShortText.Color1 = Color.White;
+            BookingEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 10F);
+            BookingEvent.StatePressed.Back.Color1 = Color.FromArgb(239, 108, 0);
+            BookingEvent.StatePressed.Back.Color2 = Color.FromArgb(255, 143, 0);
+            BookingEvent.StatePressed.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            BookingEvent.StatePressed.Content.ShortText.Color1 = Color.White;
+            BookingEvent.StateTracking.Back.Color1 = Color.FromArgb(245, 124, 0);
+            BookingEvent.StateTracking.Back.Color2 = Color.FromArgb(255, 179, 0);
+            BookingEvent.StateTracking.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            BookingEvent.StateTracking.Content.ShortText.Color1 = Color.White;
+            BookingEvent.TabIndex = 11;
+            BookingEvent.Values.DropDownArrowColor = Color.Empty;
+            BookingEvent.Values.Text = "BOOK";
+            BookingEvent.Click += BookingEvent_Click;
             // 
             // eventsTable
             // 
@@ -77,12 +99,12 @@
             eventsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             eventsTable.BorderStyle = BorderStyle.None;
             eventsTable.ColumnHeadersHeight = 51;
-            eventsTable.Location = new Point(12, 91);
+            eventsTable.Location = new Point(12, 117);
             eventsTable.Name = "eventsTable";
             eventsTable.RowHeadersWidth = 62;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
             eventsTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            eventsTable.Size = new Size(1050, 572);
+            eventsTable.Size = new Size(1050, 546);
             eventsTable.StateCommon.Background.Color1 = Color.FromArgb(30, 30, 30);
             eventsTable.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             eventsTable.StateCommon.DataCell.Back.Color1 = Color.FromArgb(40, 40, 40);
@@ -105,20 +127,22 @@
             eventsTable.StateTracking.HeaderRow.Back.Color2 = Color.FromArgb(60, 60, 60);
             eventsTable.StateTracking.HeaderRow.Back.ColorAngle = 0F;
             eventsTable.StateTracking.HeaderRow.Content.Color1 = Color.White;
-            eventsTable.TabIndex = 19;
+            eventsTable.TabIndex = 18;
             // 
-            // PastEventLogs
+            // PDashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
             Controls.Add(eventsTable);
-            Controls.Add(ViewBookings);
+            Controls.Add(BookingEvent);
+            Controls.Add(label1);
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "PastEventLogs";
-            Text = "PastEventLogs";
+            Name = "PDashboard";
+            Text = "PDashboard";
+            Load += PDashboard_Load;
             ((System.ComponentModel.ISupportInitialize)eventsTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -126,7 +150,8 @@
 
         #endregion
         private Label label2;
-        private Krypton.Toolkit.KryptonButton ViewBookings;
+        private Label label1;
+        private Krypton.Toolkit.KryptonButton BookingEvent;
         private Krypton.Toolkit.KryptonDataGridView eventsTable;
     }
 }

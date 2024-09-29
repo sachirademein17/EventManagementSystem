@@ -31,6 +31,57 @@ namespace EventManagementSystem.Database
         // Query to view all users
         const string ViewAllUsersQuery = "SELECT * FROM users;";
 
+        const string LogInQuery = "SELECT * FROM Users WHERE Username = @Username AND PasswordHash = @PasswordHash";
+
+
+
+        public static User LogIn(string username, string password)
+        {
+            try
+            {
+
+                MySqlParameter[] LogInParameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@Username", username),
+                    new MySqlParameter("@PasswordHash", password)
+                };
+
+                DataTable result = DBConnection.ExcecuteQuery(LogInQuery, LogInParameters);
+
+                if (result.Rows.Count > 0)
+                {
+                    int userID = Convert.ToInt32(result.Rows[0]["UserID"]);
+                    string userName = result.Rows[0]["Username"].ToString();
+                    string passwordHash = result.Rows[0]["PasswordHash"].ToString();
+                    string email = result.Rows[0]["Email"].ToString();
+                    string phoneNumber = result.Rows[0]["PhoneNumber"].ToString();
+                    string role = result.Rows[0]["Role"].ToString();
+
+
+
+                    switch (role)
+                    {
+                        case "Admin":
+                            return new Admin(userID, userName, passwordHash, email, phoneNumber, role);
+                        case "Organizer":
+                            return new Organizer(userID, userName, passwordHash, email, phoneNumber, role);
+                        case "Participant":
+                            return new Participant(userID, userName, passwordHash, email, phoneNumber, role);
+                        default:
+                            throw new Exception("Unknown role found.");
+                    }
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+
+        }
+
+
 
 
 
@@ -212,10 +263,10 @@ namespace EventManagementSystem.Database
 
                 if (!(result > 0))
                 {
-                    return (false, "Unable to Update User");
+                    return (false, $"Unable to Update User {userDetails.UserName}");
                 }
 
-                return (true, "User is Updated");
+                return (true, $"User {userDetails.UserName} is Updated");
 
             }
             catch (Exception ex)

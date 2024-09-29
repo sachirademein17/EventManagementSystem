@@ -21,10 +21,10 @@ namespace EventManagementSystem
         private EventController eventController;    
 
 
-        public OManageEvents()
+        public OManageEvents(Organizer user)
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Organizer;
+            this.user = user;
             eventController = new EventController();
             LoadEventsTable();
         }
@@ -33,7 +33,7 @@ namespace EventManagementSystem
         private void CreateEvent_Click(object sender, EventArgs e)
         {
             // Redirect to the form that create events
-            AddEventForm addEventForm = new AddEventForm(this);
+            AddEventForm addEventForm = new AddEventForm(this,user);
             addEventForm.Show();
         }
 
@@ -100,7 +100,7 @@ namespace EventManagementSystem
                 }
                 else
                 {
-                    UpdateEventForm updateEventForm = new UpdateEventForm(eventDetails, this);
+                    UpdateEventForm updateEventForm = new UpdateEventForm(eventDetails, this, user);
                     updateEventForm.Show();
                 }
                               

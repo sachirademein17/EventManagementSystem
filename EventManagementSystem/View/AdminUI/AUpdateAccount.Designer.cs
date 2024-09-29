@@ -1,6 +1,6 @@
 ﻿namespace EventManagementSystem.View.Admin
 {
-    partial class UpdateAccount
+    partial class AUpdateAccount
     {
         /// <summary>
         /// Required designer variable.

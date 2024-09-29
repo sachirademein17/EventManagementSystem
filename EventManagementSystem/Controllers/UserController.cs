@@ -13,6 +13,11 @@ namespace EventManagementSystem.Controllers
     internal class UserController : IUserManagement
     {
 
+        public User LogIn(string username, string password)
+        {
+            return UserCrudManager.LogIn(username, password);   
+        }
+
         public (bool, string) AddUser(User user)
         {
             return UserCrudManager.AddUser(user);

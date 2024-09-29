@@ -1,6 +1,6 @@
 ﻿namespace EventManagementSystem.View.AdminUI
 {
-    partial class BookingLogs
+    partial class ABookingLogs
     {
         /// <summary>
         /// Required designer variable.

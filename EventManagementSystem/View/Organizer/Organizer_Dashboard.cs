@@ -11,14 +11,16 @@ using System.Windows.Forms;
 
 namespace EventManagementSystem
 {
-    public partial class Organizer__Dashboard : Form
+    public partial class Organizer_Dashboard : Form
     {
         Organizer user;
-        public Organizer__Dashboard()
+        public Point mouseLocation;
+
+        public Organizer_Dashboard(User user)
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Organizer;
-            loadform(new OBookingLogs());
+            this.user = user as Organizer;
+            loadform(new OBookingLogs(this.user));
             LoadUserDetail();
         }
 
@@ -42,7 +44,7 @@ namespace EventManagementSystem
         // LogOut fuctionality
         private void LogOut_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            LogIn form1 = new LogIn();
             form1.Show();
             this.user.LogOut();
             this.Close();
@@ -76,22 +78,22 @@ namespace EventManagementSystem
 
         private void BookingLogs_Click_1(object sender, EventArgs e)
         {
-            loadform(new OBookingLogs());
+            loadform(new OBookingLogs(user));
         }
 
         private void EventLogs_Click_1(object sender, EventArgs e)
         {
-            loadform(new OViewEvents());
+            loadform(new OViewEvents(user));
         }
 
         private void ManageEvents_Click_1(object sender, EventArgs e)
         {
-            loadform(new OManageEvents());
+            loadform(new OManageEvents(user));
         }
 
         private void ManageBookings_Click_1(object sender, EventArgs e)
         {
-            loadform(new OManageBookings());
+            loadform(new OManageBookings(user));
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -121,6 +123,24 @@ namespace EventManagementSystem
         {
             this.WindowState = FormWindowState.Minimized;
 
+        }
+
+
+
+        private void mouse_down(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+
+        }
+
+        private void mouse_move(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePose = Control.MousePosition;
+                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePose;
+            }
         }
     }
 }

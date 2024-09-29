@@ -18,10 +18,10 @@ namespace EventManagementSystem
         Participant user;
         BookingController bookingController;
 
-        public PDashboard()
+        public PDashboard(Participant user)
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Participant;
+            this.user = user;
             bookingController = new BookingController();
             // Load the table
             LoadTable();
@@ -38,7 +38,7 @@ namespace EventManagementSystem
                 int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
 
                 // Perform thebook event fuctionality
-                (bool success, string message) = bookingController.BookEvent(eventID,user.UserID);
+                (bool success, string message) = bookingController.BookEvent(eventID, user.UserID);
 
 
                 // Give user feedback
@@ -71,5 +71,9 @@ namespace EventManagementSystem
             eventsTable.DataSource = dt;
         }
 
+        private void PDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

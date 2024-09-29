@@ -12,17 +12,19 @@ using System.Windows.Forms;
 
 namespace EventManagementSystem.View.Admin
 {
-    public partial class UpdateAccount : Form
+    public partial class AUpdateAccount : Form
     {
         User userDetails;
         EventManagementSystem.Models.Admin user;
         UserController userController;
+        AManageUsers usersTable;
 
-        public UpdateAccount(User userDetails)
+        public AUpdateAccount(User userDetails, EventManagementSystem.Models.Admin user, AManageUsers usersTable)
         {
             InitializeComponent();
-            user = (EventManagementSystem.Models.Admin)CurrentUser.UserDetails;
+            this.user = user;
             this.userDetails = userDetails ;
+            this.usersTable = usersTable ;
             userController = new UserController();
             SetUserDetails(userDetails);
         }
@@ -67,6 +69,8 @@ namespace EventManagementSystem.View.Admin
             if (success)
             {
                 new SuccessToaster(message).Show();
+                usersTable.LoadTable();
+                this.Close();
             }
             else
             {

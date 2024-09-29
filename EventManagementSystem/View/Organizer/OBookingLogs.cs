@@ -18,17 +18,19 @@ namespace EventManagementSystem
 
         BookingController bookingController;
         Form dashboard;
-        public OBookingLogs()
+        Organizer user;
+        public OBookingLogs(Organizer user)
         {
             InitializeComponent();
             this.dashboard = dashboard;
+            this.user = user;
             bookingController = new BookingController();
             LoadTable();
         }
 
         private void LoadTable()
         {
-            DataTable dt = bookingController.ViewAllBookingLog(CurrentUser.UserDetails.UserID);
+            DataTable dt = bookingController.ViewAllBookingLog(user.UserID);
             eventsTable.DataSource = dt;
         }
 

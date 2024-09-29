@@ -57,7 +57,7 @@ namespace EventManagementSystem.Database
 
         // Query to get all the Registered Events
         const string GetRegisteredEventsQuery = 
-                    "SELECT b.BookingID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location " +
+                    "SELECT b.BookingID, e.EventID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location " +
                     "FROM Events e " +
                     "INNER JOIN Bookings b ON e.EventID = b.EventID " +
                     "WHERE b.ParticipantID = @ParticipantID AND " +
@@ -65,7 +65,7 @@ namespace EventManagementSystem.Database
 
         // Query to get all the Registered Events
         const string GetRegisteredEventLogsQuery =
-                    "SELECT b.BookingID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location " +
+                    "SELECT b.BookingID, e.EventID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location " +
                     "FROM Events e " +
                     "INNER JOIN Bookings b ON e.EventID = b.EventID " +
                     "WHERE b.ParticipantID = @ParticipantID AND " +

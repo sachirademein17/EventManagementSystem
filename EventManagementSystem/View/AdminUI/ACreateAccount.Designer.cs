@@ -1,6 +1,6 @@
 ﻿namespace EventManagementSystem
 {
-    partial class CreateAccount
+    partial class ACreateAccount
     {
         /// <summary>
         /// Required designer variable.

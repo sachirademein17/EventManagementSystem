@@ -72,52 +72,7 @@ namespace EventManagementSystem.Models
 
         //public virtual (bool, string) UpdateUser();
 
-        public static User LogIn(string username, string password)
-        {
-            try
-            {
-                string query = "SELECT * FROM Users WHERE Username = @Username AND PasswordHash = @PasswordHash";
-
-                MySqlParameter[] parameters = new MySqlParameter[]
-                {
-                    new MySqlParameter("@Username", username),
-                    new MySqlParameter("@PasswordHash", password)
-                };
-
-                DataTable result = DBConnection.ExcecuteQuery(query, parameters);
-
-                if (result.Rows.Count > 0)
-                {
-                    int userID = Convert.ToInt32(result.Rows[0]["UserID"]);
-                    string userName = result.Rows[0]["Username"].ToString();
-                    string passwordHash = result.Rows[0]["PasswordHash"].ToString();
-                    string email = result.Rows[0]["Email"].ToString();
-                    string phoneNumber = result.Rows[0]["PhoneNumber"].ToString();
-                    string role = result.Rows[0]["Role"].ToString();
-
-
-                    
-                    switch (role)
-                    {
-                        case "Admin":
-                            return new Admin(userID, userName, passwordHash, email, phoneNumber, role);
-                        case "Organizer":
-                            return new Organizer(userID, userName, passwordHash, email, phoneNumber, role);
-                        case "Participant":
-                            return new Participant(userID, userName, passwordHash, email, phoneNumber, role);
-                        default:
-                            throw new Exception("Unknown role found.");
-                    }
-                }
-                return null;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                return null;
-            }
-            
-            }
+        
 
 
         public static (bool, string) DeleteProfile(int userID)
@@ -151,14 +106,13 @@ namespace EventManagementSystem.Models
 
         public virtual (bool, string) LogOut()
         {
-            CurrentUser.ClearUserDetails();
             
             return (true, "Logged Out Successfully.");
         }
 
-        public virtual void UpdateProfile()
+        public virtual void UpdateProfile(User user, Form dashboard)
         {
-            new UpdateProfile().Show();
+            new UpdateProfile(user, dashboard).ShowDialog();
         }
         
         

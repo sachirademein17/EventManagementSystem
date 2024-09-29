@@ -17,12 +17,14 @@ namespace EventManagementSystem
     {
 
         Admin user;
+        public Point mouseLocation;
 
-        public Admin_Dashboard()
+        public Admin_Dashboard(User user)
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Admin;
-            LoadUserDetail();
+            this.user = user as Admin;
+            LoadUserDetail(this.user);
+            loadform(new AManageEvents(this.user));
         }
 
         public void loadform(object Form)
@@ -42,20 +44,20 @@ namespace EventManagementSystem
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
-            loadform(new AManageEvents());
+            loadform(new AManageEvents(user));
         }
 
         private void kryptonButton3_Click(object sender, EventArgs e)
         {
-            loadform(new AManageUsers());
+            loadform(new AManageUsers(user));
         }
 
         private void kryptonButton5_Click(object sender, EventArgs e)
         {
-            loadform(new PastEventLogs());
+            loadform(new APastEventLogs(user));
         }
 
-        private void LoadUserDetail()
+        private void LoadUserDetail(Admin user)
         {
             Username.Text = user.UserName;
             Email.Text = user.Email;
@@ -66,14 +68,14 @@ namespace EventManagementSystem
         private void LogOut_Click(object sender, EventArgs e)
         {
             (bool success, string message) = user.LogOut();
-            new Form1().Show();
+            new LogIn().Show();
             this.Close();
             new SuccessToaster(message);
         }
 
         private void UpdateProfile_Click(object sender, EventArgs e)
         {
-            user.UpdateProfile();
+            user.UpdateProfile(user, this);
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -83,7 +85,7 @@ namespace EventManagementSystem
 
         bool minMax = true;
 
-       
+
 
         private void MinmaxBtn_Click_1(object sender, EventArgs e)
         {
@@ -96,7 +98,7 @@ namespace EventManagementSystem
             else
             {
                 this.WindowState = FormWindowState.Normal;
-                minMax= true;
+                minMax = true;
             }
         }
 
@@ -104,6 +106,22 @@ namespace EventManagementSystem
         {
             this.WindowState = FormWindowState.Minimized;
 
+        }
+
+        private void mouse_down(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+
+        }
+
+        private void mouse_move(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePose = Control.MousePosition;
+                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePose;
+            }
         }
     }
 }

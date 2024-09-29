@@ -1,6 +1,6 @@
 ﻿namespace EventManagementSystem.View.Participant
 {
-    partial class BookingLogs
+    partial class PBookingLogs
     {
         /// <summary>
         /// Required designer variable.

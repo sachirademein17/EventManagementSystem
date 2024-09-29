@@ -22,12 +22,12 @@ namespace EventManagementSystem
         OManageEvents manageEvents;
         EventController eventController;
 
-        public AddEventForm(OManageEvents manageEvents)
+        public AddEventForm(OManageEvents manageEvents, Organizer user)
         {
             InitializeComponent();
 
             // Defining the Current User Object
-            user = (Organizer)CurrentUser.UserDetails;
+            this.user = user;
 
             eventController = new EventController();
 

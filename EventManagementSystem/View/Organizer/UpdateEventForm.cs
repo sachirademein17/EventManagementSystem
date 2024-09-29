@@ -23,14 +23,14 @@ namespace EventManagementSystem
         Event eventDetails;
         EventController eventController;
 
-        public UpdateEventForm(Event eventDetails, OManageEvents manageEvents)
+        public UpdateEventForm(Event eventDetails, OManageEvents manageEvents, Organizer user)
         {
             InitializeComponent();
 
             // Set previous event details into the input fields
             SetEventDetails(eventDetails);
             eventID = eventDetails.EventID;
-            user = (Organizer)CurrentUser.UserDetails;
+            this.user = user;
             eventController = new EventController();
             this.eventDetails = eventDetails;
             this.manageEvents = manageEvents;

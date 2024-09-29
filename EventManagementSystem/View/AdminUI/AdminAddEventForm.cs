@@ -19,12 +19,14 @@ namespace EventManagementSystem
 
         Admin user;
         AdminAddEventForm addEventForm;
-        EventController eventController;    
+        EventController eventController;
+        AManageEvents eventsTable;
 
-        public AdminAddEventForm()
+        public AdminAddEventForm(Admin user, AManageEvents eventsTable)
         {
             InitializeComponent();
-            user = (Admin)CurrentUser.UserDetails;
+            this.user = user;
+            this.eventsTable = eventsTable;
             eventController = new EventController();
         }
 
@@ -74,6 +76,7 @@ namespace EventManagementSystem
             if (success)
             {
                 new SuccessToaster(message).Show();
+                eventsTable.LoadTable();
                 this.Close();
             }
             else

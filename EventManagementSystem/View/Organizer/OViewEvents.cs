@@ -15,9 +15,11 @@ namespace EventManagementSystem
     public partial class OViewEvents : Form
     {
         EventController eventController;
-        public OViewEvents()
+        Organizer user;
+        public OViewEvents(Organizer user)
         {
             InitializeComponent();
+            this.user = user;
             eventController = new EventController();
             LoadTable();
         }
@@ -25,7 +27,7 @@ namespace EventManagementSystem
         // Load the past event table
         private void LoadTable()
         {
-            DataTable datatable = eventController.ViewPastEvents(CurrentUser.UserDetails.UserID);
+            DataTable datatable = eventController.ViewPastEvents(user.UserID);
             eventsTable.DataSource = datatable; 
         }
     }

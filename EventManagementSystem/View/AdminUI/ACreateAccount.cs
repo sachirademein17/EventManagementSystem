@@ -14,16 +14,18 @@ using System.Windows.Forms;
 
 namespace EventManagementSystem
 {
-    public partial class CreateAccount : Form
+    public partial class ACreateAccount : Form
     {
         Admin user;
         UserController userController;
+        AManageUsers usersTable;
 
-        public CreateAccount()
+        public ACreateAccount(Admin user, AManageUsers usersTable)
         {
             InitializeComponent();
-            user = (Admin)CurrentUser.UserDetails;
+            this.user = user;
             userController = new UserController();
+            this.usersTable = usersTable;
         }
 
         private void CreateUser_Click(object sender, EventArgs e)
@@ -64,6 +66,8 @@ namespace EventManagementSystem
             if (success)
             {
                 new SuccessToaster(message).Show();
+                usersTable.LoadTable();
+                this.Close();
             }
             else
             {

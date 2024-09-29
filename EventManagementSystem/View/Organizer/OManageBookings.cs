@@ -18,10 +18,10 @@ namespace EventManagementSystem
     {
         Organizer user;
         BookingController bookingController;
-        public OManageBookings()
+        public OManageBookings(Organizer user)
         {
             InitializeComponent();
-            user = (Organizer)CurrentUser.UserDetails;
+            this.user = user;
             bookingController = new BookingController();
             LoadBookingTable();
         }

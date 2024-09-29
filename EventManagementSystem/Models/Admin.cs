@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace EventManagementSystem.Models
 {
-    internal class Admin : User
+    public class Admin : User
     {
 
         public Admin(int userID, string username, string passwordHash, string email, string phoneNumber, string role) : base(userID, username, passwordHash, email, phoneNumber, role)
@@ -25,9 +25,9 @@ namespace EventManagementSystem.Models
             return base.LogOut();
         }
 
-        public override void UpdateProfile( )
+        public override void UpdateProfile(User user, Form dashboard )
         {
-            base.UpdateProfile();
+            base.UpdateProfile(user, dashboard);
         }
 
 

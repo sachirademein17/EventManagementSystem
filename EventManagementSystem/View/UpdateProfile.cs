@@ -16,10 +16,12 @@ namespace EventManagementSystem.View
     {
         User user;
         UserController UserController;
-        public UpdateProfile()
+        Form dashboard;
+        public UpdateProfile(User user, Form dashboard)
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails;
+            this.user = user;
+            this.dashboard = dashboard;
             UserController = new UserController();
             SetUserDetails(user);
         }
@@ -54,7 +56,8 @@ namespace EventManagementSystem.View
             if (success)
             {
                 new SuccessToaster(message).Show();
-                new CurrentUser(updateUser);
+                dashboard.Close();
+                new LogIn().Show(); 
                 this.Close();   
             }
             else
@@ -66,7 +69,6 @@ namespace EventManagementSystem.View
         // Set Input fields according to the previous user details
         private void SetUserDetails(User user)
         {
-            MessageBox.Show(user.UserName);
             usernametxt.Text = user.UserName;
             emailtxt.Text = user.Email;
             phonenumbertxt.Text = user.PhoneNumber;

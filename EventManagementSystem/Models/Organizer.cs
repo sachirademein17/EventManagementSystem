@@ -13,7 +13,7 @@ using Org.BouncyCastle.X509.Store;
 
 namespace EventManagementSystem.Models
 {
-    internal class Organizer : User
+    public class Organizer : User
     {
 
         

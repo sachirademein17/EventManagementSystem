@@ -1,5 +1,4 @@
 ﻿using EventManagementSystem.Controllers;
-using EventManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,22 +9,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EventManagementSystem.View.Participant
+namespace EventManagementSystem.View.AdminUI
 {
-    public partial class BookingLogs : Form
+    public partial class ABookingLogs : Form
     {
         BookingController bookingController;
-        public BookingLogs()
+        public ABookingLogs(int eventID)
         {
             InitializeComponent();
             bookingController = new BookingController();
-            LoadTable();
+            LoadTable(eventID);
         }
 
-        public void LoadTable()
+
+        private void LoadTable(int eventID)
         {
-            DataTable dt = bookingController.GetRegisteredEventLogs(CurrentUser.UserDetails.UserID);
+            DataTable dt = bookingController.RegisteredParticipants(eventID);
             eventsTable.DataSource = dt;
         }
+
+
     }
 }

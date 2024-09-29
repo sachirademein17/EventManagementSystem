@@ -1,6 +1,6 @@
 ﻿namespace EventManagementSystem
 {
-    partial class Organizer__Dashboard
+    partial class Organizer_Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -85,6 +85,8 @@
             kryptonPanel2.StateCommon.ColorAngle = 45F;
             kryptonPanel2.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel2.TabIndex = 4;
+            kryptonPanel2.MouseDown += mouse_down;
+            kryptonPanel2.MouseMove += mouse_move;
             // 
             // CloseBtn
             // 
@@ -438,7 +440,7 @@
             LogOut.Values.Text = "LogOut";
             LogOut.Click += LogOut_Click;
             // 
-            // Organizer__Dashboard
+            // Organizer_Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -447,7 +449,7 @@
             Controls.Add(kryptonPanel2);
             Controls.Add(kryptonPanel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Organizer__Dashboard";
+            Name = "Organizer_Dashboard";
             Text = "Organizer__Dashboard";
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             kryptonPanel2.ResumeLayout(false);

@@ -103,7 +103,7 @@
             ClientSize = new Size(1074, 675);
             Controls.Add(eventsTable);
             Controls.Add(CancelBooking);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "ABookings";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ADashboard";

@@ -20,10 +20,10 @@ namespace EventManagementSystem
         Admin user;
         UserController userController;
 
-        public AManageUsers()
+        public AManageUsers(Admin user)
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Admin;
+            this.user = user;
             userController = new UserController();
             LoadTable();
         }
@@ -31,7 +31,7 @@ namespace EventManagementSystem
         // Redirect to the Create Account form
         private void CreateUser_Click(object sender, EventArgs e)
         {
-            new CreateAccount().Show();
+            new ACreateAccount(user, this).ShowDialog();
         }
 
         // Perform the Delete User functionality
@@ -82,7 +82,7 @@ namespace EventManagementSystem
                 Admin userDetails = new Admin(id, username, password, email, phoneNumber, role);
 
                 // Redirect to the Update Account form
-                new UpdateAccount(userDetails).Show();
+                new AUpdateAccount(userDetails, user, this).ShowDialog();
 
             }
             else
@@ -96,7 +96,7 @@ namespace EventManagementSystem
         }
 
         // Load the DataGridView
-        private void LoadTable()
+        public void LoadTable()
         {
             DataTable dt = userController.ViewAllUsers();
             usersTable.DataSource = dt;

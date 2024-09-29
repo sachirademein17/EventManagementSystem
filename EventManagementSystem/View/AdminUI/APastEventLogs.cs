@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace EventManagementSystem.View.AdminUI
 {
-    public partial class PastEventLogs : Form
+    public partial class APastEventLogs : Form
     {
         EventManagementSystem.Models.Admin user;
         EventController eventController;
-        public PastEventLogs()
+        public APastEventLogs(EventManagementSystem.Models.Admin user)
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as EventManagementSystem.Models.Admin;
+            this.user = user;
             eventController = new EventController();
             LoadTable();
         }
@@ -44,7 +44,7 @@ namespace EventManagementSystem.View.AdminUI
                 int rowIndex = eventsTable.SelectedRows[0].Index;
                 int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
 
-                new BookingLogs(eventID).Show();
+                new ABookingLogs(eventID).Show();
             }
             else
             {

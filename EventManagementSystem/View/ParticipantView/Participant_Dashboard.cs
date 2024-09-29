@@ -16,12 +16,14 @@ namespace EventManagementSystem
 {
     public partial class Participant_Dashboard : Form
     {
+
         Participant user;
-        public Participant_Dashboard()
+        public Point mouseLocation;
+        public Participant_Dashboard(EventManagementSystem.Models.User user)
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Participant;
-            loadform(new PDashboard());
+            this.user = user as Participant;
+            loadform(new PDashboard(this.user));
             LoadUserDetail();
         }
 
@@ -43,18 +45,17 @@ namespace EventManagementSystem
 
         private void Dashboard_Click(object sender, EventArgs e)
         {
-            loadform(new PDashboard());
+            loadform(new PDashboard(user));
         }
 
         private void EventRegistration_Click(object sender, EventArgs e)
         {
-            loadform(new PEventRegistration());
+            loadform(new PEventRegistration(user));
         }
 
         private void LogOut_Click(object sender, EventArgs e)
         {
-            new Form1().Show();
-            CurrentUser.ClearUserDetails();
+            new LogIn().Show();
             this.Close();
         }
 
@@ -81,18 +82,6 @@ namespace EventManagementSystem
             Role.Text = user.Role;
         }
 
-        private void ViewBookings_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ViewEvents_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BookingsLogs_Click(object sender, EventArgs e)
-        {
-        }
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
@@ -127,24 +116,40 @@ namespace EventManagementSystem
         {
             user.LogOut();
             this.Close();
-            new Form1().Show();
+            new LogIn().Show();
         }
 
         private void ViewEvents_Click_1(object sender, EventArgs e)
         {
-            loadform(new PDashboard());
+            loadform(new PDashboard(user));
 
         }
 
         private void ViewBookings_Click_1(object sender, EventArgs e)
         {
-            loadform(new PEventRegistration());
+            loadform(new PEventRegistration(user));
 
         }
 
         private void BookingLogs_Click(object sender, EventArgs e)
         {
-            loadform(new BookingLogs());
+            loadform(new PBookingLogs(user));
+
+        }
+
+        private void mouse_down(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        private void mouse_move(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point mousePose = Control.MousePosition;
+                mousePose.Offset(mouseLocation.X, mouseLocation.Y);
+                Location = mousePose;
+            }
 
         }
     }

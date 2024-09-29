@@ -18,10 +18,10 @@ namespace EventManagementSystem
         Admin user;
         EventController eventController;
 
-        public AManageEvents()
+        public AManageEvents(Admin user)
         {
             InitializeComponent();
-            user = CurrentUser.UserDetails as Admin;
+            this.user = user;
             eventController = new EventController();
             LoadTable();
         }
@@ -30,8 +30,8 @@ namespace EventManagementSystem
         private void CreateEvent_Click(object sender, EventArgs e)
         {
             // Redirects to the add event form
-            AdminAddEventForm adminAddEventForm = new AdminAddEventForm();
-            adminAddEventForm.Show();
+            AdminAddEventForm adminAddEventForm = new AdminAddEventForm(user, this);
+            adminAddEventForm.ShowDialog();
 
         }
 
@@ -91,8 +91,8 @@ namespace EventManagementSystem
                 }
                 else
                 {
-                    AdminUpdateEvents updateEventForm = new AdminUpdateEvents(eventDetails);
-                    updateEventForm.Show();
+                    AdminUpdateEvents updateEventForm = new AdminUpdateEvents(eventDetails,user, this);
+                    updateEventForm.ShowDialog();
                 }
 
 
@@ -105,7 +105,7 @@ namespace EventManagementSystem
 
         }
 
-        private void LoadTable()
+        public void LoadTable()
         {
             DataTable dt = eventController.ViewUpcomingEvents();
             eventsTable.DataSource = dt;
@@ -120,7 +120,7 @@ namespace EventManagementSystem
                 int rowIndex = eventsTable.SelectedRows[0].Index;
                 int eventID = Convert.ToInt32(eventsTable.Rows[rowIndex].Cells[0].Value);
 
-                new ABookings(eventID).Show();
+                new ABookings(eventID).ShowDialog();
             }
             else
             {

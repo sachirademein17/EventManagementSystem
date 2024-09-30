@@ -24,6 +24,7 @@ namespace EventManagementSystem
             string password = passwordtxt.Text;
 
 
+            //Authenticate the user
             User user = userController.LogIn(username, password);
 
 
@@ -31,6 +32,8 @@ namespace EventManagementSystem
             {
                 new SuccessToaster("Logging Success").Show();
 
+                
+                // Open the dashboard and user details accounding to the user role
                 if (user.Role == "Admin")
                 {
                     Admin_Dashboard admin_Dashboard = new Admin_Dashboard(user);
@@ -56,12 +59,14 @@ namespace EventManagementSystem
             }
         }
 
+        // Create a new account fuctionality
         private void kryptonLinkLabel1_LinkClicked_1(object sender, EventArgs e)
         {
             new AddNewUser().ShowDialog();
 
         }
 
+        // Reveal the password in plain text
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -76,11 +81,14 @@ namespace EventManagementSystem
 
         }
 
+        // close the application
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+
+        // Move the application around the window
         private void mouse_down(object sender, MouseEventArgs e)
         {
             mouseLocation = new Point(-e.X, -e.Y);

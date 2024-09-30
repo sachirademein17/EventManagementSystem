@@ -45,6 +45,7 @@ namespace EventManagementSystem
             RestoreBtn = new Krypton.Toolkit.KryptonButton();
             MinmaxBtn = new Krypton.Toolkit.KryptonButton();
             mainpanel = new Panel();
+            DeleteProfile = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -54,6 +55,7 @@ namespace EventManagementSystem
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(DeleteProfile);
             kryptonPanel1.Controls.Add(UpdateProfile);
             kryptonPanel1.Controls.Add(LogOut);
             kryptonPanel1.Controls.Add(PhoneNumber);
@@ -401,6 +403,19 @@ namespace EventManagementSystem
             mainpanel.Size = new Size(1074, 722);
             mainpanel.TabIndex = 2;
             // 
+            // DeleteProfile
+            // 
+            DeleteProfile.Location = new Point(60, 105);
+            DeleteProfile.Name = "DeleteProfile";
+            DeleteProfile.Size = new Size(35, 35);
+            DeleteProfile.StateCommon.Back.Image = Properties.Resources.remove;
+            DeleteProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Stretch;
+            DeleteProfile.StateCommon.Border.Rounding = 20F;
+            DeleteProfile.TabIndex = 1;
+            DeleteProfile.Values.DropDownArrowColor = Color.Empty;
+            DeleteProfile.Values.Text = "";
+            DeleteProfile.Click += DeleteProfile_Click;
+            // 
             // Admin_Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -443,5 +458,6 @@ namespace EventManagementSystem
         private Krypton.Toolkit.KryptonButton CloseBtn;
         private Krypton.Toolkit.KryptonButton MinmaxBtn;
         private Krypton.Toolkit.KryptonButton RestoreBtn;
+        private Krypton.Toolkit.KryptonButton DeleteProfile;
     }
 }

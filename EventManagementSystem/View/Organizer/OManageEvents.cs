@@ -117,10 +117,18 @@ namespace EventManagementSystem
         public void LoadEventsTable()
         {
             DataTable dt = eventController.ViewUpcomingEvents(user.UserID);
-            eventsTable.DataSource = dt;
+
+            if (dt != null)
+            {
+                eventsTable.DataSource = dt;
+            }
+            else
+            {
+                new DangerToaster("Canno load the up coming events").Show();
+            }
+            }
+
+
+
         }
-
-
-
-    }
 }

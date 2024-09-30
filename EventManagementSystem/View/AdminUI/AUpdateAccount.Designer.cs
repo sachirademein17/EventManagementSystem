@@ -43,6 +43,7 @@
             usernametxt = new TextBox();
             label2 = new Label();
             UpdateUser = new Krypton.Toolkit.KryptonButton();
+            adminrole = new RadioButton();
             SuspendLayout();
             // 
             // organizerrole
@@ -226,12 +227,24 @@
             UpdateUser.Values.Text = "UPDATE";
             UpdateUser.Click += UpdateUser_Click_1;
             // 
+            // adminrole
+            // 
+            adminrole.AutoSize = true;
+            adminrole.ForeColor = SystemColors.ControlLightLight;
+            adminrole.Location = new Point(595, 498);
+            adminrole.Name = "adminrole";
+            adminrole.Size = new Size(90, 29);
+            adminrole.TabIndex = 38;
+            adminrole.Text = "Admin";
+            adminrole.UseVisualStyleBackColor = true;
+            // 
             // AUpdateAccount
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(873, 667);
+            Controls.Add(adminrole);
             Controls.Add(UpdateUser);
             Controls.Add(organizerrole);
             Controls.Add(participantrole);
@@ -270,5 +283,6 @@
         private TextBox usernametxt;
         private Label label2;
         private Krypton.Toolkit.KryptonButton UpdateUser;
+        private RadioButton adminrole;
     }
 }

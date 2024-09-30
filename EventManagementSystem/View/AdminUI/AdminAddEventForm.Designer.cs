@@ -193,6 +193,7 @@
             CreateEvent.TabIndex = 39;
             CreateEvent.Values.DropDownArrowColor = Color.Empty;
             CreateEvent.Values.Text = "CREATE";
+            CreateEvent.Click += CreateEvent_Click_1;
             // 
             // AdminAddEventForm
             // 

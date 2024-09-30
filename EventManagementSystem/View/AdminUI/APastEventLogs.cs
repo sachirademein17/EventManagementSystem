@@ -24,18 +24,22 @@ namespace EventManagementSystem.View.AdminUI
             LoadTable();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void LoadTable()
         {
             DataTable pastEventData = eventController.ViewPastEvents();
-            eventsTable.DataSource = pastEventData;
-        }
 
-        private void ViewBookings_Click_1(object sender, EventArgs e)
+            if (pastEventData != null)
+            {
+                eventsTable.DataSource = pastEventData;
+            }
+            else
+            {
+                new DangerToaster("Unable to load the past events Table").Show();
+            }
+            }
+
+            private void ViewBookings_Click_1(object sender, EventArgs e)
         {
             // Check whether a event row is selected
             if (eventsTable.SelectedRows.Count > 0)
@@ -48,7 +52,7 @@ namespace EventManagementSystem.View.AdminUI
             }
             else
             {
-                new DangerToaster("Please Select a Row To Delete");
+                new DangerToaster("Please Select a Row To Delete").Show();
             }
         }
 

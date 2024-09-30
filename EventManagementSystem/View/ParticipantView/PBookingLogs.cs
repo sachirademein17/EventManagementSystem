@@ -27,7 +27,15 @@ namespace EventManagementSystem.View.Participant
         public void LoadTable()
         {
             DataTable dt = bookingController.GetRegisteredEventLogs(user.UserID);
-            eventsTable.DataSource = dt;
+
+            if (dt != null)
+            {
+                eventsTable.DataSource = dt;
+            }
+            else
+            {
+                new DangerToaster("Cannot load Registered Event Logs").Show();
+            }
+            }
         }
-    }
 }

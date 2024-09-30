@@ -64,8 +64,12 @@ namespace EventManagementSystem
             if (dataTable == null) {
                 new DangerToaster("Database or Query Issue").Show();
             }
+            else
+            {
+                RegisteredEvent.DataSource = dataTable;
 
-            RegisteredEvent.DataSource = dataTable;
+            }
+
         }
     }
 }

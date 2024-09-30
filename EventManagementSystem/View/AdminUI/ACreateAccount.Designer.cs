@@ -43,6 +43,7 @@
             participantrole = new RadioButton();
             organizerrole = new RadioButton();
             CreateUser = new Krypton.Toolkit.KryptonButton();
+            adminrole = new RadioButton();
             SuspendLayout();
             // 
             // usernametxt
@@ -224,6 +225,18 @@
             CreateUser.TabIndex = 22;
             CreateUser.Values.DropDownArrowColor = Color.Empty;
             CreateUser.Values.Text = "CREATE";
+            CreateUser.Click += CreateUser_Click_1;
+            // 
+            // adminrole
+            // 
+            adminrole.AutoSize = true;
+            adminrole.ForeColor = SystemColors.ControlLightLight;
+            adminrole.Location = new Point(589, 490);
+            adminrole.Name = "adminrole";
+            adminrole.Size = new Size(90, 29);
+            adminrole.TabIndex = 23;
+            adminrole.Text = "Admin";
+            adminrole.UseVisualStyleBackColor = true;
             // 
             // ACreateAccount
             // 
@@ -231,6 +244,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(873, 667);
+            Controls.Add(adminrole);
             Controls.Add(CreateUser);
             Controls.Add(organizerrole);
             Controls.Add(participantrole);
@@ -269,5 +283,6 @@
         private RadioButton participantrole;
         private RadioButton organizerrole;
         private Krypton.Toolkit.KryptonButton CreateUser;
+        private RadioButton adminrole;
     }
 }

@@ -59,7 +59,7 @@ namespace EventManagementSystem
             }
             else
             {
-                new DangerToaster("Please Select a Row To Delete");
+                new DangerToaster("Please Select a Row To Delete").Show();
             }
         }
 
@@ -105,13 +105,23 @@ namespace EventManagementSystem
 
         }
 
+        // Loads the table data
         public void LoadTable()
         {
+            // Method to get all thet upcoming event data
             DataTable dt = eventController.ViewUpcomingEvents();
-            eventsTable.DataSource = dt;
-        }
 
-        private void ViewBookings_Click_1(object sender, EventArgs e)
+            if (dt != null)
+            {
+                eventsTable.DataSource = dt;
+            }
+            else
+            {
+                new DangerToaster("Unable to load the available events").Show();
+            }
+            }
+
+            private void ViewBookings_Click_1(object sender, EventArgs e)
         {
             // Check whether a event row is selected
             if (eventsTable.SelectedRows.Count > 0)
@@ -124,7 +134,7 @@ namespace EventManagementSystem
             }
             else
             {
-                new DangerToaster("Please Select a Row To Delete");
+                new DangerToaster("Please Select a Row To Delete").Show();
             }
         }
 

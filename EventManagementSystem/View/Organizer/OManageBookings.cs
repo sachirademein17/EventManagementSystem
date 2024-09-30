@@ -51,7 +51,7 @@ namespace EventManagementSystem
             }
             else
             {
-                new DangerToaster("Please Select a Row To Delete");
+                new DangerToaster("Please Select a Row To Delete").Show();
 
             }
         }
@@ -60,8 +60,16 @@ namespace EventManagementSystem
         private void LoadBookingTable()
         {
             DataTable dt = bookingController.ViewAllBookings(user.UserID);
-            bookingsTable.DataSource = dt;
-        }
 
-    }
+            if (dt != null)
+            {
+                bookingsTable.DataSource = dt;
+            }
+            else
+            {
+                new DangerToaster("Cannot laod the booking table").Show();
+            }
+            }
+
+        }
 }

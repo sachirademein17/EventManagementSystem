@@ -1,5 +1,6 @@
 ﻿using EventManagementSystem.Controllers;
 using EventManagementSystem.Models;
+using EventManagementSystem.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,16 @@ namespace EventManagementSystem
         private void LoadTable()
         {
             DataTable datatable = eventController.ViewPastEvents(user.UserID);
-            eventsTable.DataSource = datatable; 
+
+            if (datatable != null)
+            {
+                eventsTable.DataSource = datatable;
+            }
+            else
+            {
+                new DangerToaster("Cannot load past events").Show();
+            }
+
+            }
         }
-    }
 }

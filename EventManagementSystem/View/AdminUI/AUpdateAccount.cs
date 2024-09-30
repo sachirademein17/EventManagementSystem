@@ -1,9 +1,11 @@
 ﻿using EventManagementSystem.Controllers;
 using EventManagementSystem.Models;
+using Google.Protobuf.WellKnownTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,18 +34,22 @@ namespace EventManagementSystem.View.Admin
         // Perform the Update User functionality
         private void UpdateUser_Click_1(object sender, EventArgs e)
         {
-            // Getting the role value
+            // Get the role value
             string role;
-            if (participantrole.Checked)
+            if (adminrole.Checked)
             {
-                role = participantrole.Text;
+                role = adminrole.Text;
             }
-            else
+            else if (organizerrole.Checked)
             {
                 role = organizerrole.Text;
             }
+            else
+            {
+                role = participantrole.Text;
+            }
 
-
+            // Validating whether the input boxes are entered properly
             (bool validation, string errormsg) = userController.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
 
             // Checking whether the validation is success

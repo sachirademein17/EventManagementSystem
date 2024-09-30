@@ -45,6 +45,7 @@
             MinmaxBtn = new Krypton.Toolkit.KryptonButton();
             RestoreBtn = new Krypton.Toolkit.KryptonButton();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            UpdateProfile = new Krypton.Toolkit.KryptonButton();
             ManageBookings = new Krypton.Toolkit.KryptonButton();
             PhoneNumber = new Label();
             Email = new Label();
@@ -55,7 +56,7 @@
             EventLogs = new Krypton.Toolkit.KryptonButton();
             pictureBox1 = new PictureBox();
             LogOut = new Krypton.Toolkit.KryptonButton();
-            UpdateProfile = new Krypton.Toolkit.KryptonButton();
+            DeleteProfile = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
@@ -160,6 +161,7 @@
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(DeleteProfile);
             kryptonPanel1.Controls.Add(UpdateProfile);
             kryptonPanel1.Controls.Add(ManageBookings);
             kryptonPanel1.Controls.Add(PhoneNumber);
@@ -180,6 +182,19 @@
             kryptonPanel1.StateCommon.ColorAngle = 90F;
             kryptonPanel1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
             kryptonPanel1.TabIndex = 3;
+            // 
+            // UpdateProfile
+            // 
+            UpdateProfile.Location = new Point(151, 106);
+            UpdateProfile.Name = "UpdateProfile";
+            UpdateProfile.Size = new Size(35, 35);
+            UpdateProfile.StateCommon.Back.Image = Properties.Resources.pen;
+            UpdateProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            UpdateProfile.StateCommon.Border.Rounding = 20F;
+            UpdateProfile.TabIndex = 25;
+            UpdateProfile.Values.DropDownArrowColor = Color.Empty;
+            UpdateProfile.Values.Text = "";
+            UpdateProfile.Click += UpdateProfile_Click;
             // 
             // ManageBookings
             // 
@@ -442,18 +457,18 @@
             LogOut.Values.Text = "LogOut";
             LogOut.Click += LogOut_Click;
             // 
-            // UpdateProfile
+            // DeleteProfile
             // 
-            UpdateProfile.Location = new Point(151, 106);
-            UpdateProfile.Name = "UpdateProfile";
-            UpdateProfile.Size = new Size(35, 35);
-            UpdateProfile.StateCommon.Back.Image = Properties.Resources.pen;
-            UpdateProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
-            UpdateProfile.StateCommon.Border.Rounding = 20F;
-            UpdateProfile.TabIndex = 25;
-            UpdateProfile.Values.DropDownArrowColor = Color.Empty;
-            UpdateProfile.Values.Text = "";
-            UpdateProfile.Click += UpdateProfile_Click;
+            DeleteProfile.Location = new Point(67, 106);
+            DeleteProfile.Name = "DeleteProfile";
+            DeleteProfile.Size = new Size(35, 35);
+            DeleteProfile.StateCommon.Back.Image = Properties.Resources.remove;
+            DeleteProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Stretch;
+            DeleteProfile.StateCommon.Border.Rounding = 20F;
+            DeleteProfile.TabIndex = 26;
+            DeleteProfile.Values.DropDownArrowColor = Color.Empty;
+            DeleteProfile.Values.Text = "";
+            DeleteProfile.Click += DeleteProfile_Click;
             // 
             // Organizer_Dashboard
             // 
@@ -497,5 +512,6 @@
         private Krypton.Toolkit.KryptonButton kryptonButton2;
         private Krypton.Toolkit.KryptonButton ManageEvents;
         private Krypton.Toolkit.KryptonButton UpdateProfile;
+        private Krypton.Toolkit.KryptonButton DeleteProfile;
     }
 }

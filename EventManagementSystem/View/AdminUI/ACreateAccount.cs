@@ -28,21 +28,25 @@ namespace EventManagementSystem
             this.usersTable = usersTable;
         }
 
-        private void CreateUser_Click(object sender, EventArgs e)
+        private void CreateUser_Click_1(object sender, EventArgs e)
         {
 
             // Get the role value
             string role;
-            if (participantrole.Checked)
+            if (adminrole.Checked)
             {
-                role = participantrole.Text;
+                role = adminrole.Text;
             }
-            else
+            else if (organizerrole.Checked)
             {
                 role = organizerrole.Text;
             }
+            else
+            {
+                role = participantrole.Text;
+            }
 
-
+            // validating whether the input boxes are entered properly
             (bool validation, string errormsg) = userController.UserTextBoxValidation(usernametxt.Text, passwordtxt.Text, confirmpasswordtxt.Text, emailtxt.Text, phonenumbertxt.Text, role);
 
             // Check textboxes are properly entered by user

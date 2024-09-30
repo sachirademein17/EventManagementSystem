@@ -68,7 +68,10 @@ namespace EventManagementSystem
             {
                 new DangerToaster("Can't Load the events").Show();
             }
+            else { 
             eventsTable.DataSource = dt;
+
+            }
         }
 
         private void PDashboard_Load(object sender, EventArgs e)

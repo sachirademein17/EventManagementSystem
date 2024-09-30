@@ -56,6 +56,7 @@ namespace EventManagementSystem
             endDatetxt.MinDate = startDatetxt.Value.AddHours(1);
         }
 
+        // Create event button
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
 

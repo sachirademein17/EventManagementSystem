@@ -192,6 +192,7 @@
             UpdateEvent.TabIndex = 54;
             UpdateEvent.Values.DropDownArrowColor = Color.Empty;
             UpdateEvent.Values.Text = "UPDATE";
+            UpdateEvent.Click += UpdateEvent_Click;
             // 
             // AdminUpdateEvents
             // 

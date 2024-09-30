@@ -31,25 +31,12 @@ namespace EventManagementSystem
         }
 
 
-        private void InitializeDateTime()
-        {
-            // Setting the start time 2 hours from now
-            DateTime initialStartTime = DateTime.Now.AddHours(2);
-            startDatetxt.Value = initialStartTime;
-            endDatetxt.Value = initialStartTime.AddHours(1);
-
-            // Set the minimum date for the DateTimePickers
-            startDatetxt.MinDate = DateTime.Now.AddHours(1);
-            endDatetxt.MinDate = startDatetxt.Value.AddHours(1);
-        }
-
-
         // Fuctionality to create an event
-        private void CreateEvent_Click(object sender, EventArgs e)
+        private void CreateEvent_Click_1(object sender, EventArgs e)
         {
 
             // Checking all the input value are valid and not empty
-            (bool validation, string validationmsg) = eventController.EventTextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text,0, descriptiontxt.Text);
+            (bool validation, string validationmsg) = eventController.EventTextBoxValidation(nametxt.Text, venuetxt.Text, startDatetxt.Value, endDatetxt.Value, maxParticipantstxt.Text, 0, descriptiontxt.Text);
 
 
             // If Input Details are not valid show error message & exit 
@@ -87,20 +74,13 @@ namespace EventManagementSystem
         }
 
 
-        // Change the end date & time according to the start date & time
-        private void startDatetxt_ValueChanged(object sender, EventArgs e)
-        {
-            endDatetxt.Value = startDatetxt.Value.AddHours(1);
-        }
-
-        private void nametxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void startDatetxt_ValueChanged_1(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }

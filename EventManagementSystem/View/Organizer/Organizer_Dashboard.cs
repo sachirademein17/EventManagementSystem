@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -147,6 +148,14 @@ namespace EventManagementSystem
         {
             user.UpdateProfile(user, this);
 
+        }
+
+        private void DeleteProfile_Click(object sender, EventArgs e)
+        {
+            UserController controller = new UserController();
+            (bool success, string message) = controller.RemoveUser(user.UserID);
+            new LogIn().Show();
+            this.Close();
         }
     }
 }

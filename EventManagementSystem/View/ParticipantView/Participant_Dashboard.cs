@@ -1,4 +1,5 @@
-﻿using EventManagementSystem.Models;
+﻿using EventManagementSystem.Controllers;
+using EventManagementSystem.Models;
 using EventManagementSystem.View.Participant;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
@@ -27,7 +28,7 @@ namespace EventManagementSystem
             LoadUserDetail();
         }
 
-
+        // fuctionality to add the form as a section
         public void loadform(object Form)
         {
             if (this.mainpanel.Controls.Count > 0)
@@ -43,37 +44,8 @@ namespace EventManagementSystem
         }
 
 
-        private void Dashboard_Click(object sender, EventArgs e)
-        {
-            loadform(new PDashboard(user));
-        }
-
-        private void EventRegistration_Click(object sender, EventArgs e)
-        {
-            loadform(new PEventRegistration(user));
-        }
-
-        private void LogOut_Click(object sender, EventArgs e)
-        {
-            new LogIn().Show();
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-        }
-
+        
+        // Load user details on log
         private void LoadUserDetail()
         {
             Username.Text = user.UserName;
@@ -82,7 +54,7 @@ namespace EventManagementSystem
             Role.Text = user.Role;
         }
 
-
+        // close the application
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -91,6 +63,7 @@ namespace EventManagementSystem
 
         bool minMax = true;
 
+        // minimize and maximize button
         private void MinmaxBtn_Click(object sender, EventArgs e)
         {
             if (minMax)
@@ -106,12 +79,14 @@ namespace EventManagementSystem
             }
         }
 
+        // Hide and restore the application
         private void RestoreBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
 
         }
 
+        // logout from the profile
         private void LogOut_Click_1(object sender, EventArgs e)
         {
             user.LogOut();
@@ -119,24 +94,28 @@ namespace EventManagementSystem
             new LogIn().Show();
         }
 
+        // Move to the view events section
         private void ViewEvents_Click_1(object sender, EventArgs e)
         {
             loadform(new PDashboard(user));
 
         }
 
+        // Move to the view booking section
         private void ViewBookings_Click_1(object sender, EventArgs e)
         {
             loadform(new PEventRegistration(user));
 
         }
 
+        // Move to the booking logs section
         private void BookingLogs_Click(object sender, EventArgs e)
         {
             loadform(new PBookingLogs(user));
 
         }
 
+        // Move the application around the window
         private void mouse_down(object sender, MouseEventArgs e)
         {
             mouseLocation = new Point(-e.X, -e.Y);
@@ -153,10 +132,20 @@ namespace EventManagementSystem
 
         }
 
+        // Updat the user profile
         private void UpdateProfile_Click(object sender, EventArgs e)
         {
             user.UpdateProfile(user, this);
 
+        }
+
+        // Delte the user profile
+        private void DeleteProfile_Click(object sender, EventArgs e)
+        {
+            UserController controller = new UserController();
+            (bool success, string message) = controller.RemoveUser(user.UserID);
+            new LogIn().Show();
+            this.Close();
         }
     }
 }

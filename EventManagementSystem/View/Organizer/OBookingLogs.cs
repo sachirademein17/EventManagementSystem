@@ -31,8 +31,17 @@ namespace EventManagementSystem
         private void LoadTable()
         {
             DataTable dt = bookingController.ViewAllBookingLog(user.UserID);
-            eventsTable.DataSource = dt;
-        }
 
-    }
+            if (dt != null)
+            {
+                eventsTable.DataSource = dt;
+
+            }
+            else
+            {
+                new DangerToaster("Cannot load all bookings ").Show();
+            }
+            }
+
+        }
 }

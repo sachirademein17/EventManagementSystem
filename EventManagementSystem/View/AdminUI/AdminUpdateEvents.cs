@@ -28,11 +28,11 @@ namespace EventManagementSystem
             SetEventDetails(eventDetails);
             this.user = user;
             this.eventsTable = eventsTable;
-            eventController = new EventController();    
+            eventController = new EventController();
         }
 
         // Update Event fuctionality
-        private void UpdateEvemt_Click(object sender, EventArgs e)
+        private void UpdateEvent_Click(object sender, EventArgs e)
         {
 
             // Checking all the input value are valid and not empty
@@ -58,9 +58,9 @@ namespace EventManagementSystem
 
 
             Event eventDetails = new Event(this.eventDetails.EventID, user.UserID, name, description, startTime, endTime, location, maxParticipants, currentParticipants);
-            
+
             // Executing the update event functionality
-            (bool success, string message )= eventController.UpdateEvent(eventDetails);
+            (bool success, string message) = eventController.UpdateEvent(eventDetails);
 
             // Give user feedback
             if (success)
@@ -89,5 +89,6 @@ namespace EventManagementSystem
             descriptiontxt.Text = (eventDetails.Description).ToString();
         }
 
+       
     }
 }

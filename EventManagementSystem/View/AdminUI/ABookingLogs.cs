@@ -21,13 +21,22 @@ namespace EventManagementSystem.View.AdminUI
             LoadTable(eventID);
         }
 
-
+        // fuctionality to load the datagrid of Booking Logs
         private void LoadTable(int eventID)
         {
             DataTable dt = bookingController.RegisteredParticipants(eventID);
-            eventsTable.DataSource = dt;
+
+            // checking whether the dataTable is null and validating it
+            if (dt != null)
+            {
+                eventsTable.DataSource = dt;
+            }
+            else
+            {
+                new DangerToaster("Unable to load the Booking Logs");
+            }
+
+
         }
-
-
     }
 }

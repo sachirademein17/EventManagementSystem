@@ -224,6 +224,7 @@
             CreateUser.TabIndex = 37;
             CreateUser.Values.DropDownArrowColor = Color.Empty;
             CreateUser.Values.Text = "CREATE";
+            CreateUser.Click += CreateUser_Click_1;
             // 
             // AddNewUser
             // 

@@ -22,10 +22,7 @@ namespace EventManagementSystem
             LoadTable(eventID);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void CancelBooking_Click_1(object sender, EventArgs e)
         {

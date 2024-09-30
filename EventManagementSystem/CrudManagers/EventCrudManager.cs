@@ -9,13 +9,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace EventManagementSystem.Database
+namespace EventManagementSystem.CrudManagers
 {
+    /*
+        
+        The purpose of creating a CRUD file for event management is because of the number of queries are being used.
+        For example when creating an event query is used by both Admin, Organizer  so if we didn't hv this class
+        There would be redundant code. After creating a seperate class for CRUD for event management we just hv to use same queries in 
+        one place. We just have to call the relavent method from the controller
+
+     */
+
+
     internal class EventCrudManager
     {
 
         // Query to Create an Event
-        const string CreateEventQuery = 
+        const string CreateEventQuery =
                     "INSERT INTO Events (OrganizerID, EventName, Description, StartDate, EndDate, Location, MaxParticipants, CurrentParticipants) " +
                     "VALUES (@OrganizerID, @EventName, @Description, @StartDate, @EndDate, @Location, @MaxParticipants, @CurrentParticipants);";
 
@@ -23,7 +33,7 @@ namespace EventManagementSystem.Database
         const string DeleteEventQuery = "DELETE FROM events WHERE EventID = @EventID;";
 
         // Query to Update an Event
-        const string UpdateEventQuery = 
+        const string UpdateEventQuery =
                     "UPDATE Events" +
                     " SET EventName = @EventName, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, Location = @Location, MaxParticipants = @MaxParticipants" +
                     " WHERE EventID = @EventID;";
@@ -42,7 +52,7 @@ namespace EventManagementSystem.Database
 
 
         // Query to View all Upcoming Events
-        const string ViewAllUpcomingEventsQuery = 
+        const string ViewAllUpcomingEventsQuery =
                     "SELECT e.EventID, e.EventName,u.Username AS OrganizerName, e.Description, e.StartDate, e.EndDate, e.Location, e.MaxParticipants, e.CurrentParticipants " +
                     "FROM events e " +
                     "JOIN users u ON e.OrganizerID = u.UserID " +
@@ -277,13 +287,13 @@ namespace EventManagementSystem.Database
             }
 
             // Checking whether the default values are entered
-            if (startDateTime == default(DateTime))
+            if (startDateTime == default)
             {
                 return (false, "Please Enter the Starting Date & Time");
             }
 
             // Checking whether the default values are entered
-            if (endDateTime == default(DateTime))
+            if (endDateTime == default)
             {
                 return (false, "Please Enter the Ending Date & Time");
             }
@@ -312,7 +322,8 @@ namespace EventManagementSystem.Database
                 return (false, "Please Enter a valid Maximum Number of Participants");
             }
 
-            if (temp < currentParticipants) {
+            if (temp < currentParticipants)
+            {
                 return (false, "Max Participant Number must be greater than the current participant number");
             }
 

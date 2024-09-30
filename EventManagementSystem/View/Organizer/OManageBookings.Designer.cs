@@ -86,10 +86,12 @@ namespace EventManagementSystem
             // 
             dataGridViewCellStyle1.BackColor = Color.FromArgb(35, 35, 35);
             bookingsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            bookingsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             bookingsTable.BorderStyle = BorderStyle.None;
             bookingsTable.ColumnHeadersHeight = 51;
             bookingsTable.Location = new Point(12, 117);
             bookingsTable.Name = "bookingsTable";
+            bookingsTable.ReadOnly = true;
             bookingsTable.RowHeadersWidth = 62;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
             bookingsTable.RowsDefaultCellStyle = dataGridViewCellStyle2;

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label2 = new Label();
             eventsTable = new Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
@@ -48,15 +48,17 @@
             // 
             // eventsTable
             // 
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(35, 35, 35);
-            eventsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(35, 35, 35);
+            eventsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            eventsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             eventsTable.BorderStyle = BorderStyle.None;
             eventsTable.ColumnHeadersHeight = 51;
             eventsTable.Location = new Point(12, 117);
             eventsTable.Name = "eventsTable";
+            eventsTable.ReadOnly = true;
             eventsTable.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(40, 40, 40);
-            eventsTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
+            eventsTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             eventsTable.Size = new Size(1050, 546);
             eventsTable.StateCommon.Background.Color1 = Color.FromArgb(30, 30, 30);
             eventsTable.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;

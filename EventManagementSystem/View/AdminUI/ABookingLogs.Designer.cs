@@ -54,7 +54,7 @@
             label2.TabIndex = 14;
             label2.Text = "Booking Logs";
             // 
-            // BookingLogs
+            // ABookingLogs
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -62,7 +62,7 @@
             ClientSize = new Size(1101, 688);
             Controls.Add(eventsTable);
             Controls.Add(label2);
-            Name = "BookingLogs";
+            Name = "ABookingLogs";
             Text = "BookingLogs";
             ((System.ComponentModel.ISupportInitialize)eventsTable).EndInit();
             ResumeLayout(false);

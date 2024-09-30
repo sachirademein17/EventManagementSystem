@@ -8,14 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventManagementSystem.Database
+namespace EventManagementSystem.CrudManagers
 {
+
+    /*
+        
+        The purpose of creating a CRUD file for user management is because of the number of queries are being used.
+        For example when updating a profile same query is used for Admin, Organizer , and participant so if we didn't hv this class
+        There would be redundant code. After creating a seperate class for CRUD for user management we just hv to use same queries in 
+        one place. We just have to call the relavent method from the controller
+
+     */
     internal class UserCrudManager
     {
 
         // Query to check how many timews the username as repeated
         const string CheckUsername = "SELECT COUNT(*) FROM Users WHERE Username = @Username;";
-        
+
         // Queries to add user 
         const string AddUserQuery = "INSERT INTO Users (Username, PasswordHash, Role, Email, PhoneNumber, DateCreated) VALUES (@Username, @PasswordHash, @Role, @Email, @PhoneNumber, NOW());";
         const string GetUserIdQuery = "SELECT UserID FROM Users WHERE Username = @Username;";
@@ -34,7 +43,7 @@ namespace EventManagementSystem.Database
         const string LogInQuery = "SELECT * FROM Users WHERE Username = @Username AND PasswordHash = @PasswordHash";
 
 
-
+        // Fuctionality for the LogIn
         public static User LogIn(string username, string password)
         {
             try
@@ -335,7 +344,7 @@ namespace EventManagementSystem.Database
             {
                 return (false, "Please Enter the Phone Number");
             }
-                        
+
             bool isNumber = int.TryParse(phoneNumber, out temp);
 
             // Checking whether the phone number is a number
@@ -343,7 +352,7 @@ namespace EventManagementSystem.Database
             {
                 return (false, "Please Enter a Number as the Phone Number");
             }
-           
+
             // Checking whether the role is entered
             if (string.IsNullOrEmpty(role))
             {

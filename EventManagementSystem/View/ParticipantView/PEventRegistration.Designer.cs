@@ -81,10 +81,12 @@
             // 
             dataGridViewCellStyle1.BackColor = Color.FromArgb(35, 35, 35);
             RegisteredEvent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            RegisteredEvent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             RegisteredEvent.BorderStyle = BorderStyle.None;
             RegisteredEvent.ColumnHeadersHeight = 51;
             RegisteredEvent.Location = new Point(12, 117);
             RegisteredEvent.Name = "RegisteredEvent";
+            RegisteredEvent.ReadOnly = true;
             RegisteredEvent.RowHeadersWidth = 62;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
             RegisteredEvent.RowsDefaultCellStyle = dataGridViewCellStyle2;

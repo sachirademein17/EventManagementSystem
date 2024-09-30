@@ -1,6 +1,5 @@
-﻿using EventManagementSystem.Database;
+﻿using EventManagementSystem.CrudManagers;
 using EventManagementSystem.Models;
-using EventManagementSystem.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +9,17 @@ using System.Threading.Tasks;
 
 namespace EventManagementSystem.Controllers
 {
-    internal class EventController : IEventManagement
+    /*
+        
+        The purpose of creating a event controller is that events are managed by both Admin and organizer.
+        So if we add event methods in both the user classes there is going to be a repeating of the same code at multiple places.
+        So by creating a event controller class we can aligned all the methods that are related to events in one class where
+        any user can access by createing a instance of that object and by calling the relavant method.
+      
+
+
+     */
+    internal class EventController
     {
 
         

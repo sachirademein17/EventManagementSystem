@@ -8,6 +8,24 @@ namespace EventManagementSystem.Models
 {
     public class Event
     {
+        /*
+            The purpose to create an Event class is becuase, in an event there are properties such as
+                    Event ID
+                    Organizer ID
+                    Event Name
+                    Description
+                    Start Date
+                    End Date
+                    Max Participant
+                    Current Participant
+
+            If there wasn't a class created for this, we need to pass these properties one by one which is hard to do.
+            So by creating an object as class we can store all the details related to an event in one place and it is 
+            super easy to tranfer the values through methods.
+      
+         */
+
+
         private int eventID;
         private int organizerID;
         private string eventName;

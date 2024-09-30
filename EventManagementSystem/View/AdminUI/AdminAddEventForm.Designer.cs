@@ -190,7 +190,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlText;
+            BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(986, 749);
             Controls.Add(endDatetxt);
             Controls.Add(startDatetxt);

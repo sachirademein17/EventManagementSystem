@@ -50,10 +50,12 @@
             // 
             dataGridViewCellStyle1.BackColor = Color.FromArgb(35, 35, 35);
             eventsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            eventsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             eventsTable.BorderStyle = BorderStyle.None;
             eventsTable.ColumnHeadersHeight = 51;
             eventsTable.Location = new Point(12, 105);
             eventsTable.Name = "eventsTable";
+            eventsTable.ReadOnly = true;
             eventsTable.RowHeadersWidth = 62;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
             eventsTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
@@ -82,7 +84,7 @@
             eventsTable.StateTracking.HeaderRow.Content.Color1 = Color.White;
             eventsTable.TabIndex = 18;
             // 
-            // BookingLogs
+            // PBookingLogs
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -91,7 +93,7 @@
             Controls.Add(eventsTable);
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "BookingLogs";
+            Name = "PBookingLogs";
             Text = "BookingLogs";
             ((System.ComponentModel.ISupportInitialize)eventsTable).EndInit();
             ResumeLayout(false);

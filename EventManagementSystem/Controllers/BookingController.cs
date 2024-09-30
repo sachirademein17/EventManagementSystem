@@ -1,5 +1,4 @@
-﻿using EventManagementSystem.Database;
-using EventManagementSystem.Interfaces;
+﻿using EventManagementSystem.CrudManagers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +8,15 @@ using System.Threading.Tasks;
 
 namespace EventManagementSystem.Controllers
 {
-    internal class BookingController : IBookingManagement
+    /*
+        
+        The purpose of creating a booking controller is that bookings are done by all the users.
+        So if we add booking methods in all the user classes there is going to be a repeating of the same code at multiple places.
+        So by creating a booking controller class we can aligned all the methods that are related to booking in one class where
+        any user can access by createing a instance of that object and by calling the relavant method.
+      
+     */
+    internal class BookingController
     {
         // Functionality to book an event
         public (bool, string) BookEvent(int eventID, int userID)

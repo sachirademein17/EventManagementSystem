@@ -123,12 +123,15 @@
             // 
             // usersTable
             // 
+            usersTable.AllowDrop = true;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(35, 35, 35);
             usersTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            usersTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             usersTable.BorderStyle = BorderStyle.None;
             usersTable.ColumnHeadersHeight = 51;
             usersTable.Location = new Point(12, 117);
             usersTable.Name = "usersTable";
+            usersTable.ReadOnly = true;
             usersTable.RowHeadersWidth = 62;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
             usersTable.RowsDefaultCellStyle = dataGridViewCellStyle2;

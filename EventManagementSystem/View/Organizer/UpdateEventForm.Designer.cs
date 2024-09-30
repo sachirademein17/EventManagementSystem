@@ -206,6 +206,8 @@ namespace EventManagementSystem
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
             kryptonPanel1.Size = new Size(986, 749);
+            kryptonPanel1.StateCommon.Color1 = Color.FromArgb(28, 28, 28);
+            kryptonPanel1.StateCommon.Color2 = Color.FromArgb(28, 28, 28);
             kryptonPanel1.StateNormal.ColorAngle = 90F;
             kryptonPanel1.StateNormal.ColorStyle = PaletteColorStyle.Dashed;
             kryptonPanel1.TabIndex = 37;

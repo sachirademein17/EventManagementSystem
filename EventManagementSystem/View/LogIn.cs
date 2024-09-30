@@ -58,7 +58,7 @@ namespace EventManagementSystem
 
         private void kryptonLinkLabel1_LinkClicked_1(object sender, EventArgs e)
         {
-            new AddNewUser().Show();
+            new AddNewUser().ShowDialog();
 
         }
 

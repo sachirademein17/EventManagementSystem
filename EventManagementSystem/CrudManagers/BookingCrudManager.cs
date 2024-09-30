@@ -11,8 +11,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventManagementSystem.Database
+namespace EventManagementSystem.CrudManagers
 {
+
+    /*
+        
+        The purpose of creating a CRUD file for booking management is because of the number of queries are being used.
+        For example when canceling a booking, same query is used for Admin, Organizer , and participant so if we didn't hv this class
+        There would be redundant code. After creating a seperate class for CRUD for booking management we just hv to use same queries in 
+        one place. We just have to call the relavent method from the controller
+
+     */
+
     internal class BookingCrudManager
     {
 
@@ -46,7 +56,7 @@ namespace EventManagementSystem.Database
         const string AlreadyRegisteredQuery = "SELECT COUNT(*) FROM Bookings WHERE EventID = @EventID AND ParticipantID = @ParticipantID";
         const string AddBookingQuery = "INSERT INTO Bookings (EventID, ParticipantID, BookingDate) VALUES (@EventID, @ParticipantID, NOW());";
         const string IncreseCurrentParticipantsQuery = "UPDATE Events SET CurrentParticipants = CurrentParticipants + 1 WHERE EventID = @EventID;";
-        
+
         // Query to get the Participant ID
         const string GetParticipantIdQuery = "SELECT ParticipantID FROM participants WHERE UserID = @UserID";
 
@@ -56,7 +66,7 @@ namespace EventManagementSystem.Database
 
 
         // Query to get all the Registered Events
-        const string GetRegisteredEventsQuery = 
+        const string GetRegisteredEventsQuery =
                     "SELECT b.BookingID, e.EventID, e.EventName, e.Description, e.StartDate, e.EndDate, e.Location " +
                     "FROM Events e " +
                     "INNER JOIN Bookings b ON e.EventID = b.EventID " +
@@ -80,6 +90,7 @@ namespace EventManagementSystem.Database
                     "WHERE e.StartDate > NOW()" +
                     "AND e.CurrentParticipants < e.MaxParticipants;";
 
+        // Query to view all the paritipants that are registered to a event
         const string RegisteredParticipantsQuery =
                     "SELECT b.BookingID, p.ParticipantID, u.UserID, u.Username, u.Email " +
                     "FROM Bookings b " +

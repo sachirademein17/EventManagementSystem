@@ -15,6 +15,31 @@ namespace EventManagementSystem.Models
     public abstract class User
     {
 
+        /*
+         
+        The purpose of creating a User class is becuase there are 3 types of users: 
+            Admin
+            Organizer
+            Participant
+
+        All these 3 types of users have common types of properties. such as 
+            User ID
+            Username
+            Password
+            Email
+            Phone Number
+            Role ( Type of user(eg:- Admin, Organizer, Participant )
+
+        And they hv the common methods such as
+            Logout
+            Update Profile
+          
+        So rather than creating the same set of properties and methods over and over again it is easy to create a class.
+        And make sure that the other classes (Admin, Organizer, Participant) inherite the properties and the methods from it.
+ 
+         
+         */
+
         private int userID;
         private string username;
         private string passwordHash;
@@ -70,46 +95,19 @@ namespace EventManagementSystem.Models
             set { role = value; }
         }
 
-        //public virtual (bool, string) UpdateUser();
-
-        
+         
 
 
-        public static (bool, string) DeleteProfile(int userID)
-        {
-            try
-            {
-                string query = "DELETE FROM Users WHERE UserID = @UserID;";
+      
 
-                MySqlParameter[] parameters = new MySqlParameter[]
-                {
-                    new MySqlParameter("@UserID", userID)
-                };
-
-                int result = DBConnection.ExecuteNonQuery(query, parameters);
-
-                if (result > 0)
-                {
-                    return (true, "The Profile is Deleted Successfully");
-                }
-
-                return (false, "Unable to Delete the Profile");
-
-            }
-            catch (Exception ex)
-            {
-                return (false, "Database or Query Issue");
-            }
-
-        }
-
-
+        // Method to Logout 
         public virtual (bool, string) LogOut()
         {
             
             return (true, "Logged Out Successfully.");
         }
 
+        // Method to update the profile
         public virtual void UpdateProfile(User user, Form dashboard)
         {
             new UpdateProfile(user, dashboard).ShowDialog();

@@ -55,6 +55,8 @@ namespace EventManagementSystem
             CancelBooking.Cursor = Cursors.Hand;
             CancelBooking.Location = new Point(794, 36);
             CancelBooking.Name = "CancelBooking";
+            CancelBooking.OverrideDefault.Back.Color1 = Color.FromArgb(255, 94, 87);
+            CancelBooking.OverrideDefault.Back.Color2 = Color.FromArgb(255, 67, 67);
             CancelBooking.Size = new Size(244, 38);
             CancelBooking.StateCommon.Back.Color1 = Color.FromArgb(255, 94, 87);
             CancelBooking.StateCommon.Back.Color2 = Color.FromArgb(255, 67, 67);

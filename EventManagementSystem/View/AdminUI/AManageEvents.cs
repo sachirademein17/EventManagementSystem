@@ -27,7 +27,7 @@ namespace EventManagementSystem
         }
 
         // Create event functionality
-        private void CreateEvent_Click(object sender, EventArgs e)
+        private void CreateEvent_Click_1(object sender, EventArgs e)
         {
             // Redirects to the add event form
             AdminAddEventForm adminAddEventForm = new AdminAddEventForm(user, this);
@@ -36,7 +36,7 @@ namespace EventManagementSystem
         }
 
         // Delete event functionality
-        private void DeleteEvent_Click(object sender, EventArgs e)
+        private void DeleteEvent_Click_1(object sender, EventArgs e)
         {
             // Check whether a event row is selected
             if (eventsTable.SelectedRows.Count > 0)
@@ -64,7 +64,7 @@ namespace EventManagementSystem
         }
 
         // Update event functionality
-        private void UpdateEvent_Click(object sender, EventArgs e)
+        private void UpdateEvent_Click_1(object sender, EventArgs e)
         {
             //Checking whether a row is selected 
             if (eventsTable.SelectedRows.Count > 0)
@@ -91,7 +91,7 @@ namespace EventManagementSystem
                 }
                 else
                 {
-                    AdminUpdateEvents updateEventForm = new AdminUpdateEvents(eventDetails,user, this);
+                    AdminUpdateEvents updateEventForm = new AdminUpdateEvents(eventDetails, user, this);
                     updateEventForm.ShowDialog();
                 }
 
@@ -111,7 +111,7 @@ namespace EventManagementSystem
             eventsTable.DataSource = dt;
         }
 
-        private void ViewBookings_Click(object sender, EventArgs e)
+        private void ViewBookings_Click_1(object sender, EventArgs e)
         {
             // Check whether a event row is selected
             if (eventsTable.SelectedRows.Count > 0)
@@ -127,5 +127,7 @@ namespace EventManagementSystem
                 new DangerToaster("Please Select a Row To Delete");
             }
         }
+
+       
     }
 }

@@ -29,13 +29,13 @@ namespace EventManagementSystem
         }
 
         // Redirect to the Create Account form
-        private void CreateUser_Click(object sender, EventArgs e)
+        private void CreateUser_Click_1(object sender, EventArgs e)
         {
             new ACreateAccount(user, this).ShowDialog();
         }
 
         // Perform the Delete User functionality
-        private void DeleteUser_Click(object sender, EventArgs e)
+        private void DeleteUser_Click_1(object sender, EventArgs e)
         {
             // Check whether a user row is selected
             if (usersTable.SelectedRows.Count > 0)
@@ -63,9 +63,9 @@ namespace EventManagementSystem
 
             }
         }
-        
+
         // Perform the Update User functionality
-        private void UpdateUser_Click(object sender, EventArgs e)
+        private void UpdateUser_Click_1(object sender, EventArgs e)
         {
             // Check whether a user is selected
             if (usersTable.SelectedRows.Count > 0)
@@ -102,5 +102,6 @@ namespace EventManagementSystem
             usersTable.DataSource = dt;
         }
 
+       
     }
 }

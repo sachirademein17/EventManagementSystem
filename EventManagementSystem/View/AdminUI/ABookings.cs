@@ -27,7 +27,7 @@ namespace EventManagementSystem
 
         }
 
-        private void CancelBooking_Click(object sender, EventArgs e)
+        private void CancelBooking_Click_1(object sender, EventArgs e)
         {
             // Check whether a event row is selected
             if (eventsTable.SelectedRows.Count > 0)
@@ -59,5 +59,7 @@ namespace EventManagementSystem
             DataTable dt = bookingController.RegisteredParticipants(eventID);
             eventsTable.DataSource = dt;
         }
+
+        
     }
 }

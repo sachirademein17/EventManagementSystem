@@ -142,5 +142,11 @@ namespace EventManagementSystem
                 Location = mousePose;
             }
         }
+
+        private void UpdateProfile_Click(object sender, EventArgs e)
+        {
+            user.UpdateProfile(user, this);
+
+        }
     }
 }

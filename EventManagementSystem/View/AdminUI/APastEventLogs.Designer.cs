@@ -31,8 +31,8 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label2 = new Label();
-            ViewBookings = new Krypton.Toolkit.KryptonButton();
             eventsTable = new Krypton.Toolkit.KryptonDataGridView();
+            ViewBookings = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)eventsTable).BeginInit();
             SuspendLayout();
             // 
@@ -46,30 +46,6 @@
             label2.Size = new Size(249, 37);
             label2.TabIndex = 17;
             label2.Text = "Past Events Log";
-            // 
-            // ViewBookings
-            // 
-            ViewBookings.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ViewBookings.Cursor = Cursors.Hand;
-            ViewBookings.Location = new Point(905, 27);
-            ViewBookings.Name = "ViewBookings";
-            ViewBookings.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            ViewBookings.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            ViewBookings.Size = new Size(145, 38);
-            ViewBookings.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            ViewBookings.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            ViewBookings.StateCommon.Content.ShortText.Color1 = Color.White;
-            ViewBookings.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ViewBookings.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            ViewBookings.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            ViewBookings.StateNormal.Content.ShortText.Color1 = Color.White;
-            ViewBookings.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ViewBookings.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            ViewBookings.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            ViewBookings.TabIndex = 18;
-            ViewBookings.Values.DropDownArrowColor = Color.Empty;
-            ViewBookings.Values.Text = "BOOKINGS";
-            ViewBookings.Click += ViewBookings_Click;
             // 
             // eventsTable
             // 
@@ -109,14 +85,48 @@
             eventsTable.StateTracking.HeaderRow.Content.Color1 = Color.White;
             eventsTable.TabIndex = 19;
             // 
+            // ViewBookings
+            // 
+            ViewBookings.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ViewBookings.Cursor = Cursors.Hand;
+            ViewBookings.Location = new Point(883, 27);
+            ViewBookings.Name = "ViewBookings";
+            ViewBookings.OverrideDefault.Back.Color1 = Color.FromArgb(255, 152, 0);
+            ViewBookings.OverrideDefault.Back.Color2 = Color.FromArgb(255, 183, 77);
+            ViewBookings.OverrideDefault.Back.ColorAngle = 45F;
+            ViewBookings.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            ViewBookings.Size = new Size(167, 38);
+            ViewBookings.StateCommon.Back.Color1 = Color.FromArgb(255, 152, 0);
+            ViewBookings.StateCommon.Back.Color2 = Color.FromArgb(255, 183, 77);
+            ViewBookings.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            ViewBookings.StateCommon.Border.Color1 = Color.FromArgb(255, 152, 0);
+            ViewBookings.StateCommon.Border.Color2 = Color.FromArgb(255, 183, 77);
+            ViewBookings.StateCommon.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            ViewBookings.StateCommon.Border.Rounding = 20F;
+            ViewBookings.StateCommon.Border.Width = 1;
+            ViewBookings.StateCommon.Content.ShortText.Color1 = Color.White;
+            ViewBookings.StateCommon.Content.ShortText.Font = new Font("Stencil", 10F);
+            ViewBookings.StatePressed.Back.Color1 = Color.FromArgb(239, 108, 0);
+            ViewBookings.StatePressed.Back.Color2 = Color.FromArgb(255, 143, 0);
+            ViewBookings.StatePressed.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            ViewBookings.StatePressed.Content.ShortText.Color1 = Color.White;
+            ViewBookings.StateTracking.Back.Color1 = Color.FromArgb(245, 124, 0);
+            ViewBookings.StateTracking.Back.Color2 = Color.FromArgb(255, 179, 0);
+            ViewBookings.StateTracking.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            ViewBookings.StateTracking.Content.ShortText.Color1 = Color.White;
+            ViewBookings.TabIndex = 22;
+            ViewBookings.Values.DropDownArrowColor = Color.Empty;
+            ViewBookings.Values.Text = "BOOK";
+            ViewBookings.Click += ViewBookings_Click_1;
+            // 
             // APastEventLogs
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(1074, 675);
-            Controls.Add(eventsTable);
             Controls.Add(ViewBookings);
+            Controls.Add(eventsTable);
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "APastEventLogs";
@@ -128,7 +138,7 @@
 
         #endregion
         private Label label2;
-        private Krypton.Toolkit.KryptonButton ViewBookings;
         private Krypton.Toolkit.KryptonDataGridView eventsTable;
+        private Krypton.Toolkit.KryptonButton ViewBookings;
     }
 }

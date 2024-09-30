@@ -35,7 +35,6 @@
             label7 = new Label();
             emailtxt = new TextBox();
             label5 = new Label();
-            UpdateUser = new Krypton.Toolkit.KryptonButton();
             confirmpasswordtxt = new TextBox();
             label4 = new Label();
             passwordtxt = new TextBox();
@@ -43,6 +42,7 @@
             label1 = new Label();
             usernametxt = new TextBox();
             label2 = new Label();
+            UpdateUser = new Krypton.Toolkit.KryptonButton();
             SuspendLayout();
             // 
             // organizerrole
@@ -121,29 +121,6 @@
             label5.TabIndex = 30;
             label5.Text = "Role";
             // 
-            // UpdateUser
-            // 
-            UpdateUser.Cursor = Cursors.Hand;
-            UpdateUser.Location = new Point(307, 565);
-            UpdateUser.Name = "UpdateUser";
-            UpdateUser.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            UpdateUser.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            UpdateUser.Size = new Size(244, 38);
-            UpdateUser.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            UpdateUser.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            UpdateUser.StateCommon.Content.ShortText.Color1 = Color.White;
-            UpdateUser.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UpdateUser.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            UpdateUser.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            UpdateUser.StateNormal.Content.ShortText.Color1 = Color.White;
-            UpdateUser.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UpdateUser.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            UpdateUser.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            UpdateUser.TabIndex = 29;
-            UpdateUser.Values.DropDownArrowColor = Color.Empty;
-            UpdateUser.Values.Text = "UPDATE";
-            UpdateUser.Click += UpdateUser_Click;
-            // 
             // confirmpasswordtxt
             // 
             confirmpasswordtxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -217,12 +194,45 @@
             label2.TabIndex = 22;
             label2.Text = "Username";
             // 
-            // UpdateAccount
+            // UpdateUser
+            // 
+            UpdateUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            UpdateUser.Cursor = Cursors.Hand;
+            UpdateUser.Location = new Point(321, 561);
+            UpdateUser.Name = "UpdateUser";
+            UpdateUser.OverrideDefault.Back.Color1 = Color.FromArgb(0, 140, 255);
+            UpdateUser.OverrideDefault.Back.Color2 = Color.FromArgb(0, 120, 230);
+            UpdateUser.Size = new Size(230, 38);
+            UpdateUser.StateCommon.Back.Color1 = Color.FromArgb(0, 140, 255);
+            UpdateUser.StateCommon.Back.Color2 = Color.FromArgb(0, 120, 230);
+            UpdateUser.StateCommon.Back.ColorAngle = 45F;
+            UpdateUser.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            UpdateUser.StateCommon.Border.Color1 = Color.FromArgb(0, 120, 230);
+            UpdateUser.StateCommon.Border.Color2 = Color.FromArgb(0, 140, 255);
+            UpdateUser.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            UpdateUser.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            UpdateUser.StateCommon.Border.Rounding = 20F;
+            UpdateUser.StateCommon.Border.Width = 1;
+            UpdateUser.StateCommon.Content.ShortText.Color1 = Color.White;
+            UpdateUser.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            UpdateUser.StateNormal.Back.Color1 = Color.FromArgb(0, 140, 255);
+            UpdateUser.StateNormal.Back.Color2 = Color.FromArgb(0, 120, 230);
+            UpdateUser.StateNormal.Back.ColorAngle = 45F;
+            UpdateUser.StatePressed.Back.Color1 = Color.FromArgb(0, 120, 230);
+            UpdateUser.StatePressed.Back.Color2 = Color.FromArgb(0, 100, 200);
+            UpdateUser.StatePressed.Border.Rounding = 20F;
+            UpdateUser.TabIndex = 37;
+            UpdateUser.Values.DropDownArrowColor = Color.Empty;
+            UpdateUser.Values.Text = "UPDATE";
+            UpdateUser.Click += UpdateUser_Click_1;
+            // 
+            // AUpdateAccount
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(873, 667);
+            Controls.Add(UpdateUser);
             Controls.Add(organizerrole);
             Controls.Add(participantrole);
             Controls.Add(label6);
@@ -230,7 +240,6 @@
             Controls.Add(label7);
             Controls.Add(emailtxt);
             Controls.Add(label5);
-            Controls.Add(UpdateUser);
             Controls.Add(confirmpasswordtxt);
             Controls.Add(label4);
             Controls.Add(passwordtxt);
@@ -238,7 +247,7 @@
             Controls.Add(label1);
             Controls.Add(usernametxt);
             Controls.Add(label2);
-            Name = "UpdateAccount";
+            Name = "AUpdateAccount";
             Text = "UpdateAccount";
             ResumeLayout(false);
             PerformLayout();
@@ -253,7 +262,6 @@
         private Label label7;
         private TextBox emailtxt;
         private Label label5;
-        private Krypton.Toolkit.KryptonButton UpdateUser;
         private TextBox confirmpasswordtxt;
         private Label label4;
         private TextBox passwordtxt;
@@ -261,5 +269,6 @@
         private Label label1;
         private TextBox usernametxt;
         private Label label2;
+        private Krypton.Toolkit.KryptonButton UpdateUser;
     }
 }

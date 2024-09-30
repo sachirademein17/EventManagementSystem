@@ -23,14 +23,14 @@ namespace EventManagementSystem.View.Admin
         {
             InitializeComponent();
             this.user = user;
-            this.userDetails = userDetails ;
-            this.usersTable = usersTable ;
+            this.userDetails = userDetails;
+            this.usersTable = usersTable;
             userController = new UserController();
             SetUserDetails(userDetails);
         }
 
         // Perform the Update User functionality
-        private void UpdateUser_Click(object sender, EventArgs e)
+        private void UpdateUser_Click_1(object sender, EventArgs e)
         {
             // Getting the role value
             string role;
@@ -63,7 +63,7 @@ namespace EventManagementSystem.View.Admin
             User updateUser = new Organizer(userDetails.UserID, username, password, email, phoneNumber, role);
 
             // Execute the Update User functionality
-            (bool success, string message) = userController.UpdateUser(updateUser,userDetails.UserName);
+            (bool success, string message) = userController.UpdateUser(updateUser, userDetails.UserName);
 
             // give user feedback
             if (success)
@@ -86,7 +86,7 @@ namespace EventManagementSystem.View.Admin
             emailtxt.Text = userDetails.Email;
             phonenumbertxt.Text = userDetails.PhoneNumber;
             passwordtxt.Text = userDetails.PasswordHash;
-            
+
 
             if (userDetails.Role == "Participant")
             {
@@ -98,6 +98,6 @@ namespace EventManagementSystem.View.Admin
             }
         }
 
-
+       
     }
 }

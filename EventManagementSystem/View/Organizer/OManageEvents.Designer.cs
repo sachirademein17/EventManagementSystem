@@ -30,8 +30,8 @@ namespace EventManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label2 = new Label();
             CreateEvent = new KryptonButton();
             DeleteEvent = new KryptonButton();
@@ -57,6 +57,8 @@ namespace EventManagementSystem
             CreateEvent.Cursor = Cursors.Hand;
             CreateEvent.Location = new Point(788, 28);
             CreateEvent.Name = "CreateEvent";
+            CreateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 209, 161);
+            CreateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 177, 151);
             CreateEvent.Size = new Size(244, 38);
             CreateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 209, 161);
             CreateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 177, 151);
@@ -87,6 +89,8 @@ namespace EventManagementSystem
             DeleteEvent.Cursor = Cursors.Hand;
             DeleteEvent.Location = new Point(263, 29);
             DeleteEvent.Name = "DeleteEvent";
+            DeleteEvent.OverrideDefault.Back.Color1 = Color.FromArgb(255, 94, 87);
+            DeleteEvent.OverrideDefault.Back.Color2 = Color.FromArgb(255, 67, 67);
             DeleteEvent.Size = new Size(244, 38);
             DeleteEvent.StateCommon.Back.Color1 = Color.FromArgb(255, 94, 87);
             DeleteEvent.StateCommon.Back.Color2 = Color.FromArgb(255, 67, 67);
@@ -117,6 +121,8 @@ namespace EventManagementSystem
             UpdateEvent.Cursor = Cursors.Hand;
             UpdateEvent.Location = new Point(525, 29);
             UpdateEvent.Name = "UpdateEvent";
+            UpdateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 140, 255);
+            UpdateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 120, 230);
             UpdateEvent.Size = new Size(244, 38);
             UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 140, 255);
             UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 120, 230);
@@ -143,8 +149,8 @@ namespace EventManagementSystem
             // 
             // eventsTable
             // 
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(35, 35, 35);
-            eventsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(35, 35, 35);
+            eventsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             eventsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             eventsTable.BorderStyle = BorderStyle.None;
             eventsTable.ColumnHeadersHeight = 51;
@@ -152,8 +158,8 @@ namespace EventManagementSystem
             eventsTable.Name = "eventsTable";
             eventsTable.ReadOnly = true;
             eventsTable.RowHeadersWidth = 62;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(40, 40, 40);
-            eventsTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(40, 40, 40);
+            eventsTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             eventsTable.Size = new Size(1050, 546);
             eventsTable.StateCommon.Background.Color1 = Color.FromArgb(30, 30, 30);
             eventsTable.StateCommon.BackStyle = PaletteBackStyle.GridBackgroundList;

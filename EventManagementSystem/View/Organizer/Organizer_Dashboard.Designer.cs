@@ -55,6 +55,7 @@
             EventLogs = new Krypton.Toolkit.KryptonButton();
             pictureBox1 = new PictureBox();
             LogOut = new Krypton.Toolkit.KryptonButton();
+            UpdateProfile = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
@@ -159,6 +160,7 @@
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(UpdateProfile);
             kryptonPanel1.Controls.Add(ManageBookings);
             kryptonPanel1.Controls.Add(PhoneNumber);
             kryptonPanel1.Controls.Add(Email);
@@ -440,6 +442,19 @@
             LogOut.Values.Text = "LogOut";
             LogOut.Click += LogOut_Click;
             // 
+            // UpdateProfile
+            // 
+            UpdateProfile.Location = new Point(151, 106);
+            UpdateProfile.Name = "UpdateProfile";
+            UpdateProfile.Size = new Size(35, 35);
+            UpdateProfile.StateCommon.Back.Image = Properties.Resources.pen;
+            UpdateProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            UpdateProfile.StateCommon.Border.Rounding = 20F;
+            UpdateProfile.TabIndex = 25;
+            UpdateProfile.Values.DropDownArrowColor = Color.Empty;
+            UpdateProfile.Values.Text = "";
+            UpdateProfile.Click += UpdateProfile_Click;
+            // 
             // Organizer_Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -481,5 +496,6 @@
         private Krypton.Toolkit.KryptonButton kryptonButton3;
         private Krypton.Toolkit.KryptonButton kryptonButton2;
         private Krypton.Toolkit.KryptonButton ManageEvents;
+        private Krypton.Toolkit.KryptonButton UpdateProfile;
     }
 }

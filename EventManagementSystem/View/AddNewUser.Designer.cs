@@ -35,7 +35,6 @@
             label7 = new Label();
             emailtxt = new TextBox();
             label5 = new Label();
-            CreateUser = new Krypton.Toolkit.KryptonButton();
             confirmpasswordtxt = new TextBox();
             label4 = new Label();
             passwordtxt = new TextBox();
@@ -43,6 +42,7 @@
             label1 = new Label();
             usernametxt = new TextBox();
             label2 = new Label();
+            CreateUser = new Krypton.Toolkit.KryptonButton();
             SuspendLayout();
             // 
             // organizerrole
@@ -121,29 +121,6 @@
             label5.TabIndex = 30;
             label5.Text = "Role";
             // 
-            // CreateUser
-            // 
-            CreateUser.Cursor = Cursors.Hand;
-            CreateUser.Location = new Point(307, 565);
-            CreateUser.Name = "CreateUser";
-            CreateUser.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CreateUser.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateUser.Size = new Size(244, 38);
-            CreateUser.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CreateUser.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateUser.StateCommon.Content.ShortText.Color1 = Color.White;
-            CreateUser.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CreateUser.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CreateUser.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateUser.StateNormal.Content.ShortText.Color1 = Color.White;
-            CreateUser.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CreateUser.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            CreateUser.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            CreateUser.TabIndex = 29;
-            CreateUser.Values.DropDownArrowColor = Color.Empty;
-            CreateUser.Values.Text = "CREATE";
-            CreateUser.Click += CreateUser_Click;
-            // 
             // confirmpasswordtxt
             // 
             confirmpasswordtxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -217,12 +194,44 @@
             label2.TabIndex = 22;
             label2.Text = "Username";
             // 
+            // CreateUser
+            // 
+            CreateUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CreateUser.Cursor = Cursors.Hand;
+            CreateUser.Location = new Point(314, 555);
+            CreateUser.Name = "CreateUser";
+            CreateUser.OverrideDefault.Back.Color1 = Color.FromArgb(0, 209, 161);
+            CreateUser.OverrideDefault.Back.Color2 = Color.FromArgb(0, 177, 151);
+            CreateUser.Size = new Size(244, 38);
+            CreateUser.StateCommon.Back.Color1 = Color.FromArgb(0, 209, 161);
+            CreateUser.StateCommon.Back.Color2 = Color.FromArgb(0, 177, 151);
+            CreateUser.StateCommon.Back.ColorAngle = 45F;
+            CreateUser.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            CreateUser.StateCommon.Border.Color1 = Color.FromArgb(0, 177, 151);
+            CreateUser.StateCommon.Border.Color2 = Color.FromArgb(0, 209, 161);
+            CreateUser.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            CreateUser.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            CreateUser.StateCommon.Border.Rounding = 20F;
+            CreateUser.StateCommon.Border.Width = 1;
+            CreateUser.StateCommon.Content.ShortText.Color1 = Color.White;
+            CreateUser.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            CreateUser.StateNormal.Back.Color1 = Color.FromArgb(0, 209, 161);
+            CreateUser.StateNormal.Back.Color2 = Color.FromArgb(0, 177, 151);
+            CreateUser.StateNormal.Back.ColorAngle = 45F;
+            CreateUser.StatePressed.Back.Color1 = Color.FromArgb(0, 177, 151);
+            CreateUser.StatePressed.Back.Color2 = Color.FromArgb(0, 140, 120);
+            CreateUser.StatePressed.Border.Rounding = 20F;
+            CreateUser.TabIndex = 37;
+            CreateUser.Values.DropDownArrowColor = Color.Empty;
+            CreateUser.Values.Text = "CREATE";
+            // 
             // AddNewUser
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(873, 667);
+            Controls.Add(CreateUser);
             Controls.Add(organizerrole);
             Controls.Add(participantrole);
             Controls.Add(label6);
@@ -230,7 +239,6 @@
             Controls.Add(label7);
             Controls.Add(emailtxt);
             Controls.Add(label5);
-            Controls.Add(CreateUser);
             Controls.Add(confirmpasswordtxt);
             Controls.Add(label4);
             Controls.Add(passwordtxt);
@@ -253,7 +261,6 @@
         private Label label7;
         private TextBox emailtxt;
         private Label label5;
-        private Krypton.Toolkit.KryptonButton CreateUser;
         private TextBox confirmpasswordtxt;
         private Label label4;
         private TextBox passwordtxt;
@@ -261,5 +268,6 @@
         private Label label1;
         private TextBox usernametxt;
         private Label label2;
+        private Krypton.Toolkit.KryptonButton CreateUser;
     }
 }

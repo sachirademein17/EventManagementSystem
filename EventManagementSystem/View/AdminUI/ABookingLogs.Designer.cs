@@ -36,9 +36,11 @@
             // eventsTable
             // 
             eventsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            eventsTable.BackgroundColor = Color.FromArgb(28, 28, 28);
             eventsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             eventsTable.Location = new Point(50, 133);
             eventsTable.Name = "eventsTable";
+            eventsTable.ReadOnly = true;
             eventsTable.RowHeadersWidth = 62;
             eventsTable.Size = new Size(1001, 513);
             eventsTable.TabIndex = 15;

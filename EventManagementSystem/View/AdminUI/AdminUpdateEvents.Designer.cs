@@ -36,11 +36,11 @@
             maxParticipantstxt = new TextBox();
             label6 = new Label();
             label1 = new Label();
-            UpdateEvemt = new Krypton.Toolkit.KryptonButton();
             nametxt = new TextBox();
             label2 = new Label();
             endDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
             startDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
+            UpdateEvent = new Krypton.Toolkit.KryptonButton();
             SuspendLayout();
             // 
             // descriptiontxt
@@ -123,29 +123,6 @@
             label1.TabIndex = 40;
             label1.Text = "Start Date";
             // 
-            // UpdateEvemt
-            // 
-            UpdateEvemt.Cursor = Cursors.Hand;
-            UpdateEvemt.Location = new Point(633, 665);
-            UpdateEvemt.Name = "UpdateEvemt";
-            UpdateEvemt.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            UpdateEvemt.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            UpdateEvemt.Size = new Size(244, 38);
-            UpdateEvemt.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            UpdateEvemt.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            UpdateEvemt.StateCommon.Content.ShortText.Color1 = Color.White;
-            UpdateEvemt.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UpdateEvemt.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            UpdateEvemt.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            UpdateEvemt.StateNormal.Content.ShortText.Color1 = Color.White;
-            UpdateEvemt.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            UpdateEvemt.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            UpdateEvemt.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            UpdateEvemt.TabIndex = 39;
-            UpdateEvemt.Values.DropDownArrowColor = Color.Empty;
-            UpdateEvemt.Values.Text = "UPDATE";
-            UpdateEvemt.Click += UpdateEvemt_Click;
-            // 
             // nametxt
             // 
             nametxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -185,12 +162,44 @@
             startDatetxt.Size = new Size(270, 30);
             startDatetxt.TabIndex = 52;
             // 
+            // UpdateEvent
+            // 
+            UpdateEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            UpdateEvent.Cursor = Cursors.Hand;
+            UpdateEvent.Location = new Point(659, 668);
+            UpdateEvent.Name = "UpdateEvent";
+            UpdateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 140, 255);
+            UpdateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 120, 230);
+            UpdateEvent.Size = new Size(244, 38);
+            UpdateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 140, 255);
+            UpdateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 120, 230);
+            UpdateEvent.StateCommon.Back.ColorAngle = 45F;
+            UpdateEvent.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            UpdateEvent.StateCommon.Border.Color1 = Color.FromArgb(0, 120, 230);
+            UpdateEvent.StateCommon.Border.Color2 = Color.FromArgb(0, 140, 255);
+            UpdateEvent.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            UpdateEvent.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            UpdateEvent.StateCommon.Border.Rounding = 20F;
+            UpdateEvent.StateCommon.Border.Width = 1;
+            UpdateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
+            UpdateEvent.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            UpdateEvent.StateNormal.Back.Color1 = Color.FromArgb(0, 140, 255);
+            UpdateEvent.StateNormal.Back.Color2 = Color.FromArgb(0, 120, 230);
+            UpdateEvent.StateNormal.Back.ColorAngle = 45F;
+            UpdateEvent.StatePressed.Back.Color1 = Color.FromArgb(0, 120, 230);
+            UpdateEvent.StatePressed.Back.Color2 = Color.FromArgb(0, 100, 200);
+            UpdateEvent.StatePressed.Border.Rounding = 20F;
+            UpdateEvent.TabIndex = 54;
+            UpdateEvent.Values.DropDownArrowColor = Color.Empty;
+            UpdateEvent.Values.Text = "UPDATE";
+            // 
             // AdminUpdateEvents
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(986, 749);
+            Controls.Add(UpdateEvent);
             Controls.Add(endDatetxt);
             Controls.Add(startDatetxt);
             Controls.Add(descriptiontxt);
@@ -201,7 +210,6 @@
             Controls.Add(maxParticipantstxt);
             Controls.Add(label6);
             Controls.Add(label1);
-            Controls.Add(UpdateEvemt);
             Controls.Add(nametxt);
             Controls.Add(label2);
             Name = "AdminUpdateEvents";
@@ -220,10 +228,10 @@
         private TextBox maxParticipantstxt;
         private Label label6;
         private Label label1;
-        private Krypton.Toolkit.KryptonButton UpdateEvemt;
         private TextBox nametxt;
         private Label label2;
         private Krypton.Toolkit.KryptonDateTimePicker endDatetxt;
         private Krypton.Toolkit.KryptonDateTimePicker startDatetxt;
+        private Krypton.Toolkit.KryptonButton UpdateEvent;
     }
 }

@@ -36,11 +36,11 @@
             maxParticipantstxt = new TextBox();
             label6 = new Label();
             label1 = new Label();
-            CreateEvent = new Krypton.Toolkit.KryptonButton();
             nametxt = new TextBox();
             label2 = new Label();
             endDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
             startDatetxt = new Krypton.Toolkit.KryptonDateTimePicker();
+            CreateEvent = new Krypton.Toolkit.KryptonButton();
             SuspendLayout();
             // 
             // descriptiontxt
@@ -123,29 +123,6 @@
             label1.TabIndex = 25;
             label1.Text = "Start Date";
             // 
-            // CreateEvent
-            // 
-            CreateEvent.Cursor = Cursors.Hand;
-            CreateEvent.Location = new Point(633, 665);
-            CreateEvent.Name = "CreateEvent";
-            CreateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CreateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateEvent.Size = new Size(244, 38);
-            CreateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CreateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
-            CreateEvent.StateCommon.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CreateEvent.StateNormal.Back.Color1 = Color.FromArgb(0, 122, 204);
-            CreateEvent.StateNormal.Back.Color2 = Color.FromArgb(0, 122, 204);
-            CreateEvent.StateNormal.Content.ShortText.Color1 = Color.White;
-            CreateEvent.StateNormal.Content.ShortText.Font = new Font("Stencil", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CreateEvent.StatePressed.Back.Color1 = Color.FromArgb(0, 90, 153);
-            CreateEvent.StatePressed.Back.Color2 = Color.FromArgb(0, 90, 153);
-            CreateEvent.TabIndex = 24;
-            CreateEvent.Values.DropDownArrowColor = Color.Empty;
-            CreateEvent.Values.Text = "CREATE";
-            CreateEvent.Click += CreateEvent_Click;
-            // 
             // nametxt
             // 
             nametxt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -186,12 +163,44 @@
             startDatetxt.TabIndex = 37;
             startDatetxt.ValueChanged += startDatetxt_ValueChanged_1;
             // 
+            // CreateEvent
+            // 
+            CreateEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CreateEvent.Cursor = Cursors.Hand;
+            CreateEvent.Location = new Point(659, 662);
+            CreateEvent.Name = "CreateEvent";
+            CreateEvent.OverrideDefault.Back.Color1 = Color.FromArgb(0, 209, 161);
+            CreateEvent.OverrideDefault.Back.Color2 = Color.FromArgb(0, 177, 151);
+            CreateEvent.Size = new Size(244, 38);
+            CreateEvent.StateCommon.Back.Color1 = Color.FromArgb(0, 209, 161);
+            CreateEvent.StateCommon.Back.Color2 = Color.FromArgb(0, 177, 151);
+            CreateEvent.StateCommon.Back.ColorAngle = 45F;
+            CreateEvent.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Linear;
+            CreateEvent.StateCommon.Border.Color1 = Color.FromArgb(0, 177, 151);
+            CreateEvent.StateCommon.Border.Color2 = Color.FromArgb(0, 209, 161);
+            CreateEvent.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            CreateEvent.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            CreateEvent.StateCommon.Border.Rounding = 20F;
+            CreateEvent.StateCommon.Border.Width = 1;
+            CreateEvent.StateCommon.Content.ShortText.Color1 = Color.White;
+            CreateEvent.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            CreateEvent.StateNormal.Back.Color1 = Color.FromArgb(0, 209, 161);
+            CreateEvent.StateNormal.Back.Color2 = Color.FromArgb(0, 177, 151);
+            CreateEvent.StateNormal.Back.ColorAngle = 45F;
+            CreateEvent.StatePressed.Back.Color1 = Color.FromArgb(0, 177, 151);
+            CreateEvent.StatePressed.Back.Color2 = Color.FromArgb(0, 140, 120);
+            CreateEvent.StatePressed.Border.Rounding = 20F;
+            CreateEvent.TabIndex = 39;
+            CreateEvent.Values.DropDownArrowColor = Color.Empty;
+            CreateEvent.Values.Text = "CREATE";
+            // 
             // AdminAddEventForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 28, 28);
             ClientSize = new Size(986, 749);
+            Controls.Add(CreateEvent);
             Controls.Add(endDatetxt);
             Controls.Add(startDatetxt);
             Controls.Add(descriptiontxt);
@@ -202,7 +211,6 @@
             Controls.Add(maxParticipantstxt);
             Controls.Add(label6);
             Controls.Add(label1);
-            Controls.Add(CreateEvent);
             Controls.Add(nametxt);
             Controls.Add(label2);
             ForeColor = Color.Black;
@@ -224,8 +232,8 @@
         private Label label6;
         private Krypton.Toolkit.KryptonDateTimePicker startDatetxt;
         private Label label1;
-        private Krypton.Toolkit.KryptonButton CreateEvent;
         private TextBox nametxt;
         private Label label2;
+        private Krypton.Toolkit.KryptonButton CreateEvent;
     }
 }

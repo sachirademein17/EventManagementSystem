@@ -35,7 +35,7 @@ namespace EventManagementSystem.View.AdminUI
             eventsTable.DataSource = pastEventData;
         }
 
-        private void ViewBookings_Click(object sender, EventArgs e)
+        private void ViewBookings_Click_1(object sender, EventArgs e)
         {
             // Check whether a event row is selected
             if (eventsTable.SelectedRows.Count > 0)
@@ -51,5 +51,7 @@ namespace EventManagementSystem.View.AdminUI
                 new DangerToaster("Please Select a Row To Delete");
             }
         }
+
+        
     }
 }
